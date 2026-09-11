@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://ffshhaoddwim"]
 
-[ext_resource type="Script" path="res://golem_first_jam/managers/dumb_manager/dumb_manager.gd" id="1"]
+[ext_resource type="Script" uid="uid://b7lohca65i5m6" path="res://golem_first_jam/managers/dumb_manager/dumb_manager.gd" id="1"]
 [ext_resource type="PackedScene" path="res://golem_first_jam/entities/dumb_entity/dumb_entity.tscn" id="2"]
 
-[node name="DumbManager" type="Node"]
+[node name="DumbManager" type="Node" unique_id=920405955]
 script = ExtResource("1")
 
-[node name="DumbEntity" parent="." instance=ExtResource("2")]
+[node name="DumbEntity" parent="." unique_id=966642172 instance=ExtResource("2")]
