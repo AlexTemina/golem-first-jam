@@ -24,7 +24,8 @@ SignalBus="*res://golem_first_jam/states/signal_bus/signal_bus.gd"
 window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/mode=2
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -61,6 +62,4 @@ b_button={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
-2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
