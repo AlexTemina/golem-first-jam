@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c2w0fo8mljsbp"]
+
+[ext_resource type="Script" uid="uid://dnhsjock5x38b" path="res://golem_first_jam/entities/main_camera/main_camera.gd" id="1_hhvgu"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_xygh1"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_y0iro"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_xygh1"]
+
+[sub_resource type="Resource" id="Resource_y0iro"]
+script = ExtResource("4_xygh1")
+
+[node name="MainCamera" type="Node" unique_id=458754846]
+script = ExtResource("1_hhvgu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1346881528]
+top_level = true
+position = Vector2(160, 120)
+script = ExtResource("1_hhvgu")
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1464376984]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_xygh1")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=2038960082]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(160, 120)
+script = ExtResource("3_y0iro")
+priority = 1
+follow_mode = 2
+tween_resource = SubResource("Resource_y0iro")
+follow_damping = true
+follow_damping_value = Vector2(0.2, 0.2)
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Golem First Jam"
-run/main_scene="res://golem_first_jam/managers/dumb_manager/dumb_manager.tscn"
+run/main_scene="uid://cgcal367yjtlb"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://golem_first_jam/states/signal_bus/signal_bus.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 
@@ -26,6 +27,10 @@ window/size/viewport_height=180
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
