@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="1_moenx"]
 [ext_resource type="Texture2D" uid="uid://chlq6fufoow80" path="res://golem_first_jam/managers/test_farm_manager/assets/test_tileset_32.png" id="1_y5cv1"]
+[ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="3_jxsy7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -41,3 +42,5 @@ tile_set = SubResource("TileSet_u5bk5")
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("1_moenx")]
 position = Vector2(160, 120)
 motion_mode = 1
+
+[node name="EggsManager" parent="." unique_id=1416884054 instance=ExtResource("3_jxsy7")]

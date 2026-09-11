@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnidnvruv8bmw"]
+
+[ext_resource type="Script" uid="uid://w42duqkiyn2g" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.gd" id="1_u1xe4"]
+
+[node name="EggsManager" type="Node2D" unique_id=1416884054]
+script = ExtResource("1_u1xe4")
