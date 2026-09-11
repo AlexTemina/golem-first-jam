@@ -3,11 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="1_moenx"]
 [ext_resource type="Texture2D" uid="uid://chlq6fufoow80" path="res://golem_first_jam/managers/test_farm_manager/assets/test_tileset_32.png" id="1_y5cv1"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxsy7"]
 texture = ExtResource("1_y5cv1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
 3:0/0 = 0
 0:1/0 = 0
@@ -25,6 +28,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_u5bk5"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_y5cv1")
 sources/0 = SubResource("TileSetAtlasSource_jxsy7")
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291]
