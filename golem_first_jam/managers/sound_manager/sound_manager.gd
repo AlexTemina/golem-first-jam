@@ -6,8 +6,9 @@ var CHICKEN_SOUNDS = {
 	ChickenSound.WALK: [],
 	ChickenSound.PECK: [],
 	ChickenSound.LAY_EGG: [load("res://golem_first_jam/managers/sound_manager/assets/pop1.wav"), 
-	load("res://golem_first_jam/managers/sound_manager/assets/pop2.wav")],
-	ChickenSound.FLY: [],
+		load("res://golem_first_jam/managers/sound_manager/assets/pop2.wav")],
+	ChickenSound.FLY: [load("res://golem_first_jam/managers/sound_manager/assets/fly1.wav"), 
+		load("res://golem_first_jam/managers/sound_manager/assets/fly2.wav")],
 	ChickenSound.CACKLE: [],
 }
 
@@ -17,6 +18,9 @@ var CHICKEN_SOUNDS = {
 
 func _ready() -> void:
 	SignalBus.play_chicken_sound.connect(play_chicken_sound)
+	SignalBus.fly.connect(play_fly_sound)
+	
+func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)
 	
 func play_chicken_sound(sound_id: ChickenSound):
 	var sounds: Array = CHICKEN_SOUNDS.get(sound_id)

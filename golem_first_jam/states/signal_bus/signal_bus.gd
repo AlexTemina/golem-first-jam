@@ -4,6 +4,9 @@ extends Node
 
 signal dumb_thing_happened(message: String)
 
+# CHICKEN
+signal fly()
+signal chicken_lands()
 signal lay_egg(position: Vector2)
 
 # SOUND
