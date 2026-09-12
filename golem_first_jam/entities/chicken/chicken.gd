@@ -61,6 +61,7 @@ func face_move_direction():
 			sprite.scale.x = SPRITE_SCALE
 		elif velocity.x < 0:
 			sprite.scale.x = -SPRITE_SCALE
+	z_index = position.y
 			
 func animate(previous_velocity: Vector2):
 	match action:

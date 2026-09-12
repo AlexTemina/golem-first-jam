@@ -6,6 +6,6 @@ func _ready() -> void:
 	SignalBus.lay_egg.connect(create_egg)
 	
 func create_egg(position: Vector2):
-	var egg = egg_scene.instantiate()
+	var egg: Egg = egg_scene.instantiate()
 	add_child(egg)
-	egg.position = position
+	egg.init(position)
