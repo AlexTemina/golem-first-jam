@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2w0fo8mljsbp" path="res://golem_first_jam/entities/main_camera/main_camera.tscn" id="1_vymdk"]
 [ext_resource type="Texture2D" uid="uid://chlq6fufoow80" path="res://golem_first_jam/managers/test_farm_manager/assets/test_tileset_32.png" id="1_y5cv1"]
 [ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="3_jxsy7"]
+[ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="5_54p4l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -48,3 +49,5 @@ position = Vector2(160, 120)
 motion_mode = 1
 
 [node name="EggsManager" parent="." unique_id=1416884054 instance=ExtResource("3_jxsy7")]
+
+[node name="SoundManager" parent="." unique_id=1418100125 instance=ExtResource("5_54p4l")]

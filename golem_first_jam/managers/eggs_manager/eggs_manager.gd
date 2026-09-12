@@ -9,3 +9,4 @@ func create_egg(position: Vector2):
 	var egg: Egg = egg_scene.instantiate()
 	add_child(egg)
 	egg.init(position)
+	SignalBus.play_chicken_sound.emit(SoundManager.ChickenSound.LAY_EGG)
