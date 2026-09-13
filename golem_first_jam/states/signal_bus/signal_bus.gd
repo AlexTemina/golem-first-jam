@@ -4,6 +4,9 @@ extends Node
 
 signal dumb_thing_happened(message: String)
 
+# GAME STATUS
+signal game_time_over()
+
 # CHICKEN
 signal chicken_flies()
 signal chicken_lands()

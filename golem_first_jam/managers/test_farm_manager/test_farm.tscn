@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://cgcal367yjtlb"]
 
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="1_moenx"]
+[ext_resource type="Script" uid="uid://riul68u5fkhg" path="res://golem_first_jam/managers/test_farm_manager/test_farm.gd" id="1_pxxbi"]
 [ext_resource type="PackedScene" uid="uid://c2w0fo8mljsbp" path="res://golem_first_jam/entities/main_camera/main_camera.tscn" id="1_vymdk"]
 [ext_resource type="Texture2D" uid="uid://chlq6fufoow80" path="res://golem_first_jam/managers/test_farm_manager/assets/test_tileset_32.png" id="1_y5cv1"]
 [ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="3_jxsy7"]
 [ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="5_54p4l"]
 [ext_resource type="PackedScene" uid="uid://dxgt3eksabnyx" path="res://golem_first_jam/entities/obstacle/obstacle.tscn" id="6_1nk13"]
 [ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="6_xtfuw"]
+[ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="8_8i6n7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -38,6 +40,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_y5cv1")
 sources/0 = SubResource("TileSetAtlasSource_jxsy7")
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291]
+script = ExtResource("1_pxxbi")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("1_vymdk")]
 camera_target = NodePath("../Chicken")
@@ -68,3 +71,14 @@ position = Vector2(144, -64)
 
 [node name="Obstacle2" parent="Obstacles" unique_id=1658198487 instance=ExtResource("6_1nk13")]
 position = Vector2(112, 128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
+
+[node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("8_8i6n7")]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=431233615]
+visible = false
+z_index = 1000
+offset_right = 328.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
