@@ -18,7 +18,7 @@ var CHICKEN_SOUNDS = {
 
 func _ready() -> void:
 	SignalBus.play_chicken_sound.connect(play_chicken_sound)
-	SignalBus.fly.connect(play_fly_sound)
+	SignalBus.chicken_flies.connect(play_fly_sound)
 	
 func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)
 	

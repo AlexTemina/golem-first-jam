@@ -25,3 +25,6 @@ __pycache__/
 
 # dist
 dist/
+
+# Local work in progress files
+local_wip/*

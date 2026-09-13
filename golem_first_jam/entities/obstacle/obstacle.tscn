@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxgt3eksabnyx"]
+
+[ext_resource type="Script" uid="uid://bi4fyioo3deqh" path="res://golem_first_jam/entities/obstacle/obstacle.gd" id="1_jfxfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(32, 24)
+
+[node name="Obstacle" type="RigidBody2D" unique_id=1984188066]
+disable_mode = 1
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_jfxfu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=626552266]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+mouse_filter = 2
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=161420090]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_u5bk5")

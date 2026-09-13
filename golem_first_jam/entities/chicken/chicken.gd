@@ -111,7 +111,7 @@ func peck() -> void:
 func fly() -> void:
 	action = Action.FLYING
 	z_velocity = -lerp(0.1, jump_max_impulse, button_charge - 0.3)
-	SignalBus.fly.emit()
+	SignalBus.chicken_flies.emit()
 	
 func lay_egg() -> void:	
 	action = Action.NONE

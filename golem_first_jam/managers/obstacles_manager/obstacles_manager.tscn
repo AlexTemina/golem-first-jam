@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btk4i3hoohly"]
+
+[ext_resource type="Script" uid="uid://di44j2433e3j" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.gd" id="1_g6ia3"]
+
+[node name="ObstaclesManager" type="Node2D" unique_id=1813073625]
+script = ExtResource("1_g6ia3")
