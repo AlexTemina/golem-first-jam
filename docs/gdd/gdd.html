@@ -1,0 +1,1558 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de fuga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Silkscreen&display=swap">
+
+<style>
+  :root {
+    --paper:   #E7E9E1;
+    --card:    #F3F4EE;
+    --sunk:    #DCDFD4;
+    --ink:     #151A14;
+    --muted:   #5A6154;
+    --line:    #C3C8B9;
+    --accent:  #2F6B3C;
+    --accent-soft: #DDE6DB;
+    --yolk:    #C98200;
+    --yolk-soft: #F3E4C2;
+    --alert:   #A8341F;
+    --alert-soft: #F0DBD5;
+    --shadow:  0 1px 0 #C3C8B9;
+
+    --f-display: "Big Shoulders Display", "Haettenschweiler", "Arial Narrow", sans-serif;
+    --f-body: "Newsreader", Georgia, "Times New Roman", serif;
+    --f-pixel: "Silkscreen", ui-monospace, monospace;
+    --f-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:  #13160F;
+      --card:   #1B1F17;
+      --sunk:   #0E110A;
+      --ink:    #E5E8DC;
+      --muted:  #98A18C;
+      --line:   #32382A;
+      --accent: #7FBF8B;
+      --accent-soft: #20301F;
+      --yolk:   #F0B63E;
+      --yolk-soft: #33280F;
+      --alert:  #E58067;
+      --alert-soft: #35190F;
+      --shadow: 0 1px 0 #32382A;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:  #13160F;
+    --card:   #1B1F17;
+    --sunk:   #0E110A;
+    --ink:    #E5E8DC;
+    --muted:  #98A18C;
+    --line:   #32382A;
+    --accent: #7FBF8B;
+    --accent-soft: #20301F;
+    --yolk:   #F0B63E;
+    --yolk-soft: #33280F;
+    --alert:  #E58067;
+    --alert-soft: #35190F;
+    --shadow: 0 1px 0 #32382A;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { color-scheme: light dark; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .col  { max-width: 68ch; }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+    padding: 34px 0 0;
+    background: var(--card);
+  }
+  .mast-top {
+    display: flex; flex-wrap: wrap; gap: 12px 28px;
+    align-items: baseline; justify-content: space-between;
+    font-family: var(--f-pixel); font-size: 10px;
+    letter-spacing: .06em; color: var(--muted);
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+  .mast-title {
+    font-family: var(--f-display);
+    font-weight: 800;
+    font-size: clamp(58px, 13vw, 156px);
+    line-height: .84;
+    letter-spacing: -.015em;
+    text-transform: uppercase;
+    margin: 26px 0 0;
+    text-wrap: balance;
+  }
+  .mast-title em {
+    font-style: normal;
+    display: block;
+    color: var(--accent);
+  }
+  .mast-standfirst {
+    font-size: 21px; line-height: 1.5; color: var(--muted);
+    max-width: 60ch; margin: 22px 0 30px;
+  }
+  .mast-standfirst strong { color: var(--ink); font-weight: 600; }
+
+  .ficha {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border-top: 1px solid var(--line);
+  }
+  .ficha div {
+    padding: 14px 18px 16px 0;
+    border-right: 1px solid var(--line);
+  }
+  .ficha div:last-child { border-right: 0; }
+  .ficha dt {
+    font-family: var(--f-pixel); font-size: 9px; letter-spacing: .08em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .ficha dd {
+    margin: 6px 0 0; font-family: var(--f-display);
+    font-size: 25px; font-weight: 700; line-height: 1.1;
+  }
+
+  /* ---------- nav ---------- */
+
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+  }
+  nav ul {
+    display: flex; gap: 0; list-style: none; margin: 0; padding: 0;
+    max-width: 1120px; margin: 0 auto; padding: 0 28px;
+  }
+  nav a {
+    display: block; white-space: nowrap;
+    padding: 11px 14px 10px;
+    font-family: var(--f-pixel); font-size: 10px; letter-spacing: .04em;
+    color: var(--muted); text-decoration: none;
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+  nav li:first-child a { padding-left: 0; }
+
+  /* ---------- sections ---------- */
+
+  section { padding: 64px 0 8px; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .eyebrow {
+    font-family: var(--f-pixel); font-size: 10px; letter-spacing: .08em;
+    color: var(--accent); text-transform: uppercase; margin: 0 0 10px;
+  }
+  h2 {
+    font-family: var(--f-display); font-weight: 800;
+    font-size: clamp(34px, 5.5vw, 58px); line-height: .96;
+    text-transform: uppercase; letter-spacing: -.01em;
+    margin: 0 0 20px; text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 27px; line-height: 1.1; text-transform: uppercase;
+    letter-spacing: .01em; margin: 34px 0 10px;
+  }
+  h4 {
+    font-family: var(--f-body); font-weight: 600; font-size: 18px;
+    margin: 24px 0 6px;
+  }
+  p { margin: 0 0 16px; }
+  .lede { font-size: 20px; line-height: 1.55; color: var(--muted); }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  ul.body, ol.body { margin: 0 0 18px; padding-left: 22px; }
+  ul.body li, ol.body li { margin-bottom: 7px; }
+
+  a { color: var(--accent); }
+  code {
+    font-family: var(--f-mono); font-size: .86em;
+    background: var(--sunk); padding: 1px 5px; border-radius: 2px;
+  }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block; vertical-align: 2px;
+    font-family: var(--f-pixel); font-size: 9px; letter-spacing: .04em;
+    padding: 3px 6px 2px; border-radius: 2px; white-space: nowrap;
+    margin: 0 3px;
+  }
+  .chip-ok    { background: var(--accent-soft); color: var(--accent); }
+  .chip-open  { background: var(--alert-soft);  color: var(--alert); }
+  .chip-code  { background: var(--sunk);        color: var(--muted); }
+
+  /* ---------- cards ---------- */
+
+  .cards {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    margin: 24px 0 8px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    padding: 18px 20px 20px;
+  }
+  .card.hidden-mech { border-top-color: var(--yolk); }
+  .card h3 { margin: 4px 0 8px; font-size: 24px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card .kicker {
+    font-family: var(--f-pixel); font-size: 9px; letter-spacing: .06em;
+    color: var(--muted);
+  }
+  .card dl {
+    margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .card dl div { display: flex; gap: 10px; margin-bottom: 5px; }
+  .card dt {
+    font-family: var(--f-pixel); font-size: 9px; color: var(--muted);
+    min-width: 74px; padding-top: 4px; letter-spacing: .03em;
+  }
+  .card dd { margin: 0; }
+
+  /* ---------- tables ---------- */
+
+  .table-scroll { overflow-x: auto; margin: 22px 0 10px; }
+  table {
+    border-collapse: collapse; width: 100%; font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+  th, td {
+    text-align: left; padding: 9px 14px 9px 0;
+    border-bottom: 1px solid var(--line); vertical-align: top;
+  }
+  th {
+    font-family: var(--f-pixel); font-size: 9px; letter-spacing: .05em;
+    color: var(--muted); text-transform: uppercase;
+    border-bottom: 2px solid var(--ink); white-space: nowrap;
+  }
+  tbody tr:hover { background: var(--card); }
+  td.num { font-family: var(--f-mono); color: var(--muted); width: 1%; }
+  .yes { color: var(--accent); font-weight: 600; }
+  .no  { color: var(--muted); }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    background: var(--card); border-left: 4px solid var(--accent);
+    padding: 18px 22px; margin: 26px 0;
+  }
+  .callout.open { border-left-color: var(--alert); background: var(--alert-soft); }
+  .callout.code { border-left-color: var(--muted); }
+  .callout h4 { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .label {
+    font-family: var(--f-pixel); font-size: 9px; letter-spacing: .06em;
+    color: var(--alert); display: block; margin-bottom: 8px;
+  }
+  .callout.code .label { color: var(--muted); }
+
+  .pull {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(28px, 4.4vw, 44px); line-height: 1.02;
+    text-transform: uppercase; color: var(--accent);
+    border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+    padding: 24px 0; margin: 40px 0; max-width: 20ch; text-wrap: balance;
+  }
+
+  /* ---------- figures ---------- */
+
+  figure {
+    margin: 32px 0; padding: 22px 22px 18px;
+    background: var(--card); border: 1px solid var(--line);
+  }
+  figure .svg-scroll { overflow-x: auto; }
+  figure svg { display: block; max-width: 100%; height: auto; min-width: 560px; }
+  figcaption {
+    margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line);
+    font-size: 14px; line-height: 1.5; color: var(--muted);
+  }
+  figcaption b { color: var(--ink); font-weight: 600; }
+
+  .d-box   { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
+  .d-band  { fill: var(--sunk); }
+  .d-band2 { fill: var(--accent-soft); }
+  .d-open  { fill: var(--card); stroke: var(--alert); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .d-goal  { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+  .d-yolk  { fill: var(--yolk-soft); stroke: var(--yolk); stroke-width: 1.5; }
+  .d-line  { stroke: var(--ink); stroke-width: 1.6; fill: none; }
+  .d-line-soft { stroke: var(--muted); stroke-width: 1.2; fill: none; }
+  .d-dot   { stroke: var(--muted); stroke-width: 1.4; fill: none; stroke-dasharray: 3 4; }
+  .d-t     { fill: var(--ink); font-family: "Big Shoulders Display", sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; }
+  .d-s     { fill: var(--muted); font-family: ui-monospace, monospace; font-size: 11px; }
+  .d-alert { fill: var(--alert); font-family: ui-monospace, monospace; font-size: 11px; }
+  .d-acc   { fill: var(--accent); font-family: ui-monospace, monospace; font-size: 11px; }
+  .d-pulse { fill: var(--yolk); }
+  .d-base  { stroke: var(--muted); stroke-width: 1; opacity: .5; }
+  .d-arrow { fill: var(--ink); }
+  .d-arrow-soft { fill: var(--muted); }
+  .d-arrow-alert { fill: var(--alert); }
+  .d-dot-alert { stroke: var(--alert); stroke-width: 1.4; fill: none; stroke-dasharray: 3 4; }
+
+  /* ---------- ledger ---------- */
+
+  .ledger { margin: 26px 0; counter-reset: q; }
+  .ledger h3 { margin-top: 30px; }
+  .ledger ol { list-style: none; margin: 0; padding: 0; }
+  .ledger li {
+    counter-increment: q;
+    display: grid; grid-template-columns: 42px 1fr; gap: 4px 14px;
+    padding: 11px 0; border-bottom: 1px solid var(--line);
+  }
+  .ledger li::before {
+    content: counter(q, decimal-leading-zero);
+    font-family: var(--f-pixel); font-size: 11px; color: var(--alert);
+    padding-top: 5px;
+  }
+  .ledger .blocker::before { color: var(--alert); }
+  .ledger li > * { grid-column: 2; }
+  .ledger b { font-weight: 600; }
+  .ledger small { display: block; color: var(--muted); font-size: 14px; max-width: 70ch; }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    margin-top: 60px; border-top: 3px solid var(--ink);
+    background: var(--card); padding: 30px 0 46px;
+    font-size: 14px; color: var(--muted);
+  }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; }
+  footer p { margin: 0; max-width: 46ch; }
+  footer .sig { font-family: var(--f-pixel); font-size: 10px; letter-spacing: .05em; }
+
+  @media (max-width: 680px) {
+    body { font-size: 16px; }
+    .ficha div { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  html { scroll-behavior: smooth; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-top">
+      <span>Chicken Flee (provisional) · Golem First Jam · Documento de diseño</span>
+      <span>Godot 4.7 · GDScript · 320×180</span>
+    </div>
+    <h1 class="mast-title">Manual<br>de <em>fuga</em></h1>
+    <p class="mast-standfirst">
+      Una gallina quiere salir de su granja. El juego no le explica nada a nadie:
+      <strong>lo único que bloquea el paso es lo que el jugador todavía no sabe hacer</strong>.
+      Volar, poner huevos y ver en la oscuridad están disponibles desde el primer segundo.
+    </p>
+    <dl class="ficha">
+      <div><dt>Género</dt><dd>Aventura top-down</dd></div>
+      <div><dt>Estructura</dt><dd>Metroidbrania</dd></div>
+      <div><dt>Botones</dt><dd>1 botón, 3 gestos</dd></div>
+      <div><dt>Run objetivo</dt><dd>1–2 min</dd></div>
+      <div><dt>Primera partida</dt><dd>25–45 min</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#idea">Idea</a></li>
+    <li><a href="#controles">Controles</a></li>
+    <li><a href="#mecanicas">Mecánicas</a></li>
+    <li><a href="#mundo">Mundo</a></li>
+    <li><a href="#puzzles">Puzzles</a></li>
+    <li><a href="#progresion">Progresión</a></li>
+    <li><a href="#perro">El perro</a></li>
+    <li><a href="#ensenar">Enseñar sin texto</a></li>
+    <li><a href="#objetos">Objetos</a></li>
+    <li><a href="#forma">Arte y audio</a></li>
+    <li><a href="#estado">Estado</a></li>
+    <li><a href="#abierto">Abierto</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ IDEA ============ -->
+  <section id="idea">
+    <p class="eyebrow">01 — La idea fuerza</p>
+    <h2>El inventario está en la cabeza del jugador</h2>
+    <div class="col">
+      <p class="lede">
+        No hay desbloqueos. No hay objeto que abra permanentemente una zona nueva. La gallina ya
+        lo sabe hacer todo; el que no lo sabe eres tú. Todo el juego —los puzzles, los cuervos,
+        los claros, el perro— existe para enseñártelo <strong>sin decírtelo</strong>.
+      </p>
+      <div class="pull">En la primera run, si ya supieras jugar, te lo pasarías</div>
+      <p>
+        La consecuencia estructural es directa: el final del juego es un camino que
+        <strong>solo se cruza sabiendo ejecutar todas las mecánicas ocultas</strong>. Es el examen.
+        Alrededor cuelgan puzzles paralelos que abren estado permanente y van acortando cada run.
+      </p>
+      <p>
+        Y el bucle no es de ida y vuelta, es de <strong>aprender y reiniciar</strong>. Una run sirve
+        para descubrir algo, el perro te caza, y vuelves a empezar sabiéndolo. Los sitios que enseñan
+        se visitan una sola vez en toda la partida.
+      </p>
+
+      <h3>Referencias</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="kicker">Estructura y cámara</span>
+        <h3>A Link to the Past</h3>
+        <p>Aventura top-down, lectura del espacio, interiores y exteriores conectados.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Tono</span>
+        <h3>Untitled Goose Game</h3>
+        <p>Animal de corral montando el caos. Humor físico, cero solemnidad.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Progresión</span>
+        <h3>Outer Wilds</h3>
+        <p>Metroidbrania: lo que progresa es el conocimiento del jugador, no el personaje.</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="callout open">
+        <span class="label">Sin decidir · a propósito</span>
+        <p>
+          <b>Por qué quiere escapar la gallina.</b> Lo decide el equipo; no se rellena aquí.
+        </p>
+      </div>
+      <p>
+        El tema de la jam era <em>«one sense missing»</em> y el proyecto se ha ido por otro lado.
+        Hoy el juego no lo desarrolla. <span class="chip chip-open">ABIERTO</span> decidir si se
+        reengancha de alguna forma o se asume soltado: afecta a la votación de la jam, no al diseño.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CONTROLES ============ -->
+  <section id="controles">
+    <p class="eyebrow">02 — Controles</p>
+    <h2>Un botón que significa tres cosas</h2>
+    <div class="col">
+      <p class="lede">
+        Al jugador se le dice una sola cosa: <strong>este botón mueve la cabeza de la gallina</strong>.
+        Todo lo demás sale de ahí, y depende de <em>cómo</em> lo pulses.
+      </p>
+      <p class="lede">
+        La idea es buena y el reparto <strong>no está cerrado</strong>: tal y como está hoy, picar de
+        seguido te pone a volar. Eso es el bloqueante nº 1 del proyecto y tiene sección propia más
+        abajo.
+      </p>
+    </div>
+
+    <figure>
+      <div class="svg-scroll">
+      <svg viewBox="0 0 720 232" role="img" aria-label="Diagrama de tiempos: un toque hace picar, tres toques seguidos hacen volar, mantener tres segundos pone un huevo.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+        </defs>
+
+        <!-- fila 1: toque -->
+        <text class="d-t" x="8" y="54">Un toque</text>
+        <line class="d-base" x1="160" y1="64" x2="400" y2="64"/>
+        <rect class="d-pulse" x="205" y="40" width="16" height="24"/>
+        <line class="d-line" x1="420" y1="52" x2="458" y2="52" marker-end="url(#ar)"/>
+        <rect class="d-box" x="470" y="32" width="240" height="40" rx="2"/>
+        <text class="d-t" x="486" y="57">Picar · coger · soltar</text>
+
+        <!-- fila 2: toques repetidos -->
+        <text class="d-t" x="8" y="122">Toques seguidos</text>
+        <text class="d-s" x="8" y="140">3 en &lt; 0,5 s</text>
+        <line class="d-base" x1="160" y1="132" x2="400" y2="132"/>
+        <rect class="d-pulse" x="190" y="108" width="14" height="24"/>
+        <rect class="d-pulse" x="224" y="108" width="14" height="24"/>
+        <rect class="d-pulse" x="258" y="108" width="14" height="24"/>
+        <line class="d-line" x1="420" y1="120" x2="458" y2="120" marker-end="url(#ar)"/>
+        <rect class="d-yolk" x="470" y="100" width="240" height="40" rx="2"/>
+        <text class="d-t" x="486" y="125">Volar · planear</text>
+
+        <!-- fila 3: mantener -->
+        <text class="d-t" x="8" y="190">Mantener</text>
+        <text class="d-s" x="8" y="208">3 segundos</text>
+        <line class="d-base" x1="160" y1="200" x2="400" y2="200"/>
+        <rect class="d-pulse" x="190" y="176" width="190" height="24"/>
+        <line class="d-line" x1="420" y1="188" x2="458" y2="188" marker-end="url(#ar)"/>
+        <rect class="d-yolk" x="470" y="168" width="240" height="40" rx="2"/>
+        <text class="d-t" x="486" y="193">Poner un huevo</text>
+
+        <text class="d-s" x="160" y="24">patrón de pulsación →</text>
+      </svg>
+      </div>
+      <figcaption>
+        <b>El mismo botón, tres lecturas.</b> En amarillo, los dos gestos que el jugador tiene que
+        descubrir por su cuenta. La carga de vuelo sube 0,5 por pulsación y decae 1,0 por segundo, o
+        sea que despega con tres toques en menos de medio segundo; poner un huevo exige 3 segundos con
+        la gallina inmóvil. <b>Las filas 1 y 2 se pisan</b> — ver abajo.
+      </figcaption>
+    </figure>
+
+    <div class="col">
+      <h3>Mapeo actual <span class="chip chip-code">CÓDIGO</span></h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Acción</th><th>Tecla</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Movimiento (8 dir.)</td><td>Flechas</td><td class="yes">Hecho</td></tr>
+            <tr><td><code>a_button</code></td><td>Q</td><td class="yes">Picar / volar / huevo</td></tr>
+            <tr><td><code>b_button</code></td><td>W</td><td class="no">Libre</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout code">
+        <span class="label">Nota técnica</span>
+        <p>
+          <code>chicken.gd</code> lee hoy <code>ui_up</code>/<code>ui_down</code>/<code>ui_left</code>/<code>ui_right</code>
+          en vez de las acciones <code>up</code>/<code>down</code>/<code>left</code>/<code>right</code> que define
+          <code>project.godot</code>. Funciona por los mapeos por defecto de Godot, pero conviene unificarlo.
+        </p>
+      </div>
+
+      <h3>El choque de gestos <span class="chip chip-open">BLOQUEANTE</span></h3>
+      <p>
+        <b>Si picas de seguido, te pones a volar sin querer.</b> Y el coste no es el input no deseado:
+        es que <b>quema uno de los secretos del juego gratis</b>. Que el jugador tropiece con el vuelo
+        no es descubrirlo — ahí se pierde la gracia.
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Regla de <code>button_charge</code></th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Cada pulsación suma</td><td><code>+0.5</code></td></tr>
+            <tr><td>El contador decae</td><td><code>1.0</code> por segundo</td></tr>
+            <tr><td>Vuela cuando pasa de</td><td><code>&gt; 1.0</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        De ahí sale el número que importa: <b>tres toques en menos de 0,5 segundos</b>. Con dos no
+        despega nunca — el máximo que alcanzan es exactamente 1.0 y el umbral es estricto. Son unas
+        seis pulsaciones por segundo: rápido, pero es justo la cadencia a la que se machaca un botón
+        cuando estás probando cosas contra un objeto del escenario.
+      </p>
+      <p>
+        Y hoy <b>no hay forma de distinguirlo</b>: <code>manage_actions_input()</code> no mira nada del
+        entorno, la carga sube igual estés delante de un botón picable o en mitad de un campo. La
+        detección de interactuables todavía no existe.
+      </p>
+      <h4>Los ejes que hay para separarlos</h4>
+      <ol class="body">
+        <li><b>Umbral y ventana</b> — hoy 3 toques / 0,5 s. Se puede pedir más toques, una ventana más
+          corta, o una cadencia sostenida en vez de un contador con decaída.</li>
+        <li><b>Contexto</b> — cuando exista la detección de interactuables, el juego podrá saber si hay
+          algo picable cerca. Es el único eje que distingue <em>intención</em>.</li>
+        <li><b>Botón aparte</b> — <code>b_button</code> está libre, pero rompe el «un botón, tres
+          significados», que es parte de la gracia del diseño.</li>
+      </ol>
+
+      <h3>Lo que falta repartir</h3>
+      <ul class="body">
+        <li><b>Visión especial</b> — candidata natural a <code>b_button</code>, el único libre.
+          <span class="chip chip-open">ABIERTO</span> ¿toggle o mantener?</li>
+        <li><b>Coger / soltar</b> — va en el mismo botón de picar, que es el pico. Encaja solo:
+          llevando un objeto, picar pasa a ser soltar.</li>
+        <li><b>Poner un huevo</b> cuesta 3 s inmóvil. Con el perro contando es una decisión cara —
+          bien, si es intencionado.</li>
+        <li><b>Mando</b> — nada mapeado; los nombres <code>a_button</code>/<code>b_button</code> sugieren que se quiere.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ MECÁNICAS ============ -->
+  <section id="mecanicas">
+    <p class="eyebrow">03 — Mecánicas</p>
+    <h2>Dos visibles, cinco escondidas</h2>
+    <div class="col">
+      <p class="lede">
+        Las dos primeras se descubren solas en los primeros segundos. Las otras cinco son el juego:
+        cada una necesita un maestro, un accidente o una pista del cielo.
+      </p>
+      <h3>Visibles</h3>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="kicker">Se descubre sola</span>
+        <h3>Moverse</h3>
+        <p>Ocho direcciones con las teclas de siempre.</p>
+        <dl>
+          <div><dt>Código</dt><dd><code>move_speed = 200 px/s</code>, orden de dibujado por <code>z_index = position.y</code></dd></div>
+        </dl>
+      </div>
+      <div class="card">
+        <span class="kicker">Lo único que se te dice</span>
+        <h3>Cabecear</h3>
+        <p>
+          Mueve la cabeza. Lo que hace depende de lo que tengas cerca: picar un activable, coger un
+          cogible, o soltar lo que lleves.
+        </p>
+        <dl>
+          <div><dt>Regla</dt><dd>Con algo en el pico <b>no puedes picar</b>. Hay que soltar primero — y eso ya es material de puzzle.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="col"><h3>Ocultas</h3></div>
+    <div class="cards">
+      <div class="card hidden-mech">
+        <span class="kicker">Gesto: machacar el botón</span>
+        <h3>Volar</h3>
+        <p>La gallina se eleva y planea un poco. Salva obstáculos: el río del camino principal es el caso claro.</p>
+        <dl>
+          <div><dt>Estado</dt><dd><span class="chip chip-ok">IMPLEMENTADO</span> altura simulada con <code>z_offset</code> y gravedad propia</dd></div>
+          <div><dt>Se aprende</dt><dd>Viendo a <b>otra gallina</b> mover la cabeza muy rápido y despegar</dd></div>
+          <div><dt>Decidido</dt><dd><b>No por accidente</b>: si sale de machacar el botón, el secreto se quema gratis</dd></div>
+          <div><dt>Abierto</dt><dd>Dónde está esa gallina — y cómo se separa el gesto del picar</dd></div>
+        </dl>
+      </div>
+      <div class="card hidden-mech">
+        <span class="kicker">Gesto: mantener 3 s</span>
+        <h3>Poner un huevo</h3>
+        <p>Distrae a la serpiente. Se fríe en una zona caliente y entonces es comida: el perro se lo come.</p>
+        <dl>
+          <div><dt>Estado</dt><dd><span class="chip chip-ok">IMPLEMENTADO</span> <code>SignalBus.lay_egg</code> → <code>EggsManager</code></dd></div>
+          <div><dt>Abierto</dt><dd>¿Se usa también para apretar el acelerador del tractor?</dd></div>
+        </dl>
+      </div>
+      <div class="card hidden-mech">
+        <span class="kicker">La raíz del árbol</span>
+        <h3>Visión especial</h3>
+        <p>
+          Las gallinas ven muy bien. Las zonas oscuras se vuelven legibles y aparecen los puntos
+          calientes, con grados de temperatura.
+        </p>
+        <dl>
+          <div><dt>Se aprende</dt><dd>En el primer claro: es siempre su primera pista</dd></div>
+          <div><dt>Usos</dt><dd>Sala de los cuervos, laberinto del camino, localizar dónde freír huevos</dd></div>
+          <div><dt>Estado</dt><dd><span class="chip chip-open">POR HACER</span> shader</dd></div>
+        </dl>
+      </div>
+      <div class="card hidden-mech">
+        <span class="kicker">Audio como mecánica</span>
+        <h3>Campanas a ritmo</h3>
+        <p>
+          Picar la campana sin más no hace nada. Picarla siguiendo el ritmo correcto llama a un
+          cuervo, que ayuda de una forma distinta <em>según la campana</em>.
+        </p>
+        <dl>
+          <div><dt>Feedback</dt><dd>Si esa campana ya cumplió su función, el cuervo viene, da una vuelta y se va</dd></div>
+          <div><dt>Se aprende</dt><dd>Viendo a dos cuervos jugar en la sala oscura</dd></div>
+        </dl>
+      </div>
+      <div class="card hidden-mech">
+        <span class="kicker">La raíz de todo</span>
+        <h3>Los claros</h3>
+        <p>
+          En ciertas zonas despejadas, quedarte parado un buen rato sube la vista al cielo y aparecen
+          mensajes que ayudan a avanzar.
+        </p>
+        <dl>
+          <div><dt>1ª pista</dt><dd><b>Siempre la visión especial</b>, sea cual sea el claro al que llegues primero</dd></div>
+          <div><dt>Reparto</dt><dd>Uno abierto nada más cruzar la carretera; los demás medio cerrados</dd></div>
+          <div><dt>Abierto</dt><dd>Dónde van los otros cuatro y qué los cierra</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUNDO ============ -->
+  <section id="mundo">
+    <p class="eyebrow">04 — El mundo</p>
+    <h2>Granja, carretera, bosque</h2>
+    <div class="col">
+      <p class="lede">
+        Tres franjas. La <strong>carretera</strong> es el gran muro de la primera mitad: mientras
+        pasen coches no se cruza, y la gallina se espanta y retrocede sola si lo intentas.
+      </p>
+      <p>
+        Y es más que un muro geográfico. <strong>El claro-tutorial está nada más cruzarla</strong>,
+        abierto y con su gallina sentada al lado, así que la carretera es también la puerta de
+        entrada a todo el conocimiento oculto: hasta que el tractor no se estrella, el jugador no
+        tiene forma de aprender nada de la cadena larga.
+      </p>
+    </div>
+
+    <figure>
+      <div class="svg-scroll">
+      <svg viewBox="0 0 800 480" role="img" aria-label="Mapa esquemático: la granja abajo con el gallinero inicial, las ponedoras, el perro, la zona caliente y el parking; la carretera en medio, cruzada por el tractor estrellado; el bosque arriba con el camino principal de cuatro obstáculos hasta la salida.">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+          <marker id="ar2m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow-soft" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+        </defs>
+
+        <!-- bandas -->
+        <rect class="d-band2" x="0" y="0" width="800" height="170"/>
+        <rect class="d-band" x="0" y="175" width="800" height="60"/>
+        <rect class="d-band2" x="0" y="240" width="800" height="240" opacity=".45"/>
+
+        <text class="d-s" x="792" y="20" text-anchor="end">BOSQUE</text>
+        <text class="d-s" x="440" y="199">CARRETERA</text>
+        <text class="d-s" x="792" y="470" text-anchor="end">GRANJA</text>
+
+        <!-- camino principal -->
+        <path class="d-line" d="M700,172 L700,100 L150,100" marker-end="url(#ar2)"/>
+        <circle class="d-box" cx="620" cy="100" r="8"/>
+        <circle class="d-box" cx="500" cy="100" r="8"/>
+        <circle class="d-box" cx="380" cy="100" r="8"/>
+        <circle class="d-box" cx="260" cy="100" r="8"/>
+        <text class="d-t" x="620" y="78" text-anchor="middle">Serpiente</text>
+        <text class="d-t" x="500" y="78" text-anchor="middle">Río</text>
+        <text class="d-t" x="380" y="78" text-anchor="middle">Laberinto</text>
+        <text class="d-t" x="260" y="78" text-anchor="middle">Campana</text>
+        <text class="d-acc" x="620" y="124" text-anchor="middle">huevo</text>
+        <text class="d-acc" x="500" y="124" text-anchor="middle">volar</text>
+        <text class="d-acc" x="380" y="124" text-anchor="middle">visión</text>
+        <text class="d-acc" x="260" y="124" text-anchor="middle">ritmo</text>
+        <rect class="d-goal" x="26" y="80" width="112" height="40" rx="2"/>
+        <text class="d-t" x="82" y="105" text-anchor="middle">Salida</text>
+
+        <!-- parada de autobús -->
+        <rect class="d-box" x="660" y="134" width="112" height="30" rx="2"/>
+        <text class="d-t" x="716" y="154" text-anchor="middle">Parada</text>
+
+        <!-- claro tutorial -->
+        <circle class="d-yolk" cx="566" cy="138" r="22"/>
+        <text class="d-t" x="566" y="143" text-anchor="middle">Claro</text>
+        <text class="d-acc" x="566" y="172" text-anchor="middle">tutorial · abierto · gallina sentada</text>
+
+        <!-- carretera -->
+        <line class="d-line-soft" x1="0" y1="205" x2="800" y2="205" stroke-dasharray="20 14"/>
+        <rect class="d-box" x="70" y="188" width="36" height="16" rx="2"/>
+        <rect class="d-box" x="300" y="206" width="36" height="16" rx="2"/>
+        <text class="d-s" x="70" y="182">coches</text>
+
+        <!-- tractor estrellado -->
+        <rect class="d-yolk" x="664" y="180" width="104" height="46" rx="2"/>
+        <text class="d-t" x="716" y="208" text-anchor="middle">Tractor</text>
+        <path class="d-dot" d="M716,286 L716,232" marker-end="url(#ar2m)"/>
+        <text class="d-s" x="726" y="262">choca</text>
+
+        <!-- granja -->
+        <rect class="d-box" x="660" y="288" width="112" height="40" rx="2"/>
+        <text class="d-t" x="716" y="313" text-anchor="middle">Tractor</text>
+
+        <rect class="d-box" x="26" y="392" width="176" height="66" rx="2"/>
+        <text class="d-t" x="42" y="416">Gallinero inicial</text>
+        <text class="d-s" x="42" y="434">salida por el agujero</text>
+        <text class="d-acc" x="42" y="450">el tiempo no corre</text>
+
+        <rect class="d-box" x="26" y="286" width="176" height="62" rx="2"/>
+        <text class="d-t" x="42" y="310">Ponedoras</text>
+        <text class="d-s" x="42" y="328">puerta cerrada</text>
+        <text class="d-acc" x="42" y="344">campana → cuervo</text>
+
+        <rect class="d-box" x="236" y="392" width="124" height="66" rx="2"/>
+        <text class="d-t" x="252" y="416">El perro</text>
+        <text class="d-s" x="252" y="434">el reloj</text>
+
+        <rect class="d-yolk" x="380" y="392" width="140" height="66" rx="2"/>
+        <text class="d-t" x="396" y="416">Zona caliente</text>
+        <text class="d-s" x="396" y="434">huevos fritos</text>
+
+        <rect class="d-box" x="560" y="380" width="212" height="78" rx="2"/>
+        <text class="d-t" x="576" y="404">Edificio + parking</text>
+        <text class="d-s" x="576" y="422">botón · llaves colgadas</text>
+
+        <rect class="d-open" x="236" y="286" width="200" height="62" rx="2"/>
+        <text class="d-t" x="252" y="310">Sala oscura</text>
+        <text class="d-alert" x="252" y="328">cuervos · dónde va</text>
+
+        <circle class="d-open" cx="500" cy="316" r="30"/>
+        <text class="d-t" x="500" y="314" text-anchor="middle">Otros</text>
+        <text class="d-t" x="500" y="328" text-anchor="middle">claros</text>
+        <text class="d-alert" x="500" y="360" text-anchor="middle">medio cerrados · dónde van</text>
+      </svg>
+      </div>
+      <figcaption>
+        <b>Trazo continuo = confirmado; trazo discontinuo = por decidir.</b> El tractor arranca junto
+        al parking y acaba cruzado en la carretera, que a partir de ahí queda abierta para siempre —
+        y justo al otro lado está el claro-tutorial, en amarillo, que es por donde entra todo el
+        conocimiento oculto del juego. El orden de los cuatro obstáculos del camino principal está
+        abierto; lo que sí está fijado es qué mecánica exige cada uno.
+      </figcaption>
+    </figure>
+
+    <div class="col">
+      <h3>Densidad pendiente</h3>
+      <p>
+        El diseño actual usa cada mecánica en muy pocos sitios: el huevo sirve en dos, la visión en
+        dos. <span class="chip chip-open">ABIERTO</span> repartir más usos, y sobre todo colocar
+        <b>antesalas</b>: pequeños obstáculos que exijan una mecánica ya aprendida justo antes del
+        puzzle que enseña la siguiente.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PUZZLES ============ -->
+  <section id="puzzles">
+    <p class="eyebrow">05 — Puzzles</p>
+    <h2>De estado y de ejecución</h2>
+    <div class="col">
+      <p class="lede">
+        La distinción sostiene todo el bucle. Los <strong>de estado</strong> se quedan hechos para
+        siempre; los <strong>de ejecución</strong> hay que rehacerlos cada run.
+      </p>
+
+      <h3>La cadena del tractor</h3>
+      <p>El puzzle grande de la granja, y el que abre el mapa:</p>
+      <ol class="body">
+        <li>Picar el <b>botón</b> de la puerta del parking.</li>
+        <li>Entrar y <b>coger las llaves</b> de la pared.</li>
+        <li>Ir al tractor y <b>soltar las llaves</b> para tener el pico libre.</li>
+        <li><b>Picar el tractor</b>: se abre su puerta.</li>
+        <li>Entrar con las llaves. <span class="chip chip-open">ABIERTO</span> ¿y un huevo en el acelerador?</li>
+        <li>Animación no controlable: arranca, sale disparado y <b>choca contra la parada de autobús</b>.</li>
+        <li>Los coches frenan. La carretera queda cruzable <b>para siempre</b>.</li>
+      </ol>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th></th><th>Puzzle</th><th>Dónde</th><th>Exige saber</th><th>Objeto</th><th>Resultado</th><th>Persiste</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">01</td><td>Salir del gallinero</td><td>Gallinero inicial</td><td>—</td><td>—</td><td>Empieza el tiempo</td><td class="no">—</td></tr>
+          <tr><td class="num">02</td><td>Puerta del parking</td><td>Granja</td><td>Picar</td><td>—</td><td>Puerta abierta</td><td class="yes">Sí</td></tr>
+          <tr><td class="num">03</td><td>Llaves</td><td>Interior parking</td><td>Coger / soltar</td><td>—</td><td>Llaves en el pico</td><td class="yes">Sí</td></tr>
+          <tr><td class="num">04</td><td>Tractor</td><td>Junto al parking</td><td>Picar + soltar</td><td>Llaves</td><td>Carretera abierta</td><td class="yes">Sí</td></tr>
+          <tr><td class="num">05</td><td>Sala de los cuervos</td><td>Zona oscura</td><td>Visión</td><td>—</td><td>Aprendes el ritmo</td><td class="yes">Conocimiento</td></tr>
+          <tr><td class="num">06</td><td>Puerta de las ponedoras</td><td>Granja</td><td>Ritmo</td><td>—</td><td>Puerta abierta</td><td class="yes">Sí</td></tr>
+          <tr><td class="num">07</td><td>Las ponedoras</td><td>Interior</td><td>—</td><td>—</td><td>Aprendes a poner huevos</td><td class="yes">Conocimiento</td></tr>
+          <tr><td class="num">08</td><td>Huevo frito para el perro</td><td>Zona caliente</td><td>Huevo + zona caliente</td><td>Huevo</td><td><b>Más tiempo esa run</b></td><td class="no">No</td></tr>
+          <tr><td class="num">09</td><td>Claro-tutorial</td><td>Bosque, nada más cruzar</td><td>—</td><td>—</td><td>Aprendes los claros <b>y la visión</b></td><td class="yes">Conocimiento</td></tr>
+          <tr><td class="num">10</td><td>Serpiente</td><td>Camino principal</td><td>Poner huevo</td><td>Huevo</td><td>Pasas</td><td class="no">No</td></tr>
+          <tr><td class="num">11</td><td>Río</td><td>Camino principal</td><td>Volar</td><td>—</td><td>Pasas</td><td class="no">No</td></tr>
+          <tr><td class="num">12</td><td>Laberinto oscuro</td><td>Camino principal</td><td>Visión</td><td>—</td><td>Pasas</td><td class="no">No</td></tr>
+          <tr><td class="num">13</td><td>Campana del camino</td><td>Camino principal</td><td>Ritmo</td><td>—</td><td>El cuervo abre el paso</td><td class="no">Abierto</td></tr>
+          <tr><td class="num">14</td><td>Salida final</td><td>Final del camino</td><td>Todas</td><td>—</td><td><b>Fin del juego</b></td><td class="no">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <div class="callout">
+        <h4>El puzzle que no parece un puzzle</h4>
+        <p>
+          El <b>huevo frito del perro</b> es el único puzzle de ejecución obligatorio, y es el que
+          hace funcionar el bucle: aunque sepas hacerlo todo perfecto, <b>no te da tiempo a escapar</b>
+          si antes no le das de comer. Es la pieza que convierte «sé hacerlo todo» en «sé en qué orden
+          hacerlo todo».
+        </p>
+        <p>
+          Y por eso hay que tunearlo con cuidado. Si sobra tiempo se vuelve opcional y el bucle pierde
+          el remate; si falta, la run perfecta se convierte en un speedrun frustrante.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRESIÓN ============ -->
+  <section id="progresion">
+    <p class="eyebrow">06 — Progresión</p>
+    <h2>El grafo de conocimiento</h2>
+    <div class="col">
+      <p class="lede">
+        Esto no es un árbol de desbloqueos: es el orden en que el jugador puede <strong>enterarse</strong>
+        de las cosas. Dibujado entero, enseña de dónde cuelga todo — y qué pasa si esa rama se cae.
+      </p>
+    </div>
+
+    <figure>
+      <div class="svg-scroll">
+      <svg viewBox="0 0 800 400" role="img" aria-label="Grafo de dependencias de conocimiento. Un prólogo obligatorio va de picar a coger objetos y al tractor, que abre la carretera. Solo entonces se llega a la gallina sentada, que enseña los claros; la primera pista de los claros es siempre la visión especial, y de ahí salen la sala de los cuervos con el ritmo, la puerta de las ponedoras, poner huevos y el huevo frito. Volar lo enseña aparte una gallina que vuela. Todo desemboca en el camino final.">
+        <defs>
+          <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+          <marker id="ar3m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow-soft" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+          <marker id="ar3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="d-arrow-alert" d="M 0 0 L 10 5 L 0 10 z"/>
+          </marker>
+        </defs>
+
+        <!-- prólogo -->
+        <text class="d-s" x="15" y="24">PRÓLOGO OBLIGATORIO — solo con lo que ya sabes</text>
+        <rect class="d-box" x="15" y="32" width="100" height="40" rx="2"/>
+        <text class="d-t" x="65" y="57" text-anchor="middle">Picar</text>
+        <rect class="d-box" x="127" y="32" width="100" height="40" rx="2"/>
+        <text class="d-t" x="177" y="51" text-anchor="middle">Coger y</text>
+        <text class="d-t" x="177" y="66" text-anchor="middle">soltar</text>
+        <rect class="d-yolk" x="239" y="32" width="100" height="40" rx="2"/>
+        <text class="d-t" x="289" y="51" text-anchor="middle">Tractor →</text>
+        <text class="d-t" x="289" y="66" text-anchor="middle">carretera</text>
+        <path class="d-line" d="M115,52 L123,52" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M227,52 L235,52" marker-end="url(#ar3)"/>
+
+        <!-- el tractor abre el claro-tutorial -->
+        <path class="d-line" d="M265,72 L265,92 L5,92 L5,142 L11,142" marker-end="url(#ar3)"/>
+        <text class="d-acc" x="96" y="86">abre el paso al bosque</text>
+
+        <!-- cadena larga -->
+        <text class="d-s" x="15" y="114">CADENA LARGA — seis eslabones en serie</text>
+        <rect class="d-yolk" x="15" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="65" y="141" text-anchor="middle">Gallina</text>
+        <text class="d-t" x="65" y="156" text-anchor="middle">sentada</text>
+
+        <rect class="d-box" x="127" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="177" y="147" text-anchor="middle">Los claros</text>
+        <text class="d-acc" x="194" y="180" text-anchor="middle">1ª pista: la visión</text>
+
+        <rect class="d-box" x="239" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="289" y="141" text-anchor="middle">Visión</text>
+        <text class="d-t" x="289" y="156" text-anchor="middle">especial</text>
+
+        <rect class="d-box" x="351" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="401" y="141" text-anchor="middle">Cuervos</text>
+        <text class="d-t" x="401" y="156" text-anchor="middle">→ ritmo</text>
+
+        <rect class="d-box" x="463" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="513" y="141" text-anchor="middle">Puerta</text>
+        <text class="d-t" x="513" y="156" text-anchor="middle">ponedoras</text>
+
+        <rect class="d-yolk" x="575" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="625" y="141" text-anchor="middle">Poner</text>
+        <text class="d-t" x="625" y="156" text-anchor="middle">huevos</text>
+
+        <rect class="d-yolk" x="687" y="122" width="100" height="40" rx="2"/>
+        <text class="d-t" x="737" y="141" text-anchor="middle">Huevo frito</text>
+        <text class="d-t" x="737" y="156" text-anchor="middle">→ tiempo</text>
+
+        <path class="d-line" d="M115,142 L123,142" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M227,142 L235,142" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M339,142 L347,142" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M451,142 L459,142" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M563,142 L571,142" marker-end="url(#ar3)"/>
+        <path class="d-line" d="M675,142 L683,142" marker-end="url(#ar3)"/>
+
+        <!-- obstáculos del camino -->
+        <text class="d-s" x="513" y="204" text-anchor="middle">OBSTÁCULOS DEL CAMINO</text>
+        <rect class="d-yolk" x="15" y="168" width="100" height="34" rx="2"/>
+        <text class="d-t" x="65" y="182" text-anchor="middle">Gallina</text>
+        <text class="d-t" x="65" y="196" text-anchor="middle">que vuela</text>
+        <path class="d-line" d="M65,202 L65,208" marker-end="url(#ar3)"/>
+        <rect class="d-box" x="15" y="212" width="100" height="40" rx="2"/>
+        <text class="d-t" x="65" y="237" text-anchor="middle">Volar</text>
+
+        <rect class="d-box" x="127" y="212" width="100" height="40" rx="2"/>
+        <text class="d-t" x="177" y="237" text-anchor="middle">Río</text>
+        <rect class="d-box" x="239" y="212" width="100" height="40" rx="2"/>
+        <text class="d-t" x="289" y="237" text-anchor="middle">Laberinto</text>
+        <rect class="d-box" x="351" y="212" width="100" height="40" rx="2"/>
+        <text class="d-t" x="401" y="237" text-anchor="middle">Campana</text>
+        <rect class="d-box" x="575" y="212" width="100" height="40" rx="2"/>
+        <text class="d-t" x="625" y="237" text-anchor="middle">Serpiente</text>
+
+        <path class="d-line" d="M115,232 L123,232" marker-end="url(#ar3)"/>
+        <path class="d-line-soft" d="M289,162 L289,208" marker-end="url(#ar3m)"/>
+        <path class="d-line-soft" d="M401,162 L401,208" marker-end="url(#ar3m)"/>
+        <path class="d-line-soft" d="M625,162 L625,208" marker-end="url(#ar3m)"/>
+
+        <!-- rail de convergencia -->
+        <path class="d-line" d="M339,52 L793,52 L793,288 L177,288"/>
+        <path class="d-line" d="M177,252 L177,288"/>
+        <path class="d-line" d="M289,252 L289,288"/>
+        <path class="d-line" d="M401,252 L401,288"/>
+        <path class="d-line" d="M625,252 L625,288"/>
+        <path class="d-line" d="M737,162 L737,288"/>
+        <path class="d-line" d="M480,288 L480,312" marker-end="url(#ar3)"/>
+
+        <rect class="d-goal" x="60" y="318" width="710" height="56" rx="2"/>
+        <text class="d-t" x="415" y="344" text-anchor="middle" style="font-size:20px">Cruzar el camino final</text>
+        <text class="d-s" x="415" y="362" text-anchor="middle">exige saber ejecutar todas las mecánicas ocultas</text>
+      </svg>
+      </div>
+      <figcaption>
+        <b>En amarillo, las piezas de las que cuelga el resto.</b> El tractor abre la carretera y la
+        carretera es lo único que lleva al claro-tutorial; allí la gallina sentada enseña los claros,
+        y la primera pista de un claro es siempre la visión especial. Ya no hay dos ramas paralelas:
+        hay un prólogo y, detrás, el juego entero. Y ya no queda ningún nodo sin maestro — volar lo
+        enseña otra gallina, que se ve mover la cabeza muy rápido y despegar.
+      </figcaption>
+    </figure>
+
+    <div class="col">
+      <div class="callout open">
+        <span class="label">La consecuencia de poner el claro tras la carretera</span>
+        <p>
+          <b>El tractor deja de ser un puzzle paralelo y pasa a ser el prólogo obligatorio.</b>
+          Como el claro-tutorial está al otro lado, el jugador no puede aprender <em>nada</em> de la
+          cadena larga —ni claros, ni visión, ni ritmo, ni huevos— hasta que el tractor se estrella.
+          Prólogo de una sola vez en toda la partida, eso sí: el tractor es un puzzle de estado y la
+          carretera queda abierta para siempre.
+        </p>
+        <p>
+          <b>A favor:</b> el arranque queda limpio y sin ambigüedad, todo el mundo vive la misma
+          primera media hora, y la cadena del tractor se resuelve solo con lo que el jugador ya sabe
+          (picar y coger), así que funciona como tutorial encubierto.
+          <b>En contra:</b> quien se atasque ahí no ve nada del juego. Todo el riesgo de abandono se
+          concentra en un puzzle de cuatro pasos.
+        </p>
+      </div>
+      <p>
+        Pasado el tractor, la cadena sigue teniendo <b>seis eslabones en serie</b>, y cada uno que no
+        se entienda esconde todo lo que viene detrás. Por eso la redundancia vale más al principio de
+        la cadena que al final: una segunda gallina sentada cerca del claro-tutorial compra mucho más
+        que un claro extra en el fondo del bosque.
+      </p>
+
+      <h3>Orden esperado de una partida</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Fase</th><th>Descubre</th><th>Cómo</th></tr></thead>
+          <tbody>
+            <tr><td class="num">0</td><td>Moverse y cabecear</td><td>Se le ha dicho</td></tr>
+            <tr><td class="num">1</td><td>Picar y coger cosas</td><td>Prueba y error cerca de objetos</td></tr>
+            <tr><td class="num">2</td><td>Hay un tiempo y un perro</td><td>La cadena de la interfaz se rompe</td></tr>
+            <tr><td class="num">3</td><td>Cadena del tractor</td><td>Botón → llaves → tractor → carretera</td></tr>
+            <tr><td class="num">4</td><td>Los claros</td><td>Gallina sentada, nada más cruzar la carretera</td></tr>
+            <tr><td class="num">5</td><td><b>La visión especial</b></td><td>Primera pista del claro-tutorial</td></tr>
+            <tr><td class="num">6</td><td>El ritmo de la campana</td><td>Los dos cuervos, en la sala oscura</td></tr>
+            <tr><td class="num">7</td><td>Poner huevos</td><td>Las ponedoras, tras abrir con el cuervo</td></tr>
+            <tr><td class="num">8</td><td>Volar</td><td>La gallina que vuela, moviendo la cabeza muy rápido</td></tr>
+            <tr><td class="num">9</td><td>Hay que alimentar al perro</td><td>Se queda sin tiempo a mitad del camino</td></tr>
+            <tr><td class="num">10</td><td>Run limpia</td><td>Escapa</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <h4>Estas fases no son una ruta: son partidas distintas</h4>
+        <p>
+          El juego no pide ir y volver dentro de una misma run. Pide <b>aprender y reiniciar</b>: una
+          run sirve para descubrir una cosa, el perro te caza, y vuelves a empezar sabiéndola.
+        </p>
+        <p>
+          De ahí sale una regla para montar el mapa: <b>cada maestro se visita una vez en toda la
+          partida, no una vez por run</b>. Cuando los cuervos te han enseñado el ritmo, la sala de los
+          cuervos no vuelve a hacer falta nunca; igual con las ponedoras y con la gallina sentada.
+          Después son paisaje. No hay que dimensionar el tiempo del perro para que quepan dos zonas
+          del mapa en la misma run.
+        </p>
+      </div>
+
+      <h3>¿Cuántas pistas hacen falta?</h3>
+      <p>
+        La duda era si con cinco pistas se va bien o si el diseño acaba pidiendo veinte. Contando lo
+        que realmente necesita enseñanza, y quitando lo que ya tiene maestro propio:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Qué hay que aprender</th><th>Quién lo enseña</th><th>¿Gasta pista de claro?</th></tr></thead>
+          <tbody>
+            <tr><td>Picar, coger y soltar</td><td>Prueba y error</td><td class="no">No</td></tr>
+            <tr><td>Los claros</td><td>La gallina sentada</td><td class="no">No</td></tr>
+            <tr><td><b>La visión especial</b></td><td>El claro-tutorial</td><td class="yes">Sí — pista 1, fija</td></tr>
+            <tr><td>El ritmo de campana</td><td>Los dos cuervos</td><td class="no">No</td></tr>
+            <tr><td>Poner huevos</td><td>Las ponedoras</td><td class="no">No</td></tr>
+            <tr><td>Volar</td><td>La gallina que vuela</td><td class="no">No</td></tr>
+            <tr><td>Que las zonas calientes fríen huevos</td><td>Nadie</td><td class="yes">Candidata — pista 2</td></tr>
+            <tr><td>Que al perro se le puede dar de comer</td><td>Nadie</td><td class="yes">Candidata — pista 3</td></tr>
+            <tr><td>Que la serpiente se aparta con un huevo</td><td>Nadie</td><td class="yes">Candidata — pista 4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>Salen cuatro.</b> Ni de lejos veinte: casi todas las mecánicas tienen maestro vivo y esas
+        no gastan pista. Con cuatro, «un claro = una pista» sale a <b>un claro abierto más tres medio
+        cerrados</b>, y queda margen por si en playtest hace falta alguna más.
+      </p>
+
+      <h3>El patrón que ha salido solo</h3>
+      <p>Mirando quién enseña qué, el reparto no es arbitrario:</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Tipo de cosa</th><th>Quién la enseña</th><th>Por qué</th></tr></thead>
+          <tbody>
+            <tr><td><b>Gestos</b> — volar, huevos, ritmo, claros</td><td>Un bicho haciéndolo delante de ti</td><td>Se ven desde fuera</td></tr>
+            <tr><td><b>La visión especial</b></td><td>Un claro</td><td>Es lo único que <b>no</b> se ve desde fuera: pasa dentro de la gallina</td></tr>
+            <tr><td><b>Usos</b> — freír, dar de comer, la serpiente</td><td>Un claro</td><td>No son una habilidad, son una idea</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        O sea: <b>si la mecánica se ve, la enseña un bicho; si no se ve, la enseña un claro.</b> La
+        visión especial es la excepción de la primera fila justamente porque no hay forma de que otra
+        gallina te enseñe a ver.
+      </p>
+      <p>
+        Regla práctica para que la lista de pistas no se infle: si aparece algo nuevo que pediría
+        pista, <b>la primera pregunta es si se puede ver desde fuera</b>. Si se puede, va con maestro;
+        si no, gasta pista.
+      </p>
+
+      <h3>Las antesalas</h3>
+      <p>
+        Para llegar al puzzle que enseña la mecánica <b>B</b> hay que usar antes la mecánica <b>A</b>.
+        Los tres eslabones ya están puestos:
+      </p>
+      <ul class="body">
+        <li><b>picar + coger → el tractor → claros y visión</b>: la antesala es la carretera.</li>
+        <li><b>visión → ritmo</b>: la antesala ya existe, la sala de los cuervos está a oscuras.</li>
+        <li><b>ritmo → huevos</b>: la antesala ya existe, la puerta de las ponedoras está cerrada.</li>
+      </ul>
+      <div class="callout open">
+        <span class="label">Regla de oro contra la circularidad</span>
+        <p>
+          Nunca poner de antesala a un puzzle-que-enseña una mecánica que solo se aprende detrás de
+          él. Aplicada a los claros medio cerrados: <b>ningún claro puede estar cerrado detrás de la
+          mecánica que ese mismo claro enseña</b>. El claro que da la pista de volar no puede estar al
+          otro lado del río; uno que explique las zonas calientes sí puede pedir visión, porque la
+          visión ya se aprendió en el claro-tutorial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERRO ============ -->
+  <section id="perro">
+    <p class="eyebrow">07 — El bucle</p>
+    <h2>Un reloj con forma de perro</h2>
+    <div class="col">
+      <p class="lede">
+        Está sentado fuera del gallinero, esperando su momento. No te persigue: <strong>cuenta</strong>.
+        Dentro del gallinero inicial el tiempo no corre; en cuanto sales, arranca.
+      </p>
+    </div>
+
+    <figure>
+      <div class="svg-scroll">
+      <svg viewBox="0 0 720 120" role="img" aria-label="La cadena del perro tiene cuatro frames: entera, dos estados intermedios y rota. Al romperse, el perro te caza y la run reinicia.">
+        <g transform="translate(0,20)">
+          <rect class="d-box" x="10" y="20" width="150" height="44" rx="2"/>
+          <circle class="d-line" cx="42" cy="42" r="11"/><circle class="d-line" cx="64" cy="42" r="11"/>
+          <circle class="d-line" cx="86" cy="42" r="11"/><circle class="d-line" cx="108" cy="42" r="11"/>
+          <text class="d-s" x="85" y="86" text-anchor="middle">entera</text>
+
+          <rect class="d-box" x="190" y="20" width="150" height="44" rx="2"/>
+          <circle class="d-line" cx="222" cy="42" r="11"/><circle class="d-line" cx="244" cy="42" r="11"/>
+          <circle class="d-line" cx="266" cy="42" r="11"/>
+          <path class="d-line" d="M280,34 L296,50 M296,34 L280,50"/>
+          <text class="d-s" x="265" y="86" text-anchor="middle">frame 2</text>
+
+          <rect class="d-box" x="370" y="20" width="150" height="44" rx="2"/>
+          <circle class="d-line" cx="402" cy="42" r="11"/><circle class="d-line" cx="424" cy="42" r="11"/>
+          <path class="d-line" d="M438,34 L454,50 M454,34 L438,50"/>
+          <path class="d-line" d="M462,34 L478,50 M478,34 L462,50"/>
+          <text class="d-s" x="445" y="86" text-anchor="middle">frame 3</text>
+
+          <rect class="d-open" x="550" y="20" width="160" height="44" rx="2"/>
+          <text class="d-t" x="630" y="47" text-anchor="middle">Te caza</text>
+          <text class="d-alert" x="630" y="86" text-anchor="middle">fundido y vuelta al inicio</text>
+        </g>
+      </svg>
+      </div>
+      <figcaption>
+        <b>Cuatro estados para toda la run.</b> Es la única forma en que el juego comunica el tiempo,
+        sin números. Con runs de uno o dos minutos, cuatro frames dan poca resolución para leer la
+        urgencia del final: probablemente haga falta más granularidad o un apoyo extra.
+      </figcaption>
+    </figure>
+
+    <div class="col">
+      <h3>Qué persiste entre runs</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Tipo</th><th>Ejemplos</th><th>Persiste</th></tr></thead>
+          <tbody>
+            <tr><td>Conocimiento del jugador</td><td>Volar, huevos, visión, ritmo</td><td class="yes">Siempre — está en su cabeza</td></tr>
+            <tr><td>Puzzles de estado</td><td>Puerta del parking, tractor estrellado, ponedoras</td><td class="yes">Sí</td></tr>
+            <tr><td>Puzzles de ejecución</td><td>Río, serpiente, laberinto, huevo frito</td><td class="no">No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Cada run es más corta que la anterior, no porque el personaje sea más fuerte, sino porque el
+        mundo se va quedando abierto y el jugador ya no duda.
+      </p>
+
+      <h3>La run óptima</h3>
+      <p>
+        Vale la pena tenerla escrita, porque es contra la que hay que tunear el temporizador. Con
+        todos los puzzles de estado hechos y el jugador sabiéndolo todo, la partida ganadora
+        <b>no visita a ningún maestro</b>:
+      </p>
+      <ol class="body">
+        <li>Salir del gallinero.</li>
+        <li>Poner un huevo y llevarlo a la zona caliente de al lado del perro.</li>
+        <li>Dárselo frito → tiempo suficiente para lo que queda.</li>
+        <li>Cruzar la carretera, ya cortada por el tractor.</li>
+        <li>Camino principal: serpiente (huevo), río (volar), laberinto (visión), campana (ritmo).</li>
+        <li>Salida.</li>
+      </ol>
+      <p>
+        Ni claro, ni cuervos, ni ponedoras, ni tractor: todo eso ya pasó en runs anteriores. Esos son
+        los 1–2 minutos objetivo.
+      </p>
+
+      <div class="callout code">
+        <span class="label">Estado del código</span>
+        <p>
+          <code>time_chain.gd</code> tiene <code>max_time = 12 s</code> (placeholder; el objetivo son
+          1–2 minutos) y un sprite de 4 frames. Al agotarse emite <code>game_time_over</code> y
+          <code>test_farm.gd</code> hace fundido a negro y <code>reload_current_scene()</code>.
+          <b>Ojo: eso borra todo el progreso</b> — hace falta un autoload en <code>states/</code> que
+          sobreviva al reinicio.
+        </p>
+      </div>
+
+      <h3>Tensión conocida</h3>
+      <p>
+        El temporizador empuja a ir rápido; el descubrimiento empuja a experimentar. En las primeras
+        runs el jugador <b>necesita</b> trastear, que es exactamente cuando el perro más le aprieta.
+        Ojo con confundir esto con un problema: que una run se vaya entera en descubrir una sola cosa
+        <b>es el diseño funcionando</b>. Lo preocupante sería lo contrario — que no dé tiempo ni a
+        enterarse de una cosa por run.
+        Palancas para regularlo, si al testear pica: subir <code>max_time</code>, escalar el tiempo
+        con la distancia al perro (idea barajada, aparcada) o el propio huevo frito.
+      </p>
+      <p>
+        Al probar conviene medir dos cosas distintas: cuánto dura una run <b>perfecta</b> y cuánto
+        dura la run de alguien que está probando cosas.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ENSEÑAR ============ -->
+  <section id="ensenar">
+    <p class="eyebrow">08 — Pedagogía</p>
+    <h2>Cómo enseña el juego sin decir nada</h2>
+    <div class="col">
+      <p class="lede">
+        Restricción autoimpuesta: <strong>ni tutoriales ni texto</strong>. Todo se aprende mirando o
+        probando. Hay cuatro canales.
+      </p>
+      <h3>1 · Prueba y error contextual</h3>
+      <p>
+        El jugador solo sabe que un botón mueve la cabeza. Cerca de cosas, esa cabeza hace cosas
+        distintas. Es el canal de entrada: enseña picar, coger y soltar.
+      </p>
+      <h3>2 · Alguien lo hace delante de ti</h3>
+      <p>El patrón más fuerte del juego. Maestro, y sitio para practicarlo a dos pasos.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Maestro</th><th>Enseña</th><th>Dónde</th></tr></thead>
+          <tbody>
+            <tr><td>Dos cuervos jugando</td><td>El ritmo: uno pica, el otro reacciona</td><td>Sala oscura</td></tr>
+            <tr><td>Gallinas ponedoras</td><td>Poner huevos manteniendo el botón</td><td>Gallinero de ponedoras</td></tr>
+            <tr><td>Una gallina sentada</td><td>Los claros: se sienta y se le ponen los ojos en blanco</td><td>Bosque, nada más cruzar la carretera</td></tr>
+            <tr><td>Una gallina que vuela</td><td>Volar: mueve la cabeza muy rápido y despega</td><td><span class="chip chip-open">ABIERTO</span>, antes del río</td></tr>
+            <tr><td>El primer claro</td><td><b>La visión especial</b> — es siempre su primera pista</td><td>El claro practicable de al lado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>La cabeza es el botón</h4>
+      <p>
+        La gallina que vuela resuelve el problema de golpe, y merece la pena entender por qué, porque
+        el truco se puede reutilizar: <b>el botón mueve la cabeza, así que la cabeza del maestro es la
+        representación visible de lo que tú tienes que hacer con el dedo</b>. Ves una gallina moviendo
+        la cabeza muy rápido y despegando, y ya sabes que hay que dar toques rápidos. Sin texto ni
+        icono de mando: el mapeo entre gesto y animación es 1 a 1.
+      </p>
+      <div class="callout open">
+        <span class="label">El problema difícil</span>
+        <p>
+          <b>Cómo se muestra «mantén pulsado un botón».</b> Ver a una gallina poner un huevo enseña
+          <em>que se puede</em>, no <em>cómo</em>: una gallina parada poniendo un huevo no le dice al
+          jugador qué hacer con las manos.
+        </p>
+        <p>
+          La pregunta concreta, ahora que existe el truco de arriba: ¿vale el mismo mecanismo —que se
+          le vea la cabeza mantenida abajo un buen rato antes de poner el huevo— o hace falta otra cosa?
+        </p>
+      </div>
+      <h3>3 · Los claros</h3>
+      <p>
+        El canal explícito, y el único que puede hablar de cualquier mecánica. La vista sube al cielo
+        y aparecen mensajes. <b>Su primera pista es siempre la visión especial</b>, así que no son solo
+        una red de seguridad: son el arranque de la progresión.
+      </p>
+      <p>
+        <span class="chip chip-open">ABIERTO</span> qué son exactamente esos mensajes: pictogramas,
+        siluetas, una animación. Y sube de prioridad, porque la primera pista tiene que explicar
+        <b>un gesto de botón</b>, no un sitio al que ir — que es el mismo problema difícil del punto
+        anterior.
+      </p>
+      <h3>4 · Rechazos con información</h3>
+      <p>No enseñan una mecánica, pero evitan que el jugador se vuelva loco. Dicen <em>no</em> sin decir <em>nunca</em>:</p>
+      <ul class="body">
+        <li>El cuervo que <b>viene, da una vuelta y se va</b> = «esto ya estaba hecho».</li>
+        <li>La gallina que <b>se espanta</b> ante los coches = «por aquí todavía no».</li>
+        <li>La serpiente que <b>te pica y te echa atrás</b> = «necesitas algo».</li>
+        <li>La cadena rota = «se acabó el tiempo», sin números.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OBJETOS ============ -->
+  <section id="objetos">
+    <p class="eyebrow">09 — Objetos</p>
+    <h2>Un pico, un objeto</h2>
+    <div class="col">
+      <p class="lede">
+        Se cogen y se sueltan con el botón de picar. Se llevan de uno en uno. Y llevando algo
+        <strong>no puedes picar</strong>, lo que convierte a cualquier objeto en una limitación
+        mientras lo llevas.
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Objeto</th><th>Dónde está</th><th>Para qué sirve</th></tr></thead>
+          <tbody>
+            <tr><td>Llaves</td><td>Colgadas en la pared del parking</td><td>Arrancar el tractor</td></tr>
+            <tr><td>Huevo</td><td>Lo pone la gallina</td><td>Serpiente · freírlo para el perro · ¿acelerador?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Eso es todo lo que hay cerrado hoy.</p>
+      <div class="callout open">
+        <span class="label">Hueco declarado</span>
+        <p>
+          Hacen falta <b>más objetos repartidos, y con más de un sitio donde usarlos</b>: que un objeto
+          no sea la llave de un solo cerrojo. Criterios que ya impone el diseño: tiene que leerse en
+          pixel art a 320×180 en el pico de una gallina, su transporte ya es un puzzle por sí solo, y
+          cualquier ruta entre edificios cuesta tiempo de perro.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMA ============ -->
+  <section id="forma">
+    <p class="eyebrow">10 — Arte y audio</p>
+    <h2>Lo que el proyecto ya obliga</h2>
+    <div class="col">
+      <p class="lede">
+        Ni el estilo gráfico ni la música están definidos en diseño. Lo que sigue es lo que el
+        proyecto <strong>ya impone técnicamente</strong>, más los huecos.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="kicker">Fijado en project.godot</span>
+        <h3>320 × 180</h3>
+        <p>
+          Escalado entero y snap de vértices: pixel art puro. Con tiles de 32 px, eso son unos
+          <b>10 × 5,6 tiles en pantalla</b>. Todo tiene que leerse de silueta, no de detalle.
+        </p>
+      </div>
+      <div class="card">
+        <span class="kicker">Ya en el repo</span>
+        <h3>Cámara y capas</h3>
+        <p>
+          Phantom Camera integrada; orden de dibujado top-down clásico por <code>z_index = position.y</code>.
+          Animaciones de la gallina: <code>idle</code>, <code>move</code>, <code>peck</code>,
+          <code>fly</code>, <code>lay_egg</code>.
+        </p>
+      </div>
+      <div class="card hidden-mech">
+        <span class="kicker">El efecto estrella</span>
+        <h3>Shader de visión</h3>
+        <p>
+          Tiene que resolver dos cosas a la vez —hacer legible lo oscuro y mostrar grados de
+          temperatura— sin que la pantalla se vuelva ilegible a esa resolución.
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <h3>Sonido</h3>
+      <p>
+        <code>sound_manager.gd</code> reproduce uno al azar de una lista por evento y le aplica un
+        <b>pitch aleatorio ±0.2</b>, que es la forma barata y correcta de que no canse. Hoy solo tienen
+        audio <code>LAY_EGG</code> y <code>FLY</code>; faltan <code>WALK</code>, <code>PECK</code> y
+        <code>CACKLE</code>, más coches, perro, serpiente, cuervo y tractor.
+      </p>
+      <div class="callout">
+        <h4>El audio no es decoración: es una mecánica</h4>
+        <p>
+          La campana rítmica es un puzzle de audio — el jugador escucha un patrón, lo memoriza y lo
+          reproduce. Eso obliga a un sonido de campana limpio y de ataque claro, y a un patrón corto
+          que los cuervos repitan en bucle mientras el jugador mira.
+        </p>
+        <p>
+          <b>Decidido: el ritmo se ve además de oírse.</b> La campana se mueve y cada golpe lleva su
+          efecto visual, de forma que quien juegue en silencio pueda seguir el patrón igual. Aplica a
+          los dos lados de la mecánica: al cuervo que lo enseña y a la campana que tú picas.
+          <span class="chip chip-open">ABIERTO</span> qué efectos exactamente.
+        </p>
+      </div>
+      <p>
+        Lo demás está por decidir: paleta y referencias visuales, cómo se dibujan las pistas de los
+        claros, la imagen de captura del perro, si hay música y de qué tipo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ESTADO ============ -->
+  <section id="estado">
+    <p class="eyebrow">11 — Estado y alcance</p>
+    <h2>Qué hay hecho y cuánto dura</h2>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Pieza</th><th>Estado</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td>Movimiento 8 direcciones</td><td class="yes">Hecho</td><td>—</td></tr>
+          <tr><td>Picar</td><td class="yes">Parcial</td><td>Animación y estado; <b>sin detección de objetos cercanos</b></td></tr>
+          <tr><td>Volar por pulsaciones</td><td class="yes">Hecho</td><td>Altura simulada y gravedad propia</td></tr>
+          <tr><td>Poner huevo</td><td class="yes">Hecho</td><td>El huevo se instancia en el mundo</td></tr>
+          <tr><td>Obstáculos al volar</td><td class="yes">Hecho</td><td><code>obstacles_manager</code></td></tr>
+          <tr><td>Cadena de tiempo + reinicio</td><td class="yes">Hecho</td><td>12 s placeholder, fundido a negro</td></tr>
+          <tr><td>Sonido de huevo y vuelo</td><td class="yes">Hecho</td><td>Con pitch aleatorio</td></tr>
+          <tr><td>Coger / soltar objetos</td><td class="no">Por hacer</td><td>Junto con la detección de interactuables</td></tr>
+          <tr><td>Visión especial</td><td class="no">Por hacer</td><td>Shader + zonas oscuras + puntos calientes</td></tr>
+          <tr><td>Campanas y cuervos</td><td class="no">Por hacer</td><td>Detección de patrón + IA simple</td></tr>
+          <tr><td>Claros</td><td class="no">Por hacer</td><td><b>Raíz del grafo</b> — cambio de vista al cielo + pictogramas</td></tr>
+          <tr><td>La gallina sentada</td><td class="no">Por hacer</td><td>Su animación y su colocación son trabajo crítico, no decorado</td></tr>
+          <tr><td>Secuencia del tractor</td><td class="no">Por hacer</td><td><b>Sube de prioridad</b> — es el prólogo obligatorio</td></tr>
+          <tr><td>Persistencia entre runs</td><td class="no">Por hacer</td><td><b>Riesgo alto</b> — hoy el reinicio lo borra todo</td></tr>
+          <tr><td>Mapa y NPCs</td><td class="no">Por hacer</td><td>Granja, tres edificios, carretera, bosque; perro, cuervos, ponedoras, serpiente, las dos gallinas maestras</td></tr>
+          <tr><td>Arte y audio definitivos</td><td class="no">Por hacer</td><td>Hoy todo son placeholders</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <h3>¿Cuánto dura el juego?</h3>
+      <p>
+        Estimación contando los siete gates de conocimiento y los catorce puzzles:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Perfil</th><th>Duración</th></tr></thead>
+          <tbody>
+            <tr><td>Run perfecta sabiéndolo todo</td><td><b>1–2 minutos</b> (es el objetivo declarado)</td></tr>
+            <tr><td>Primera partida completa, jugador nuevo</td><td><b>25–45 minutos</b>, en unas 10–25 runs</td></tr>
+            <tr><td>Jugador que se atasca en el tractor</td><td>No llega a ver nada del resto del juego</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Para una jam está bien: media hora es una duración muy sana para que alguien lo termine y
+        vote. <b>El riesgo no es la duración, es la varianza</b> — en juegos de descubrimiento el mismo
+        diseño puede dar veinte minutos o abandono a los ocho, y depende casi entero de cuántos
+        maestros y claros haya y de lo pronto que aparezcan. La palanca de seguridad más barata, si en
+        el playtest la gente se atasca, es <b>más gallinas sentadas y más claros cerca del principio</b>.
+      </p>
+
+      <h3>Recorte de emergencia</h3>
+      <p>Si va justo de tiempo, el orden en que menos duele cortar:</p>
+      <ol class="body">
+        <li>Zonas calientes extra (todas menos la del perro).</li>
+        <li>Usos secundarios del huevo.</li>
+        <li>Campanas extra (dejar la de las ponedoras y la del camino).</li>
+        <li>El laberinto oscuro, reducido a una sola sala.</li>
+      </ol>
+      <p>
+        Lo que <b>no</b> se puede cortar sin romper el juego: el tractor —abre el mapa—, la cadena
+        visión → ritmo → huevos, el huevo frito del perro y el camino final.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ABIERTO ============ -->
+  <section id="abierto">
+    <p class="eyebrow">12 — Pendiente</p>
+    <h2>Lo que está sin decidir</h2>
+    <div class="col">
+      <p class="lede">
+        Ordenado por lo que más bloquea. Los tres primeros paran trabajo de otras personas.
+      </p>
+    </div>
+
+    <div class="ledger col">
+      <h3>Bloqueantes</h3>
+      <ol>
+        <li class="blocker"><b>¿Cómo se separa picar de volar?</b><small>Tres toques en menos de 0,5 s te ponen a volar, y eso quema el secreto gratis. Tres ejes posibles —umbral, contexto, botón aparte— y ninguno elegido.</small></li>
+        <li class="blocker"><b>¿Cómo se enseña «mantener pulsado» sin texto?</b><small>Con la gallina que vuela ya existe el truco —la cabeza del maestro es el botón—, así que la pregunta concreta es si vale también aquí: que se le vea la cabeza mantenida abajo antes de poner el huevo. Lo mismo para la primera pista de los claros.</small></li>
+        <li class="blocker"><b>¿Es intencionado que el tractor sea la puerta de todo?</b><small>Con el claro-tutorial al otro lado de la carretera, quien se atasque ahí no ve nada del juego. Es una decisión legítima, pero conviene tomarla a sabiendas.</small></li>
+        <li class="blocker"><b>¿Qué persiste exactamente entre runs?</b><small>Hay que fijar la lista antes de programar el autoload de progreso.</small></li>
+      </ol>
+
+      <h3>Diseño</h3>
+      <ol start="4">
+        <li><b>¿Por qué quiere escapar la gallina?</b><small>Deliberadamente sin decidir.</small></li>
+        <li><b>¿Hace falta un puzzle para salir del gallinero inicial?</b></li>
+        <li><b>¿Huevo en el acelerador del tractor?</b><small>Duda real: puede ser demasiado confuso visualmente.</small></li>
+        <li><b>¿Cuántas campanas hay y qué hace el cuervo en cada una?</b></li>
+        <li><b>¿Dónde van los cuatro claros medio cerrados, y qué los cierra?</b><small>El tutorial ya está colocado: nada más cruzar la carretera.</small></li>
+        <li><b>¿Se confirma «un claro = una pista», con las cuatro del recuento?</b></li>
+        <li><b>¿Dónde está la gallina que enseña a volar?</b><small>Tiene que quedar antes del río.</small></li>
+        <li><b>¿Para qué sirven las zonas calientes que no son la del perro?</b></li>
+        <li><b>¿Qué más aporta ver grados de temperatura?</b><small>Además de encontrar dónde freír.</small></li>
+        <li><b>¿Qué objetos nuevos hay y en cuántos sitios sirve cada uno?</b></li>
+        <li><b>¿Cuáles son las antesalas que encadenan un puzzle con el siguiente?</b><small>Recordando que los claros no pueden tener ninguna delante.</small></li>
+        <li><b>¿Qué orden tienen los obstáculos del camino principal?</b></li>
+        <li><b>¿Se reengancha el tema «one sense missing»?</b></li>
+        <li><b>¿Se queda el nombre <em>Chicken Flee</em>?</b><small>Comprobar antes que no choca con nada publicado en itch.io o Steam.</small></li>
+      </ol>
+
+      <h3>Números por tunear</h3>
+      <ol start="18">
+        <li><b>Duración de la run.</b><small>Hoy 12 s de placeholder; objetivo 1–2 min o más.</small></li>
+        <li><b>¿Cuánto tiempo da el huevo frito al perro?</b></li>
+        <li><b>¿El tiempo escala con la distancia al perro?</b><small>Aparcado: tiempo fijo por ahora.</small></li>
+        <li><b>Tolerancia del ritmo de la campana.</b></li>
+        <li><b>Tiempo parado para activar un claro.</b><small>Se habló de 2–4 segundos.</small></li>
+      </ol>
+
+      <h3>Controles y presentación</h3>
+      <ol start="23">
+        <li><b>¿La visión va en <code>b_button</code>? ¿Toggle o mantener?</b></li>
+        <li><b>¿Soporte de mando?</b></li>
+        <li><b>Paleta y referencias visuales.</b></li>
+        <li><b>Cómo se dibujan las pistas de los claros sin texto.</b><small>Sube de prioridad: la primera pista explica un gesto.</small></li>
+        <li><b>Qué efectos visuales acompañan al ritmo de la campana.</b><small>Decidido que los hay; falta decidir cuáles.</small></li>
+        <li><b>Música: si la hay y de qué tipo.</b></li>
+        <li><b>Imagen de la captura del perro.</b></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      Este documento recoge el diseño tal y como está hablado, marcando explícitamente lo que sigue
+      sin decidir. Las fichas por separado viven en <code>docs/gdd/</code>.
+    </p>
+    <p class="sig">GOLEM FIRST JAM · GDD v1</p>
+  </div>
+</footer>
