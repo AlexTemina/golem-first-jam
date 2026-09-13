@@ -118,6 +118,9 @@ size = Vector2(16, 24)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
 script = ExtResource("1_rmv5a")
+move_speed = 100
+jump_max_impulse = 0.8
+gravity_factor = 0.001
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1576932757]
 position = Vector2(0, 1)

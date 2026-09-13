@@ -54,7 +54,6 @@ tile_set = SubResource("TileSet_u5bk5")
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("1_moenx")]
 position = Vector2(160, 120)
 motion_mode = 1
-move_speed = 100
 
 [node name="EggsManager" parent="." unique_id=1416884054 instance=ExtResource("3_jxsy7")]
 
