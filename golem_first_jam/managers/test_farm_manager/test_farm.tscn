@@ -54,6 +54,7 @@ tile_set = SubResource("TileSet_u5bk5")
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("1_moenx")]
 position = Vector2(160, 120)
 motion_mode = 1
+move_speed = 100
 
 [node name="EggsManager" parent="." unique_id=1416884054 instance=ExtResource("3_jxsy7")]
 
@@ -75,6 +76,7 @@ position = Vector2(112, 128)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
 
 [node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("8_8i6n7")]
+max_time = 9999
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=431233615]
 visible = false
