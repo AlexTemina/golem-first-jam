@@ -48,15 +48,15 @@ func manage_velocity(delta: float):
 			SignalBus.chicken_lands.emit()
 		sprite.offset.y = z_offset
 		
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("right"):
 		velocity.x = move_speed
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("left"):
 		velocity.x = -move_speed
 	else:
 		velocity.x = 0
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("down"):
 		velocity.y = move_speed
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("up"):
 		velocity.y = -move_speed
 	else:
 		velocity.y = 0
@@ -107,6 +107,7 @@ func animate(previous_velocity: Vector2):
 
 func peck() -> void:
 	action = Action.PECKING
+	SignalBus.chicken_pecks.emit(position)
 	
 func fly() -> void:
 	action = Action.FLYING

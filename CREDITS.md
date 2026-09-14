@@ -10,3 +10,4 @@ Cartoon Pop (Distorted) by unfa -- https://freesound.org/s/245646/ -- License: C
 Pop 4 by quatricise -- https://freesound.org/s/789793/ -- License: Creative Commons 0
 Chickens.wav by ecfike -- https://freesound.org/s/183487/ -- License: Creative Commons 0
 BIRDMisc_Swoop_Wing Flap by dhi67540 -- https://freesound.org/s/818535/ -- License: Attribution 4.0
+Thin bell ding 2 by Khrinx -- https://freesound.org/s/333695/ -- License: Creative Commons 0

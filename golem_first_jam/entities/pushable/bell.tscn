@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmqew7cwemoft"]
+
+[ext_resource type="Script" uid="uid://co2mwu157v4ts" path="res://golem_first_jam/entities/pushable/bell.gd" id="1_fpolg"]
+[ext_resource type="Texture2D" uid="uid://demtgked0uhrl" path="res://golem_first_jam/entities/pushable/assets/bell.png" id="1_tr344"]
+[ext_resource type="AudioStream" uid="uid://db2oru3rxd2n7" path="res://golem_first_jam/entities/pushable/assets/bell.wav" id="3_rinkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(16, 32)
+
+[node name="Bell" type="StaticBody2D" unique_id=129822321]
+script = ExtResource("1_fpolg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2040049716]
+position = Vector2(0, -16)
+texture = ExtResource("1_tr344")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806814290]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1989768157]
+stream = ExtResource("3_rinkw")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c0bjd2it3enm1"]
+
+[ext_resource type="Texture2D" uid="uid://coyhulucw2eel" path="res://golem_first_jam/entities/pickable/assets/branch.png" id="1_7cmn2"]
+[ext_resource type="Script" uid="uid://d2j3wlj3vge5i" path="res://golem_first_jam/entities/pickable/branch.gd" id="1_v85f5"]
+
+[node name="Branch" type="Node2D" unique_id=549245696]
+script = ExtResource("1_v85f5")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=38272208]
+position = Vector2(16, 16)
+texture = ExtResource("1_7cmn2")

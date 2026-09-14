@@ -1,0 +1,18 @@
+class_name PushableEntity extends StaticBody2D
+
+@export var max_distance_to_interact: Vector2 = Vector2(32, 4)
+
+func _ready() -> void:
+	init(self.position)
+
+func init(position: Vector2):
+	self.position = position
+	z_index = position.y
+	
+func is_near_character_position(character_position: Vector2) -> bool:
+	var x_is_close = abs(character_position.x - position.x) < max_distance_to_interact.x
+	var y_is_close = abs(character_position.y - position.y) < max_distance_to_interact.y
+	return x_is_close and y_is_close
+
+func interact():
+	SignalBus.pushable_item_interacted.emit(self)
