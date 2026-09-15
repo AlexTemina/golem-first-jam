@@ -20,6 +20,7 @@ signal disable_obstacles()
 # PUSHABLE ITEMS
 signal pushable_item_interacted(item: PushableEntity)
 signal bell_ringed(bell_id: Bell.Id)
+signal bell_sequence_completed(bell_id: Bell.Id)
 
 # SOUND
 signal play_chicken_sound(sound_id: SoundManager.ChickenSound)

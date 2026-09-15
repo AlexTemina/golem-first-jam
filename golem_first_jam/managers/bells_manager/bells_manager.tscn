@@ -4,3 +4,7 @@
 
 [node name="BellsManager" type="Node2D" unique_id=2111582727]
 script = ExtResource("1_d71cc")
+
+[node name="ResetSequenceTimer" type="Timer" parent="." unique_id=1475510459]
+
+[connection signal="timeout" from="ResetSequenceTimer" to="." method="_on_reset_sequence_timer_timeout"]
