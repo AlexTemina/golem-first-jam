@@ -2021,5 +2021,14 @@ text = "Cada claro tiene una pista, podría ser de dónde está o de otro lugar.
 label_settings = SubResource("LabelSettings_xjtsb")
 autowrap_mode = 2
 
+[node name="Label17" type="Label" parent="Mock Text" unique_id=2036565198]
+offset_left = 983.0
+offset_top = -695.0
+offset_right = 1410.0
+offset_bottom = -401.0
+text = "Al final sí, al ponernos con el gallo nos sigue y volvemos a casa. O le cogemos y volvemos a casa."
+label_settings = SubResource("LabelSettings_xjtsb")
+autowrap_mode = 2
+
 [editable path="ChickenManager"]
 [editable path="PushablesManager"]
