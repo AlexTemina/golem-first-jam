@@ -141,6 +141,10 @@ shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="QuickPressButtonTimer" type="Timer" parent="." unique_id=1194450649]
 
+[node name="ScareTimer" type="Timer" parent="." unique_id=1485778085]
+wait_time = 0.5
+
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="HoldButtonTimer" to="." method="_on_hold_button_timer_timeout"]
 [connection signal="timeout" from="QuickPressButtonTimer" to="." method="_on_quick_press_button_timer_timeout"]
+[connection signal="timeout" from="ScareTimer" to="." method="_on_scare_timer_timeout"]

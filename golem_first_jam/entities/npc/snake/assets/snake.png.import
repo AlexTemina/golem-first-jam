@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f4bxymjb1bnc"
-path="res://.godot/imported/crow.png-7630793a69d9133f683aac7c01afe836.ctex"
+uid="uid://chae6xgpns75x"
+path="res://.godot/imported/snake.png-c6fdc31e476a1e3254e149ea205a9d4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/npc/crow/asset/crow.png"
-dest_files=["res://.godot/imported/crow.png-7630793a69d9133f683aac7c01afe836.ctex"]
+source_file="res://golem_first_jam/entities/npc/snake/assets/snake.png"
+dest_files=["res://.godot/imported/snake.png-c6fdc31e476a1e3254e149ea205a9d4a.ctex"]
 
 [params]
 

@@ -35,6 +35,13 @@ func _process(delta: float) -> void:
 	var next_position = position.move_toward(target_position, delta * calculated_speed)	
 	position = next_position
 	t += delta
-	var sprite_alpha = 1.0 - (sin(t * twinkle_speed) / 5.0)
+	twinkle()
+	
+func twinkle():
+	var sprite_alpha: float
+	if t < 2.0:
+		sprite_alpha = t / 2.0
+	else:
+		sprite_alpha = 1.0 - (sin(t * twinkle_speed) / 5.0)
 	sprite.modulate = sprite_color
 	sprite.modulate.a = sprite_alpha

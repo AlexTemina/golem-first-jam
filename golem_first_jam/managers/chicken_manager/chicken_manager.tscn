@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bjt7qqi3i1mvj"]
+
+[ext_resource type="Script" uid="uid://cpbvo1p1stld3" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.gd" id="1_f6aqc"]
+[ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="2_51hi4"]
+
+[node name="ChickenManager" type="Node2D" unique_id=2135993555]
+script = ExtResource("1_f6aqc")
+
+[node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("2_51hi4")]

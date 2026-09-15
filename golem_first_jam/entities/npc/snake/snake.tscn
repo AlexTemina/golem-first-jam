@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://i3va3dluva46"]
+
+[ext_resource type="Script" uid="uid://cl47lymsast6l" path="res://golem_first_jam/entities/npc/snake/snake.gd" id="1_lr4si"]
+[ext_resource type="Texture2D" uid="uid://chae6xgpns75x" path="res://golem_first_jam/entities/npc/snake/assets/snake.png" id="1_qrpdb"]
+[ext_resource type="AudioStream" uid="uid://bqwvmnyiiey7y" path="res://golem_first_jam/entities/npc/snake/assets/snake_hiss.wav" id="3_1fxst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
+size = Vector2(48, 34)
+
+[node name="Snake" type="CharacterBody2D" unique_id=906309014]
+script = ExtResource("1_lr4si")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1814420301]
+position = Vector2(0, -8)
+texture = ExtResource("1_qrpdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2010293849]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="ScareArea" type="Area2D" parent="." unique_id=462884761]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" unique_id=739541174]
+position = Vector2(-8, -7)
+shape = SubResource("RectangleShape2D_kddjp")
+
+[node name="SnakeHiss" type="AudioStreamPlayer" parent="." unique_id=1392926421]
+stream = ExtResource("3_1fxst")
+volume_db = 6.386
+pitch_scale = 2.05
+
+[connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]

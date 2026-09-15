@@ -14,6 +14,9 @@ signal chicken_lands()
 signal lay_egg(position: Vector2)
 signal special_vision_toggled(on: bool)
 
+# NPCs
+signal snake_scares()
+
 # OBSTACLES
 signal enable_obstacles()
 signal disable_obstacles()
