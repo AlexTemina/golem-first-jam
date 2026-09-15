@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="3_jxsy7"]
 [ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="5_54p4l"]
 [ext_resource type="PackedScene" uid="uid://dxgt3eksabnyx" path="res://golem_first_jam/entities/obstacle/obstacle.tscn" id="6_1nk13"]
+[ext_resource type="PackedScene" uid="uid://r2bey3e76nve" path="res://golem_first_jam/managers/bells_manager/bells_manager.tscn" id="6_m2y6x"]
 [ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="6_xtfuw"]
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="8_8i6n7"]
 [ext_resource type="PackedScene" uid="uid://c0bjd2it3enm1" path="res://golem_first_jam/entities/pickable/branch.tscn" id="10_2yx46"]
@@ -60,6 +61,8 @@ motion_mode = 1
 
 [node name="EggsManager" parent="." unique_id=1416884054 instance=ExtResource("3_jxsy7")]
 
+[node name="BellsManager" parent="." unique_id=2111582727 instance=ExtResource("6_m2y6x")]
+
 [node name="SoundManager" parent="." unique_id=1418100125 instance=ExtResource("5_54p4l")]
 
 [node name="ObstaclesManager" parent="." unique_id=1813073625 instance=ExtResource("6_xtfuw")]
@@ -93,9 +96,9 @@ color = Color(0, 0, 0, 1)
 position = Vector2(256, -16)
 
 [node name="PushablesManager" parent="." unique_id=2049546389 instance=ExtResource("11_ph3lg")]
-visible = false
 
 [node name="Bell" parent="PushablesManager/Pushables" parent_id_path=PackedInt32Array(2049546389, 1958911018) index="0" unique_id=524241937 instance=ExtResource("11_n4srh")]
 position = Vector2(224, 224)
+bell_id = 1
 
 [editable path="PushablesManager"]

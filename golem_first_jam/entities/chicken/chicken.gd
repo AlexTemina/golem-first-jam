@@ -119,8 +119,7 @@ func peck() -> void:
 	
 func fly() -> void:
 	action = Action.FLYING
-	var impulse_factor = clampf((quick_press_button_timer.time_left / quick_press_button_timer.wait_time) * 8.0, 0, 1.0)
-	z_velocity = -lerp(0.2, jump_max_impulse, impulse_factor)
+	z_velocity = -jump_max_impulse
 	SignalBus.chicken_flies.emit()
 	
 func lay_egg() -> void:	

@@ -1,0 +1,1 @@
+class_name BellsManager extends Node2D
