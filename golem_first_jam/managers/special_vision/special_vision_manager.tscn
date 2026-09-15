@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://doqvidpp1016a"]
+
+[ext_resource type="Script" uid="uid://bgt5g4is5t0ik" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gd" id="1_memsb"]
+[ext_resource type="Shader" uid="uid://dayuu8axjbdml" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gdshader" id="2_hxwpy"]
+[ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/time_chain/assets/dog_face.png" id="2_xbwuf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kddjp"]
+shader = ExtResource("2_hxwpy")
+shader_parameter/pixel_size = 1.0
+shader_parameter/vhs_intensity = 3.8160001812599997
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.07200000342
+
+[node name="SpecialVisionManager" type="Node2D" unique_id=873685239]
+script = ExtResource("1_memsb")
+
+[node name="TestSprite" type="Sprite2D" parent="." unique_id=2037883741]
+visible = false
+position = Vector2(16, 16)
+texture = ExtResource("2_xbwuf")
+
+[node name="ShaderCanvasLayer" type="CanvasLayer" parent="." unique_id=1639747474]
+
+[node name="ColorRect" type="ColorRect" parent="ShaderCanvasLayer" unique_id=300119815]
+visible = false
+material = SubResource("ShaderMaterial_kddjp")
+offset_right = 320.0
+offset_bottom = 184.0
+color = Color(1, 1, 1, 0.1882353)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2068628187]
+visible = false
+z_index = 4000
+color = Color(0.4881792, 1, 0.456277, 0.2784314)

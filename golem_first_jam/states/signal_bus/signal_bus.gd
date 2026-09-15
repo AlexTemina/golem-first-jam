@@ -12,6 +12,7 @@ signal chicken_pecks(chicken_position: Vector2)
 signal chicken_flies()
 signal chicken_lands()
 signal lay_egg(position: Vector2)
+signal special_vision_toggled(on: bool)
 
 # OBSTACLES
 signal enable_obstacles()

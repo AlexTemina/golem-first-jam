@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="11_n4srh"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="11_ph3lg"]
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="14_lqv0p"]
+[ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="15_cdmbb"]
+[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="16_mt1tk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -104,5 +106,10 @@ bell_id = 1
 
 [node name="Crow" parent="." unique_id=1316683000 instance=ExtResource("14_lqv0p")]
 position = Vector2(224, 192)
+
+[node name="SpecialVisionManager" parent="." unique_id=873685239 instance=ExtResource("15_cdmbb")]
+
+[node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("16_mt1tk")]
+position = Vector2(0, 64)
 
 [editable path="PushablesManager"]

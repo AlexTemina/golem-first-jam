@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drl2ym6inuu13"]
+
+[ext_resource type="Script" uid="uid://2u2ewmgo2vyf" path="res://golem_first_jam/entities/test/hotspot.gd" id="1_8jxqh"]
+
+[node name="Hotspot" type="Node2D" unique_id=935895167]
+script = ExtResource("1_8jxqh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=926285575]
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(1, 1, 1, 0.19215687)
