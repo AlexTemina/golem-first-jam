@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="14_lqv0p"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="15_cdmbb"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="16_mt1tk"]
-[ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="17_h4ra2"]
+[ext_resource type="PackedScene" uid="uid://cxo5nuw40xibo" path="res://golem_first_jam/managers/npc/snake_manager.tscn" id="17_4kgav"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -112,8 +112,11 @@ position = Vector2(224, 192)
 [node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("16_mt1tk")]
 position = Vector2(0, 64)
 
-[node name="Snake" parent="." unique_id=906309014 instance=ExtResource("17_h4ra2")]
+[node name="SnakeManager" parent="." unique_id=1052215676 instance=ExtResource("17_4kgav")]
+
+[node name="Snake" parent="SnakeManager" index="0" unique_id=906309014]
 position = Vector2(368, 24)
 
 [editable path="ChickenManager"]
 [editable path="PushablesManager"]
+[editable path="SnakeManager"]

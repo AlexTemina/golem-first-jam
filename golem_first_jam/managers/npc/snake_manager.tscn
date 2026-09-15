@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cxo5nuw40xibo"]
+
+[ext_resource type="Script" uid="uid://c84pppia2323p" path="res://golem_first_jam/managers/npc/snake_manager.gd" id="1_iosl3"]
+[ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="2_kni3v"]
+
+[node name="SnakeManager" type="Node2D" unique_id=1052215676]
+script = ExtResource("1_iosl3")
+
+[node name="Snake" parent="." unique_id=906309014 instance=ExtResource("2_kni3v")]
