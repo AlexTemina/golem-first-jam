@@ -2,7 +2,8 @@ class_name TimeChain extends Node2D
 
 const CHAIN_FRAMES = 4
 
-@export var max_time: int = 12 # s
+## Time limit for the round, in seconds
+@export var max_time: int = 12
 
 @onready var chain_sprite := $ChainSprite
 @onready var timer := $Timer

@@ -12,7 +12,9 @@ var CHICKEN_SOUNDS = {
 	ChickenSound.CACKLE: [],
 }
 
-@export var pitch_randomness: float = 0.2 # Default pitch is 1, the randomness set the range below and above this default value
+## Default pitch is 1 (in exponential scale), the randomness sets the range below and above this default value.
+## For instance: 0.5 goes from 0.5 (one octave down) to 1.5 (half an octave up).
+@export var pitch_randomness: float = 0.2
 
 @onready var chicken_player: AudioStreamPlayer = $ChickenPlayer
 

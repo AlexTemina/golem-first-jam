@@ -4,12 +4,18 @@ enum Action {NONE, PECKING, FLYING, LAYING_EGG}
 
 const SPRITE_SCALE = 1
 
-@export var move_speed: int = 200 # px/s
-@export var pushes_to_fly: int = 3 # How many times you have to push during the quick press timer to fly (see time_to_quick_push)
-@export var time_to_quick_push = 0.5 # Max time you have to quick press in order to fly (s)
-@export var time_to_lay_egg: float = 3.0 # s
-@export var jump_max_impulse: float = 5.0 # Vertical impulse for flying (px/s)
-@export var gravity_factor: float = 0.02 # Gravity modifier, the higher the more gravity
+## In px/s
+@export var move_speed: int = 200
+## How many times you have to push during the quick press timer to fly (see time_to_quick_push)
+@export var pushes_to_fly: int = 3
+## Max time you have to quick press in order to fly (s)
+@export var time_to_quick_push = 0.5 
+## In seconds
+@export var time_to_lay_egg: float = 3.0
+## Vertical impulse for flying (px/s)
+@export var jump_max_impulse: float = 5.0
+## Gravity modifier, the higher the more gravity
+@export var gravity_factor: float = 0.02
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hold_button_timer: Timer = $HoldButtonTimer
