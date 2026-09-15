@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0bjd2it3enm1" path="res://golem_first_jam/entities/pickable/branch.tscn" id="10_2yx46"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="11_n4srh"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="11_ph3lg"]
+[ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="14_lqv0p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -100,5 +101,8 @@ position = Vector2(256, -16)
 [node name="Bell" parent="PushablesManager/Pushables" parent_id_path=PackedInt32Array(2049546389, 1958911018) index="0" unique_id=524241937 instance=ExtResource("11_n4srh")]
 position = Vector2(224, 224)
 bell_id = 1
+
+[node name="Crow" parent="." unique_id=1316683000 instance=ExtResource("14_lqv0p")]
+position = Vector2(224, 192)
 
 [editable path="PushablesManager"]
