@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://he0vj4kmonts"
-path="res://.godot/imported/Asphalt.png-bb4a8eabd294c18c3a71095ce4d86458.ctex"
+path="res://.godot/imported/Asphalt.png-efece5225331132318bd6f9a32967494.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/Asphalt.png"
-dest_files=["res://.godot/imported/Asphalt.png-bb4a8eabd294c18c3a71095ce4d86458.ctex"]
+source_file="res://golem_first_jam/entities/road_block/assets/Asphalt.png"
+dest_files=["res://.godot/imported/Asphalt.png-efece5225331132318bd6f9a32967494.ctex"]
 
 [params]
 
