@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmin06f7f0r8g" path="res://golem_first_jam/entities/chicken/chicken.gd" id="1_rmv5a"]
 [ext_resource type="Texture2D" uid="uid://kjx0tso7k7sy" path="res://golem_first_jam/entities/chicken/assets/test_32.png" id="2_3ymhu"]
+[ext_resource type="Texture2D" uid="uid://cpxtgyjbkxydo" path="res://golem_first_jam/entities/chicken/assets/ChikenWalkingRight.png" id="3_c28dg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ymhu"]
 atlas = ExtResource("2_3ymhu")
@@ -34,6 +35,26 @@ region = Rect2(64, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0fly"]
 atlas = ExtResource("2_3ymhu")
 region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_novgq"]
+atlas = ExtResource("3_c28dg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfn8j"]
+atlas = ExtResource("3_c28dg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eexpy"]
+atlas = ExtResource("3_c28dg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsuja"]
+atlas = ExtResource("3_c28dg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16pfl"]
+atlas = ExtResource("3_c28dg")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ymhu"]
 animations = [{
@@ -79,7 +100,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ymhu")
+"texture": SubResource("AtlasTexture_novgq")
 }],
 "loop": 1,
 "name": &"idle",
@@ -95,10 +116,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ymhu")
+"texture": SubResource("AtlasTexture_novgq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q14m2")
+"texture": SubResource("AtlasTexture_xfn8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eexpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsuja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16pfl")
 }],
 "loop": 1,
 "name": &"move",
@@ -130,7 +160,7 @@ polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2141792074]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_3ymhu")
-animation = &"peck"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]

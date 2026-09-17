@@ -1,13 +1,20 @@
 extends Node2D
 
+@onready var chicken := $Chicken
+@onready var snake := $NPC/Snake
+@onready var crow := $NPC/Crow
+
+@onready var chicken_manager := $Managers/ChickenManager
+@onready var snake_manager := $Managers/SnakeManager
 @onready var fade_screen := $CanvasLayer/Fade
 
-@onready var crow := $Crow
 
 func _ready() -> void:
 	SignalBus.game_time_over.connect(restart)
 	SignalBus.bell_sequence_completed.connect(show_crow) # TODO Do this in the crow manager
 	
+	chicken_manager.init(chicken)
+	snake_manager.init(snake)
 	crow.hide()
 	
 func restart():

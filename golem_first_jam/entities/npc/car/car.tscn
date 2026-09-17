@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://di20x6r7gs0j3"]
+
+[ext_resource type="Texture2D" uid="uid://bu1fsvxnvfy1y" path="res://golem_first_jam/entities/npc/car/assets/car.png" id="1_cevv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3j5g"]
+atlas = ExtResource("1_cevv8")
+region = Rect2(0, 0, 247, 389)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1l7r"]
+atlas = ExtResource("1_cevv8")
+region = Rect2(247, 0, 247, 389)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3j5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1l7r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1l7r")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3j5g")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Car" type="Node2D" unique_id=1364633693]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=839504288]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.5182186, 0.5347044)
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+animation = &"down"
