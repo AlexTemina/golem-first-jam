@@ -1,4 +1,4 @@
-class_name SoundManager extends Node2D
+class_name SoundManager extends Node
 
 enum ChickenSound {WALK, PECK, LAY_EGG, FLY, CACKLE}
 

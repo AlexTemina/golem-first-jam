@@ -1,4 +1,4 @@
-class_name RoadManager extends Node2D
+class_name RoadManager extends Node
 
 var road: Road
 var car_scene: PackedScene = load("res://golem_first_jam/entities/npc/car/car.tscn")

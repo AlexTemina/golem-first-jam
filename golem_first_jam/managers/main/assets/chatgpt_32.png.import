@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkyxnufmin6b"
-path="res://.godot/imported/chatgpt_32_edited.png-efd74f02dfd73a74c7b80b0b0e76ecd0.ctex"
+uid="uid://duetprw4518fu"
+path="res://.godot/imported/chatgpt_32.png-5980431f1097f66bfdf580514cb92f59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/managers/test_farm_manager/assets/chatgpt_32_edited.png"
-dest_files=["res://.godot/imported/chatgpt_32_edited.png-efd74f02dfd73a74c7b80b0b0e76ecd0.ctex"]
+source_file="res://golem_first_jam/managers/main/assets/chatgpt_32.png"
+dest_files=["res://.godot/imported/chatgpt_32.png-5980431f1097f66bfdf580514cb92f59.ctex"]
 
 [params]
 

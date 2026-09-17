@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw6l7rxq1cwdj" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.gd" id="1_p8m3a"]
 
-[node name="PushablesManager" type="Node2D" unique_id=2049546389]
+[node name="PushablesManager" type="Node" unique_id=1878721071]
 script = ExtResource("1_p8m3a")
 
 [node name="Pushables" type="Node2D" parent="." unique_id=1958911018]

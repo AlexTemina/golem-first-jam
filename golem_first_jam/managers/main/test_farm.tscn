@@ -1,34 +1,38 @@
 [gd_scene format=4 uid="uid://cgcal367yjtlb"]
 
-[ext_resource type="Script" uid="uid://riul68u5fkhg" path="res://golem_first_jam/managers/test_farm_manager/test_farm.gd" id="1_pxxbi"]
-[ext_resource type="PackedScene" uid="uid://c2w0fo8mljsbp" path="res://golem_first_jam/entities/main_camera/main_camera.tscn" id="1_vymdk"]
-[ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="3_htonl"]
-[ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="3_jxsy7"]
-[ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="4_4kgav"]
-[ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/terrain_tilemap/terrain_tileset.tres" id="4_l1k8j"]
-[ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="5_54p4l"]
-[ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="5_wvlo2"]
-[ext_resource type="PackedScene" uid="uid://dxgt3eksabnyx" path="res://golem_first_jam/entities/obstacle/obstacle.tscn" id="6_1nk13"]
-[ext_resource type="PackedScene" uid="uid://r2bey3e76nve" path="res://golem_first_jam/managers/bells_manager/bells_manager.tscn" id="6_m2y6x"]
-[ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="6_xtfuw"]
-[ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="8_8i6n7"]
-[ext_resource type="PackedScene" uid="uid://c0bjd2it3enm1" path="res://golem_first_jam/entities/pickable/branch.tscn" id="10_2yx46"]
-[ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="11_n4srh"]
-[ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="11_ph3lg"]
-[ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="14_lqv0p"]
-[ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="15_cdmbb"]
-[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="16_mt1tk"]
-[ext_resource type="PackedScene" uid="uid://cxo5nuw40xibo" path="res://golem_first_jam/managers/npc/snake_manager.tscn" id="17_4kgav"]
-[ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="18_4kgav"]
-[ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_l1k8j"]
+[ext_resource type="Script" uid="uid://riul68u5fkhg" path="res://golem_first_jam/managers/main/main.gd" id="1_scim2"]
+[ext_resource type="PackedScene" uid="uid://c2w0fo8mljsbp" path="res://golem_first_jam/entities/main_camera/main_camera.tscn" id="2_p7mpl"]
+[ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="3_mftsl"]
+[ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/terrain_tilemap/terrain_tileset.tres" id="4_aww3b"]
+[ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="5_h4cnv"]
+[ext_resource type="PackedScene" uid="uid://dxgt3eksabnyx" path="res://golem_first_jam/entities/obstacle/obstacle.tscn" id="6_7b4el"]
+[ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="7_hmkbc"]
+[ext_resource type="PackedScene" uid="uid://c0bjd2it3enm1" path="res://golem_first_jam/entities/pickable/branch.tscn" id="8_r1vgb"]
+[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="9_vr2hf"]
+[ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="10_0snwu"]
+[ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="11_6vm4u"]
+[ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="12_t0jr5"]
+[ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="13_0t3qc"]
+[ext_resource type="PackedScene" uid="uid://r2bey3e76nve" path="res://golem_first_jam/managers/bells_manager/bells_manager.tscn" id="14_5qcmy"]
+[ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="15_h8r6x"]
+[ext_resource type="PackedScene" uid="uid://cxo5nuw40xibo" path="res://golem_first_jam/managers/npc/snake_manager.tscn" id="16_vq41i"]
+[ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="17_momrp"]
+[ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="18_hdd3j"]
+[ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="19_e17t2"]
+[ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="20_kgamx"]
+[ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_g0o8m"]
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291]
-script = ExtResource("1_pxxbi")
+script = ExtResource("1_scim2")
 
-[node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("1_vymdk")]
+[node name="Managers_PushablesManager_Pushables#Bell" parent="." unique_id=524241937 instance=ExtResource("19_e17t2")]
+position = Vector2(224, 224)
+bell_id = 1
+
+[node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_p7mpl")]
 camera_target = NodePath("../Chicken")
 
-[node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_htonl")]
+[node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_mftsl")]
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1032856331]
 
@@ -36,26 +40,30 @@ camera_target = NodePath("../Chicken")
 z_index = -1000
 z_as_relative = false
 tile_map_data = PackedByteArray("AAD8//z/AAAEAAcAAAD8//3/AAAEAAcAAAD8//7/AAAEAAcAAAD8////AAAEAAcAAAD8/wAAAAAEAAcAAAD8/wEAAAAEAAcAAAD8/wIAAAAEAAcAAAD8/wMAAAAEAAcAAAD8/wQAAAAEAAcAAAD8/wUAAAAEAAcAAAD8/wYAAAAEAAcAAAD8/wcAAAAEAAcAAAD8/wgAAAAEAAcAAAD8/wkAAAAEAAcAAAD8/woAAAAEAAcAAAD9//z/AAAEAAcAAAD9//3/AAAEAAcAAAD9//7/AAAEAAcAAAD9////AAAEAAcAAAD9/wAAAAAEAAcAAAD9/wEAAAAEAAcAAAD9/wIAAAAEAAcAAAD9/wMAAAAEAAcAAAD9/wQAAAAEAAcAAAD9/wUAAAAEAAcAAAD9/wYAAAAEAAcAAAD9/wcAAAAEAAcAAAD9/wgAAAAEAAcAAAD9/wkAAAAEAAcAAAD9/woAAAAEAAcAAAD+//z/AAAEAAcAAAD+//3/AAAEAAcAAAD+//7/AAAEAAcAAAD+////AAAEAAcAAAD+/wAAAAAEAAcAAAD+/wEAAAAEAAcAAAD+/wIAAAAEAAcAAAD+/wMAAAAEAAcAAAD+/wQAAAAEAAcAAAD+/wUAAAAEAAcAAAD+/wYAAAAEAAcAAAD+/wcAAAAEAAcAAAD+/wgAAAAEAAcAAAD+/wkAAAAEAAcAAAD+/woAAAAEAAcAAAD///z/AAAEAAcAAAD///3/AAAEAAcAAAD///7/AAAEAAcAAAD/////AAAEAAcAAAD//wAAAAAEAAcAAAD//wEAAAAEAAcAAAD//wIAAAAEAAcAAAD//wMAAAAEAAcAAAD//wQAAAAEAAcAAAD//wUAAAAEAAcAAAD//wYAAAAEAAcAAAD//wcAAAAEAAcAAAD//wgAAAAEAAcAAAD//wkAAAAEAAcAAAD//woAAAAEAAcAAAAAAPz/AAAEAAcAAAAAAP3/AAAEAAcAAAAAAP7/AAAEAAcAAAAAAP//AAAEAAcAAAAAAAAAAAAEAAcAAAAAAAEAAAAEAAcAAAAAAAIAAAAEAAcAAAAAAAMAAAAEAAcAAAAAAAQAAAAEAAcAAAAAAAUAAAAEAAcAAAAAAAYAAAAEAAcAAAAAAAcAAAAEAAcAAAAAAAgAAAAEAAcAAAAAAAkAAAAEAAcAAAAAAAoAAAAEAAcAAAABAPz/AAAEAAcAAAABAP3/AAAEAAcAAAABAP7/AAAEAAcAAAABAP//AAAEAAcAAAABAAAAAAAEAAcAAAABAAEAAAAEAAcAAAABAAIAAAAEAAcAAAABAAMAAAAEAAcAAAABAAQAAAAEAAcAAAABAAUAAAAEAAcAAAABAAYAAAAEAAcAAAABAAcAAAAEAAcAAAABAAgAAAAEAAcAAAABAAkAAAAEAAcAAAABAAoAAAAEAAcAAAACAPz/AAAEAAcAAAACAP3/AAAEAAcAAAACAP7/AAAEAAcAAAACAP//AAAEAAcAAAACAAAAAAAEAAcAAAACAAEAAAAEAAcAAAACAAIAAAAEAAcAAAACAAMAAAAEAAcAAAACAAQAAAAEAAcAAAACAAUAAAAEAAcAAAACAAYAAAAEAAcAAAACAAcAAAAEAAcAAAACAAgAAAAEAAcAAAACAAkAAAAEAAcAAAACAAoAAAAEAAcAAAADAPz/AAAEAAcAAAADAP3/AAAEAAcAAAADAP7/AAAEAAcAAAADAP//AAAEAAcAAAADAAAAAAAEAAcAAAADAAEAAAAEAAcAAAADAAIAAAAEAAcAAAADAAMAAAAEAAcAAAADAAQAAAAEAAcAAAADAAUAAAAEAAcAAAADAAYAAAAEAAcAAAADAAcAAAAEAAcAAAADAAgAAAAEAAcAAAADAAkAAAAEAAcAAAADAAoAAAAEAAcAAAAEAPz/AAAEAAcAAAAEAP3/AAAEAAcAAAAEAP7/AAAEAAcAAAAEAP//AAAEAAcAAAAEAAAAAAAEAAcAAAAEAAEAAAAEAAcAAAAEAAIAAAAHAAcAAAAEAAMAAAAHAAcAAAAEAAQAAAAHAAcAAAAEAAUAAAAHAAcAAAAEAAYAAAAEAAcAAAAEAAcAAAAEAAcAAAAEAAgAAAAEAAcAAAAEAAkAAAAEAAcAAAAEAAoAAAAEAAcAAAAFAPz/AAAEAAcAAAAFAP3/AAAEAAcAAAAFAP7/AAAEAAcAAAAFAP//AAAEAAcAAAAFAAAAAAAEAAcAAAAFAAEAAAAEAAcAAAAFAAIAAAAHAAcAAAAFAAMAAAAHAAcAAAAFAAQAAAAHAAcAAAAFAAUAAAAHAAcAAAAFAAYAAAAEAAcAAAAFAAcAAAAEAAcAAAAFAAgAAAAEAAcAAAAFAAkAAAAEAAcAAAAFAAoAAAAEAAcAAAAGAPz/AAAEAAcAAAAGAP3/AAAEAAcAAAAGAP7/AAAEAAcAAAAGAP//AAAEAAcAAAAGAAAAAAAEAAcAAAAGAAEAAAAEAAcAAAAGAAIAAAAHAAcAAAAGAAMAAAAHAAcAAAAGAAQAAAAHAAcAAAAGAAUAAAAHAAcAAAAGAAYAAAAEAAcAAAAGAAcAAAAEAAcAAAAGAAgAAAAEAAcAAAAGAAkAAAAEAAcAAAAGAAoAAAAEAAcAAAAHAPz/AAAEAAcAAAAHAP3/AAAEAAcAAAAHAP7/AAAEAAcAAAAHAP//AAAEAAcAAAAHAAAAAAAEAAcAAAAHAAEAAAAEAAcAAAAHAAIAAAAHAAcAAAAHAAMAAAAHAAcAAAAHAAQAAAAHAAcAAAAHAAUAAAAHAAcAAAAHAAYAAAAEAAcAAAAHAAcAAAAEAAcAAAAHAAgAAAAEAAcAAAAHAAkAAAAEAAcAAAAHAAoAAAAEAAcAAAAIAPz/AAAEAAcAAAAIAP3/AAAEAAcAAAAIAP7/AAAEAAcAAAAIAP//AAAEAAcAAAAIAAAAAAAEAAcAAAAIAAEAAAAEAAcAAAAIAAIAAAAHAAcAAAAIAAMAAAAHAAcAAAAIAAQAAAAHAAcAAAAIAAUAAAAHAAcAAAAIAAYAAAAEAAcAAAAIAAcAAAAEAAcAAAAIAAgAAAAEAAcAAAAIAAkAAAAEAAcAAAAIAAoAAAAEAAcAAAAJAPz/AAAEAAcAAAAJAP3/AAAEAAcAAAAJAP7/AAAEAAcAAAAJAP//AAAEAAcAAAAJAAAAAAAEAAcAAAAJAAEAAAAEAAcAAAAJAAIAAAAEAAcAAAAJAAMAAAAEAAcAAAAJAAQAAAAEAAcAAAAJAAUAAAAEAAcAAAAJAAYAAAAEAAcAAAAJAAcAAAAEAAcAAAAJAAgAAAAEAAcAAAAJAAkAAAAEAAcAAAAJAAoAAAAEAAcAAAAKAPz/AAAEAAcAAAAKAP3/AAAEAAcAAAAKAP7/AAAEAAcAAAAKAP//AAAEAAcAAAAKAAAAAAAEAAcAAAAKAAEAAAAEAAcAAAAKAAIAAAAEAAcAAAAKAAMAAAAEAAcAAAAKAAQAAAAEAAcAAAAKAAUAAAAEAAcAAAAKAAYAAAAEAAcAAAAKAAcAAAAEAAcAAAAKAAgAAAAEAAcAAAAKAAkAAAAEAAcAAAAKAAoAAAAEAAcAAAALAPz/AAAEAAcAAAALAP3/AAAEAAcAAAALAP7/AAAEAAcAAAALAP//AAAEAAcAAAALAAAAAAAEAAcAAAALAAEAAAAEAAcAAAALAAIAAAAEAAcAAAALAAMAAAAEAAcAAAALAAQAAAAEAAcAAAALAAUAAAAEAAcAAAALAAYAAAAEAAcAAAALAAcAAAAEAAcAAAALAAgAAAAEAAcAAAALAAkAAAAEAAcAAAALAAoAAAAEAAcAAAAMAPz/AAAEAAcAAAAMAP3/AAAEAAcAAAAMAP7/AAAEAAcAAAAMAP//AAAEAAcAAAAMAAAAAAAEAAcAAAAMAAEAAAAEAAcAAAAMAAIAAAAEAAcAAAAMAAMAAAAEAAcAAAAMAAQAAAAEAAcAAAAMAAUAAAAEAAcAAAAMAAYAAAAEAAcAAAAMAAcAAAAEAAcAAAAMAAgAAAAEAAcAAAAMAAkAAAAEAAcAAAAMAAoAAAAEAAcAAAANAPz/AAAEAAcAAAANAP3/AAAEAAcAAAANAP7/AAAEAAcAAAANAP//AAAEAAcAAAANAAAAAAAEAAcAAAANAAEAAAAEAAcAAAANAAIAAAAEAAcAAAANAAMAAAAEAAcAAAANAAQAAAAEAAcAAAANAAUAAAAEAAcAAAANAAYAAAAEAAcAAAANAAcAAAAEAAcAAAANAAgAAAAEAAcAAAANAAkAAAAEAAcAAAANAAoAAAAEAAcAAAAOAPz/AAAEAAcAAAAOAP3/AAAEAAcAAAAOAP7/AAAEAAcAAAAOAP//AAAEAAcAAAAOAAAAAAAEAAcAAAAOAAEAAAAEAAcAAAAOAAIAAAAEAAcAAAAOAAMAAAAEAAcAAAAOAAQAAAAEAAcAAAAOAAUAAAAEAAcAAAAOAAYAAAAEAAcAAAAOAAcAAAAEAAcAAAAOAAgAAAAEAAcAAAAOAAkAAAAEAAcAAAAOAAoAAAAEAAcAAAAPAPz/AAAEAAcAAAAPAP3/AAAEAAcAAAAPAP7/AAAEAAcAAAAPAP//AAAEAAcAAAAPAAAAAAAEAAcAAAAPAAEAAAAEAAcAAAAPAAIAAAAEAAcAAAAPAAMAAAAEAAcAAAAPAAQAAAAEAAcAAAAPAAUAAAAEAAcAAAAPAAYAAAAEAAcAAAAPAAcAAAAEAAcAAAAPAAgAAAAEAAcAAAAPAAkAAAAEAAcAAAAPAAoAAAAEAAcAAAAQAPz/AAAEAAcAAAAQAP3/AAAEAAcAAAAQAP7/AAAEAAcAAAAQAP//AAAEAAcAAAAQAAAAAAAEAAcAAAAQAAEAAAAEAAcAAAAQAAIAAAAEAAcAAAAQAAMAAAAEAAcAAAAQAAQAAAAEAAcAAAAQAAUAAAAEAAcAAAAQAAYAAAAEAAcAAAAQAAcAAAAEAAcAAAAQAAgAAAAEAAcAAAAQAAkAAAAEAAcAAAAQAAoAAAAEAAcAAAARAPz/AAAEAAcAAAARAP3/AAAEAAcAAAARAP7/AAAEAAcAAAARAP//AAAEAAcAAAARAAAAAAAEAAcAAAARAAEAAAAEAAcAAAARAAIAAAAEAAcAAAARAAMAAAAEAAcAAAARAAQAAAAEAAcAAAARAAUAAAAEAAcAAAARAAYAAAAEAAcAAAARAAcAAAAEAAcAAAARAAgAAAAEAAcAAAARAAkAAAAEAAcAAAARAAoAAAAEAAcAAAASAPz/AAAEAAcAAAASAP3/AAAEAAcAAAASAP7/AAAEAAcAAAASAP//AAAEAAcAAAASAAAAAAAEAAcAAAASAAEAAAAEAAcAAAASAAIAAAAEAAcAAAASAAMAAAAEAAcAAAASAAQAAAAEAAcAAAASAAUAAAAEAAcAAAASAAYAAAAEAAcAAAASAAcAAAAEAAcAAAASAAgAAAAEAAcAAAASAAkAAAAEAAcAAAASAAoAAAAEAAcAAAATAPz/AAAEAAcAAAATAP3/AAAEAAcAAAATAP7/AAAEAAcAAAATAP//AAAEAAcAAAATAAAAAAAEAAcAAAATAAEAAAAEAAcAAAATAAIAAAAEAAcAAAATAAMAAAAEAAcAAAATAAQAAAAEAAcAAAATAAUAAAAEAAcAAAATAAYAAAAEAAcAAAATAAcAAAAEAAcAAAATAAgAAAAEAAcAAAATAAkAAAAEAAcAAAATAAoAAAAEAAcAAAAUAPz/AAAEAAcAAAAUAP3/AAAEAAcAAAAUAP7/AAAEAAcAAAAUAP//AAAEAAcAAAAUAAAAAAAEAAcAAAAUAAEAAAAEAAcAAAAUAAIAAAAEAAcAAAAUAAMAAAAEAAcAAAAUAAQAAAAEAAcAAAAUAAUAAAAEAAcAAAAUAAYAAAAEAAcAAAAUAAcAAAAEAAcAAAAUAAgAAAAEAAcAAAAUAAkAAAAEAAcAAAAUAAoAAAAEAAcAAAAVAPz/AAAEAAcAAAAVAP3/AAAEAAcAAAAVAP7/AAAEAAcAAAAVAP//AAAEAAcAAAAVAAAAAAAEAAcAAAAVAAEAAAAEAAcAAAAVAAIAAAAEAAcAAAAVAAMAAAAEAAcAAAAVAAQAAAAEAAcAAAAVAAUAAAAEAAcAAAAVAAYAAAAEAAcAAAAVAAcAAAAEAAcAAAAVAAgAAAAEAAcAAAAVAAkAAAAEAAcAAAAVAAoAAAAEAAcAAAAWAPz/AAAEAAcAAAAWAP3/AAAEAAcAAAAWAP7/AAAEAAcAAAAWAP//AAAEAAcAAAAWAAAAAAAEAAcAAAAWAAEAAAAEAAcAAAAWAAIAAAAEAAcAAAAWAAMAAAAEAAcAAAAWAAQAAAAEAAcAAAAWAAUAAAAEAAcAAAAWAAYAAAAEAAcAAAAWAAcAAAAEAAcAAAAWAAgAAAAEAAcAAAAWAAkAAAAEAAcAAAAWAAoAAAAEAAcAAAAXAPz/AAAEAAcAAAAXAP3/AAAEAAcAAAAXAP7/AAAEAAcAAAAXAP//AAAEAAcAAAAXAAAAAAAEAAcAAAAXAAEAAAAEAAcAAAAXAAIAAAAEAAcAAAAXAAMAAAAEAAcAAAAXAAQAAAAEAAcAAAAXAAUAAAAEAAcAAAAXAAYAAAAEAAcAAAAXAAcAAAAEAAcAAAAXAAgAAAAEAAcAAAAXAAkAAAAEAAcAAAAXAAoAAAAEAAcAAAAYAPz/AAAEAAcAAAAYAP3/AAAEAAcAAAAYAP7/AAAEAAcAAAAYAP//AAAEAAcAAAAYAAAAAAAEAAcAAAAYAAEAAAAEAAcAAAAYAAIAAAAEAAcAAAAYAAMAAAAEAAcAAAAYAAQAAAAEAAcAAAAYAAUAAAAEAAcAAAAYAAYAAAAEAAcAAAAYAAcAAAAEAAcAAAAYAAgAAAAEAAcAAAAYAAkAAAAEAAcAAAAYAAoAAAAEAAcAAAAZAPz/AAAEAAcAAAAZAP3/AAAEAAcAAAAZAP7/AAAEAAcAAAAZAP//AAAEAAcAAAAZAAAAAAAEAAcAAAAZAAEAAAAEAAcAAAAZAAIAAAAEAAcAAAAZAAMAAAAEAAcAAAAZAAQAAAAEAAcAAAAZAAUAAAAEAAcAAAAZAAYAAAAEAAcAAAAZAAcAAAAEAAcAAAAZAAgAAAAEAAcAAAAZAAkAAAAEAAcAAAAZAAoAAAAEAAcAAAA=")
-tile_set = ExtResource("4_l1k8j")
+tile_set = ExtResource("4_aww3b")
 
-[node name="Road" parent="Terrain" unique_id=1918354824 instance=ExtResource("5_wvlo2")]
+[node name="Road" parent="Terrain" unique_id=1918354824 instance=ExtResource("5_h4cnv")]
 z_index = -900
-position = Vector2(512, -192)
+position = Vector2(519, -149)
+
+[node name="Road2" parent="Terrain" unique_id=1109598499 instance=ExtResource("5_h4cnv")]
+z_index = -900
+position = Vector2(519, -627)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=80006425]
 
-[node name="Obstacle" parent="Obstacles" unique_id=724262514 instance=ExtResource("6_1nk13")]
+[node name="Obstacle" parent="Obstacles" unique_id=724262514 instance=ExtResource("6_7b4el")]
 position = Vector2(368, 128)
 
-[node name="Obstacle3" parent="Obstacles" unique_id=1984188066 instance=ExtResource("6_1nk13")]
+[node name="Obstacle3" parent="Obstacles" unique_id=1984188066 instance=ExtResource("6_7b4el")]
 position = Vector2(144, -64)
 
-[node name="Obstacle2" parent="Obstacles" unique_id=1658198487 instance=ExtResource("6_1nk13")]
+[node name="Obstacle2" parent="Obstacles" unique_id=1658198487 instance=ExtResource("6_7b4el")]
 position = Vector2(112, 128)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
 
-[node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("8_8i6n7")]
+[node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("7_hmkbc")]
 max_time = 9999
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=431233615]
@@ -67,44 +75,40 @@ color = Color(0, 0, 0, 1)
 
 [node name="Items" type="Node2D" parent="." unique_id=1795162199]
 
-[node name="Branch" parent="Items" unique_id=549245696 instance=ExtResource("10_2yx46")]
+[node name="Branch" parent="Items" unique_id=549245696 instance=ExtResource("8_r1vgb")]
 position = Vector2(256, -16)
 
-[node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("16_mt1tk")]
+[node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("9_vr2hf")]
 position = Vector2(0, 64)
 
 [node name="NPC" type="Node2D" parent="." unique_id=634675259]
 
-[node name="Snake" parent="NPC" unique_id=1303927804 instance=ExtResource("18_4kgav")]
+[node name="Snake" parent="NPC" unique_id=1303927804 instance=ExtResource("10_0snwu")]
 position = Vector2(368, 24)
 
-[node name="Crow" parent="NPC" unique_id=1316683000 instance=ExtResource("14_lqv0p")]
+[node name="Crow" parent="NPC" unique_id=1316683000 instance=ExtResource("11_6vm4u")]
 position = Vector2(224, 192)
 
 [node name="Managers" type="Node2D" parent="." unique_id=1024291367]
 
-[node name="ChickenManager" parent="Managers" unique_id=2135993555 instance=ExtResource("4_4kgav")]
+[node name="ChickenManager" parent="Managers" unique_id=2135993555 instance=ExtResource("12_t0jr5")]
 chicken_starting_position = Vector2(160, 120)
 
-[node name="EggsManager" parent="Managers" unique_id=1416884054 instance=ExtResource("3_jxsy7")]
+[node name="EggsManager" parent="Managers" unique_id=1416884054 instance=ExtResource("13_0t3qc")]
 
-[node name="BellsManager" parent="Managers" unique_id=2111582727 instance=ExtResource("6_m2y6x")]
+[node name="BellsManager" parent="Managers" unique_id=2111582727 instance=ExtResource("14_5qcmy")]
 
-[node name="SoundManager" parent="Managers" unique_id=1418100125 instance=ExtResource("5_54p4l")]
+[node name="SoundManager" parent="Managers" unique_id=1418100125 instance=ExtResource("15_h8r6x")]
 
-[node name="SnakeManager" parent="Managers" unique_id=1052215676 instance=ExtResource("17_4kgav")]
+[node name="SnakeManager" parent="Managers" unique_id=1052215676 instance=ExtResource("16_vq41i")]
 
-[node name="ObstaclesManager" parent="Managers" unique_id=1813073625 instance=ExtResource("6_xtfuw")]
+[node name="ObstaclesManager" parent="Managers" unique_id=1813073625 instance=ExtResource("17_momrp")]
 
-[node name="PushablesManager" parent="Managers" unique_id=2049546389 instance=ExtResource("11_ph3lg")]
+[node name="PushablesManager" parent="Managers" unique_id=2049546389 instance=ExtResource("18_hdd3j")]
 
-[node name="Bell" parent="Managers/PushablesManager/Pushables" parent_id_path=PackedInt32Array(2049546389, 1958911018) index="0" unique_id=524241937 instance=ExtResource("11_n4srh")]
-position = Vector2(224, 224)
-bell_id = 1
+[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 instance=ExtResource("20_kgamx")]
 
-[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 instance=ExtResource("15_cdmbb")]
-
-[node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("21_l1k8j")]
+[node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("21_g0o8m")]
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]

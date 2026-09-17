@@ -1,4 +1,4 @@
-class_name EggsManager extends Node2D
+class_name EggsManager extends Node
 
 @export var egg_scene: PackedScene = load("res://golem_first_jam/entities/egg/egg.tscn")
 ## Max eggs allowed. When lying more than this, the older one disappears

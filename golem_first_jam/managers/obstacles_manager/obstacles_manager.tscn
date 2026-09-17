@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://di44j2433e3j" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.gd" id="1_g6ia3"]
 
-[node name="ObstaclesManager" type="Node2D" unique_id=1813073625]
+[node name="ObstaclesManager" type="Node" unique_id=1419670554]
 script = ExtResource("1_g6ia3")

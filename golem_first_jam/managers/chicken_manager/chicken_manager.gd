@@ -1,4 +1,4 @@
-class_name ChickenManager extends Node2D
+class_name ChickenManager extends Node
 
 @export var chicken_starting_position: Vector2
 

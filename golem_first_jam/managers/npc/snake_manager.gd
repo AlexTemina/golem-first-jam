@@ -1,4 +1,4 @@
-class_name SnakeManager extends Node2D
+class_name SnakeManager extends Node
 
 ## Max distance to be attracted to an egg
 @export var max_distance_to_egg: int = 100

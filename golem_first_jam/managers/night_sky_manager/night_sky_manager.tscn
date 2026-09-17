@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b21cinbp4oil5" path="res://golem_first_jam/managers/night_sky_manager/night_sky_manager.gd" id="1_pfx5l"]
 [ext_resource type="Texture2D" uid="uid://bea20dukgy1y3" path="res://golem_first_jam/managers/night_sky_manager/assets/NightSky1.png" id="2_erf67"]
 
-[node name="NightSkyManager" type="Node2D" unique_id=1145059542]
+[node name="NightSkyManager" type="Node" unique_id=1145059542]
 script = ExtResource("1_pfx5l")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1399567284]
