@@ -19,4 +19,4 @@ func create_egg(position: Vector2):
 func remove_eldest_egg():
 	if eggs_container.get_child_count() > max_eggs:
 		var eldest_egg: Egg = eggs_container.get_children()[0]
-		eldest_egg.destroy()
+		eldest_egg.break_egg()
