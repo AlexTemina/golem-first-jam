@@ -13,13 +13,15 @@ signal chicken_flies()
 signal chicken_lands()
 signal lay_egg(position: Vector2)
 signal special_vision_toggled(on: bool)
+signal chicken_crosses_road()
 
 # NPCs
-signal snake_scares()
+signal scare_chicken()
 
 # OBSTACLES
 signal enable_obstacles()
 signal disable_obstacles()
+signal launch_car()
 
 # PUSHABLE ITEMS
 signal pushable_item_interacted(item: PushableEntity)

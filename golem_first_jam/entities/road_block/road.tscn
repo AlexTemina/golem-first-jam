@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cueifjtx3qs8t"]
+
+[ext_resource type="Texture2D" uid="uid://cuholn5ogpr48" path="res://golem_first_jam/entities/road_block/assets/road_block.png" id="1_obokj"]
+[ext_resource type="Script" uid="uid://fpj6xxx4473r" path="res://golem_first_jam/entities/road_block/road.gd" id="1_ra7h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejmlq"]
+size = Vector2(256, 544)
+
+[node name="Road" type="Node2D" unique_id=1918354824]
+script = ExtResource("1_ra7h7")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1043716524]
+texture_repeat = 2
+position = Vector2(128, 272)
+scale = Vector2(0.44912276, 1.0799999)
+texture = ExtResource("1_obokj")
+region_enabled = true
+region_rect = Rect2(0, 0, 570, 500)
+
+[node name="ScareArea" type="Area2D" parent="." unique_id=1686155814]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" unique_id=942745556]
+position = Vector2(128, 272)
+shape = SubResource("RectangleShape2D_ejmlq")
+
+[connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]

@@ -6,8 +6,10 @@ extends Node2D
 
 @onready var chicken_manager := $Managers/ChickenManager
 @onready var snake_manager := $Managers/SnakeManager
+@onready var road_manager := $Managers/RoadManager
 @onready var fade_screen := $CanvasLayer/Fade
 
+@onready var road := $Terrain/Road
 
 func _ready() -> void:
 	SignalBus.game_time_over.connect(restart)
@@ -15,7 +17,9 @@ func _ready() -> void:
 	
 	chicken_manager.init(chicken)
 	snake_manager.init(snake)
+	road_manager.init(road)
 	crow.hide()
+	
 	
 func restart():
 	fade_screen.show()
