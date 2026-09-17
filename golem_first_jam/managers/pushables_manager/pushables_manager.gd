@@ -1,4 +1,4 @@
-class_name PushablesManager extends Node2D
+class_name PushablesManager extends Node
 
 @onready var pushables_container := $Pushables
 

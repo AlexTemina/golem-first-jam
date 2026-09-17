@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="19_e17t2"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="20_kgamx"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_g0o8m"]
+[ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="22_p7mpl"]
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291]
 script = ExtResource("1_scim2")
@@ -33,6 +34,7 @@ bell_id = 1
 camera_target = NodePath("../Chicken")
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_mftsl")]
+unique_name_in_owner = true
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1032856331]
 
@@ -109,6 +111,10 @@ chicken_starting_position = Vector2(160, 120)
 [node name="SpecialVisionManager" parent="Managers" unique_id=873685239 instance=ExtResource("20_kgamx")]
 
 [node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("21_g0o8m")]
+
+[node name="Tractor1" type="Sprite2D" parent="." unique_id=639386891]
+position = Vector2(424, -44)
+texture = ExtResource("22_p7mpl")
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]

@@ -1,28 +1,37 @@
-extends Node2D
+extends Node
 
-@onready var chicken := $Chicken
-@onready var snake := $NPC/Snake
-@onready var crow := $NPC/Crow
+@export var chicken: Chicken
+@export var snake: Snake
+@export var crow: Crow
 
-@onready var chicken_manager := $Managers/ChickenManager
-@onready var snake_manager := $Managers/SnakeManager
-@onready var road_manager := $Managers/RoadManager
-@onready var fade_screen := $CanvasLayer/Fade
+@export var chicken_manager: ChickenManager
+@export var snake_manager: SnakeManager
+@export var road_manager: RoadManager
+@export var fade_screen: ColorRect
+
 
 @onready var road := $Terrain/Road
 
 func _ready() -> void:
 	SignalBus.game_time_over.connect(restart)
 	SignalBus.bell_sequence_completed.connect(show_crow) # TODO Do this in the crow manager
-	
-	chicken_manager.init(chicken)
-	snake_manager.init(snake)
-	road_manager.init(road)
-	crow.hide()
+
+	if chicken_manager and chicken:
+		chicken_manager.init(chicken)
+	if snake_manager and snake:
+		snake_manager.init(snake)
+	if road_manager and road:
+		road_manager.init(road)
+	if fade_screen:
+		fade_screen.hide()
+	if crow:
+		crow.hide()
 	
 	
 func restart():
-	fade_screen.show()
+	if fade_screen:
+		fade_screen.show()
+
 	await wait(0.5)
 	
 	get_tree().reload_current_scene()
@@ -31,4 +40,5 @@ func wait(seconds: float):
 	await get_tree().create_timer(seconds).timeout
 	
 func show_crow(bell_id: Bell.Id):
-	crow.show()
+	if crow:
+		crow.show()

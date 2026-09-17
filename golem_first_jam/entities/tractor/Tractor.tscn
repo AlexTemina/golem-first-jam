@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dg1g251ntk8ie"]
+
+[ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="1_821el"]
+
+[node name="Tractor" type="Node2D" unique_id=745763056]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981758957]
+texture = ExtResource("1_821el")
