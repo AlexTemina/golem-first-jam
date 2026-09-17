@@ -5,7 +5,7 @@ class_name ChickenManager extends Node2D
 var chicken: Chicken
 
 func _ready() -> void:
-	SignalBus.snake_scares.connect(scare_chicken)
+	SignalBus.scare_chicken.connect(scare_chicken)
 	
 func init(chicken: Chicken):
 	self.chicken = chicken

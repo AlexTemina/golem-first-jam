@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2o1u8bgjl8pn"]
+
+[ext_resource type="Script" uid="uid://c4gntn0x4khl6" path="res://golem_first_jam/managers/road_manager/road_manager.gd" id="1_sn534"]
+
+[node name="RoadManager" type="Node2D" unique_id=1499613785]
+script = ExtResource("1_sn534")
