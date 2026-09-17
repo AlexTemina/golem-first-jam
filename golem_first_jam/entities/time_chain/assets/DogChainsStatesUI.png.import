@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deyi2gmwtnd1w"
-path="res://.godot/imported/DogChainsUI.png-2d1ce8b68a03c25fef55451e834ed101.ctex"
+uid="uid://wiuex0wvvyw8"
+path="res://.godot/imported/DogChainsStatesUI.png-15b9198002c5c9f4a8823ed8a1b48c87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/time_chain/assets/DogChainsUI.png"
-dest_files=["res://.godot/imported/DogChainsUI.png-2d1ce8b68a03c25fef55451e834ed101.ctex"]
+source_file="res://golem_first_jam/entities/time_chain/assets/DogChainsStatesUI.png"
+dest_files=["res://.godot/imported/DogChainsStatesUI.png-15b9198002c5c9f4a8823ed8a1b48c87.ctex"]
 
 [params]
 
