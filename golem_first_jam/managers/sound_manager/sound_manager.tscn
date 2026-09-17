@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqabn8brhcboj" path="res://golem_first_jam/managers/sound_manager/sound_manager.gd" id="1_4lm8f"]
 
-[node name="SoundManager" type="Node2D" unique_id=1418100125]
+[node name="SoundManager" type="Node" unique_id=1893828585]
 script = ExtResource("1_4lm8f")
 
 [node name="ChickenPlayer" type="AudioStreamPlayer" parent="." unique_id=1321193393]

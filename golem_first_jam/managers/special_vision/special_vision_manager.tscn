@@ -7,11 +7,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kddjp"]
 shader = ExtResource("2_hxwpy")
 shader_parameter/pixel_size = 1.0
-shader_parameter/vhs_intensity = 3.8160001812599997
+shader_parameter/vhs_intensity = 3.81600018126
 shader_parameter/noise_intensity = 0.15
 shader_parameter/opacity = 0.07200000342
 
-[node name="SpecialVisionManager" type="Node2D" unique_id=873685239]
+[node name="SpecialVisionManager" type="Node" unique_id=88120497]
 script = ExtResource("1_memsb")
 
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=2037883741]

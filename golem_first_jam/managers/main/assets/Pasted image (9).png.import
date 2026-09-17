@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chlq6fufoow80"
-path="res://.godot/imported/test_tileset_32.png-c63fac7f698d92118ffa1d5042f3e49e.ctex"
+uid="uid://dew1x1chnq8kj"
+path="res://.godot/imported/Pasted image (9).png-71b4c0f913a9d3465c977c033d71d9e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/managers/test_farm_manager/assets/test_tileset_32.png"
-dest_files=["res://.godot/imported/test_tileset_32.png-c63fac7f698d92118ffa1d5042f3e49e.ctex"]
+source_file="res://golem_first_jam/managers/main/assets/Pasted image (9).png"
+dest_files=["res://.godot/imported/Pasted image (9).png-71b4c0f913a9d3465c977c033d71d9e4.ctex"]
 
 [params]
 

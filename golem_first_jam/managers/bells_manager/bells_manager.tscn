@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh5k2hkbnxtmh" path="res://golem_first_jam/managers/bells_manager/bells_manager.gd" id="1_d71cc"]
 
-[node name="BellsManager" type="Node2D" unique_id=2111582727]
+[node name="BellsManager" type="Node" unique_id=476805008]
 script = ExtResource("1_d71cc")
 
 [node name="ResetSequenceTimer" type="Timer" parent="." unique_id=1475510459]

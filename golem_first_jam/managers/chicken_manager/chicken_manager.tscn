@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cpbvo1p1stld3" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.gd" id="1_f6aqc"]
 
-[node name="ChickenManager" type="Node2D" unique_id=2135993555]
+[node name="ChickenManager" type="Node" unique_id=599307440]
 script = ExtResource("1_f6aqc")
+chicken_starting_position = null

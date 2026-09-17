@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmba2a3eio12q"
-path="res://.godot/imported/Pasted image (10).png-7660d8246d663cf585e212f8e76711fa.ctex"
+uid="uid://c35aaw1wbexn0"
+path="res://.godot/imported/Pasted image (6).png-bbd76c09c665bd9bbdffcdb82487f324.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/managers/test_farm_manager/assets/Pasted image (10).png"
-dest_files=["res://.godot/imported/Pasted image (10).png-7660d8246d663cf585e212f8e76711fa.ctex"]
+source_file="res://golem_first_jam/managers/main/assets/Pasted image (6).png"
+dest_files=["res://.godot/imported/Pasted image (6).png-bbd76c09c665bd9bbdffcdb82487f324.ctex"]
 
 [params]
 

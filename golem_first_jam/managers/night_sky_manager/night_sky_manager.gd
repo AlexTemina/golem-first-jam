@@ -1,4 +1,4 @@
-class_name NightSky extends Node2D
+class_name NightSky extends Node
 
 @export var star_scene: PackedScene = load("res://golem_first_jam/entities/night_sky/star.tscn")
 

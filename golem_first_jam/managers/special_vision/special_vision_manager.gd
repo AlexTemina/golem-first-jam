@@ -1,4 +1,4 @@
-class_name SpecialVisionManager extends Node2D
+class_name SpecialVisionManager extends Node
 
 @onready var canvas_modulate := $CanvasModulate
 @onready var shader_rectangle := $ShaderCanvasLayer/ColorRect

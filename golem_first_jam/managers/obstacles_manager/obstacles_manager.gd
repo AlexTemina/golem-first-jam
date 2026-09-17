@@ -1,4 +1,4 @@
-class_name ObstaclesManager extends Node2D
+class_name ObstaclesManager extends Node
 
 func _ready():
 	SignalBus.chicken_flies.connect(on_chicken_flies)

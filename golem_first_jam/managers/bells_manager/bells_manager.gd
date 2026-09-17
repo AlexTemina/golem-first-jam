@@ -1,4 +1,4 @@
-class_name BellsManager extends Node2D
+class_name BellsManager extends Node
 
 ## Dots and hyphens (short and long ring) to define the sequence to follow
 @export var ring_sequence: String = '--..--'
