@@ -30,6 +30,7 @@ const ANIMATIONS = {
 @onready var quick_press_button_timer: Timer = $QuickPressButtonTimer
 @onready var scare_timer: Timer = $ScareTimer
 @onready var beak := $Beak
+@onready var wings := $Wings
 
 var action: Action
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
@@ -68,6 +69,7 @@ func manage_velocity(delta: float):
 		if z_offset > 0.0:
 			land()
 		sprite.offset.y = z_offset
+		wings.offset.y = z_offset
 		
 	if Input.is_action_pressed("right"):
 		velocity.x = move_speed
@@ -105,16 +107,19 @@ func manage_actions_input(delta: float):
 		
 	if not hold_button_timer.is_stopped() and hold_button_timer.time_left < time_to_lay_egg / 2.0:
 		if not action == Action.LAYING_EGG:
-			action = Action.LAYING_EGG
-			sprite.play("lay_egg")
+			set_action(Action.LAYING_EGG)
 
 func face_move_direction():
 	if is_moving():
 		if velocity.x > 0:
 			sprite.scale.x = SPRITE_SCALE
+			wings.scale.x = SPRITE_SCALE
+			wings.position.x = -2
 			beak.position.x = 9
 		elif velocity.x < 0:
 			sprite.scale.x = -SPRITE_SCALE
+			wings.scale.x = -SPRITE_SCALE
+			wings.position.x = 2
 			beak.position.x = -9
 	z_index = position.y
 			
@@ -132,6 +137,8 @@ func peck() -> void:
 	
 func fly() -> void:
 	set_action(Action.FLYING)
+	wings.show()
+	wings.play("default")
 	z_velocity = -jump_max_impulse
 	SignalBus.chicken_flies.emit()
 	
@@ -153,25 +160,22 @@ func scare():
 	velocity = -velocity
 	if z_offset != 0:
 		land()
-		sprite.offset.y = z_offset
 	scare_timer.start()
 	
 func land():
 	z_offset = 0.0
+	sprite.offset.y = z_offset
+	wings.offset.y = z_offset
+	wings.hide()
 	set_action(Action.NONE)
 	SignalBus.chicken_lands.emit()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity == Vector2.ZERO and is_moving()
 	
-func is_moving() -> bool:
-	return velocity != Vector2.ZERO
-	
-func is_flying() -> bool:
-	return action == Action.FLYING
-	
-func is_scared() -> bool:
-	return action == Action.SCARED
+func is_moving() -> bool: return velocity != Vector2.ZERO	
+func is_flying() -> bool: return action == Action.FLYING	
+func is_scared() -> bool: return action == Action.SCARED
 
 func _on_sprite_animation_finished() -> void:
 	set_action(Action.NONE)
