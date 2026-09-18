@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi7qem1nhl0gw"
-path="res://.godot/imported/FarmProps2.png-39e96207c50a5010735465590f6c318a.ctex"
+uid="uid://cdfuhrap00u55"
+path="res://.godot/imported/ClaroAltar1.png-c71ab5cff6a31eebb7dc0a6cdbb832a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/tilemaps/assets/FarmProps2.png"
-dest_files=["res://.godot/imported/FarmProps2.png-39e96207c50a5010735465590f6c318a.ctex"]
+source_file="res://golem_first_jam/entities/props/assets/ClaroAltar1.png"
+dest_files=["res://.godot/imported/ClaroAltar1.png-c71ab5cff6a31eebb7dc0a6cdbb832a4.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://buhufdgnd0ccx"]
+
+[ext_resource type="Script" uid="uid://o1jxupgj3xcb" path="res://golem_first_jam/entities/props/prop.gd" id="1_5tlvo"]
+[ext_resource type="Texture2D" uid="uid://bi7qem1nhl0gw" path="res://golem_first_jam/entities/props/assets/FarmProps2.png" id="2_gd3y5"]
+
+[node name="DrinkingThrough" type="Node2D" unique_id=2080462447]
+script = ExtResource("1_5tlvo")
+metadata/_custom_type_script = "uid://o1jxupgj3xcb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799658587]
+position = Vector2(0, -20)
+texture = ExtResource("2_gd3y5")
+region_enabled = true
+region_rect = Rect2(88, 24, 16, 39)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1428734912]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1319208611]
+polygon = PackedVector2Array(-5, -1, 5, -1, 8, -6, 8, -35, -8, -36, -8, -8)

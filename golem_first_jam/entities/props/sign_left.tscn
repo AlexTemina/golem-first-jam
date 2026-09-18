@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dhxkqxsgk0mo4"]
+
+[ext_resource type="Script" uid="uid://o1jxupgj3xcb" path="res://golem_first_jam/entities/props/prop.gd" id="1_4ysd3"]
+[ext_resource type="Texture2D" uid="uid://bi7qem1nhl0gw" path="res://golem_first_jam/entities/props/assets/FarmProps2.png" id="1_hb7xa"]
+
+[node name="SignLeft" type="Node2D" unique_id=457181956]
+script = ExtResource("1_4ysd3")
+metadata/_custom_type_script = "uid://o1jxupgj3xcb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=640444775]
+position = Vector2(-2, -26)
+texture = ExtResource("1_hb7xa")
+region_enabled = true
+region_rect = Rect2(36, 11, 26, 52)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=595895253]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=680928185]
+polygon = PackedVector2Array(-5, 0, 5, 0, 8, -2, 5, -5, -4, -5, -7, -2)

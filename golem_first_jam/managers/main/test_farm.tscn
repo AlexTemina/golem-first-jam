@@ -28,6 +28,10 @@
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="26_7b4el"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hmkbc"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="28_r1vgb"]
+[ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/props/altar.tscn" id="29_vr2hf"]
+[ext_resource type="PackedScene" uid="uid://buhufdgnd0ccx" path="res://golem_first_jam/entities/props/drinking_through.tscn" id="30_0snwu"]
+[ext_resource type="PackedScene" uid="uid://dhxkqxsgk0mo4" path="res://golem_first_jam/entities/props/sign_left.tscn" id="31_6vm4u"]
+[ext_resource type="PackedScene" uid="uid://bwoovrr3ir2vw" path="res://golem_first_jam/entities/props/sign_right.tscn" id="31_t0jr5"]
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "crow", "chicken_manager", "snake_manager", "road_manager", "pushables_manager")]
 script = ExtResource("1_scim2")
@@ -155,6 +159,18 @@ position = Vector2(216, -136)
 
 [node name="BusStop" parent="Props" unique_id=534560023 instance=ExtResource("28_r1vgb")]
 position = Vector2(296, -128)
+
+[node name="Altar" parent="Props" unique_id=1583742369 instance=ExtResource("29_vr2hf")]
+position = Vector2(-72, -96)
+
+[node name="SignLeft" parent="Props" unique_id=457181956 instance=ExtResource("31_6vm4u")]
+position = Vector2(48, -224)
+
+[node name="SignRight" parent="Props" unique_id=326812791 instance=ExtResource("31_t0jr5")]
+position = Vector2(104, -224)
+
+[node name="DrinkingThrough" parent="Props" unique_id=2080462447 instance=ExtResource("30_0snwu")]
+position = Vector2(-8, -224)
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]
