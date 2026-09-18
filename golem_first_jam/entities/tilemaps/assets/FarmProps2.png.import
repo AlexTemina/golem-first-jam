@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8svik5x0mw6m"
-path="res://.godot/imported/BusStop1.png-6cf5c70d685f5635f1b5daeabb928def.ctex"
+uid="uid://bi7qem1nhl0gw"
+path="res://.godot/imported/FarmProps2.png-39e96207c50a5010735465590f6c318a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/BusStop1.png"
-dest_files=["res://.godot/imported/BusStop1.png-6cf5c70d685f5635f1b5daeabb928def.ctex"]
+source_file="res://golem_first_jam/entities/tilemaps/assets/FarmProps2.png"
+dest_files=["res://.godot/imported/FarmProps2.png-39e96207c50a5010735465590f6c318a.ctex"]
 
 [params]
 

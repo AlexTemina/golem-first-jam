@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tvro2qpvbg5y"
-path="res://.godot/imported/Tree_1.png-cb1e55e1c5cea61de61b4f41a104d313.ctex"
+uid="uid://be76yas4qbrbu"
+path="res://.godot/imported/FarmTileset_1.png-4c2e86da04446775fdba17d99c6dcb68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/Tree_1.png"
-dest_files=["res://.godot/imported/Tree_1.png-cb1e55e1c5cea61de61b4f41a104d313.ctex"]
+source_file="res://golem_first_jam/entities/tilemaps/assets/FarmTileset_1.png"
+dest_files=["res://.godot/imported/FarmTileset_1.png-4c2e86da04446775fdba17d99c6dcb68.ctex"]
 
 [params]
 

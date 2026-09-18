@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://riul68u5fkhg" path="res://golem_first_jam/managers/main/main.gd" id="1_11yct"]
 [ext_resource type="PackedScene" uid="uid://c2w0fo8mljsbp" path="res://golem_first_jam/entities/main_camera/main_camera.tscn" id="2_re4ju"]
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="3_2g418"]
-[ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/terrain_tilemap/terrain_tileset.tres" id="4_ee1mn"]
+[ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="4_ee1mn"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="5_rmhdr"]
 [ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="7_2xvq1"]
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="7_icgfk"]

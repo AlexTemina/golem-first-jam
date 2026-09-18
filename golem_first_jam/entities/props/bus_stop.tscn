@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://deb8o37loggbw"]
+
+[ext_resource type="Script" uid="uid://glt2h8n11kby" path="res://golem_first_jam/entities/props/bus_stop.gd" id="1_y2qnh"]
+[ext_resource type="Texture2D" uid="uid://8svik5x0mw6m" path="res://golem_first_jam/entities/props/assets/BusStop1.png" id="2_cxoed"]
+
+[node name="BusStop" type="Node2D" unique_id=534560023]
+script = ExtResource("1_y2qnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=95733654]
+position = Vector2(-24, -51)
+texture = ExtResource("2_cxoed")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2102246788]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1226108938]
+position = Vector2(-1, -5)
+polygon = PackedVector2Array(-4, 5, 4, 5, 7, -8, 4, -23, -3, -23, -7, -9)

@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cne1smiqwd43s"]
 
+[ext_resource type="Texture2D" uid="uid://rp0hcm6c6nk1" path="res://golem_first_jam/entities/buildings/assets/InteriorBuild1.png" id="1_k8qoc"]
+[ext_resource type="Texture2D" uid="uid://bkk8syjpp82sg" path="res://golem_first_jam/entities/buildings/assets/ExteriorBuild1.png" id="2_dd7ak"]
+
 [node name="Building1" type="Node2D" unique_id=181886810]
+
+[node name="InteriorSprite" type="Sprite2D" parent="." unique_id=854522529]
+position = Vector2(141.00002, 94.00001)
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("1_k8qoc")
+
+[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=348175082]
+position = Vector2(130, 90)
+texture = ExtResource("2_dd7ak")

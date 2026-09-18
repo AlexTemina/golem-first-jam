@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://c3k665030gwcn"]
 
-[ext_resource type="Texture2D" uid="uid://be76yas4qbrbu" path="res://golem_first_jam/entities/enviroment_assets/FarmTileset_1.png" id="1_bi45j"]
+[ext_resource type="Texture2D" uid="uid://be76yas4qbrbu" path="res://golem_first_jam/entities/tilemaps/assets/FarmTileset_1.png" id="1_6a0v4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vycfp"]
-texture = ExtResource("1_bi45j")
+texture = ExtResource("1_6a0v4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0

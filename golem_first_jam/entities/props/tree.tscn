@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4jk1ocxf6gaa"]
+
+[ext_resource type="Texture2D" uid="uid://tvro2qpvbg5y" path="res://golem_first_jam/entities/props/assets/Tree_1.png" id="1_6rf0t"]
+[ext_resource type="Script" uid="uid://c33wvk0finuy7" path="res://golem_first_jam/entities/props/tree.gd" id="1_78x67"]
+
+[node name="Tree" type="Node2D" unique_id=1076218292]
+script = ExtResource("1_78x67")
+
+[node name="Node2D" type="Sprite2D" parent="." unique_id=1568894692]
+position = Vector2(-2, -53)
+texture = ExtResource("1_6rf0t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2087108811]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1688863182]
+polygon = PackedVector2Array(-16, -5, -11, 0, 0, 1, 10, 1, 15, -4, 12, -10, -13, -11, -17, -5)

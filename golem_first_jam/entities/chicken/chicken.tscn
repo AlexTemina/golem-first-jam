@@ -418,7 +418,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
-size = Vector2(16, 24)
+size = Vector2(16, 16)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
 script = ExtResource("1_rmv5a")
@@ -438,7 +438,7 @@ animation = &"fly"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]
-position = Vector2(0, -12)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="HoldButtonTimer" type="Timer" parent="." unique_id=558244572]

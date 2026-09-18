@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bims82y6lpxti"]
+
+[ext_resource type="Texture2D" uid="uid://bsc5mxfjelofq" path="res://golem_first_jam/entities/buildings/assets/ExteriorBuildBig2.png" id="1_5jjgy"]
+
+[node name="Barn" type="Node2D" unique_id=1489447167]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650803499]
+position = Vector2(225, 135)
+texture = ExtResource("1_5jjgy")
