@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="19_e17t2"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="20_kgamx"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_g0o8m"]
-[ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="22_p7mpl"]
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="26_7b4el"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hmkbc"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="28_r1vgb"]
@@ -32,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://buhufdgnd0ccx" path="res://golem_first_jam/entities/props/drinking_through.tscn" id="30_0snwu"]
 [ext_resource type="PackedScene" uid="uid://dhxkqxsgk0mo4" path="res://golem_first_jam/entities/props/sign_left.tscn" id="31_6vm4u"]
 [ext_resource type="PackedScene" uid="uid://bwoovrr3ir2vw" path="res://golem_first_jam/entities/props/sign_right.tscn" id="31_t0jr5"]
+[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="32_t0jr5"]
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "crow", "chicken_manager", "snake_manager", "road_manager", "pushables_manager")]
 script = ExtResource("1_scim2")
@@ -143,10 +143,6 @@ chicken_starting_position = Vector2(160, 120)
 
 [node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("21_g0o8m")]
 
-[node name="Tractor1" type="Sprite2D" parent="." unique_id=639386891]
-position = Vector2(424, -44)
-texture = ExtResource("22_p7mpl")
-
 [node name="Props" type="Sprite2D" parent="." unique_id=719755115]
 
 [node name="PropsLayer" type="TileMapLayer" parent="Props" unique_id=478231324]
@@ -171,6 +167,9 @@ position = Vector2(104, -224)
 
 [node name="DrinkingThrough" parent="Props" unique_id=2080462447 instance=ExtResource("30_0snwu")]
 position = Vector2(-8, -224)
+
+[node name="Tractor" parent="." unique_id=745763056 instance=ExtResource("32_t0jr5")]
+position = Vector2(448, -64)
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]

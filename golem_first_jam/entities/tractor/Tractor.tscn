@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://dg1g251ntk8ie"]
 
+[ext_resource type="Script" uid="uid://2mmlw1dtqklc" path="res://golem_first_jam/entities/tractor/tractor.gd" id="1_3k8bp"]
 [ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="1_821el"]
 
 [node name="Tractor" type="Node2D" unique_id=745763056]
+script = ExtResource("1_3k8bp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981758957]
+position = Vector2(0, -32)
 texture = ExtResource("1_821el")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=640074182]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=744967030]
+polygon = PackedVector2Array(-16, 0, 0, -8, 32, -8, 32, -48, -36, -48, -36, -8, -32, 0)
