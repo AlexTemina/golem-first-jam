@@ -434,7 +434,7 @@ polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2141792074]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_3ymhu")
-animation = &"walk_right"
+animation = &"fly"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]

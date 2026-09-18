@@ -23,8 +23,14 @@
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_g0o8m"]
 [ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="22_p7mpl"]
 
-[node name="TestFarm" type="Node2D" unique_id=1031933291]
+[node name="TestFarm" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "crow", "chicken_manager", "snake_manager", "road_manager")]
 script = ExtResource("1_scim2")
+chicken = NodePath("Chicken")
+snake = NodePath("NPC/Snake")
+crow = NodePath("NPC/Crow")
+chicken_manager = NodePath("Managers/ChickenManager")
+snake_manager = NodePath("Managers/SnakeManager")
+road_manager = NodePath("Managers/RoadManager")
 
 [node name="Managers_PushablesManager_Pushables#Bell" parent="." unique_id=524241937 instance=ExtResource("19_e17t2")]
 position = Vector2(224, 224)

@@ -4,6 +4,14 @@ enum Action {NONE, PECKING, FLYING, LAYING_EGG, SCARED}
 
 const SPRITE_SCALE = 1
 
+const ANIMATIONS = {
+	Action.NONE: "idle",
+	Action.PECKING: "peck",
+	Action.FLYING: "fly",
+	Action.LAYING_EGG: "lay_egg",
+	Action.SCARED: "move",
+}
+
 ## In px/s
 @export var move_speed: int = 200
 ## How many times you have to push during the quick press timer to fly (see time_to_quick_push)
@@ -92,12 +100,12 @@ func manage_actions_input(delta: float):
 		else:
 			peck()	
 	elif Input.is_action_just_released("a_button"):
-		action = Action.NONE
 		hold_button_timer.stop()
 		
 	if not hold_button_timer.is_stopped() and hold_button_timer.time_left < time_to_lay_egg / 2.0:
 		if not action == Action.LAYING_EGG:
 			action = Action.LAYING_EGG
+			sprite.play("lay_egg")
 
 func face_move_direction():
 	if is_moving():
@@ -109,12 +117,6 @@ func face_move_direction():
 			
 func animate(previous_velocity: Vector2):
 	match action:
-		Action.PECKING:
-			sprite.play("peck")
-		Action.FLYING:
-			sprite.play("fly")
-		Action.LAYING_EGG:
-			sprite.play("lay_egg")
 		Action.NONE:
 			if has_started_moving(previous_velocity):
 				sprite.play("move")
@@ -122,17 +124,23 @@ func animate(previous_velocity: Vector2):
 				sprite.play("idle")
 
 func peck() -> void:
-	action = Action.PECKING
+	set_action(Action.PECKING)
 	SignalBus.chicken_pecks.emit(position)
 	
 func fly() -> void:
-	action = Action.FLYING
+	set_action(Action.FLYING)
 	z_velocity = -jump_max_impulse
 	SignalBus.chicken_flies.emit()
 	
 func lay_egg() -> void:	
-	action = Action.NONE
+	set_action(Action.NONE)
 	SignalBus.lay_egg.emit(position)
+	
+func set_action(new_action: Action):
+	action = new_action
+	var animation = ANIMATIONS.get(action)
+	if animation != null:
+		sprite.play(animation)
 	
 func scare():
 	action = Action.SCARED
@@ -144,7 +152,7 @@ func scare():
 	
 func land():
 	z_offset = 0.0
-	action = Action.NONE
+	set_action(Action.NONE)
 	SignalBus.chicken_lands.emit()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:
@@ -160,8 +168,7 @@ func is_scared() -> bool:
 	return action == Action.SCARED
 
 func _on_sprite_animation_finished() -> void:
-	action = Action.NONE
-	sprite.play("idle")
+	set_action(Action.NONE)
 
 func _on_hold_button_timer_timeout() -> void:
 	lay_egg()
@@ -171,5 +178,4 @@ func _on_quick_press_button_timer_timeout() -> void:
 
 func _on_scare_timer_timeout() -> void:
 	velocity = Vector2.ZERO
-	action = Action.NONE
-	sprite.play("idle")
+	set_action(Action.NONE)
