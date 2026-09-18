@@ -9,9 +9,9 @@ func _ready() -> void:
 func init(road: Road):
 	self.road = road
 
-func launch_car():
+func launch_car(chicken_position: Vector2):
 	SignalBus.scare_chicken.emit()
 	var car: Car = car_scene.instantiate()
 	add_child(car)
-	var road_limits = Rect2(road.position, road.get_size())
-	car.init(road_limits)
+	var starting_position = Vector2(road.position.x + road.get_size().x / 2, chicken_position.y + 300)
+	car.init(starting_position)

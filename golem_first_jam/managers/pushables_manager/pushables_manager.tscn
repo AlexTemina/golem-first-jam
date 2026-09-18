@@ -4,5 +4,3 @@
 
 [node name="PushablesManager" type="Node" unique_id=1878721071]
 script = ExtResource("1_p8m3a")
-
-[node name="Pushables" type="Node2D" parent="." unique_id=1958911018]

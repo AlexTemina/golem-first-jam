@@ -141,9 +141,12 @@ func set_action(new_action: Action):
 	var animation = ANIMATIONS.get(action)
 	if animation != null:
 		sprite.play(animation)
+		print("Animation: " + animation)
 	
 func scare():
-	action = Action.SCARED
+	if is_scared():
+		return
+	set_action(Action.SCARED)
 	velocity = -velocity
 	if z_offset != 0:
 		land()

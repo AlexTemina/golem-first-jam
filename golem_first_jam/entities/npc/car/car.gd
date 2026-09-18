@@ -7,12 +7,10 @@ var target_position: Vector2
 
 @onready var sprite := $Sprite
 
-func init(road_limits: Rect2) -> void:		
-	var road_width = road_limits.size.x
+func init(starting_position: Vector2) -> void:		
 	sprite.frame = randi_range(0, 2)
-	position.x = road_limits.position.x + road_width * 0.5
-	position.y = road_limits.position.y + road_limits.size.y
-	target_position = Vector2(position.x, road_limits.position.y - 200)
+	position = starting_position
+	target_position = starting_position - Vector2(0, 800)
 	z_index = position.y
 	
 	# TODO Play car sound

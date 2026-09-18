@@ -7,10 +7,12 @@ extends Node
 @export var chicken_manager: ChickenManager
 @export var snake_manager: SnakeManager
 @export var road_manager: RoadManager
+@export var pushables_manager: PushablesManager
 @export var fade_screen: ColorRect
 
 
 @onready var road := $Terrain/Road
+@onready var pushables := %Pushables
 
 func _ready() -> void:
 	SignalBus.game_time_over.connect(restart)
@@ -24,6 +26,8 @@ func _ready() -> void:
 		road_manager.init(road)
 	if fade_screen:
 		fade_screen.hide()
+	if pushables_manager and pushables:
+		pushables_manager.init(pushables)
 	if crow:
 		crow.hide()
 	

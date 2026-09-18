@@ -6,9 +6,9 @@ class_name Road extends Node2D
 @onready var sprite := $Sprite
 @onready var scare_collision_shape := $ScareArea/CollisionShape2D
 
-func get_size() -> Vector2:
-	return scare_collision_shape.shape.get_rect().size
+func get_size() -> Vector2:	
+	return sprite.get_rect().size
 
 func _on_scare_area_body_entered(body: Node2D) -> void:
 	if obstacle_enabled and is_instance_of(body, Chicken):
-		SignalBus.chicken_crosses_road.emit()
+		SignalBus.chicken_crosses_road.emit(body.position)

@@ -13,7 +13,7 @@ signal chicken_flies()
 signal chicken_lands()
 signal lay_egg(position: Vector2)
 signal special_vision_toggled(on: bool)
-signal chicken_crosses_road()
+signal chicken_crosses_road(chicken_position: Vector2)
 
 # NPCs
 signal scare_chicken()
