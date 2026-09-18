@@ -6,9 +6,11 @@ enum Id {CROWS_BELL, LAYING_HEN_BELL}
 @export var bell_id: Id
 
 @onready var audio_player := $AudioPlayer
+@onready var sprite := $Sprite
 
 func interact():
 	super()
 	audio_player.play()
+	sprite.play("play")
 	SignalBus.bell_ringed.emit(bell_id)
 	

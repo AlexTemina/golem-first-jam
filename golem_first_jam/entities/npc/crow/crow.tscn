@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cdfblmpndrn73"]
 
 [ext_resource type="Script" uid="uid://c2mqmet42mkpw" path="res://golem_first_jam/entities/npc/crow/crow.gd" id="1_7bwut"]
-[ext_resource type="Texture2D" uid="uid://f4bxymjb1bnc" path="res://golem_first_jam/entities/npc/crow/assets/crow.png" id="1_yjwyx"]
+[ext_resource type="Texture2D" uid="uid://cpvf8bsabp1dy" path="res://golem_first_jam/entities/npc/crow/assets/Crow1.png" id="2_7bwut"]
 
 [node name="Crow" type="Node2D" unique_id=1316683000]
 script = ExtResource("1_7bwut")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=273136895]
 position = Vector2(0, -16)
-texture = ExtResource("1_yjwyx")
+texture = ExtResource("2_7bwut")
