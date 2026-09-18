@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsc5mxfjelofq"
-path="res://.godot/imported/ExteriorBuildBig2.png-984942a1d347688ed00d51046e95e6dc.ctex"
+uid="uid://rp0hcm6c6nk1"
+path="res://.godot/imported/InteriorBuild1.png-c68556b98962eb5a67be0648715a212a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/ExteriorBuildBig2.png"
-dest_files=["res://.godot/imported/ExteriorBuildBig2.png-984942a1d347688ed00d51046e95e6dc.ctex"]
+source_file="res://golem_first_jam/entities/buildings/assets/InteriorBuild1.png"
+dest_files=["res://.godot/imported/InteriorBuild1.png-c68556b98962eb5a67be0648715a212a.ctex"]
 
 [params]
 

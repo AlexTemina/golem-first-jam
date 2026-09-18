@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lp4ryq1tb3x2"
-path="res://.godot/imported/ShedBottom.png-b53f4ca4cfb363d014f0085bdc9ad33d.ctex"
+uid="uid://bsc5mxfjelofq"
+path="res://.godot/imported/ExteriorBuildBig2.png-f56c62d84b5440adccbd5545232ad72e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/ShedBuilding/ShedBottom.png"
-dest_files=["res://.godot/imported/ShedBottom.png-b53f4ca4cfb363d014f0085bdc9ad33d.ctex"]
+source_file="res://golem_first_jam/entities/buildings/assets/ExteriorBuildBig2.png"
+dest_files=["res://.godot/imported/ExteriorBuildBig2.png-f56c62d84b5440adccbd5545232ad72e.ctex"]
 
 [params]
 
