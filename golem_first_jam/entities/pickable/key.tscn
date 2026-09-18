@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://fxfjpcwcw1mt"]
+
+[ext_resource type="Script" uid="uid://c6wsu6pcqexmx" path="res://golem_first_jam/entities/pickable/key.gd" id="1_4h8ow"]
+[ext_resource type="Texture2D" uid="uid://bi7qem1nhl0gw" path="res://golem_first_jam/entities/props/assets/FarmProps2.png" id="1_jgn5p"]
+
+[node name="Key" type="Node2D" unique_id=758290305]
+position = Vector2(0, -3)
+script = ExtResource("1_4h8ow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1070612422]
+texture = ExtResource("1_jgn5p")
+region_enabled = true
+region_rect = Rect2(98, 2, 12, 12)

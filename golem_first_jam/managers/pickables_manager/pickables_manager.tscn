@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3vu1ljotfjc7"]
+
+[ext_resource type="Script" uid="uid://cefw1hjhllg0f" path="res://golem_first_jam/managers/pickables_manager/pickables_manager.gd" id="1_jlma5"]
+
+[node name="PickablesManager" type="Node" unique_id=816226385]
+script = ExtResource("1_jlma5")

@@ -8,7 +8,7 @@ signal dumb_thing_happened(message: String)
 signal game_time_over()
 
 # CHICKEN
-signal chicken_pecks(chicken_position: Vector2)
+signal chicken_pecks(chicken: Chicken)
 signal chicken_flies()
 signal chicken_lands()
 signal lay_egg(position: Vector2)

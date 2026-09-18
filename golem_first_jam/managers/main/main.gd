@@ -8,6 +8,7 @@ extends Node
 @export var snake_manager: SnakeManager
 @export var road_manager: RoadManager
 @export var pushables_manager: PushablesManager
+@export var pickables_manager: PickablesManager
 @export var fade_screen: ColorRect
 
 

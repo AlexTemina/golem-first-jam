@@ -29,6 +29,7 @@ const ANIMATIONS = {
 @onready var hold_button_timer: Timer = $HoldButtonTimer
 @onready var quick_press_button_timer: Timer = $QuickPressButtonTimer
 @onready var scare_timer: Timer = $ScareTimer
+@onready var beak := $Beak
 
 var action: Action
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
@@ -111,8 +112,10 @@ func face_move_direction():
 	if is_moving():
 		if velocity.x > 0:
 			sprite.scale.x = SPRITE_SCALE
+			beak.position.x = 9
 		elif velocity.x < 0:
 			sprite.scale.x = -SPRITE_SCALE
+			beak.position.x = -9
 	z_index = position.y
 			
 func animate(previous_velocity: Vector2):
@@ -125,7 +128,7 @@ func animate(previous_velocity: Vector2):
 
 func peck() -> void:
 	set_action(Action.PECKING)
-	SignalBus.chicken_pecks.emit(position)
+	SignalBus.chicken_pecks.emit(self)
 	
 func fly() -> void:
 	set_action(Action.FLYING)
@@ -141,7 +144,7 @@ func set_action(new_action: Action):
 	var animation = ANIMATIONS.get(action)
 	if animation != null:
 		sprite.play(animation)
-		print("Animation: " + animation)
+		# print("Animation: " + animation)
 	
 func scare():
 	if is_scared():
