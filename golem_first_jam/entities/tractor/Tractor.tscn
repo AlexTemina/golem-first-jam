@@ -2,6 +2,50 @@
 
 [ext_resource type="Script" uid="uid://2mmlw1dtqklc" path="res://golem_first_jam/entities/tractor/tractor.gd" id="1_3k8bp"]
 [ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="1_821el"]
+[ext_resource type="AudioStream" uid="uid://b2qw6o60sujda" path="res://golem_first_jam/entities/tractor/assets/false-start.wav" id="3_k2d64"]
+[ext_resource type="AudioStream" uid="uid://d35cv2hxhcmlv" path="res://golem_first_jam/entities/tractor/assets/engine-start.wav" id="4_2c50h"]
+[ext_resource type="AudioStream" uid="uid://dt63oemo0d1kl" path="res://golem_first_jam/entities/tractor/assets/engine-loop.wav" id="5_ce7jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(32, 16)
+
+[sub_resource type="Animation" id="Animation_2c50h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ce7jq"]
+resource_name = "vibration"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tr8p4"]
+_data = {
+&"RESET": SubResource("Animation_2c50h"),
+&"vibration": SubResource("Animation_ce7jq")
+}
 
 [node name="Tractor" type="Node2D" unique_id=745763056]
 script = ExtResource("1_3k8bp")
@@ -14,3 +58,27 @@ texture = ExtResource("1_821el")
 
 [node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=744967030]
 polygon = PackedVector2Array(-16, 0, 0, -8, 32, -8, 32, -48, -36, -48, -36, -8, -32, 0)
+
+[node name="DownEntrance" type="Area2D" parent="." unique_id=1544065858]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownEntrance" unique_id=1336976285]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="SeatPosition" type="Node2D" parent="." unique_id=1095162705]
+position = Vector2(-16, -32)
+
+[node name="FalseStartSound" type="AudioStreamPlayer" parent="." unique_id=171527817]
+stream = ExtResource("3_k2d64")
+
+[node name="EngineStartSound" type="AudioStreamPlayer" parent="." unique_id=1845360032]
+stream = ExtResource("4_2c50h")
+
+[node name="EngineLoopSound" type="AudioStreamPlayer" parent="." unique_id=91892987]
+stream = ExtResource("5_ce7jq")
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1678895848]
+libraries/ = SubResource("AnimationLibrary_tr8p4")
+
+[connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
+[connection signal="finished" from="EngineStartSound" to="." method="_on_engine_start_sound_finished"]

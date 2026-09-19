@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1cmtuxfr1nav"]
+
+[ext_resource type="Script" uid="uid://4bhhrnselynf" path="res://golem_first_jam/managers/tractor_manager/tractor_manager.gd" id="1_muwfr"]
+
+[node name="TractorManager" type="Node" unique_id=537253972]
+script = ExtResource("1_muwfr")

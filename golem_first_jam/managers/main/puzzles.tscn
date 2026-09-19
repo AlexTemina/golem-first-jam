@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="6_1j5pp"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="10_q241n"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="11_v88a1"]
+[ext_resource type="PackedScene" uid="uid://c1cmtuxfr1nav" path="res://golem_first_jam/managers/tractor_manager/tractor_manager.tscn" id="13_l2yce"]
 [ext_resource type="PackedScene" uid="uid://cxmsk4ta3bpfh" path="res://golem_first_jam/entities/buildings/shed.tscn" id="14_m12gs"]
 [ext_resource type="PackedScene" uid="uid://bims82y6lpxti" path="res://golem_first_jam/entities/buildings/barn.tscn" id="15_hst8i"]
 [ext_resource type="PackedScene" uid="uid://cne1smiqwd43s" path="res://golem_first_jam/entities/buildings/building1.tscn" id="16_p21hh"]
@@ -60,6 +61,9 @@ chicken_starting_position = Vector2(160, 120)
 
 [node name="PickablesManager" parent="Managers" unique_id=1870913940 node_paths=PackedStringArray("pickables_container") instance=ExtResource("26_6vn0m")]
 pickables_container = NodePath("../../PickableItems")
+
+[node name="TractorManager" parent="Managers" unique_id=537253972 node_paths=PackedStringArray("tractor") instance=ExtResource("13_l2yce")]
+tractor = NodePath("../../Tractor")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
 
@@ -128,7 +132,7 @@ tile_set = ExtResource("27_r6ehh")
 position = Vector2(736, -48)
 
 [node name="Tractor" parent="." unique_id=745763056 instance=ExtResource("34_jfbip")]
-position = Vector2(448, -48)
+position = Vector2(376, -72)
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]

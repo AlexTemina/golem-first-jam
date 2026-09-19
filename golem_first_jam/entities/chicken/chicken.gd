@@ -35,6 +35,8 @@ const ANIMATIONS = {
 
 
 var action: Action
+var blocked := false # For some puzzles, keep the chicken blocked
+var release_position: Vector2
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
 var z_velocity: float # For jumping/flying
 var z_offset: float # Distance from the floor when flying
@@ -47,18 +49,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var previous_velocity = velocity
 	
-	manage_velocity(delta)
-	
-	manage_actions_input(delta)
-	
-	animate(previous_velocity)
-		
-	face_move_direction()
-
-	move_and_slide()
+	if blocked:
+		manage_blockness()
+	else:
+		manage_velocity(delta)	
+		manage_actions_input(delta)	
+		animate(previous_velocity)		
+		face_move_direction()
+		move_and_slide()
 	
 func manage_velocity(delta: float):
-	if action in [Action.LAYING_EGG]:
+	if action in [Action.LAYING_EGG] or blocked:
 		velocity = Vector2.ZERO
 		return
 		
@@ -84,6 +85,10 @@ func manage_velocity(delta: float):
 		velocity.y = -move_speed
 	else:
 		velocity.y = 0
+		
+func manage_blockness():
+	if Input.is_action_just_pressed("down"):
+		release()
 		
 func manage_actions_input(delta: float):	
 	if is_flying() or is_scared():	
@@ -113,10 +118,13 @@ func manage_actions_input(delta: float):
 func face_move_direction():
 	if is_moving():
 		if velocity.x > 0:
-			body.scale.x = SPRITE_SCALE
+			face_right(true)
 		elif velocity.x < 0:
-			body.scale.x = -SPRITE_SCALE
+			face_right(false)
 	z_index = position.y
+	
+func face_right(right := true):
+	body.scale.x = SPRITE_SCALE if right else -SPRITE_SCALE
 			
 func animate(previous_velocity: Vector2):
 	match action:
@@ -164,6 +172,17 @@ func scare():
 		land()
 	scare_timer.start()
 	
+func block(release_position: Vector2):
+	set_action(Action.NONE)
+	blocked = true
+	self.release_position = release_position
+	
+func release():
+	blocked = false
+	position = release_position
+	release_position = Vector2.ZERO
+	SignalBus.chicken_is_released.emit()
+	
 func has_started_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity == Vector2.ZERO and is_moving()
 	
@@ -173,6 +192,9 @@ func is_scared() -> bool: return action == Action.SCARED
 
 func get_beak_position() -> Vector2:
 	return beak.position if body.scale.x > 0 else Vector2(-beak.position.x, beak.position.y)
+	
+func get_picked_item():
+	return beak.get_child(0) if beak.get_children().size() > 0 else null
 
 func _on_sprite_animation_finished() -> void:
 	set_action(Action.NONE)

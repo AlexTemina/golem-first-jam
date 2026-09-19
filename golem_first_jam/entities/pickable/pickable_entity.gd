@@ -12,6 +12,10 @@ func init(position: Vector2):
 	self.position = position
 	z_index = position.y
 	SignalBus.register_pickable.emit(self)
+	
+func destroy():
+	get_parent().remove_child(self)
+	queue_free()
 
 func is_near_character_position(character_position: Vector2) -> bool:
 	var x_is_close = abs(character_position.x - global_position.x) < max_distance_to_interact.x
