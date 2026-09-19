@@ -9,8 +9,8 @@ func _ready() -> void:
 	SignalBus.chicken_crosses_road.connect(launch_car)
 	SignalBus.tractor_started_moving.connect(func(): car_launching_disabled = true)
 
-func init(road: Road):
-	self.road = road
+func init(t_road: Road):
+	self.road = t_road
 
 func launch_car(chicken_position: Vector2):
 	if car_launching_disabled:

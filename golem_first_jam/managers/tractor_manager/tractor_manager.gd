@@ -13,12 +13,12 @@ func _input(event: InputEvent) -> void:
 	if chicken != null and event.is_action_pressed("a_button"):
 		chicken_interacts()
 	
-func on_chicken_jumps_in_tractor(chicken: Chicken):
-	self.chicken = chicken
+func on_chicken_jumps_in_tractor(t_chicken: Chicken):
+	self.chicken = t_chicken
 	tractor.toggle_collisions(false)
-	chicken.block(chicken.position + Vector2(0, 10))
-	chicken.face_right()
-	chicken.position = tractor.position + tractor.seat.position
+	t_chicken.block(t_chicken.position + Vector2(0, 10))
+	t_chicken.face_right()
+	t_chicken.position = tractor.position + tractor.seat.position
 	
 func chicken_interacts():
 	var picked_item = chicken.get_picked_item()
