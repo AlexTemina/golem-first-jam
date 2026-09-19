@@ -28,5 +28,9 @@ signal pushable_item_interacted(item: PushableEntity)
 signal bell_ringed(bell_id: Bell.Id)
 signal bell_sequence_completed(bell_id: Bell.Id)
 
+# PICKABLE ITEMS
+signal register_pickable(pickable: PickableEntity)
+
 # SOUND
 signal play_chicken_sound(sound_id: SoundManager.ChickenSound)
+signal play_item_sound(sound_id: SoundManager.ItemSound)

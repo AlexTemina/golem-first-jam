@@ -25,12 +25,14 @@ const ANIMATIONS = {
 ## Gravity modifier, the higher the more gravity
 @export var gravity_factor: float = 0.02
 
-@onready var sprite: AnimatedSprite2D = $Sprite
+@onready var body := $Body
+@onready var sprite: AnimatedSprite2D = $Body/Sprite
+@onready var beak := $Body/Beak
+@onready var wings := $Body/Wings
 @onready var hold_button_timer: Timer = $HoldButtonTimer
 @onready var quick_press_button_timer: Timer = $QuickPressButtonTimer
 @onready var scare_timer: Timer = $ScareTimer
-@onready var beak := $Beak
-@onready var wings := $Wings
+
 
 var action: Action
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
@@ -68,8 +70,7 @@ func manage_velocity(delta: float):
 		z_offset += z_velocity
 		if z_offset > 0.0:
 			land()
-		sprite.offset.y = z_offset
-		wings.offset.y = z_offset
+		body.position.y = z_offset
 		
 	if Input.is_action_pressed("right"):
 		velocity.x = move_speed
@@ -112,15 +113,9 @@ func manage_actions_input(delta: float):
 func face_move_direction():
 	if is_moving():
 		if velocity.x > 0:
-			sprite.scale.x = SPRITE_SCALE
-			wings.scale.x = SPRITE_SCALE
-			wings.position.x = -2
-			beak.position.x = 9
+			body.scale.x = SPRITE_SCALE
 		elif velocity.x < 0:
-			sprite.scale.x = -SPRITE_SCALE
-			wings.scale.x = -SPRITE_SCALE
-			wings.position.x = 2
-			beak.position.x = -9
+			body.scale.x = -SPRITE_SCALE
 	z_index = position.y
 			
 func animate(previous_velocity: Vector2):
@@ -142,6 +137,13 @@ func fly() -> void:
 	z_velocity = -jump_max_impulse
 	SignalBus.chicken_flies.emit()
 	
+func land():
+	z_offset = 0.0
+	body.position.y = z_offset
+	wings.hide()
+	set_action(Action.NONE)
+	SignalBus.chicken_lands.emit()
+	
 func lay_egg() -> void:	
 	set_action(Action.NONE)
 	SignalBus.lay_egg.emit(position)
@@ -162,20 +164,15 @@ func scare():
 		land()
 	scare_timer.start()
 	
-func land():
-	z_offset = 0.0
-	sprite.offset.y = z_offset
-	wings.offset.y = z_offset
-	wings.hide()
-	set_action(Action.NONE)
-	SignalBus.chicken_lands.emit()
-	
 func has_started_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity == Vector2.ZERO and is_moving()
 	
 func is_moving() -> bool: return velocity != Vector2.ZERO	
 func is_flying() -> bool: return action == Action.FLYING	
 func is_scared() -> bool: return action == Action.SCARED
+
+func get_beak_position() -> Vector2:
+	return beak.position if body.scale.x > 0 else Vector2(-beak.position.x, beak.position.y)
 
 func _on_sprite_animation_finished() -> void:
 	set_action(Action.NONE)

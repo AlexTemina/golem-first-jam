@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Golem First Jam"
-run/main_scene="uid://cgcal367yjtlb"
+run/main_scene="uid://cn2k0h6ex3lfc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -6,3 +6,5 @@
 script = ExtResource("1_4lm8f")
 
 [node name="ChickenPlayer" type="AudioStreamPlayer" parent="." unique_id=1321193393]
+
+[node name="ItemsPlayer" type="AudioStreamPlayer" parent="." unique_id=1267063019]

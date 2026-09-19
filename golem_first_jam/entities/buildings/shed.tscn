@@ -3,6 +3,65 @@
 [ext_resource type="Texture2D" uid="uid://lp4ryq1tb3x2" path="res://golem_first_jam/entities/buildings/assets/ShedBottom.png" id="1_mjydi"]
 [ext_resource type="Script" uid="uid://cj3lnvc37ixrh" path="res://golem_first_jam/entities/buildings/shed.gd" id="1_pijv1"]
 [ext_resource type="Texture2D" uid="uid://dky1dlbaslc13" path="res://golem_first_jam/entities/buildings/assets/ShedTop.png" id="2_pijv1"]
+[ext_resource type="PackedScene" uid="uid://fxfjpcwcw1mt" path="res://golem_first_jam/entities/pickable/key.tscn" id="4_pbx2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
+size = Vector2(10, 20)
+
+[sub_resource type="Animation" id="Animation_pbx2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3m4mx"]
+resource_name = "hide_roof"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_syx1o"]
+resource_name = "show_roof"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhbj7"]
+_data = {
+&"RESET": SubResource("Animation_pbx2x"),
+&"hide_roof": SubResource("Animation_3m4mx"),
+&"show_roof": SubResource("Animation_syx1o")
+}
 
 [node name="Shed" type="Node2D" unique_id=402769375]
 script = ExtResource("1_pijv1")
@@ -12,6 +71,8 @@ position = Vector2(48, 120)
 texture = ExtResource("1_mjydi")
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=1786556254]
+z_index = 2000
+z_as_relative = false
 position = Vector2(48, 120)
 texture = ExtResource("2_pijv1")
 
@@ -24,6 +85,24 @@ polygon = PackedVector2Array(16, 64, 80, 64, 80, 144, 16, 144)
 
 [node name="WallsCollision" type="CollisionPolygon2D" parent="Walls" unique_id=1716552934]
 polygon = PackedVector2Array(16, 104, 8, 104, 8, 24, 80, -8, 88, -8, 88, 152, 0, 152, 0, 144, 80, 144, 80, 64, 16, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=789793997]
+position = Vector2(72, 120)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1614681284]
+position = Vector2(22, 74)
+shape = SubResource("RectangleShape2D_kddjp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=347162161]
+position = Vector2(72, 84)
+shape = SubResource("RectangleShape2D_kddjp")
+
+[node name="Key" parent="." unique_id=758290305 instance=ExtResource("4_pbx2x")]
+position = Vector2(69, 120)
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1476114465]
+libraries/ = SubResource("AnimationLibrary_vhbj7")
 
 [connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]

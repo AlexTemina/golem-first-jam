@@ -356,9 +356,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
-size = Vector2(16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_novgq"]
 atlas = ExtResource("9_c0fly")
 region = Rect2(0, 0, 32, 32)
@@ -409,6 +406,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(16, 16)
+
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
 script = ExtResource("1_rmv5a")
 move_speed = 100
@@ -420,11 +420,23 @@ position = Vector2(0, 1)
 color = Color(0, 0, 0, 0.37254903)
 polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2141792074]
+[node name="Body" type="Node2D" parent="." unique_id=1785529582]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=2141792074]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_3ymhu")
 animation = &"fly"
 autoplay = "idle"
+
+[node name="Beak" type="Node2D" parent="Body" unique_id=453269381]
+position = Vector2(9, -22)
+
+[node name="Wings" type="AnimatedSprite2D" parent="Body" unique_id=1627764720]
+visible = false
+position = Vector2(-2, -13)
+sprite_frames = SubResource("SpriteFrames_q14m2")
+autoplay = "default"
+frame_progress = 0.7981128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]
 position = Vector2(0, -8)
@@ -437,17 +449,7 @@ shape = SubResource("RectangleShape2D_u5bk5")
 [node name="ScareTimer" type="Timer" parent="." unique_id=1485778085]
 wait_time = 0.5
 
-[node name="Beak" type="Node2D" parent="." unique_id=453269381]
-position = Vector2(9, -22)
-
-[node name="Wings" type="AnimatedSprite2D" parent="." unique_id=1627764720]
-visible = false
-position = Vector2(-2, -13)
-sprite_frames = SubResource("SpriteFrames_q14m2")
-autoplay = "default"
-frame_progress = 0.7981128
-
-[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="Body/Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="HoldButtonTimer" to="." method="_on_hold_button_timer_timeout"]
 [connection signal="timeout" from="QuickPressButtonTimer" to="." method="_on_quick_press_button_timer_timeout"]
 [connection signal="timeout" from="ScareTimer" to="." method="_on_scare_timer_timeout"]

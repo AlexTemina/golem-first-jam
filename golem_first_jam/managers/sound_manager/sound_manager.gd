@@ -1,6 +1,7 @@
 class_name SoundManager extends Node
 
 enum ChickenSound {WALK, PECK, LAY_EGG, FLY, CACKLE}
+enum ItemSound {DROP}
 
 var CHICKEN_SOUNDS = {
 	ChickenSound.WALK: [],
@@ -12,14 +13,20 @@ var CHICKEN_SOUNDS = {
 	ChickenSound.CACKLE: [],
 }
 
+var ITEM_SOUNDS = {
+	ItemSound.DROP: [load("res://golem_first_jam/managers/sound_manager/assets/drop_item.wav")]
+}
+
 ## Default pitch is 1 (in exponential scale), the randomness sets the range below and above this default value.
 ## For instance: 0.5 goes from 0.5 (one octave down) to 1.5 (half an octave up).
 @export var pitch_randomness: float = 0.2
 
 @onready var chicken_player: AudioStreamPlayer = $ChickenPlayer
+@onready var items_player: AudioStreamPlayer = $ItemsPlayer
 
 func _ready() -> void:
 	SignalBus.play_chicken_sound.connect(play_chicken_sound)
+	SignalBus.play_item_sound.connect(play_item_sound)
 	SignalBus.chicken_flies.connect(play_fly_sound)
 	
 func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)
@@ -27,6 +34,10 @@ func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)
 func play_chicken_sound(sound_id: ChickenSound):
 	var sounds: Array = CHICKEN_SOUNDS.get(sound_id)
 	play_sound(chicken_player, sounds.pick_random())
+	
+func play_item_sound(sound_id: ItemSound):
+	var sounds: Array = ITEM_SOUNDS.get(sound_id)
+	play_sound(items_player, sounds.pick_random())
 	
 func play_sound(player: AudioStreamPlayer, stream: AudioStream):
 	player.stream = stream
