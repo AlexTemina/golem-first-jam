@@ -2,6 +2,46 @@
 
 [ext_resource type="Script" uid="uid://glt2h8n11kby" path="res://golem_first_jam/entities/props/bus_stop.gd" id="1_y2qnh"]
 [ext_resource type="Texture2D" uid="uid://8svik5x0mw6m" path="res://golem_first_jam/entities/props/assets/BusStop1.png" id="2_cxoed"]
+[ext_resource type="AudioStream" uid="uid://tmfw677d554m" path="res://golem_first_jam/entities/props/assets/bus-stop-crash.wav" id="3_idq68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(24, 64)
+
+[sub_resource type="Animation" id="Animation_fges4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sfca0"]
+resource_name = "crash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3298672286269279, 0.2199114857512859, 0.2617993877991494]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmqta"]
+_data = {
+&"RESET": SubResource("Animation_fges4"),
+&"crash": SubResource("Animation_sfca0")
+}
 
 [node name="BusStop" type="Node2D" unique_id=534560023]
 script = ExtResource("1_y2qnh")
@@ -15,3 +55,18 @@ texture = ExtResource("2_cxoed")
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1226108938]
 position = Vector2(-1, -5)
 polygon = PackedVector2Array(-4, 5, 4, 5, 7, -8, 4, -23, -3, -23, -7, -9)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1362677202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1328742393]
+position = Vector2(-4, -32)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1100455556]
+libraries/ = SubResource("AnimationLibrary_rmqta")
+
+[node name="BusStopCrash" type="AudioStreamPlayer" parent="." unique_id=244366784]
+stream = ExtResource("3_idq68")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

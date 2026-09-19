@@ -23,7 +23,11 @@ signal scare_chicken()
 # OBSTACLES
 signal enable_obstacles()
 signal disable_obstacles()
+
+# VEHICLES
 signal launch_car()
+signal tractor_started_moving()
+signal tractor_crashed()
 
 # PUSHABLE ITEMS
 signal pushable_item_interacted(item: PushableEntity)

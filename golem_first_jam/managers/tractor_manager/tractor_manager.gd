@@ -7,6 +7,7 @@ var chicken: Chicken
 func _ready() -> void:
 	SignalBus.chicken_jumps_in_tractor.connect(on_chicken_jumps_in_tractor)
 	SignalBus.chicken_is_released.connect(on_chicken_jumps_off)
+	SignalBus.tractor_crashed.connect(on_tractor_crashed)
 	
 func _input(event: InputEvent) -> void:
 	if chicken != null and event.is_action_pressed("a_button"):
@@ -31,3 +32,6 @@ func chicken_interacts():
 func on_chicken_jumps_off():
 	tractor.toggle_collisions(true)
 	chicken = null
+	
+func on_tractor_crashed():
+	tractor.crash()

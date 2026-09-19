@@ -12,6 +12,7 @@ class_name Tractor extends Node2D
 @onready var engine_start_sound := $EngineStartSound
 @onready var engine_loop_sound := $EngineLoopSound
 @onready var animator := $Animator
+@onready var smoke := $Smoke
 
 var engine_started := false
 var moving := false
@@ -52,5 +53,14 @@ func _on_engine_start_sound_finished() -> void:
 	start_moving()
 	
 func start_moving():
+	toggle_collisions()
 	moving = true
+	SignalBus.tractor_started_moving.emit()
+
+func crash():
+	moving = false
+	animator.stop()
+	engine_loop_sound.stop()
+	smoke.restart()
+	smoke.emitting = true
 	

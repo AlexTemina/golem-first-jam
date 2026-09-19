@@ -14,6 +14,9 @@ Thin bell ding 2 by Khrinx -- https://freesound.org/s/333695/ -- License: Creati
 hissing snake sound effect by Garuda1982 -- https://freesound.org/s/541656/ -- License: Attribution 4.0
 tractor engine start by lauderson -- https://freesound.org/s/707744/ -- License: Creative Commons 0
 tractor engine on by lauderson -- https://freesound.org/s/707745/ -- License: Creative Commons 0
+Car Crash by squareal -- https://freesound.org/s/237375/ -- License: Creative Commons 0
+custom_metal_crash_with_glass_debris_03022026 by Artninja -- https://freesound.org/s/847085/ -- License: Attribution 4.0
+metal_pan_crashes.aiff by nothayama -- https://freesound.org/s/172497/ -- License: Attribution 4.0
 
 ## Shaders
 

@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://3vu1ljotfjc7" path="res://golem_first_jam/managers/pickables_manager/pickables_manager.tscn" id="26_6vn0m"]
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="27_r6ehh"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="29_hbjah"]
-[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="34_jfbip"]
+[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="34_jfbip"]
 
 [node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager")]
 script = ExtResource("1_d6rjn")
@@ -129,10 +129,10 @@ z_index = -900
 tile_set = ExtResource("27_r6ehh")
 
 [node name="BusStop" parent="Props" unique_id=534560023 instance=ExtResource("29_hbjah")]
-position = Vector2(736, -48)
+position = Vector2(736, -64)
 
-[node name="Tractor" parent="." unique_id=745763056 instance=ExtResource("34_jfbip")]
-position = Vector2(376, -72)
+[node name="Tractor" parent="." unique_id=980762422 instance=ExtResource("34_jfbip")]
+position = Vector2(296, -72)
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]
