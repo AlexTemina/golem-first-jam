@@ -12,7 +12,7 @@ extends Node
 @export var fade_screen: ColorRect
 
 
-@onready var road := $Terrain/Road
+@onready var road := %Road
 @onready var pushables := %Pushables
 
 func _ready() -> void:
