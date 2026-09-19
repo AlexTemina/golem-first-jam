@@ -36,6 +36,7 @@ signal bell_sequence_completed(bell_id: Bell.Id)
 
 # PICKABLE ITEMS
 signal register_pickable(pickable: PickableEntity)
+signal unregister_pickable(pickable: PickableEntity)
 
 # SOUND
 signal play_chicken_sound(sound_id: SoundManager.ChickenSound)

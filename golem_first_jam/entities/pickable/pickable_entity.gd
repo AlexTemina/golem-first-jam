@@ -14,6 +14,7 @@ func init(position: Vector2):
 	SignalBus.register_pickable.emit(self)
 	
 func destroy():
+	SignalBus.unregister_pickable.emit(self)
 	get_parent().remove_child(self)
 	queue_free()
 

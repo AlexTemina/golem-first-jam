@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cueifjtx3qs8t"]
 
 [ext_resource type="Script" uid="uid://fpj6xxx4473r" path="res://golem_first_jam/entities/road_block/road.gd" id="1_ra7h7"]
-[ext_resource type="Texture2D" uid="uid://he0vj4kmonts" path="res://golem_first_jam/entities/road_block/assets/Asphalt.png" id="2_ra7h7"]
+[ext_resource type="Texture2D" uid="uid://bv8wx1udhua2r" path="res://golem_first_jam/entities/road_block/assets/Asphalt2.png" id="2_ra7h7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejmlq"]
-size = Vector2(88, 5122)
+size = Vector2(90, 5118)
 
 [node name="Road" type="Node2D" unique_id=1918354824]
 script = ExtResource("1_ra7h7")
@@ -15,12 +15,12 @@ position = Vector2(96, 251)
 scale = Vector2(1, 1.004)
 texture = ExtResource("2_ra7h7")
 region_enabled = true
-region_rect = Rect2(0, 0, 192, 5000)
+region_rect = Rect2(0, 0, 97, 5000)
 
 [node name="ScareArea" type="Area2D" parent="." unique_id=1686155814]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" unique_id=942745556]
-position = Vector2(100, 259)
+position = Vector2(96, 261)
 shape = SubResource("RectangleShape2D_ejmlq")
 
 [connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]

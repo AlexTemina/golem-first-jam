@@ -9,11 +9,17 @@ var picked_entity: PickableEntity
 
 func _ready() -> void:
 	SignalBus.register_pickable.connect(register_pickable)
+	SignalBus.unregister_pickable.connect(unregister_pickable)
 	SignalBus.chicken_pecks.connect(on_chicken_pecks)
 	
 func register_pickable(pickable: PickableEntity):
 	pickables.append(pickable)
-	
+
+func unregister_pickable(pickable: PickableEntity):
+	pickables.erase(pickable)
+	if picked_entity == pickable:
+		picked_entity = null
+
 func on_chicken_pecks(chicken: Chicken):
 	if _is_pickable_available(picked_entity):
 		drop_item()
@@ -23,10 +29,10 @@ func on_chicken_pecks(chicken: Chicken):
 			var near_pickable = pickables[near_pickable_index]
 			pick_up_item(chicken, near_pickable)
 
-func _is_pickable_available(pickable: Node) -> bool:
-	return pickable != null && !pickable.is_queued_for_deletion()
+func _is_pickable_available(pickable: Variant) -> bool:
+	return is_instance_valid(pickable) && !pickable.is_queued_for_deletion()
 
-func _pickable_is_near_character_position(pickable: PickableEntity, character_position: Vector2) -> bool:
+func _pickable_is_near_character_position(pickable: Variant, character_position: Vector2) -> bool:
 	return _is_pickable_available(pickable) && pickable.is_near_character_position(character_position)
 
 func pick_up_item(chicken: Chicken, item: PickableEntity):
