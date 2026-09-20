@@ -29,25 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hvbwt"]
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="27_r6ehh"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="29_hbjah"]
-[ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="33_5ohj6"]
+[ext_resource type="TileSet" uid="uid://qfeb4lvr5lwj" path="res://golem_first_jam/entities/tilemaps/dark_zone_tileset.tres" id="31_kaht5"]
 [ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="34_jfbip"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6rjn"]
-texture = ExtResource("33_5ohj6")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_kddjp"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_d6rjn")
 
 [node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "fade_screen")]
 script = ExtResource("1_d6rjn")
@@ -197,10 +180,17 @@ position = Vector2(296, -72)
 [node name="DarkZones" type="Node2D" parent="." unique_id=804165330]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="DarkZones" unique_id=778585309]
+visible = false
 z_index = 3000
 z_as_relative = false
 tile_map_data = PackedByteArray("AAD9//3/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD9//7/AAABAAEAAAD8//7/AAABAAIAAAD9////AAABAAIAAAD+////AAABAAIAAAD///3/AAACAAEAAAD+//z/AAABAAAAAAD9//z/AAABAAAAAAD8//3/AAABAAEAAAD///7/AAACAAEAAAD/////AAACAAIAAAD///z/AAACAAAAAAD8//z/AAABAAAAAAD7//3/AAABAAEAAAD7//7/AAABAAIAAAD6//3/AAAAAAEAAAD7//z/AAABAAAAAAA=")
-tile_set = SubResource("TileSet_kddjp")
+tile_set = ExtResource("31_kaht5")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="DarkZones" unique_id=2056663894]
+z_index = 3000
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD2//3/AQADAAIAAAD3//z/AQAAAAAAAAD4//z/AQAHAAIAAAD4//v/AQAEAAEAAAD5//v/AQAHAAEAAAD6//v/AQAHAAEAAAD4//r/AQAHAAEAAAD3//r/AQAHAAEAAAD2//r/AQAEAAEAAAD2//v/AQACAAAAAAD2//z/AQAGAAEAAAD3//3/AQAFAAIAAAD3//v/AQAEAAEAAAD5//z/AQAHAAIAAAD6//z/AQABAAAAAAD7//z/AQAHAAIAAAD7//v/AQAEAAEAAAD5//r/AQAEAAEAAAD6//r/AQAEAAEAAAD7//r/AQAHAAEAAAD7//n/AQAEAAEAAAD6//n/AQAHAAEAAAD5//n/AQAEAAEAAAD4//n/AQAHAAEAAAD3//n/AQAEAAEAAAD8//v/AQAAAAAAAAD8//z/AQAFAAIAAAD8//r/AQAEAAEAAAD8//n/AQAEAAEAAAD8//j/AQAAAAIAAAD7//j/AQAHAAEAAAD6//j/AQAHAAEAAAD5//j/AQAHAAEAAAD4//j/AQAHAAEAAAD2//n/AQAEAAEAAAD1//n/AQACAAAAAAD1//j/AQACAAIAAAD2//j/AQAHAAEAAAD3//j/AQAHAAEAAAD1//v/AQADAAIAAAD1//r/AQACAAEAAAD7//f/AQAHAAAAAAD8//f/AQAFAAAAAAD6//f/AQABAAIAAAD5//f/AQABAAIAAAD4//f/AQABAAIAAAD1//f/AQADAAAAAAD2//f/AQAHAAAAAAD3//f/AQAHAAAAAAD9//j/AQAFAAAAAAD9//n/AQAAAAEAAAD9//r/AQAAAAEAAAD9//v/AQAFAAIAAAD0//j/AQADAAAAAAD0//n/AQADAAIAAAA=")
+tile_set = ExtResource("31_kaht5")
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]
