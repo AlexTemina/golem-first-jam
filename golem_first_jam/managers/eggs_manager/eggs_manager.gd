@@ -8,6 +8,7 @@ class_name EggsManager extends Node
 
 func _ready() -> void:
 	SignalBus.lay_egg.connect(create_egg)
+	SignalBus.destroy_egg.connect(destroy_egg)
 	
 func create_egg(position: Vector2):
 	var egg: Egg = egg_scene.instantiate()
@@ -20,3 +21,9 @@ func remove_eldest_egg():
 	if eggs_container.get_child_count() > max_eggs:
 		var eldest_egg: Egg = eggs_container.get_children()[0]
 		eldest_egg.break_egg()
+
+func destroy_egg(egg_position: Vector2):
+	for egg in eggs_container.get_children():
+		if egg.position == egg_position:
+			egg.break_egg()
+			break

@@ -32,4 +32,8 @@ stream = ExtResource("3_1fxst")
 volume_db = 6.386
 pitch_scale = 2.05
 
+[node name="EatEggTimer" type="Timer" parent="." unique_id=1214383682]
+one_shot = true
+
 [connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]
+[connection signal="timeout" from="EatEggTimer" to="." method="_on_eat_egg_timer_timeout"]

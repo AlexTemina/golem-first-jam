@@ -1,21 +1,29 @@
 class_name Snake extends CharacterBody2D
 
-enum State {ALERT, SEARCHING_EGG, EATING_EGG}
+enum State {ALERT, SEARCHING_EGG, EATING_EGG, GOING_BACK}
 
 ## Movement speed in px/s
 @export var speed: float = 50.0
+## Time (s) that the snake takes to eat the egg
+@export var time_to_eat_egg: float = 3.0
 
 var state := State.ALERT
-var target_egg_position: Vector2
+var starting_position: Vector2
+var target_position: Vector2
 
 @onready var snake_sound := $SnakeHiss
+@onready var eat_egg_timer := $EatEggTimer
+
+func _ready() -> void:
+	starting_position = position
+	eat_egg_timer.wait_time = time_to_eat_egg
 
 func _process(delta: float) -> void:
-	if state == State.SEARCHING_EGG:
-		var next_position = position.move_toward(target_egg_position, delta * speed)
+	if state in [State.SEARCHING_EGG, State.GOING_BACK]:
+		var next_position = position.move_toward(target_position, delta * speed)
 		position = next_position
-		if target_egg_position.distance_to(next_position) < 4.0:
-			state = State.EATING_EGG
+		if target_position.distance_to(next_position) < 4.0:
+			eat_egg()
 
 func _on_scare_area_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, Chicken):
@@ -25,4 +33,16 @@ func _on_scare_area_body_entered(body: Node2D) -> void:
 
 func go_to_egg(egg_position: Vector2):
 	state = State.SEARCHING_EGG
-	target_egg_position = egg_position
+	target_position = egg_position
+	
+func eat_egg():
+	eat_egg_timer.start()
+	state = State.EATING_EGG
+	SignalBus.destroy_egg.emit(target_position)
+	
+func _on_eat_egg_timer_timeout() -> void:
+	go_home()
+	
+func go_home():
+	state = State.GOING_BACK
+	target_position = starting_position
