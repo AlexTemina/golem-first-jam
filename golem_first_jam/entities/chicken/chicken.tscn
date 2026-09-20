@@ -146,14 +146,6 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("7_novgq")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mc07d"]
-atlas = ExtResource("7_c0fly")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ji826"]
-atlas = ExtResource("7_c0fly")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mhas"]
 atlas = ExtResource("7_c0fly")
 region = Rect2(64, 0, 32, 32)
@@ -317,12 +309,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mc07d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ji826")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3mhas")
 }, {
 "duration": 1.0,
@@ -425,8 +411,10 @@ polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 [node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=2141792074]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_3ymhu")
-animation = &"fly"
+animation = &"peck"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="Beak" type="Node2D" parent="Body" unique_id=453269381]
 position = Vector2(9, -22)
