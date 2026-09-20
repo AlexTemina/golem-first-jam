@@ -22,7 +22,6 @@ func _on_interior_body_exited(body: Node2D) -> void:
 
 func show_roof(on := true):
 	roof_visible = on
-	roof.visible = true
 	animator.play("show_roof" if on else "hide_roof")
 
 func _apply_roof_visibility() -> void:

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://8xlop0hoat2r"]
+
+[ext_resource type="Script" uid="uid://devt83gpbmf8q" path="res://golem_first_jam/managers/crows_manager/crows_manager.gd" id="1_qhbps"]
+
+[node name="CrowsManager" type="Node" unique_id=69828199]
+script = ExtResource("1_qhbps")
+
+[node name="SequenceTimer" type="Timer" parent="." unique_id=2091854621]
+
+[connection signal="timeout" from="SequenceTimer" to="." method="_on_sequence_timer_timeout"]

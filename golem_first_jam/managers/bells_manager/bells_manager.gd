@@ -1,5 +1,10 @@
 class_name BellsManager extends Node
 
+const SHORT_NOTE = '.'
+
+# Just to be easily accessible
+static var global_ring_sequence: String
+
 ## Dots and hyphens (short and long ring) to define the sequence to follow
 @export var ring_sequence: String = '--..--'
 ## When this time is reached, the current sequence resets. In seconds
@@ -16,6 +21,10 @@ var current_sequence: Array[int] = []
 func _ready() -> void:
 	SignalBus.bell_ringed.connect(on_bell_ringed)
 	reset_sequence_timer.wait_time = max_time_between_rings
+	global_ring_sequence = ring_sequence
+	
+static func is_short_note(note: String):
+	return SHORT_NOTE == note
 	
 func on_bell_ringed(bell_id: Bell.Id):
 	last_bell_id = bell_id
@@ -42,7 +51,7 @@ func check_current_sequence():
 		var next_ring_time = current_sequence[i + 1]
 		var delay_between_rings = (next_ring_time - ring_time) / 1000.0
 		var is_long_ring = delay_between_rings >= long_ring_threshold
-		var is_long_expected = ring_sequence[i] != '.'
+		var is_long_expected = ring_sequence[i] != SHORT_NOTE
 		if is_long_expected != is_long_ring:
 			return
 	

@@ -2,22 +2,21 @@ extends Node
 
 @export var chicken: Chicken
 @export var snake: Snake
-@export var crow: Crow
 
 @export var chicken_manager: ChickenManager
 @export var snake_manager: SnakeManager
 @export var road_manager: RoadManager
 @export var pushables_manager: PushablesManager
 @export var pickables_manager: PickablesManager
+@export var crows_manager: CrowsManager
+@export var bells_manager: BellsManager
 @export var fade_screen: ColorRect
-
 
 @onready var road := %Road
 @onready var pushables := %Pushables
 
 func _ready() -> void:
 	SignalBus.game_time_over.connect(restart)
-	SignalBus.bell_sequence_completed.connect(show_crow) # TODO Do this in the crow manager
 
 	if chicken_manager and chicken:
 		chicken_manager.init(chicken)
@@ -29,8 +28,8 @@ func _ready() -> void:
 		fade_screen.hide()
 	if pushables_manager and pushables:
 		pushables_manager.init(pushables)
-	if crow:
-		crow.hide()
+	if crows_manager:
+		crows_manager.init()
 	
 	
 func restart():
@@ -43,7 +42,3 @@ func restart():
 
 func wait(seconds: float):
 	await get_tree().create_timer(seconds).timeout
-	
-func show_crow(bell_id: Bell.Id):
-	if crow:
-		crow.show()

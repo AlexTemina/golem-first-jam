@@ -31,8 +31,11 @@ signal tractor_crashed()
 
 # PUSHABLE ITEMS
 signal pushable_item_interacted(item: PushableEntity)
+
+# BELLS AND CROWS
 signal bell_ringed(bell_id: Bell.Id)
 signal bell_sequence_completed(bell_id: Bell.Id)
+signal register_crow(crow: Crow)
 
 # PICKABLE ITEMS
 signal register_pickable(pickable: PickableEntity)

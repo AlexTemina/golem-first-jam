@@ -2,10 +2,42 @@
 
 [ext_resource type="Script" uid="uid://c2mqmet42mkpw" path="res://golem_first_jam/entities/npc/crow/crow.gd" id="1_7bwut"]
 [ext_resource type="Texture2D" uid="uid://cpvf8bsabp1dy" path="res://golem_first_jam/entities/npc/crow/assets/Crow1.png" id="2_7bwut"]
+[ext_resource type="Texture2D" uid="uid://cl1j1og8yrkoe" path="res://golem_first_jam/entities/npc/crow/assets/CrowPecks.png" id="3_l4p3x"]
+[ext_resource type="AudioStream" uid="uid://v5ggchlle0m0" path="res://golem_first_jam/entities/npc/crow/assets/crow1.wav" id="4_ybre2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7bwut")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l4p3x")
+}],
+"loop": 0,
+"name": &"peck",
+"speed": 5.0
+}]
 
 [node name="Crow" type="Node2D" unique_id=1316683000]
 script = ExtResource("1_7bwut")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=273136895]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2139396858]
 position = Vector2(0, -16)
-texture = ExtResource("2_7bwut")
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+animation = &"peck"
+autoplay = "default"
+
+[node name="CroakSound" type="AudioStreamPlayer" parent="." unique_id=1210421194]
+stream = ExtResource("4_ybre2")
+bus = &"Reverb"
+
+[node name="InteractionTimer" type="Timer" parent="." unique_id=2001831539]
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="timeout" from="InteractionTimer" to="." method="_on_interaction_timer_timeout"]
