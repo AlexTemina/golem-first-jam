@@ -10,16 +10,18 @@ var sequence_index := 0
 @onready var sequence_timer := $SequenceTimer
 
 func _ready() -> void:
-	SignalBus.register_crow.connect(register_crow)
+	SignalBus.register_npc.connect(register_npc)
 	SignalBus.bell_sequence_completed.connect(on_bell_sequence_completed)
 	
 func init():
 	play_sequence()
 	
-func register_crow(crow: Crow):
-	crows.append(crow)
-	if crow.is_teacher:
-		teacher_crow = crow
+func register_npc(npc: Node2D):
+	if npc is Crow:
+		var crow: Crow = npc
+		crows.append(crow)
+		if crow.is_teacher:
+			teacher_crow = crow
 		
 func play_sequence():
 	sequence_index = 0

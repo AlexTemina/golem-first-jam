@@ -1,4 +1,4 @@
-class_name Snake extends CharacterBody2D
+class_name Snake extends Npc
 
 enum State {ALERT, SEARCHING_EGG, EATING_EGG, GOING_BACK}
 

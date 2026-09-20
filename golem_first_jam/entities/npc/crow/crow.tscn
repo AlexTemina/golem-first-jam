@@ -24,7 +24,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Crow" type="Node2D" unique_id=1316683000]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(16, 16)
+
+[node name="Crow" type="CharacterBody2D" unique_id=466244574]
 script = ExtResource("1_7bwut")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2139396858]
@@ -41,6 +44,10 @@ bus = &"Reverb"
 one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1881822590]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110030164]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_u5bk5")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="InteractionTimer" to="." method="_on_interaction_timer_timeout"]

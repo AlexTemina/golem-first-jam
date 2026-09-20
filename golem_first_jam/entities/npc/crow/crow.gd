@@ -1,4 +1,4 @@
-class_name Crow extends Node2D
+class_name Crow extends Npc
 
 enum Action {IDLE, FLYING, INTERACTING}
 
@@ -18,11 +18,10 @@ var starting_position: Vector2
 var action := Action.IDLE
 var flight_target: Vector2
 
-func _ready() -> void:	
-	SignalBus.register_crow.emit(self)
+func _ready() -> void:		
 	z_index = position.y
 	starting_position = self.position
-	
+		
 func _process(delta: float) -> void:
 	if is_flying():
 		position = position.move_toward(flight_target, flying_speed * delta)

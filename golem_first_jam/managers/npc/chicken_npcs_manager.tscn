@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bag1k6goq4mxd"]
+
+[ext_resource type="Script" uid="uid://ballqd73g17qu" path="res://golem_first_jam/managers/npc/chicken_npcs_manager.gd" id="1_sal0l"]
+
+[node name="ChickenNpcsManager" type="Node" unique_id=353318665]
+script = ExtResource("1_sal0l")
+
+[node name="TickTimer" type="Timer" parent="." unique_id=1866883130]
+autostart = true
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bhuyht2peocf"]
+
+[ext_resource type="Script" uid="uid://ca52rx4tiuk7v" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.gd" id="1_kojb7"]
+[ext_resource type="SpriteFrames" uid="uid://dvm8uy7dlp4d2" path="res://golem_first_jam/entities/chicken/assets/chicken_sprite_frames.tres" id="2_2ufe0"]
+[ext_resource type="Texture2D" uid="uid://d0vffnwud3l7b" path="res://golem_first_jam/entities/chicken/assets/ChikenWingFlap.png" id="9_sws41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_novgq"]
+atlas = ExtResource("9_sws41")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc2fy"]
+atlas = ExtResource("9_sws41")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcq2k"]
+atlas = ExtResource("9_sws41")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lmec"]
+atlas = ExtResource("9_sws41")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkq3h"]
+atlas = ExtResource("9_sws41")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0th25"]
+atlas = ExtResource("9_sws41")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5onq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_novgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcq2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkq3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0th25")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7nt2"]
+size = Vector2(16, 16)
+
+[node name="ChickenNpc" type="CharacterBody2D" unique_id=546995143]
+script = ExtResource("1_kojb7")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1064528041]
+position = Vector2(0, 1)
+color = Color(0, 0, 0, 0.37254903)
+polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
+
+[node name="Body" type="Node2D" parent="." unique_id=1142713677]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=1329881922]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("2_2ufe0")
+animation = &"ecstatic"
+autoplay = "idle"
+
+[node name="Beak" type="Node2D" parent="Body" unique_id=959339231]
+position = Vector2(9, -22)
+
+[node name="Wings" type="AnimatedSprite2D" parent="Body" unique_id=129111860]
+visible = false
+position = Vector2(-2, -13)
+sprite_frames = SubResource("SpriteFrames_s5onq")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503311469]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_d7nt2")
+
+[node name="NextActionTimer" type="Timer" parent="." unique_id=1673915537]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="animation_finished" from="Body/Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="timeout" from="NextActionTimer" to="." method="_on_next_action_timer_timeout"]

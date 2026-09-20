@@ -20,6 +20,7 @@ signal chicken_is_released()
 # NPCs
 signal scare_chicken()
 signal destroy_egg(egg_position: Vector2)
+signal register_npc(npc: Node2D)
 
 # OBSTACLES
 signal enable_obstacles()
