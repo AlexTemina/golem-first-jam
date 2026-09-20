@@ -4,6 +4,10 @@ class_name PushableEntity extends StaticBody2D
 @export var max_distance_to_interact: Vector2 = Vector2(32, 4)
 ## If the chicken can interact with the pushable
 @export var pushable_by_chicken: bool = true
+## If the interaction can be repeated
+@export var repeatable: bool = true
+
+var interacted: bool
 
 func _ready() -> void:
 	init(self.position)
@@ -18,4 +22,13 @@ func is_near_character_position(character_position: Vector2) -> bool:
 	return x_is_close and y_is_close
 
 func interact():
-	SignalBus.pushable_item_interacted.emit(self)
+	if is_interactable():
+		interacted = true
+		SignalBus.pushable_item_interacted.emit(self)
+		_interact()
+		
+func _interact():
+	pass
+
+func is_interactable():
+	return repeatable or not interacted

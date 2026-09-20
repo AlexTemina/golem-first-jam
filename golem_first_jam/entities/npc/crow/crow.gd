@@ -47,7 +47,7 @@ func _on_sprite_animation_finished() -> void:
 
 func fly_to_bell():
 	play_croak_sound()
-	fly_to(target_bell.position)
+	fly_to(target_bell.get_attached_item_position())
 	
 func fly_to(target: Vector2):
 	action = Action.FLYING
@@ -62,6 +62,7 @@ func play_croak_sound():
 func interact():
 	action = Action.INTERACTING
 	interaction_timer.start()
+	target_bell.interact_with_attached_item()
 
 func _on_interaction_timer_timeout() -> void:
 	fly_to(starting_position)

@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="24_2igjn"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="25_7jsgb"]
 [ext_resource type="PackedScene" uid="uid://3vu1ljotfjc7" path="res://golem_first_jam/managers/pickables_manager/pickables_manager.tscn" id="26_6vn0m"]
+[ext_resource type="PackedScene" uid="uid://dnqxg7ms0yq21" path="res://golem_first_jam/entities/pushable/door.tscn" id="26_hvbwt"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hvbwt"]
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="27_r6ehh"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="29_hbjah"]
@@ -106,6 +107,17 @@ position = Vector2(519, -149)
 z_index = -900
 position = Vector2(519, -627)
 
+[node name="Buildings" type="Node2D" parent="." unique_id=1000006234]
+
+[node name="Shed" parent="Buildings" unique_id=402769375 instance=ExtResource("14_m12gs")]
+position = Vector2(328, 48)
+
+[node name="Barn" parent="Buildings" unique_id=1489447167 instance=ExtResource("15_hst8i")]
+position = Vector2(-176, 224)
+
+[node name="Building1" parent="Buildings" unique_id=181886810 instance=ExtResource("16_p21hh")]
+position = Vector2(-352, -296)
+
 [node name="Obstacles" type="Node2D" parent="." unique_id=80006425]
 
 [node name="PickableItems" type="Node2D" parent="." unique_id=1795162199]
@@ -121,28 +133,30 @@ position = Vector2(352, 328)
 [node name="CrowTeacher" parent="NPC" unique_id=1504675459 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
 position = Vector2(-53, 72)
 is_teacher = true
-target_bell = NodePath("../../Pushables/LearningBell")
+target_bell = NodePath("../../Pushables/BellLearning")
 
 [node name="CrowLearning" parent="NPC" unique_id=1316683000 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
 position = Vector2(-160, 232)
-target_bell = NodePath("../../Pushables/LearningBell")
+target_bell = NodePath("../../Pushables/BellLearning")
+
+[node name="CrowLayingHen" parent="NPC" unique_id=249448694 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
+position = Vector2(64, 528)
+target_bell = NodePath("../../Pushables/BellLayingHen")
 
 [node name="Pushables" type="Node2D" parent="." unique_id=1399065126]
 unique_name_in_owner = true
 
-[node name="LearningBell" parent="Pushables" unique_id=129822321 instance=ExtResource("21_f5mjo")]
+[node name="BellLearning" parent="Pushables" unique_id=129822321 instance=ExtResource("21_f5mjo")]
 position = Vector2(-32, 80)
 
-[node name="Buildings" type="Node2D" parent="." unique_id=1000006234]
+[node name="BellLayingHen" parent="Pushables" unique_id=16257415 node_paths=PackedStringArray("attached_item") instance=ExtResource("21_f5mjo")]
+position = Vector2(216, 472)
+bell_id = 1
+attached_item = NodePath("../Door")
 
-[node name="Shed" parent="Buildings" unique_id=402769375 instance=ExtResource("14_m12gs")]
-position = Vector2(328, 48)
-
-[node name="Barn" parent="Buildings" unique_id=1489447167 instance=ExtResource("15_hst8i")]
-position = Vector2(-448, 288)
-
-[node name="Building1" parent="Buildings" unique_id=181886810 instance=ExtResource("16_p21hh")]
-position = Vector2(-352, -296)
+[node name="Door" parent="Pushables" unique_id=235557779 instance=ExtResource("26_hvbwt")]
+position = Vector2(144, 400)
+repeatable = false
 
 [node name="Props" type="Sprite2D" parent="." unique_id=719755115]
 

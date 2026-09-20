@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dnqxg7ms0yq21"]
+
+[ext_resource type="Script" uid="uid://bsyl4i11176ho" path="res://golem_first_jam/entities/pushable/door.gd" id="1_s8hqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8hqt"]
+size = Vector2(32, 64)
+
+[node name="Door" type="StaticBody2D" unique_id=444377114]
+script = ExtResource("1_s8hqt")
+metadata/_custom_type_script = "uid://con5kxabj18us"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2139244019]
+offset_right = 32.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.36698762, 0.222606, 0.02609298, 1)
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=639702158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1372137499]
+position = Vector2(16, 32)
+shape = SubResource("RectangleShape2D_s8hqt")

@@ -11,5 +11,7 @@ func init(pushables: Node2D):
 func on_chicken_pecks(chicken: Chicken):
 	for child in pushables_container.get_children():
 		var pushable: PushableEntity = child
+		if not pushable.pushable_by_chicken:
+			continue
 		if pushable.is_near_character_position(chicken.position):
 			pushable.interact()
