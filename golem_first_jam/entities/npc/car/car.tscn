@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dyvb4qy45pe8e" path="res://golem_first_jam/entities/npc/car/assets/CarUp1.png" id="2_j3j5g"]
 [ext_resource type="Texture2D" uid="uid://coi8xugs32ao2" path="res://golem_first_jam/entities/npc/car/assets/CarUp2.png" id="3_1yj2t"]
 [ext_resource type="Texture2D" uid="uid://cxljj10kta0g4" path="res://golem_first_jam/entities/npc/car/assets/CarUp3.png" id="4_8cgnr"]
+[ext_resource type="AudioStream" uid="uid://brj54crbkopri" path="res://golem_first_jam/entities/npc/car/assets/car-passing.wav" id="5_yn42f"]
+[ext_resource type="AudioStream" uid="uid://c32wpihe623hw" path="res://golem_first_jam/entities/npc/car/assets/car-skid.wav" id="6_1wd2k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kddjp"]
 animations = [{
@@ -27,3 +29,16 @@ script = ExtResource("1_j3j5g")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1531488125]
 sprite_frames = SubResource("SpriteFrames_kddjp")
+
+[node name="CarPassing" type="AudioStreamPlayer" parent="." unique_id=940110147]
+stream = ExtResource("5_yn42f")
+
+[node name="CarEffect" type="AudioStreamPlayer" parent="." unique_id=226802859]
+stream = ExtResource("6_1wd2k")
+
+[node name="SoundTimer" type="Timer" parent="." unique_id=918239847]
+one_shot = true
+
+[connection signal="finished" from="CarPassing" to="." method="_on_car_passing_finished"]
+[connection signal="finished" from="CarEffect" to="." method="_on_car_effect_finished"]
+[connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]

@@ -19,5 +19,5 @@ func launch_car(chicken_position: Vector2):
 	SignalBus.scare_chicken.emit()
 	var car: Car = car_scene.instantiate()
 	add_child(car)
-	var starting_position = Vector2(road.position.x + road.get_size().x / 2, chicken_position.y + 300)
+	var starting_position = Vector2(road.position.x, chicken_position.y + 300)
 	car.init(starting_position)

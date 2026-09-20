@@ -18,6 +18,10 @@ Car Crash by squareal -- https://freesound.org/s/237375/ -- License: Creative Co
 custom_metal_crash_with_glass_debris_03022026 by Artninja -- https://freesound.org/s/847085/ -- License: Attribution 4.0
 metal_pan_crashes.aiff by nothayama -- https://freesound.org/s/172497/ -- License: Attribution 4.0
 crow.wav by UncleSigmund -- https://freesound.org/s/138344/ -- License: Attribution 4.0
+Short-horn.wav by 14FValtrovaT -- https://freesound.org/s/419698/ -- License: Attribution NonCommercial 3.0
+car crash by nsstudios -- https://freesound.org/s/351513/ -- License: Attribution NonCommercial 4.0
+passing car by NachtmahrTV -- https://freesound.org/s/553259/ -- License: Creative Commons 0
+Chrysler LHS tire squeal 01 (04-25-2009).wav by audible-edge -- https://freesound.org/s/71736/ -- License: Creative Commons 0
 
 ## Shaders
 
