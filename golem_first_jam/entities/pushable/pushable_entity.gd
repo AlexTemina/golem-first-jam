@@ -2,6 +2,8 @@ class_name PushableEntity extends StaticBody2D
 
 ## Max distance in pixels to allowing the interaction with the item
 @export var max_distance_to_interact: Vector2 = Vector2(32, 4)
+## If the chicken can interact with the pushable
+@export var pushable_by_chicken: bool = true
 
 func _ready() -> void:
 	init(self.position)

@@ -38,6 +38,9 @@ stream = ExtResource("4_ybre2")
 bus = &"Reverb"
 
 [node name="InteractionTimer" type="Timer" parent="." unique_id=2001831539]
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1881822590]
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="InteractionTimer" to="." method="_on_interaction_timer_timeout"]

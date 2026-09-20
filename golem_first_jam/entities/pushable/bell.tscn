@@ -119,3 +119,5 @@ shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1989768157]
 stream = ExtResource("3_rinkw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1576700984]

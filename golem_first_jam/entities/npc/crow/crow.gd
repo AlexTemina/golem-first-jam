@@ -12,6 +12,7 @@ enum Action {IDLE, FLYING, INTERACTING}
 @onready var sprite := $Sprite
 @onready var croak_sound := $CroakSound
 @onready var interaction_timer := $InteractionTimer
+@onready var visible_checker := $VisibleOnScreenNotifier2D
 
 var starting_position: Vector2
 var action := Action.IDLE
@@ -53,6 +54,8 @@ func fly_to(target: Vector2):
 	flight_target = target
 
 func play_croak_sound():
+	if not visible_checker.is_on_screen():
+		return
 	if not croak_sound.playing:
 		croak_sound.play()
 		

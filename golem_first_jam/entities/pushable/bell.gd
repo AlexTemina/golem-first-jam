@@ -7,10 +7,12 @@ enum Id {LEARNING_BELL, LAYING_HEN_BELL, FENCE_BELL}
 
 @onready var audio_player := $AudioPlayer
 @onready var sprite := $Sprite
+@onready var visible_checker := $VisibleOnScreenNotifier2D
 
 func interact():
-	super()
-	audio_player.play()
+	super()	
 	sprite.play("play")
+	visible_checker.is_on_screen()
+	if visible_checker.is_on_screen():
+		audio_player.play()
 	SignalBus.bell_ringed.emit(bell_id)
-	
