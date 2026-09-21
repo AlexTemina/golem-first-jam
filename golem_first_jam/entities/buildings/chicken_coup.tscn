@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dv4r7ltusdyo8"]
+
+[ext_resource type="Script" uid="uid://cu56iwk0eppag" path="res://golem_first_jam/entities/buildings/chicken_coup.gd" id="1_u8l1b"]
+[ext_resource type="Texture2D" uid="uid://bovo1xd1a8kaq" path="res://golem_first_jam/entities/buildings/assets/ChikenCoup/ChikenCoup_Int.png" id="2_u5jas"]
+[ext_resource type="Texture2D" uid="uid://cdnu6in36bla0" path="res://golem_first_jam/entities/buildings/assets/ChikenCoup/ChikenCoup_Ext.png" id="3_jqcmj"]
+[ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="4_jqcmj"]
+
+[sub_resource type="Animation" id="Animation_pbx2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3m4mx"]
+resource_name = "hide_roof"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_syx1o"]
+resource_name = "show_roof"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExteriorSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5jas"]
+_data = {
+&"RESET": SubResource("Animation_pbx2x"),
+&"hide_roof": SubResource("Animation_3m4mx"),
+&"show_roof": SubResource("Animation_syx1o")
+}
+
+[node name="ChickenCoup" type="Node2D" unique_id=569859449]
+script = ExtResource("1_u8l1b")
+
+[node name="InteriorSprite" type="Sprite2D" parent="." unique_id=1772297524]
+position = Vector2(0, -80)
+texture = ExtResource("2_u5jas")
+
+[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=568340832]
+z_index = 2000
+position = Vector2(0, -80)
+texture = ExtResource("3_jqcmj")
+
+[node name="Interior" type="Area2D" parent="." unique_id=500147684]
+
+[node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=12933887]
+position = Vector2(-80, -152)
+polygon = PackedVector2Array(48, 8, 104, 8, 104, 160, 48, 160)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1849189466]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=586701616]
+polygon = PackedVector2Array(-16, 0, -16, -104, -8, -104, -8, -88, 16, -88, 16, 0, 32, 0, 32, -16, 48, -16, 48, -144, 0, -152, -40, -144, -40, -16, -32, -16, -32, 0)
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=3038744]
+libraries/ = SubResource("AnimationLibrary_u5jas")
+
+[node name="ChickenNpc" parent="." unique_id=546995143 instance=ExtResource("4_jqcmj")]
+position = Vector2(28, -64)
+main_action = 3
+
+[connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
+[connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]

@@ -9,6 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://b1v2h1oylt0c6" path="res://golem_first_jam/entities/pushable/spawn_wood_board.tscn" id="7_j3ofw"]
 [ext_resource type="Texture2D" uid="uid://bfrme8hocd0hh" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2Wall.png" id="7_jx3yq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(37, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
+size = Vector2(35, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5iw"]
+size = Vector2(20, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ru8o"]
+size = Vector2(7, 33)
+
 [sub_resource type="Animation" id="Animation_pbx2x"]
 length = 0.001
 tracks/0/type = "value"
@@ -54,24 +66,12 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_agbdj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jx3yq"]
 _data = {
 &"RESET": SubResource("Animation_pbx2x"),
 &"hide_roof": SubResource("Animation_3m4mx"),
 &"show_roof": SubResource("Animation_syx1o")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
-size = Vector2(37, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
-size = Vector2(35, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5iw"]
-size = Vector2(20, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ru8o"]
-size = Vector2(7, 33)
 
 [node name="SpawnBuilding" type="Node2D" unique_id=1443378941]
 script = ExtResource("1_pdig0")
@@ -108,9 +108,6 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -120)
 texture = ExtResource("7_jx3yq")
 
-[node name="Animator" type="AnimationPlayer" parent="." unique_id=235080019]
-libraries/ = SubResource("AnimationLibrary_agbdj")
-
 [node name="Interior" type="Area2D" parent="." unique_id=133959266]
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=36468432]
@@ -144,6 +141,9 @@ shape = SubResource("RectangleShape2D_0ru8o")
 [node name="SpawnWoodBoard" parent="." unique_id=645490003 instance=ExtResource("7_j3ofw")]
 position = Vector2(32, -72)
 max_distance_to_interact = Vector2(32, 32)
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=689226566]
+libraries/ = SubResource("AnimationLibrary_jx3yq")
 
 [connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]
