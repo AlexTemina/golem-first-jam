@@ -1,5 +1,5 @@
 @tool
-class_name Shed extends Node2D
+class_name SpawnBuilding extends Node2D
 
 @export var roof_visible := true:
 	set(value):
@@ -8,9 +8,11 @@ class_name Shed extends Node2D
 
 @onready var roof := $ExteriorSprite
 @onready var animator := $Animator
+@onready var jail_door := $JailDoor
 
 func _ready() -> void:
-	_apply_roof_visibility()
+	_apply_roof_visibility()	
+	jail_door.z_index = position.y - 24
 
 func _on_interior_body_entered(body: Node2D) -> void:
 	if body is Chicken:

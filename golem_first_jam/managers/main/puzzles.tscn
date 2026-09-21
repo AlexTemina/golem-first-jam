@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cxo5nuw40xibo" path="res://golem_first_jam/managers/npc/snake_manager.tscn" id="21_ac0fh"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="21_f5mjo"]
 [ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="22_gdv7d"]
+[ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="23_ioq1i"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="23_lle8v"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="24_2igjn"]
 [ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="25_5ohj6"]
@@ -56,7 +57,7 @@ camera_target = NodePath("../Chicken")
 [node name="Managers" type="Node2D" parent="." unique_id=1024291367]
 
 [node name="ChickenManager" parent="Managers" unique_id=2135993555 instance=ExtResource("17_qyfm7")]
-chicken_starting_position = Vector2(160, 120)
+chicken_starting_position = Vector2(160, 175)
 
 [node name="EggsManager" parent="Managers" unique_id=1416884054 instance=ExtResource("18_t0m41")]
 
@@ -122,6 +123,9 @@ position = Vector2(-176, 224)
 
 [node name="Building1" parent="Buildings" unique_id=181886810 instance=ExtResource("16_p21hh")]
 position = Vector2(-352, -296)
+
+[node name="SpawnBuilding" parent="Buildings" unique_id=1443378941 instance=ExtResource("23_ioq1i")]
+position = Vector2(208, 192)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=80006425]
 
