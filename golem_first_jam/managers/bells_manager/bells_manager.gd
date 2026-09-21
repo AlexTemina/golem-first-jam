@@ -10,7 +10,7 @@ static var global_ring_sequence: String
 ## When this time is reached, the current sequence resets. In seconds
 @export var max_time_between_rings: float = 2.0
 ## If time between rings is over this threshold (s), is considered long. Otherwise is short.
-@export var long_ring_threshold: float = 0.4
+@export var long_ring_threshold: float = 0.5
 
 @onready var reset_sequence_timer := $ResetSequenceTimer
 
@@ -29,7 +29,7 @@ static func is_short_note(note: String):
 func on_bell_ringed(bell_id: Bell.Id):
 	last_bell_id = bell_id
 	match bell_id:
-		Bell.Id.LAYING_HEN_BELL:
+		Bell.Id.CHICKEN_COUP_BELL:
 			chicken_ringed()
 			
 func chicken_ringed():

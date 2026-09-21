@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca6on5pmddn4o"
-path="res://.godot/imported/ChikenCoup_Ext_OpenDoor.png-ec75361ea1b9f806b6e668f7d28e754b.ctex"
+path="res://.godot/imported/ChikenCoup_Ext_OpenDoor.png-1fc044b353a4c96a5926dff499518645.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/buildings/assets/ChikenCoup/ChikenCoup_Ext_OpenDoor.png"
-dest_files=["res://.godot/imported/ChikenCoup_Ext_OpenDoor.png-ec75361ea1b9f806b6e668f7d28e754b.ctex"]
+source_file="res://golem_first_jam/entities/pushable/assets/ChikenCoup_Ext_OpenDoor.png"
+dest_files=["res://.godot/imported/ChikenCoup_Ext_OpenDoor.png-1fc044b353a4c96a5926dff499518645.ctex"]
 
 [params]
 

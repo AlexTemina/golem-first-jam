@@ -9,10 +9,20 @@ class_name ChickenCoup extends Node2D
 @onready var interior_sprite := $InteriorSprite
 @onready var roof := $ExteriorSprite
 @onready var animator := $Animator
+@onready var chicken_npcs_container := $Chickens
+
+var door_opened:= false
 
 func _ready() -> void:
+	SignalBus.chicken_coup_door_opened.connect(func(): door_opened = true)
 	_apply_roof_visibility()	
-	roof.z_index = roof.global_position.y
+	roof.z_index = global_position.y
+	init()
+	
+func init():
+	for chicken in chicken_npcs_container.get_children():
+		if chicken is ChickenNpc:
+			chicken.init()
 
 func _on_interior_body_entered(body: Node2D) -> void:
 	if body is Chicken:
@@ -23,6 +33,8 @@ func _on_interior_body_exited(body: Node2D) -> void:
 		show_roof()
 
 func show_roof(on := true):
+	if not door_opened:
+		return
 	roof_visible = on
 	animator.play("show_roof" if on else "hide_roof")
 

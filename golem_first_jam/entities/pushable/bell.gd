@@ -1,6 +1,6 @@
 class_name Bell extends PushableEntity
 
-enum Id {LEARNING_BELL, LAYING_HEN_BELL, FENCE_BELL}
+enum Id {LEARNING_BELL, CHICKEN_COUP_BELL, FENCE_BELL}
 
 ## Id to know which bell is interacted and to do the proper response
 @export var bell_id: Id
@@ -23,4 +23,4 @@ func interact_with_attached_item():
 		attached_item.interact()
 
 func get_attached_item_position():	
-	return attached_item.position if attached_item else position
+	return attached_item.global_position if attached_item else global_position

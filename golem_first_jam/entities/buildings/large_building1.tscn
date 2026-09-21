@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://clhwy8d5kcmvq"]
+
+[ext_resource type="Script" uid="uid://ccnqghx0r1g8u" path="res://golem_first_jam/entities/buildings/large_building_1.gd" id="1_xep1c"]
+[ext_resource type="Texture2D" uid="uid://cf4emc3lwd3mk" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build.png" id="1_yt808"]
+[ext_resource type="Texture2D" uid="uid://dgf7tfpnbvao4" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/chimeney_1.png" id="3_la3eu"]
+
+[node name="LargeBuilding1" type="Node2D" unique_id=1632016702]
+script = ExtResource("1_xep1c")
+
+[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=2031496233]
+position = Vector2(0, -112)
+texture = ExtResource("1_yt808")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1468386970]
+position = Vector2(0, -112)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=551803263]
+polygon = PackedVector2Array(-72, 112, 72, 112, 72, -48, -72, -48)
+
+[node name="Chimney" type="Sprite2D" parent="." unique_id=243746885]
+position = Vector2(32, -152)
+texture = ExtResource("3_la3eu")

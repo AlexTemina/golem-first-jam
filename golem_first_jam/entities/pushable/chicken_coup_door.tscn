@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dnqxg7ms0yq21"]
+
+[ext_resource type="Script" uid="uid://bsyl4i11176ho" path="res://golem_first_jam/entities/pushable/chicken_coup_door.gd" id="1_8n5fu"]
+[ext_resource type="Texture2D" uid="uid://ca6on5pmddn4o" path="res://golem_first_jam/entities/pushable/assets/ChikenCoup_Ext_OpenDoor.png" id="2_nevn0"]
+[ext_resource type="Texture2D" uid="uid://w6iny3vadw8k" path="res://golem_first_jam/entities/pushable/assets/ChikenCoup_Ext_ClosedDoor.png" id="3_kacat"]
+[ext_resource type="AudioStream" uid="uid://chy08p6x6apfe" path="res://golem_first_jam/entities/pushable/assets/door-opens.wav" id="4_kacat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8hqt"]
+size = Vector2(32, 40)
+
+[node name="ChickenCoupDoor" type="StaticBody2D" unique_id=444377114]
+script = ExtResource("1_8n5fu")
+metadata/_custom_type_script = "uid://con5kxabj18us"
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=639702158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1372137499]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_s8hqt")
+
+[node name="OpenSprite" type="Sprite2D" parent="." unique_id=552504695]
+visible = false
+position = Vector2(0, -64)
+texture = ExtResource("2_nevn0")
+
+[node name="ClosedSprite" type="Sprite2D" parent="." unique_id=357738036]
+position = Vector2(0, -80)
+texture = ExtResource("3_kacat")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="." unique_id=1492896305]
+stream = ExtResource("4_kacat")

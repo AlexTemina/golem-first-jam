@@ -34,6 +34,7 @@ signal tractor_crashed()
 # PUSHABLE ITEMS
 signal register_pushable(pushable: PushableEntity)
 signal pushable_item_interacted(item: PushableEntity)
+signal chicken_coup_door_opened()
 
 # BELLS AND CROWS
 signal bell_ringed(bell_id: Bell.Id)

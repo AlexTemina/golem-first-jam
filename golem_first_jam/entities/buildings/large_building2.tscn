@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bnk70bsva03i"]
+
+[ext_resource type="Script" uid="uid://dpcc3lgxtwfvy" path="res://golem_first_jam/entities/buildings/large_building_2.gd" id="1_bhdbl"]
+[ext_resource type="Texture2D" uid="uid://d2c5a0yj41n7m" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build_2.png" id="2_bhdbl"]
+
+[node name="LargeBuilding2" type="Node2D" unique_id=1632016702]
+script = ExtResource("1_bhdbl")
+
+[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=2031496233]
+position = Vector2(0, -120)
+texture = ExtResource("2_bhdbl")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1468386970]
+position = Vector2(0, -112)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=551803263]
+polygon = PackedVector2Array(-56, 112, 64, 112, 64, -48, -56, -48)
