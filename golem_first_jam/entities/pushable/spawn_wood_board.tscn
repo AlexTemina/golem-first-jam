@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxfmv3lnxabuu" path="res://golem_first_jam/entities/pushable/spawn_wood_board.gd" id="1_74axs"]
 [ext_resource type="Texture2D" uid="uid://4r0ed460w0xg" path="res://golem_first_jam/entities/pushable/assets/WoodBoard_Obstacle.png" id="2_wccom"]
 [ext_resource type="Texture2D" uid="uid://cui84v1wocurd" path="res://golem_first_jam/entities/pushable/assets/WoodBoard_Obstacle_Broken.png" id="3_2pqao"]
+[ext_resource type="AudioStream" uid="uid://dbh16lqutqbyd" path="res://golem_first_jam/entities/pushable/assets/wood-break.wav" id="4_wccom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(40, 32)
@@ -12,14 +13,17 @@ script = ExtResource("1_74axs")
 repeatable = false
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=645666169]
-position = Vector2(0, -120)
+position = Vector2(-32, -48)
 texture = ExtResource("2_wccom")
 
 [node name="SpriteBroken" type="Sprite2D" parent="." unique_id=520986926]
 visible = false
-position = Vector2(0, -120)
+position = Vector2(-32, -48)
 texture = ExtResource("3_2pqao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862454512]
-position = Vector2(28, -88)
+position = Vector2(-4, -16)
 shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="WoodBreakSound" type="AudioStreamPlayer" parent="." unique_id=1050529666]
+stream = ExtResource("4_wccom")

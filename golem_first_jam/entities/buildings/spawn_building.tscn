@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo2jxhyf8fgs1" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailDoor.png" id="5_agbdj"]
 [ext_resource type="Texture2D" uid="uid://ke0xwrnebhbx" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailFront.png" id="6_j3ofw"]
 [ext_resource type="PackedScene" uid="uid://b1v2h1oylt0c6" path="res://golem_first_jam/entities/pushable/spawn_wood_board.tscn" id="7_j3ofw"]
+[ext_resource type="Texture2D" uid="uid://bfrme8hocd0hh" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2Wall.png" id="7_jx3yq"]
 
 [sub_resource type="Animation" id="Animation_pbx2x"]
 length = 0.001
@@ -64,16 +65,17 @@ _data = {
 size = Vector2(37, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
-size = Vector2(40, 24)
+size = Vector2(35, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5iw"]
-size = Vector2(24, 18)
+size = Vector2(20, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ru8o"]
 size = Vector2(7, 33)
 
 [node name="SpawnBuilding" type="Node2D" unique_id=1443378941]
 script = ExtResource("1_pdig0")
+roof_visible = false
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
 position = Vector2(0, -120)
@@ -100,6 +102,12 @@ z_index = 2000
 position = Vector2(0, -120)
 texture = ExtResource("4_agbdj")
 
+[node name="ExteriorWallSprite" type="Sprite2D" parent="." unique_id=476773938]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -120)
+texture = ExtResource("7_jx3yq")
+
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=235080019]
 libraries/ = SubResource("AnimationLibrary_agbdj")
 
@@ -107,23 +115,23 @@ libraries/ = SubResource("AnimationLibrary_agbdj")
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=36468432]
 position = Vector2(-80, -152)
-polygon = PackedVector2Array(16, 48, 144, 48, 144, 136, 16, 136)
+polygon = PackedVector2Array(16, 56, 144, 56, 144, 136, 16, 136)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1025704039]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=811614946]
-polygon = PackedVector2Array(40, -104, 72, -104, 72, -8, -72, -8, -72, -104, -24, -104, -24, -72, -64, -72, -64, -16, 64, -16, 64, -96, 40, -96)
+polygon = PackedVector2Array(40, -104, 72, -104, 72, 12, -72, 12, -72, -104, -24, -104, -24, -72, -64, -72, -64, -16, 64, -16, 64, -96, 48, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=228696836]
 position = Vector2(-45.5, -29.5)
 shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=159398300]
-position = Vector2(-4, -92)
+position = Vector2(-6.5, -92)
 shape = SubResource("RectangleShape2D_kddjp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1226680346]
-position = Vector2(52, -87)
+position = Vector2(54, -87)
 shape = SubResource("RectangleShape2D_kh5iw")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=1678270753]
@@ -134,7 +142,8 @@ position = Vector2(60.5, -32.5)
 shape = SubResource("RectangleShape2D_0ru8o")
 
 [node name="SpawnWoodBoard" parent="." unique_id=645490003 instance=ExtResource("7_j3ofw")]
-max_distance_to_interact = Vector2(32, 100)
+position = Vector2(32, -72)
+max_distance_to_interact = Vector2(32, 32)
 
 [connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]

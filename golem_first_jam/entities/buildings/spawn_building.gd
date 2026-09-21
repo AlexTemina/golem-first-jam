@@ -6,12 +6,17 @@ class_name SpawnBuilding extends Node2D
 		roof_visible = value
 		_apply_roof_visibility()
 
+@onready var interior_sprite := $InteriorSprite
 @onready var roof := $ExteriorSprite
+@onready var exterior_wall := $ExteriorWallSprite
 @onready var animator := $Animator
 @onready var jail_door := $JailDoor
 
 func _ready() -> void:
 	_apply_roof_visibility()	
+	interior_sprite.z_index = interior_sprite.position.y
+	# roof.z_index = interior_sprite.z_index + 1
+	# exterior_wall.z_index = interior_sprite.z_index + 1
 	jail_door.z_index = position.y - 24
 
 func _on_interior_body_entered(body: Node2D) -> void:
