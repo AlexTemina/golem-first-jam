@@ -51,6 +51,9 @@ func restart():
 	get_tree().reload_current_scene()
 	
 func init_npcs():
+	if npcs_container == null:
+		return
+
 	for child in npcs_container.find_children('*', 'Npc'):
 		if child is Npc:
 			child.init()		
