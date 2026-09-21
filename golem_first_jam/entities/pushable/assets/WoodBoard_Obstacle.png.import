@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cui84v1wocurd"
-path="res://.godot/imported/WoodBoard_Obstacle_Broken.png-32e49faa61ef650f12e1d603beb2194c.ctex"
+uid="uid://4r0ed460w0xg"
+path="res://.godot/imported/WoodBoard_Obstacle.png-51139c71580de4c1e5331bafa82fb4de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/buildings/assets/SpawnBuild/WoodBoard_Obstacle_Broken.png"
-dest_files=["res://.godot/imported/WoodBoard_Obstacle_Broken.png-32e49faa61ef650f12e1d603beb2194c.ctex"]
+source_file="res://golem_first_jam/entities/pushable/assets/WoodBoard_Obstacle.png"
+dest_files=["res://.godot/imported/WoodBoard_Obstacle.png-51139c71580de4c1e5331bafa82fb4de.ctex"]
 
 [params]
 

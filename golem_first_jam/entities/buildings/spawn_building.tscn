@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgy7qhtwtqwn3" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2.png" id="4_agbdj"]
 [ext_resource type="Texture2D" uid="uid://bo2jxhyf8fgs1" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailDoor.png" id="5_agbdj"]
 [ext_resource type="Texture2D" uid="uid://ke0xwrnebhbx" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailFront.png" id="6_j3ofw"]
+[ext_resource type="PackedScene" uid="uid://b1v2h1oylt0c6" path="res://golem_first_jam/entities/pushable/spawn_wood_board.tscn" id="7_j3ofw"]
 
 [sub_resource type="Animation" id="Animation_pbx2x"]
 length = 0.001
@@ -79,6 +80,7 @@ position = Vector2(0, -120)
 texture = ExtResource("2_2x5hw")
 
 [node name="JailDoor" type="Sprite2D" parent="." unique_id=1591315957]
+z_index = -24
 position = Vector2(0, -120)
 texture = ExtResource("5_agbdj")
 
@@ -130,6 +132,9 @@ polygon = PackedVector2Array(-27, -27, -20, -32, -20, -34, -27, -32)
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1759480758]
 position = Vector2(60.5, -32.5)
 shape = SubResource("RectangleShape2D_0ru8o")
+
+[node name="SpawnWoodBoard" parent="." unique_id=645490003 instance=ExtResource("7_j3ofw")]
+max_distance_to_interact = Vector2(32, 100)
 
 [connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]

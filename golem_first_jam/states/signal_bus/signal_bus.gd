@@ -32,6 +32,7 @@ signal tractor_started_moving()
 signal tractor_crashed()
 
 # PUSHABLE ITEMS
+signal register_pushable(pushable: PushableEntity)
 signal pushable_item_interacted(item: PushableEntity)
 
 # BELLS AND CROWS
