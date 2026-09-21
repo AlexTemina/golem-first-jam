@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dn63rbsni3wrw"]
+
+[ext_resource type="Script" uid="uid://bdojp18pvn1rm" path="res://golem_first_jam/managers/river_manager/river_manager.gd" id="1_sm5y2"]
+
+[node name="RiverManager" type="Node" unique_id=1307882245]
+script = ExtResource("1_sm5y2")

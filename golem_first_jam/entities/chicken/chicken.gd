@@ -46,6 +46,7 @@ var button_charge: float # When you push repeatedly the button, this float "rech
 var z_velocity: float # For jumping/flying
 var z_offset: float # Distance from the floor when flying
 var learning: bool
+var over_water: bool
 
 func _ready() -> void:
 	action = Action.NONE
@@ -74,7 +75,9 @@ func manage_velocity(delta: float):
 		return
 		
 	if is_flying():
-		z_velocity += get_gravity().y * gravity_factor * delta
+		if z_velocity < 0 and over_water: # If falling over water, stop fall
+			return
+		z_velocity += get_gravity().y * gravity_factor * delta		
 		z_offset += z_velocity
 		if z_offset > 0.0:
 			land()
@@ -153,9 +156,12 @@ func fly() -> void:
 	wings.show()
 	wings.play("default")
 	z_velocity = -jump_max_impulse
+	z_offset = -0.01
 	SignalBus.chicken_flies.emit()
 	
 func land():
+	if over_water:
+		print('You landed on water. This is bad.')
 	z_offset = 0.0
 	body.position.y = z_offset
 	wings.hide()
@@ -200,7 +206,7 @@ func has_stopped_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity != Vector2.ZERO and not is_moving()
 	
 func is_moving() -> bool: return velocity != Vector2.ZERO	
-func is_flying() -> bool: return action == Action.FLYING	
+func is_flying() -> bool: return z_offset < 0.0
 func is_scared() -> bool: return action == Action.SCARED
 func is_ecstatic() -> bool: return action == Action.ECSTATIC
 
