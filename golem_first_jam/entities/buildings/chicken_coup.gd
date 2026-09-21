@@ -12,7 +12,7 @@ class_name ChickenCoup extends Node2D
 
 func _ready() -> void:
 	_apply_roof_visibility()	
-	interior_sprite.z_index = interior_sprite.position.y
+	roof.z_index = roof.global_position.y
 
 func _on_interior_body_entered(body: Node2D) -> void:
 	if body is Chicken:

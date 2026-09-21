@@ -61,19 +61,24 @@ _data = {
 script = ExtResource("1_u8l1b")
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=1772297524]
-position = Vector2(0, -80)
+z_index = -1000
+z_as_relative = false
+position = Vector2(6, -81)
 texture = ExtResource("2_u5jas")
+region_enabled = true
+region_rect = Rect2(44, 31, 83, 166)
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=568340832]
-z_index = 2000
-position = Vector2(0, -80)
+position = Vector2(5, -83)
 texture = ExtResource("3_jqcmj")
+region_enabled = true
+region_rect = Rect2(43, 29, 84, 166)
 
 [node name="Interior" type="Area2D" parent="." unique_id=500147684]
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=12933887]
 position = Vector2(-80, -152)
-polygon = PackedVector2Array(48, 8, 104, 8, 104, 160, 48, 160)
+polygon = PackedVector2Array(56, 40, 104, 40, 104, 160, 56, 160)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1849189466]
 
