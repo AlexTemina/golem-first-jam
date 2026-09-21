@@ -6,7 +6,7 @@ const ANIMATIONS = {
 	Action.NONE: "idle",
 	Action.PECKING: "peck",
 	Action.FLYING: "fly",
-	Action.LAYING_EGG: "lay_egg",
+	Action.LAYING_EGG: "lay_egg_short",
 	Action.ECSTATIC: "ecstatic",
 }
 
@@ -18,6 +18,7 @@ const ANIMATIONS = {
 @onready var body := $Body
 @onready var sprite := $Body/Sprite
 @onready var next_action_timer := $NextActionTimer
+@onready var visible_on_screen := $VisibleOnScreenNotifier2D
 
 var action: Action
 
@@ -34,8 +35,16 @@ func set_action(new_action: Action):
 		sprite.play(animation)
 
 func _on_sprite_animation_finished() -> void:
+	match action:
+		Action.LAYING_EGG:
+			lay_egg()
 	set_action(Action.NONE)
 	next_action_timer.start()
+	
+func lay_egg():
+	if visible_on_screen:
+		SignalBus.npc_lay_egg.emit(global_position)			
+		SignalBus.play_chicken_sound.emit(SoundManager.ChickenSound.LAY_EGG)
 	
 func is_idle() -> bool: return Action.NONE == action
 

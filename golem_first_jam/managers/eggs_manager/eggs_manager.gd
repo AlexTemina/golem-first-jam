@@ -5,9 +5,11 @@ class_name EggsManager extends Node
 @export var max_eggs: int = 3
 
 @onready var eggs_container := $Eggs
+@onready var ephemeral_eggs_container := $EphemeralEggs
 
 func _ready() -> void:
 	SignalBus.lay_egg.connect(create_egg)
+	SignalBus.npc_lay_egg.connect(create_npc_egg)
 	SignalBus.destroy_egg.connect(destroy_egg)
 	
 func create_egg(position: Vector2):
@@ -16,6 +18,13 @@ func create_egg(position: Vector2):
 	egg.init(position)
 	remove_eldest_egg()
 	SignalBus.play_chicken_sound.emit(SoundManager.ChickenSound.LAY_EGG)
+	
+func create_npc_egg(position: Vector2):
+	var egg: Egg = egg_scene.instantiate()
+	egg.autodestruction_time = 3.0
+	ephemeral_eggs_container.add_child(egg)
+	egg.init(position)
+	# SignalBus.play_chicken_sound.emit(SoundManager.ChickenSound.LAY_EGG)	
 
 func remove_eldest_egg():
 	if eggs_container.get_child_count() > max_eggs:

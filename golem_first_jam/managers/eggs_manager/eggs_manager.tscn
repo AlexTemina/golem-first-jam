@@ -6,3 +6,5 @@
 script = ExtResource("1_u1xe4")
 
 [node name="Eggs" type="Node2D" parent="." unique_id=1799832303]
+
+[node name="EphemeralEggs" type="Node2D" parent="." unique_id=524706643]
