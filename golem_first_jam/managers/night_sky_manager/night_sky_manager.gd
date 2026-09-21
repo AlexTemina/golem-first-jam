@@ -1,38 +1,23 @@
-class_name NightSky extends Node
+class_name NightSkyManager extends Node
 
-@export var star_scene: PackedScene = load("res://golem_first_jam/entities/night_sky/star.tscn")
+@export var night_scene: PackedScene = load("res://golem_first_jam/entities/night_sky/night_sky.tscn")
 
-@onready var stars_container := $Stars
-@onready var vision_pictogram := $VisionPictogram
+var night_sky: NightSky
 
 func _ready() -> void:
-	clear_stars()
-	vision_pictogram.hide()
+	SignalBus.enter_ecstasy.connect(show_night_sky)
+	SignalBus.chicken_is_released.connect(hide_night_sky)
 	
-	draw_pictogram(vision_pictogram)
+	night_sky = night_scene.instantiate()
+	night_sky.hide()
+	SignalBus.add_node_to_canvas.emit(night_sky)
 	
-func draw_pictogram(pictogram: Polygon2D):
-	var previous_point: Vector2
-	for point in pictogram.polygon:
-		add_star(point)
-		if previous_point != null and previous_point != Vector2.ZERO:
-			add_interpolated_stars(previous_point, point)
-		previous_point = point
-		
-func add_interpolated_stars(point1: Vector2, point2: Vector2):
-	var stars_number: int = point1.distance_to(point2) / 10
-	print(str(point1) + ' to ' + str(point2))
-	for i in range(stars_number):
-		var lerp_factor = (i + 1.0) / float(stars_number)
-		var star_position = lerp(point1, point2, lerp_factor)
-		print(star_position)
-		add_star(star_position)
-		
-func add_star(target_position: Vector2):
-	var star = star_scene.instantiate()
-	stars_container.add_child(star)
-	star.init(target_position)
+func init():
+	pass
 
-func clear_stars():
-	for star in stars_container.get_children():
-		star.queue_free()
+func show_night_sky():
+	night_sky.show()
+	night_sky.draw_pictogram(night_sky.vision_pictogram)
+	
+func hide_night_sky():
+	night_sky.hide()

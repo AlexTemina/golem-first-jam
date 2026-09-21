@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2tcqvbgog7qv"]
+
+[ext_resource type="Script" uid="uid://b7ia3as3h4eg3" path="res://golem_first_jam/entities/night_sky/night_sky.gd" id="1_1cp5x"]
+[ext_resource type="Texture2D" uid="uid://bea20dukgy1y3" path="res://golem_first_jam/entities/night_sky/assets/NightSky1.png" id="2_x81te"]
+
+[node name="NightSky" type="Node2D" unique_id=82371487]
+z_index = 3000
+z_as_relative = false
+script = ExtResource("1_1cp5x")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1718165487]
+position = Vector2(180.125, 107.71875)
+scale = Vector2(1.1242187, 1.203125)
+texture = ExtResource("2_x81te")
+
+[node name="VisionPictogram" type="Polygon2D" parent="." unique_id=1026751683]
+position = Vector2(72, -8)
+polygon = PackedVector2Array(48, 24, 64, 112, 104, 176, 128, 104, 152, 64, 176, 160, 184, 176, 224, 96, 240, 24)
+
+[node name="Stars" type="Node2D" parent="." unique_id=1986807396]

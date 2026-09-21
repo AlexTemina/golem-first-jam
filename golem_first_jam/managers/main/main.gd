@@ -11,10 +11,12 @@ extends Node
 @export var crows_manager: CrowsManager
 @export var bells_manager: BellsManager
 @export var chicken_npcs_manager: ChickenNpcsManager
+@export var night_sky_manager: NightSkyManager
 @export var fade_screen: ColorRect
 ## Children of this folder will be registered 
 @export var npcs_container: Node
 
+@onready var canvas := $CanvasLayer
 @onready var road := %Road
 @onready var pushables := %Pushables
 
@@ -36,6 +38,8 @@ func init():
 		pushables_manager.init(pushables)
 	if crows_manager:
 		crows_manager.init()	
+	if night_sky_manager:
+		night_sky_manager.init()
 	
 func restart():
 	if fade_screen:

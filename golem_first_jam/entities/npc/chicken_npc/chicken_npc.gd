@@ -42,7 +42,7 @@ func _on_sprite_animation_finished() -> void:
 	next_action_timer.start()
 	
 func lay_egg():
-	if visible_on_screen:
+	if visible_on_screen.is_on_screen():
 		SignalBus.npc_lay_egg.emit(global_position)			
 		SignalBus.play_chicken_sound.emit(SoundManager.ChickenSound.LAY_EGG)
 	

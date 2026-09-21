@@ -6,6 +6,8 @@ signal dumb_thing_happened(message: String)
 
 # GAME STATUS
 signal game_time_over()
+signal add_node_to_canvas(node: Node2D) # Add to static canvas, always on camera
+signal enter_ecstasy()
 
 # CHICKEN
 signal chicken_pecks(chicken: Chicken)
@@ -16,6 +18,7 @@ signal special_vision_toggled(on: bool)
 signal chicken_crosses_road(chicken_position: Vector2)
 signal chicken_jumps_in_tractor(chicken: Chicken)
 signal chicken_is_released()
+signal toggle_learning_spot(on: bool)
 
 # NPCs
 signal scare_chicken()
