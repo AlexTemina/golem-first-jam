@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("b_button"):
+	if event.is_action_pressed("c_button"):
 		toggle_vision()
 		
 func toggle_vision():
