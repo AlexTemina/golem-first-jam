@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgt5g4is5t0ik" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gd" id="1_memsb"]
 [ext_resource type="Shader" uid="uid://dayuu8axjbdml" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gdshader" id="2_hxwpy"]
 [ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/npc/dog/assets/dog_face.png" id="2_xbwuf"]
+[ext_resource type="Shader" uid="uid://c8q6lvtnjfsli" path="res://golem_first_jam/entities/test/test_vision.gdshader" id="4_4jrn8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kddjp"]
 shader = ExtResource("2_hxwpy")
@@ -10,6 +11,17 @@ shader_parameter/pixel_size = 1.0
 shader_parameter/vhs_intensity = 3.81600018126
 shader_parameter/noise_intensity = 0.15
 shader_parameter/opacity = 0.07200000342
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wo7qq"]
+shader = ExtResource("4_4jrn8")
+shader_parameter/luminance = Color(0.3086, 0.6094, 0.082, 1)
+shader_parameter/base_color = Color(0.2, 1, 0.4, 1)
+shader_parameter/brightness = 2.0
+shader_parameter/noise_level = 0.5
+shader_parameter/vignette_level = 0.4
+shader_parameter/edge_x = 0.75
+shader_parameter/edge_y = 4.0
+shader_parameter/flickering_level = 0.1
 
 [node name="SpecialVisionManager" type="Node" unique_id=88120497]
 script = ExtResource("1_memsb")
@@ -24,11 +36,23 @@ texture = ExtResource("2_xbwuf")
 [node name="ColorRect" type="ColorRect" parent="ShaderCanvasLayer" unique_id=300119815]
 visible = false
 material = SubResource("ShaderMaterial_kddjp")
-offset_right = 320.0
-offset_bottom = 184.0
+offset_right = 352.0
+offset_bottom = 216.0
 color = Color(1, 1, 1, 0.1882353)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2068628187]
 visible = false
 z_index = 4000
 color = Color(0.4881792, 1, 0.456277, 0.2784314)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1625746479]
+visible = false
+material = SubResource("ShaderMaterial_wo7qq")
+offset_right = 352.0
+offset_bottom = 216.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1841920938]
+handle_input_locally = false
+size = Vector2i(352, 216)
+render_target_update_mode = 0

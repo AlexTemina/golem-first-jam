@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="7_hmkbc"]
 [ext_resource type="PackedScene" uid="uid://c0bjd2it3enm1" path="res://golem_first_jam/entities/pickable/branch.tscn" id="8_r1vgb"]
 [ext_resource type="PackedScene" uid="uid://fxfjpcwcw1mt" path="res://golem_first_jam/entities/pickable/key.tscn" id="9_0t3qc"]
-[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="9_vr2hf"]
+[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="9_vr2hf"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="10_0snwu"]
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="11_6vm4u"]
 [ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="12_t0jr5"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drl2ym6inuu13"]
 
-[ext_resource type="Script" uid="uid://2u2ewmgo2vyf" path="res://golem_first_jam/entities/test/hotspot.gd" id="1_8jxqh"]
+[ext_resource type="Script" uid="uid://2u2ewmgo2vyf" path="res://golem_first_jam/entities/hotspot/hotspot.gd" id="1_8jxqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(32, 32)

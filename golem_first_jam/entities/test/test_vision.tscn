@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bardnxsbclkn6"]
+
+[ext_resource type="Texture2D" uid="uid://bkk8syjpp82sg" path="res://golem_first_jam/entities/buildings/assets/ExteriorBuild1.png" id="1_4hciv"]
+[ext_resource type="Shader" uid="uid://c8q6lvtnjfsli" path="res://golem_first_jam/entities/test/test_vision.gdshader" id="2_sck8e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sck8e"]
+shader = ExtResource("2_sck8e")
+shader_parameter/luminance = Color(0.3086, 0.6094, 0.082, 1)
+shader_parameter/base_color = Color(0.2, 1, 0.4, 1)
+shader_parameter/brightness = 3.0000000447036
+shader_parameter/noise_level = 0.12999999709424
+shader_parameter/vignette_level = 0.4499999899416
+shader_parameter/edge_x = 0.999999977648
+shader_parameter/edge_y = 4.0000000596048
+shader_parameter/flickering_level = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5bk5"]
+shader = ExtResource("2_sck8e")
+shader_parameter/luminance = Color(0.3086, 0.6094, 0.082, 1)
+shader_parameter/base_color = Color(0.2, 1, 0.4, 1)
+shader_parameter/brightness = 4.70000007003564
+shader_parameter/noise_level = 0.08999999798832
+shader_parameter/vignette_level = 0.4
+shader_parameter/edge_x = 0.75
+shader_parameter/edge_y = 4.0
+shader_parameter/flickering_level = 0.1
+
+[node name="TestVision" type="Node2D" unique_id=975964212]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1516121952]
+offset_right = 352.0
+offset_bottom = 216.0
+color = Color(0.3817845, 0.24429122, 0.057042502, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1337278581]
+visible = false
+material = SubResource("ShaderMaterial_sck8e")
+position = Vector2(176, 96)
+texture = ExtResource("1_4hciv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=459889220]
+visible = false
+position = Vector2(176, 96)
+texture = ExtResource("1_4hciv")
+
+[node name="ShaderCanvasLayer" type="CanvasLayer" parent="." unique_id=1784556651]
+visible = false
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1416799434]
+material = SubResource("ShaderMaterial_u5bk5")
+offset_right = 352.0
+offset_bottom = 216.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=775789888]
+handle_input_locally = false
+size = Vector2i(352, 216)
+render_target_update_mode = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="SubViewportContainer2/SubViewport" unique_id=1832738830]
+position = Vector2(176, 96)
+texture = ExtResource("1_4hciv")

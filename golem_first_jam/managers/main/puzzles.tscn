@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="4_b42o2"]
 [ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="5_043t4"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="6_1j5pp"]
-[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/test/hotspot.tscn" id="10_q241n"]
+[ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="10_q241n"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="11_v88a1"]
 [ext_resource type="PackedScene" uid="uid://c1cmtuxfr1nav" path="res://golem_first_jam/managers/tractor_manager/tractor_manager.tscn" id="13_l2yce"]
 [ext_resource type="PackedScene" uid="uid://8xlop0hoat2r" path="res://golem_first_jam/managers/crows_manager/crows_manager.tscn" id="14_f5mjo"]
@@ -77,6 +77,14 @@ z_index = 1000
 offset_right = 328.0
 offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
+
+[node name="NightShader" type="CanvasLayer" parent="." unique_id=1878267745]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="NightShader" unique_id=362697672]
+offset_right = 352.0
+offset_bottom = 216.0
+color = Color(0, 0.58392406, 0.58392406, 0.105882354)
 
 [node name="Managers" type="Node2D" parent="." unique_id=1024291367]
 
