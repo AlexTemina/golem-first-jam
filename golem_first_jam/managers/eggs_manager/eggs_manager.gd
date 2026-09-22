@@ -11,6 +11,7 @@ func _ready() -> void:
 	SignalBus.lay_egg.connect(create_egg)
 	SignalBus.npc_lay_egg.connect(create_npc_egg)
 	SignalBus.destroy_egg.connect(destroy_egg)
+	SignalBus.egg_in_hotspot.connect(fry_egg)
 	
 func create_egg(position: Vector2):
 	var egg: Egg = egg_scene.instantiate()
@@ -34,5 +35,8 @@ func remove_eldest_egg():
 func destroy_egg(egg_position: Vector2):
 	for egg in eggs_container.get_children():
 		if egg.position == egg_position:
-			egg.break_egg()
+			egg.break_egg(false)
 			break
+
+func fry_egg(egg: Egg):
+	egg.fry()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgt5g4is5t0ik" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gd" id="1_memsb"]
 [ext_resource type="Shader" uid="uid://dayuu8axjbdml" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gdshader" id="2_hxwpy"]
-[ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/time_chain/assets/dog_face.png" id="2_xbwuf"]
+[ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/npc/dog/assets/dog_face.png" id="2_xbwuf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kddjp"]
 shader = ExtResource("2_hxwpy")

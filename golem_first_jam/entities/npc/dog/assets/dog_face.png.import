@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dk24x863ul2ej"
-path="res://.godot/imported/dog_face.png-91a240f87bfeb10625aab874b8a77e5c.ctex"
+path="res://.godot/imported/dog_face.png-6abeb335208d8a5f3feefb35a1a31ad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/time_chain/assets/dog_face.png"
-dest_files=["res://.godot/imported/dog_face.png-91a240f87bfeb10625aab874b8a77e5c.ctex"]
+source_file="res://golem_first_jam/entities/npc/dog/assets/dog_face.png"
+dest_files=["res://.godot/imported/dog_face.png-6abeb335208d8a5f3feefb35a1a31ad9.ctex"]
 
 [params]
 

@@ -5,6 +5,9 @@ extends Node
 signal dumb_thing_happened(message: String)
 
 # GAME STATUS
+signal start_game_time()
+signal pause_game_time()
+signal resume_game_time()
 signal game_time_over()
 signal add_node_to_canvas(node: Node2D) # Add to static canvas, always on camera
 signal enter_ecstasy()
@@ -23,7 +26,6 @@ signal toggle_learning_spot(on: bool)
 # NPCs
 signal scare_chicken()
 signal npc_lay_egg(egg_position: Vector2)
-signal destroy_egg(egg_position: Vector2)
 signal register_npc(npc: Node2D)
 
 # OBSTACLES
@@ -48,6 +50,11 @@ signal register_crow(crow: Crow)
 # PICKABLE ITEMS
 signal register_pickable(pickable: PickableEntity)
 signal unregister_pickable(pickable: PickableEntity)
+
+# EGGS
+signal destroy_egg(egg_position: Vector2)
+signal egg_in_hotspot(egg: Egg)
+signal egg_fried(egg: Egg)
 
 # SOUND
 signal play_chicken_sound(sound_id: SoundManager.ChickenSound)

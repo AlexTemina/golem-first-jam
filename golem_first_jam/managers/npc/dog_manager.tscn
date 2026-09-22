@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ci2xayli25w5y"]
+
+[ext_resource type="Script" uid="uid://bb0bm4tw1cy5q" path="res://golem_first_jam/managers/npc/dog_manager.gd" id="1_ps3r0"]
+
+[node name="DogManager" type="Node" unique_id=1462346745]
+script = ExtResource("1_ps3r0")

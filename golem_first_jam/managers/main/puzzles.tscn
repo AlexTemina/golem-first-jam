@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="17_qyfm7"]
 [ext_resource type="PackedScene" uid="uid://bnidnvruv8bmw" path="res://golem_first_jam/managers/eggs_manager/eggs_manager.tscn" id="18_t0m41"]
 [ext_resource type="PackedScene" uid="uid://dn63rbsni3wrw" path="res://golem_first_jam/managers/river_manager/river_manager.tscn" id="18_xxqgo"]
+[ext_resource type="PackedScene" uid="uid://ci2xayli25w5y" path="res://golem_first_jam/managers/npc/dog_manager.tscn" id="19_q241n"]
 [ext_resource type="PackedScene" uid="uid://r2bey3e76nve" path="res://golem_first_jam/managers/bells_manager/bells_manager.tscn" id="19_ytgcg"]
 [ext_resource type="TileSet" uid="uid://j5kjqp55hx24" path="res://golem_first_jam/entities/tilemaps/river_test_tileset.tres" id="20_12lk5"]
 [ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="20_j13qb"]
@@ -40,9 +41,10 @@
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="29_hbjah"]
 [ext_resource type="TileSet" uid="uid://qfeb4lvr5lwj" path="res://golem_first_jam/entities/tilemaps/dark_zone_tileset.tres" id="31_kaht5"]
 [ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="34_jfbip"]
+[ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="34_q6dqm"]
 [ext_resource type="PackedScene" uid="uid://wm6a12r6aqnl" path="res://golem_first_jam/entities/learning_spot/learning_spot.tscn" id="37_043t4"]
 
-[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "fade_screen", "npcs_container")]
+[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container")]
 script = ExtResource("1_d6rjn")
 chicken = NodePath("Chicken")
 snake = NodePath("NPC/Snake")
@@ -56,6 +58,7 @@ bells_manager = NodePath("Managers/BellsManager")
 chicken_npcs_manager = NodePath("Managers/ChickenNpcsManager")
 night_sky_manager = NodePath("Managers/NightSkyManager")
 river_manager = NodePath("Managers/RiverManager")
+dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/Fade")
 npcs_container = NodePath("NPC")
 
@@ -110,6 +113,8 @@ tractor = NodePath("../../Tractor")
 
 [node name="RiverManager" parent="Managers" unique_id=1307882245 instance=ExtResource("18_xxqgo")]
 
+[node name="DogManager" parent="Managers" unique_id=1462346745 instance=ExtResource("19_q241n")]
+
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("4_b42o2")]
 unique_name_in_owner = true
 
@@ -163,7 +168,7 @@ position = Vector2(56, -384)
 [node name="PickableItems" type="Node2D" parent="." unique_id=1795162199]
 
 [node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("10_q241n")]
-position = Vector2(0, 64)
+position = Vector2(104, 160)
 
 [node name="NPC" type="Node2D" parent="." unique_id=634675259]
 
@@ -193,8 +198,11 @@ main_action = 4
 face_right = true
 
 [node name="AnotherChicken" parent="NPC/Chickens" unique_id=1103106210 instance=ExtResource("25_5ohj6")]
-position = Vector2(112, 216)
+position = Vector2(-16, 336)
 main_action = 1
+
+[node name="Dog" parent="NPC" unique_id=149243883 instance=ExtResource("34_q6dqm")]
+position = Vector2(112, 128)
 
 [node name="Pushables" type="Node2D" parent="." unique_id=1399065126]
 unique_name_in_owner = true

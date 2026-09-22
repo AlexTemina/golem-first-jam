@@ -13,6 +13,7 @@ extends Node
 @export var chicken_npcs_manager: ChickenNpcsManager
 @export var night_sky_manager: NightSkyManager
 @export var river_manager: RiverManager
+@export var dog_manager: DogManager
 @export var fade_screen: ColorRect
 ## Children of this folder will be registered 
 @export var npcs_container: Node
@@ -41,6 +42,8 @@ func init():
 		crows_manager.init()	
 	if night_sky_manager:
 		night_sky_manager.init()
+	if dog_manager:
+		dog_manager.init()
 	
 func restart():
 	if fade_screen:

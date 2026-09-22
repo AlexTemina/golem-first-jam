@@ -10,3 +10,7 @@ func _ready() -> void:
 
 func toggle(on := true):
 	rectangle.visible = on
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Egg:
+		SignalBus.egg_in_hotspot.emit(area.get_parent())

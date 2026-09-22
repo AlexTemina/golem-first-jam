@@ -39,6 +39,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_q8opm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChainSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_arb08"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChainSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xltpf"]
+_data = {
+&"RESET": SubResource("Animation_q8opm"),
+&"show": SubResource("Animation_arb08")
+}
+
 [node name="TimeChain" type="Node2D" unique_id=89565992]
 script = ExtResource("1_q8opm")
 
@@ -47,5 +83,8 @@ position = Vector2(128, 16)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 
 [node name="Timer" type="Timer" parent="." unique_id=1915084039]
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1664736777]
+libraries/ = SubResource("AnimationLibrary_xltpf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
