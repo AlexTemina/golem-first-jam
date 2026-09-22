@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="3_2g418"]
 [ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="4_ee1mn"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="5_rmhdr"]
-[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="7_2xvq1"]
+[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="7_2xvq1"]
 [ext_resource type="Texture2D" uid="uid://be76yas4qbrbu" path="res://golem_first_jam/entities/tilemaps/assets/FarmTileset_1.png" id="7_6trgy"]
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="7_icgfk"]
 [ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="12_fvfwf"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="21_pkph5"]
 [ext_resource type="PackedScene" uid="uid://dv4r7ltusdyo8" path="res://golem_first_jam/entities/buildings/chicken_coup.tscn" id="22_fe6m1"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="23_fe6m1"]
+[ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="32_txy57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -692,6 +693,14 @@ npcs_container = NodePath("Npcs")
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_re4ju")]
 camera_target = NodePath("../ChickenManager/Chicken")
 
+[node name="NightShader" type="CanvasLayer" parent="." unique_id=228570020]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="NightShader" unique_id=1462246158]
+offset_right = 352.0
+offset_bottom = 216.0
+color = Color(0, 0.58392406, 0.58392406, 0.105882354)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1245619060]
 
 [node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("7_icgfk")]
@@ -759,7 +768,9 @@ position = Vector2(448, -64)
 
 [node name="PushablesManager" parent="." unique_id=2049546389 instance=ExtResource("18_iuuge")]
 
-[node name="SpecialVisionManager" parent="." unique_id=873685239 instance=ExtResource("20_5rlpo")]
+[node name="SpecialVisionManager" parent="." unique_id=873685239 node_paths=PackedStringArray("dark_zones_container", "canvas_modulate_darkness") instance=ExtResource("20_5rlpo")]
+dark_zones_container = NodePath("../DarkZones")
+canvas_modulate_darkness = NodePath("../LightAndDarkness/CanvasModulateDarkness")
 
 [node name="RoadManager" parent="." unique_id=1499613785 instance=ExtResource("21_6kxf7")]
 
@@ -1101,6 +1112,49 @@ bell_id = 1
 
 [node name="BellTeaching" parent="." unique_id=387563139 instance=ExtResource("23_fe6m1")]
 position = Vector2(1392, 778)
+
+[node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
+
+[node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1702205282]
+color = Color(0.3448452, 0.42349467, 0.60646695, 1)
+
+[node name="Lights" type="Node2D" parent="LightAndDarkness" unique_id=1380873157]
+
+[node name="PointLight2D" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=518429993]
+range_z_min = -3000
+texture = ExtResource("32_txy57")
+texture_scale = 2.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=1179636606]
+position = Vector2(256, 0)
+range_z_min = -3000
+texture = ExtResource("32_txy57")
+texture_scale = 2.0
+
+[node name="DarkZones" type="Node2D" parent="LightAndDarkness" unique_id=196958462]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="LightAndDarkness/DarkZones" unique_id=1743056261]
+visible = false
+z_index = 3000
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD9//3/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD9//7/AAABAAEAAAD8//7/AAABAAIAAAD9////AAABAAIAAAD+////AAABAAIAAAD///3/AAACAAEAAAD+//z/AAABAAAAAAD9//z/AAABAAAAAAD8//3/AAABAAEAAAD///7/AAACAAEAAAD/////AAACAAIAAAD///z/AAACAAAAAAD8//z/AAABAAAAAAD7//3/AAABAAEAAAD7//7/AAABAAIAAAD6//3/AAAAAAEAAAD7//z/AAABAAAAAAA=")
+tile_set = ExtResource("21_6trgy")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="LightAndDarkness/DarkZones" unique_id=1717514008]
+visible = false
+z_index = 3000
+z_as_relative = false
+tile_map_data = PackedByteArray("AAD2//3/AQADAAIAAAD3//z/AQAAAAAAAAD4//z/AQAHAAIAAAD4//v/AQAEAAEAAAD5//v/AQAHAAEAAAD6//v/AQAHAAEAAAD4//r/AQAHAAEAAAD3//r/AQAHAAEAAAD2//r/AQAEAAEAAAD2//v/AQACAAAAAAD2//z/AQAGAAEAAAD3//3/AQAFAAIAAAD3//v/AQAEAAEAAAD5//z/AQAHAAIAAAD6//z/AQABAAAAAAD7//z/AQAHAAIAAAD7//v/AQAEAAEAAAD5//r/AQAEAAEAAAD6//r/AQAEAAEAAAD7//r/AQAHAAEAAAD7//n/AQAEAAEAAAD6//n/AQAHAAEAAAD5//n/AQAEAAEAAAD4//n/AQAHAAEAAAD3//n/AQAEAAEAAAD8//v/AQAAAAAAAAD8//z/AQAFAAIAAAD8//r/AQAEAAEAAAD8//n/AQAEAAEAAAD8//j/AQAAAAIAAAD7//j/AQAHAAEAAAD6//j/AQAHAAEAAAD5//j/AQAHAAEAAAD4//j/AQAHAAEAAAD2//n/AQAEAAEAAAD1//n/AQACAAAAAAD1//j/AQACAAIAAAD2//j/AQAHAAEAAAD3//j/AQAHAAEAAAD1//v/AQADAAIAAAD1//r/AQACAAEAAAD7//f/AQAHAAAAAAD8//f/AQAFAAAAAAD6//f/AQABAAIAAAD5//f/AQABAAIAAAD4//f/AQABAAIAAAD1//f/AQADAAAAAAD2//f/AQAHAAAAAAD3//f/AQAHAAAAAAD9//j/AQAFAAAAAAD9//n/AQAAAAEAAAD9//r/AQAAAAEAAAD9//v/AQAFAAIAAAD0//j/AQADAAAAAAD0//n/AQADAAIAAAA=")
+tile_set = ExtResource("21_6trgy")
+
+[node name="DarkZone" type="PointLight2D" parent="LightAndDarkness/DarkZones" unique_id=1237374003]
+position = Vector2(-224, -200)
+energy = 3.81
+blend_mode = 1
+range_z_min = -4000
+range_z_max = 2000
+texture = ExtResource("32_txy57")
+texture_scale = 2.0
 
 [editable path="ChickenManager"]
 [editable path="SnakeManager"]
