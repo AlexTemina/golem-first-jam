@@ -1,7 +1,11 @@
-[gd_scene format=3 uid="uid://bardnxsbclkn6"]
+[gd_scene format=4 uid="uid://bardnxsbclkn6"]
 
+[ext_resource type="Script" uid="uid://co82nf1sibsin" path="res://golem_first_jam/entities/test/test_vision.gd" id="1_4bgwa"]
 [ext_resource type="Texture2D" uid="uid://bkk8syjpp82sg" path="res://golem_first_jam/entities/buildings/assets/ExteriorBuild1.png" id="1_4hciv"]
+[ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="2_2b857"]
 [ext_resource type="Shader" uid="uid://c8q6lvtnjfsli" path="res://golem_first_jam/entities/test/test_vision.gdshader" id="2_sck8e"]
+[ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="4_ambiu"]
+[ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="6_ryo4w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sck8e"]
 shader = ExtResource("2_sck8e")
@@ -26,8 +30,15 @@ shader_parameter/edge_y = 4.0
 shader_parameter/flickering_level = 0.1
 
 [node name="TestVision" type="Node2D" unique_id=975964212]
+script = ExtResource("1_4bgwa")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1274346745]
+z_index = -2000
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAcAAAAAAAEAAAAEAAcAAAAAAAIAAAAEAAcAAAAAAAMAAAAEAAcAAAAAAAQAAAAEAAcAAAAAAAUAAAAEAAcAAAAAAAYAAAAEAAEAAAABAAAAAAAEAAcAAAABAAEAAAAEAAcAAAABAAIAAAAEAAcAAAABAAMAAAAEAAcAAAABAAQAAAAEAAcAAAABAAUAAAAEAAcAAAABAAYAAAAHAAEAAAACAAAAAAAEAAcAAAACAAEAAAAEAAcAAAACAAIAAAAEAAcAAAACAAMAAAAEAAcAAAACAAQAAAAEAAcAAAACAAUAAAAEAAcAAAACAAYAAAAEAAEAAAADAAAAAAAEAAcAAAADAAEAAAAEAAcAAAADAAIAAAAEAAcAAAADAAMAAAAEAAcAAAADAAQAAAAEAAcAAAADAAUAAAAEAAcAAAADAAYAAAAEAAEAAAAEAAAAAAAEAAcAAAAEAAEAAAAEAAcAAAAEAAIAAAAEAAcAAAAEAAMAAAAEAAcAAAAEAAQAAAAEAAcAAAAEAAUAAAAHAAEAAAAEAAYAAAAEAAEAAAAFAAAAAAAEAAcAAAAFAAEAAAAEAAcAAAAFAAIAAAAEAAcAAAAFAAMAAAAEAAcAAAAFAAQAAAAEAAcAAAAFAAUAAAAEAAcAAAAFAAYAAAAEAAcAAAAGAAAAAAAEAAcAAAAGAAEAAAAEAAcAAAAGAAIAAAAEAAcAAAAGAAMAAAAEAAcAAAAGAAQAAAAEAAcAAAAGAAUAAAAEAAcAAAAGAAYAAAAEAAcAAAAHAAAAAAAEAAcAAAAHAAEAAAAEAAcAAAAHAAIAAAAEAAcAAAAHAAMAAAAEAAcAAAAHAAQAAAAEAAcAAAAHAAUAAAAEAAcAAAAHAAYAAAAEAAcAAAAIAAAAAAAEAAcAAAAIAAEAAAAEAAcAAAAIAAIAAAAEAAcAAAAIAAMAAAAEAAcAAAAIAAQAAAAEAAcAAAAIAAUAAAAHAAEAAAAIAAYAAAAEAAcAAAAJAAAAAAAHAAEAAAAJAAEAAAAHAAEAAAAJAAIAAAAEAAcAAAAJAAMAAAAEAAcAAAAJAAQAAAAHAAEAAAAJAAUAAAAHAAEAAAAJAAYAAAAEAAcAAAAKAAAAAAAEAAcAAAAKAAEAAAAHAAEAAAAKAAIAAAAEAAEAAAAKAAMAAAAEAAEAAAAKAAQAAAAHAAEAAAAKAAUAAAAEAAcAAAAKAAYAAAAEAAcAAAA=")
+tile_set = ExtResource("2_2b857")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1516121952]
+visible = false
 offset_right = 352.0
 offset_bottom = 216.0
 color = Color(0.3817845, 0.24429122, 0.057042502, 1)
@@ -39,7 +50,6 @@ position = Vector2(176, 96)
 texture = ExtResource("1_4hciv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=459889220]
-visible = false
 position = Vector2(176, 96)
 texture = ExtResource("1_4hciv")
 
@@ -47,6 +57,7 @@ texture = ExtResource("1_4hciv")
 visible = false
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1416799434]
+visible = false
 material = SubResource("ShaderMaterial_u5bk5")
 offset_right = 352.0
 offset_bottom = 216.0
@@ -55,8 +66,25 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=775789888]
 handle_input_locally = false
 size = Vector2i(352, 216)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Sprite2D2" type="Sprite2D" parent="SubViewportContainer2/SubViewport" unique_id=1832738830]
 position = Vector2(176, 96)
 texture = ExtResource("1_4hciv")
+
+[node name="ChickenNpc" parent="." unique_id=546995143 instance=ExtResource("4_ambiu")]
+position = Vector2(24, 152)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=342818814]
+color = Color(0.44277036, 0.52028084, 0.9385293, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2091040800]
+position = Vector2(64, 120)
+range_z_min = -3000
+texture = ExtResource("6_ryo4w")
+texture_scale = 2.87
+height = 1024.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2052943907]
+position = Vector2(272, 120)
+texture = ExtResource("6_ryo4w")
