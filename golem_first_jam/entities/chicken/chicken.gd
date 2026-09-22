@@ -22,6 +22,8 @@ const ANIMATIONS = {
 @export var jump_max_impulse: float = 5.0
 ## Gravity modifier, the higher the more gravity
 @export var gravity_factor: float = 0.02
+## Max height flying
+@export var max_height: float = 20.0
 @export_group("Time stuff")
 ## Max time you have to quick press in order to fly (s)
 @export var time_to_quick_push = 0.5 
@@ -75,13 +77,21 @@ func manage_velocity(delta: float):
 		return
 		
 	if is_flying():
-		if z_velocity < 0 and over_water: # If falling over water, stop fall
-			return
-		z_velocity += get_gravity().y * gravity_factor * delta		
+		if z_velocity > 0 and over_water: # If falling over water, stop fall
+			z_velocity = -z_velocity # Invert falling speed
+			z_velocity = max(-jump_max_impulse, z_velocity)
+		else:
+			z_velocity += get_gravity().y * gravity_factor * delta
 		z_offset += z_velocity
+		z_offset = max(-max_height, z_offset) # Max height is negative
 		if z_offset > 0.0:
 			land()
 		body.position.y = z_offset
+	else:
+		if over_water: # Something wrong happened, push back
+			var teleport = global_position.direction_to(Vector2.ZERO) * move_speed * delta * 5.0
+			global_position += teleport
+			return
 		
 	if Input.is_action_pressed("right"):
 		velocity.x = move_speed
@@ -161,7 +171,7 @@ func fly() -> void:
 	
 func land():
 	if over_water:
-		print('You landed on water. This is bad.')
+		pass
 	z_offset = 0.0
 	body.position.y = z_offset
 	wings.hide()
@@ -206,7 +216,7 @@ func has_stopped_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity != Vector2.ZERO and not is_moving()
 	
 func is_moving() -> bool: return velocity != Vector2.ZERO	
-func is_flying() -> bool: return z_offset < 0.0
+func is_flying() -> bool: return z_offset < -0.005
 func is_scared() -> bool: return action == Action.SCARED
 func is_ecstatic() -> bool: return action == Action.ECSTATIC
 

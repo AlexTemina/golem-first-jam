@@ -11,8 +11,7 @@ func _ready() -> void:
 	SignalBus.toggle_learning_spot.connect(toggle_learning)
 	
 func _process(delta: float) -> void:
-	if chicken.is_flying():
-		check_chicken_over_river()
+	check_chicken_over_river()
 	
 func init(chicken: Chicken):
 	self.chicken = chicken
@@ -27,9 +26,6 @@ func toggle_learning(on: bool):
 func check_chicken_over_river():
 	if river_tilemap:
 		var atlas = TileMapUtils.get_atlas_at_position(river_tilemap, chicken.global_position)
-		chicken.over_water = atlas != null # Maybe more checks required
-		if chicken.over_water:
-			print('OVER WATER')
-			
+		chicken.over_water = atlas != null # Maybe more checks required	
 		
 	
