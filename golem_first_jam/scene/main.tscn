@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="3_2g418"]
 [ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="4_ee1mn"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="5_rmhdr"]
-[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="7_2xvq1"]
+[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="7_2xvq1"]
 [ext_resource type="Texture2D" uid="uid://be76yas4qbrbu" path="res://golem_first_jam/entities/tilemaps/assets/FarmTileset_1.png" id="7_6trgy"]
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="7_icgfk"]
 [ext_resource type="PackedScene" uid="uid://bjt7qqi3i1mvj" path="res://golem_first_jam/managers/chicken_manager/chicken_manager.tscn" id="12_fvfwf"]
@@ -716,8 +716,7 @@ tractor = NodePath("../../Tractor")
 
 [node name="PushablesManager" parent="Managers" unique_id=2049546389 instance=ExtResource("18_iuuge")]
 
-[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 node_paths=PackedStringArray("dark_zones_container", "canvas_modulate_darkness") instance=ExtResource("20_5rlpo")]
-dark_zones_container = NodePath("")
+[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 node_paths=PackedStringArray("canvas_modulate_darkness") instance=ExtResource("20_5rlpo")]
 canvas_modulate_darkness = NodePath("../../LightAndDarkness/CanvasModulateDarkness")
 
 [node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("21_6kxf7")]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca52rx4tiuk7v" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.gd" id="1_kojb7"]
 [ext_resource type="SpriteFrames" uid="uid://dvm8uy7dlp4d2" path="res://golem_first_jam/entities/chicken/assets/chicken_sprite_frames.tres" id="2_2ufe0"]
+[ext_resource type="SpriteFrames" uid="uid://babe6038vn0hx" path="res://golem_first_jam/entities/chicken/assets/chicken_eyes_sprite_frames.tres" id="4_xk2bu"]
 [ext_resource type="Texture2D" uid="uid://d0vffnwud3l7b" path="res://golem_first_jam/entities/chicken/assets/ChikenWingFlap.png" id="9_sws41"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_novgq"]
@@ -70,7 +71,7 @@ polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 [node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=1329881922]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("2_2ufe0")
-animation = &"lay_egg_short"
+animation = &"ecstatic"
 autoplay = "idle"
 
 [node name="Beak" type="Node2D" parent="Body" unique_id=959339231]
@@ -80,6 +81,13 @@ position = Vector2(9, -22)
 visible = false
 position = Vector2(-2, -13)
 sprite_frames = SubResource("SpriteFrames_s5onq")
+autoplay = "default"
+
+[node name="Eyes" type="AnimatedSprite2D" parent="Body" unique_id=525465168]
+visible = false
+position = Vector2(4, -22)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("4_xk2bu")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503311469]

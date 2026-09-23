@@ -40,6 +40,7 @@ const SHOW_LEGS_ACTIONS = [Action.NONE, Action.PECKING, Action.SCARED]
 @onready var beak := $Body/Beak
 @onready var wings := $Body/Wings
 @onready var legs := $Body/Legs
+@onready var eyes := $Body/Eyes
 @onready var hold_button_timer: Timer = $HoldButtonTimer
 @onready var quick_press_button_timer: Timer = $QuickPressButtonTimer
 @onready var scare_timer: Timer = $ScareTimer
@@ -205,6 +206,7 @@ func set_action(new_action: Action):
 	if body_animation != null:
 		sprite.play(body_animation)
 	legs.visible = action in SHOW_LEGS_ACTIONS
+	eyes.visible = is_ecstatic()
 	
 func scare():
 	if is_scared():

@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://babe6038vn0hx"]
+
+[ext_resource type="Texture2D" uid="uid://ccik20pmncrql" path="res://golem_first_jam/entities/chicken/assets/CrazyChiken/ChikenEcstaticEyeAura_v1.png" id="1_57n82"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru2wn"]
+atlas = ExtResource("1_57n82")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la8d0"]
+atlas = ExtResource("1_57n82")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c8rc"]
+atlas = ExtResource("1_57n82")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xplp"]
+atlas = ExtResource("1_57n82")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oxv8"]
+atlas = ExtResource("1_57n82")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2dg5"]
+atlas = ExtResource("1_57n82")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj8bj"]
+atlas = ExtResource("1_57n82")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru2wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la8d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c8rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xplp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oxv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2dg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj8bj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

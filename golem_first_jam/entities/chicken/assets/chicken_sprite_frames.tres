@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pxjrp0s2sg6j" path="res://golem_first_jam/entities/chicken/assets/ChikenDenyEmote.png" id="1_llkiy"]
 [ext_resource type="Texture2D" uid="uid://cf2h3aa51rl5i" path="res://golem_first_jam/entities/chicken/assets/ChikenEcstatic.png" id="2_1asvg"]
+[ext_resource type="Texture2D" uid="uid://d0cgqx3idpb56" path="res://golem_first_jam/entities/chicken/assets/CrazyChiken/ChikenEcstatic_v1.png" id="2_gkncr"]
 [ext_resource type="Texture2D" uid="uid://c68prpqc2njr3" path="res://golem_first_jam/entities/chicken/assets/ChikenJump.png" id="3_ystvt"]
 [ext_resource type="Texture2D" uid="uid://bycpb7gii0tpd" path="res://golem_first_jam/entities/chicken/assets/ChikenIddle.png" id="4_gkncr"]
 [ext_resource type="Texture2D" uid="uid://i73bkej2k2oh" path="res://golem_first_jam/entities/chicken/assets/ChikenIddleNoLegs.png" id="4_ystvt"]
@@ -239,6 +240,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_gkncr")
+}],
+"loop": 0,
+"name": &"ecstatic",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_1asvg")
 }, {
 "duration": 1.0,
@@ -272,7 +281,7 @@ animations = [{
 "texture": ExtResource("2_1asvg")
 }],
 "loop": 0,
-"name": &"ecstatic",
+"name": &"ecstatic_old",
 "speed": 5.0
 }, {
 "frames": [{

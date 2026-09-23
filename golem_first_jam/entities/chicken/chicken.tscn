@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dvm8uy7dlp4d2" path="res://golem_first_jam/entities/chicken/assets/chicken_sprite_frames.tres" id="2_c28dg"]
 [ext_resource type="Texture2D" uid="uid://dh5jr4hnvqvn1" path="res://golem_first_jam/entities/chicken/assets/ChikenLegsIdle.png" id="2_iwdfp"]
 [ext_resource type="Texture2D" uid="uid://bvmert05u71pk" path="res://golem_first_jam/entities/chicken/assets/ChikenLegsWalking.png" id="3_obpj7"]
+[ext_resource type="SpriteFrames" uid="uid://babe6038vn0hx" path="res://golem_first_jam/entities/chicken/assets/chicken_eyes_sprite_frames.tres" id="6_obpj7"]
 [ext_resource type="Texture2D" uid="uid://d0vffnwud3l7b" path="res://golem_first_jam/entities/chicken/assets/ChikenWingFlap.png" id="9_c0fly"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5477u"]
@@ -142,7 +143,7 @@ autoplay = "idle"
 [node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=2141792074]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("2_c28dg")
-animation = &"idle"
+animation = &"ecstatic"
 autoplay = "idle"
 
 [node name="Beak" type="Node2D" parent="Body" unique_id=453269381]
@@ -154,6 +155,13 @@ position = Vector2(-2, -13)
 sprite_frames = SubResource("SpriteFrames_q14m2")
 autoplay = "default"
 frame_progress = 0.7981128
+
+[node name="Eyes" type="AnimatedSprite2D" parent="Body" unique_id=1435832949]
+visible = false
+position = Vector2(4, -22)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("6_obpj7")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]
 position = Vector2(0, -4)
