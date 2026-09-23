@@ -157,7 +157,6 @@ func face_move_direction():
 			face_right(true)
 		elif velocity.x < 0:
 			face_right(false)
-	#z_index = position.y
 	
 func face_right(right := true):
 	body.scale.x = SPRITE_SCALE if right else -SPRITE_SCALE

@@ -6,6 +6,7 @@
 size = Vector2(16, 16)
 
 [node name="Target" type="StaticBody2D" unique_id=2068233883]
+y_sort_enabled = true
 script = ExtResource("1_a5rfu")
 metadata/_custom_type_script = "uid://c8juwvx2jpgfl"
 

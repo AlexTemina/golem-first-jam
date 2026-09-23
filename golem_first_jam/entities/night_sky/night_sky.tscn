@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bea20dukgy1y3" path="res://golem_first_jam/entities/night_sky/assets/NightSky1.png" id="2_x81te"]
 
 [node name="NightSky" type="Node2D" unique_id=82371487]
-z_index = 3000
 z_as_relative = false
 script = ExtResource("1_1cp5x")
 

@@ -95,10 +95,10 @@ _data = {
 }
 
 [node name="ChickenCoup" type="Node2D" unique_id=569859449]
+y_sort_enabled = true
 script = ExtResource("1_u8l1b")
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=1772297524]
-z_index = -1000
 z_as_relative = false
 position = Vector2(6, -81)
 texture = ExtResource("2_u5jas")

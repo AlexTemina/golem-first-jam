@@ -14,10 +14,6 @@ class_name SpawnBuilding extends Node2D
 
 func _ready() -> void:
 	_apply_roof_visibility()	
-	interior_sprite.z_index = interior_sprite.position.y
-	# roof.z_index = interior_sprite.z_index + 1
-	# exterior_wall.z_index = interior_sprite.z_index + 1
-	jail_door.z_index = position.y - 24
 
 func _on_interior_body_entered(body: Node2D) -> void:
 	if body is Chicken:

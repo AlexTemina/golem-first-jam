@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkk8syjpp82sg" path="res://golem_first_jam/entities/buildings/assets/ExteriorBuild1.png" id="2_dd7ak"]
 
 [node name="Building1" type="Node2D" unique_id=181886810]
+y_sort_enabled = true
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=854522529]
 position = Vector2(141.00002, 94.00001)

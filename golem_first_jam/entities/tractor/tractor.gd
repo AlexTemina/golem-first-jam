@@ -22,7 +22,7 @@ func _ready() -> void:
 	init()
 
 func init():
-	z_index = position.y
+	pass
 	
 func _process(delta: float) -> void:
 	if moving:

@@ -9,6 +9,7 @@
 size = Vector2(32, 48)
 
 [node name="ChickenCoupDoor" type="StaticBody2D" unique_id=444377114]
+y_sort_enabled = true
 script = ExtResource("1_8n5fu")
 metadata/_custom_type_script = "uid://con5kxabj18us"
 

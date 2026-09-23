@@ -106,6 +106,7 @@ animations = [{
 size = Vector2(16, 32)
 
 [node name="Bell" type="StaticBody2D" unique_id=129822321]
+y_sort_enabled = true
 script = ExtResource("1_fpolg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1254329459]

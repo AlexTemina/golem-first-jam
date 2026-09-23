@@ -79,12 +79,10 @@ script = ExtResource("1_pdig0")
 roof_visible = false
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
-z_index = -120
 position = Vector2(0, -120)
 texture = ExtResource("2_2x5hw")
 
 [node name="JailDoor" type="Sprite2D" parent="." unique_id=1591315957]
-z_index = -24
 y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("5_agbdj")
@@ -96,12 +94,10 @@ texture = ExtResource("6_j3ofw")
 
 [node name="ExteriorAlt" type="Sprite2D" parent="." unique_id=1077081200]
 visible = false
-z_index = 2000
 position = Vector2(0, -120)
 texture = ExtResource("3_6p6eq")
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=631219202]
-z_index = 2000
 y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("4_agbdj")

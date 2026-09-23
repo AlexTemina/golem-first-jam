@@ -7,6 +7,7 @@
 size = Vector2(90, 5118)
 
 [node name="Road" type="Node2D" unique_id=1918354824]
+y_sort_enabled = true
 script = ExtResource("1_ra7h7")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1043716524]

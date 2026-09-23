@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bi7qem1nhl0gw" path="res://golem_first_jam/entities/props/assets/FarmProps2.png" id="2_gd3y5"]
 
 [node name="DrinkingThrough" type="Node2D" unique_id=2080462447]
+y_sort_enabled = true
 script = ExtResource("1_5tlvo")
 metadata/_custom_type_script = "uid://o1jxupgj3xcb"
 

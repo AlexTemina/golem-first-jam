@@ -16,7 +16,6 @@ var door_opened:= false
 func _ready() -> void:
 	SignalBus.chicken_coup_door_opened.connect(func(): door_opened = true)
 	_apply_roof_visibility()	
-	roof.z_index = global_position.y
 	init()
 	
 func init():

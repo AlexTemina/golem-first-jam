@@ -62,6 +62,7 @@ gravity = Vector3(0, -98, 0)
 color = Color(1, 1, 1, 0.45882353)
 
 [node name="Tractor" type="Node2D" unique_id=1702493662]
+y_sort_enabled = true
 script = ExtResource("1_3k8bp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981758957]

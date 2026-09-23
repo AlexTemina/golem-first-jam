@@ -114,6 +114,7 @@ animations = [{
 size = Vector2(10, 3)
 
 [node name="Egg" type="Node2D" unique_id=1146936606]
+y_sort_enabled = true
 script = ExtResource("1_4nan4")
 
 [node name="Shadow" type="Polygon2D" parent="." unique_id=1940727021]

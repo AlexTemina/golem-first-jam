@@ -71,7 +71,6 @@ position = Vector2(48, 120)
 texture = ExtResource("1_mjydi")
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=1786556254]
-z_index = 2000
 z_as_relative = false
 position = Vector2(48, 120)
 texture = ExtResource("2_pijv1")

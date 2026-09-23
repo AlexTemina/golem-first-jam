@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func init(position: Vector2):
 	self.position = position
-	z_index = position.y
 	SignalBus.register_pickable.emit(self)
 	
 func destroy():
