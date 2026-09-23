@@ -12,6 +12,9 @@ signal game_time_over()
 signal add_node_to_canvas(node: Node2D) # Add to static canvas, always on camera
 signal enter_ecstasy()
 
+# CAMERA
+signal follow_object(node: Node2D)
+
 # CHICKEN
 signal chicken_pecks(chicken: Chicken)
 signal chicken_flies()
