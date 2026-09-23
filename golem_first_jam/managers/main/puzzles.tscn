@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="34_q6dqm"]
 [ext_resource type="PackedScene" uid="uid://wm6a12r6aqnl" path="res://golem_first_jam/entities/learning_spot/learning_spot.tscn" id="37_043t4"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
+[ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 
 [node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container")]
 script = ExtResource("1_d6rjn")
@@ -280,16 +281,17 @@ color = Color(0.3448452, 0.42349467, 0.60646695, 1)
 
 [node name="Lights" type="Node2D" parent="LightAndDarkness" unique_id=1148380410]
 
-[node name="PointLight2D" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=88789221]
-range_z_min = -3000
-texture = ExtResource("44_v88a1")
-texture_scale = 2.0
+[node name="StreetLamp" parent="LightAndDarkness/Lights" unique_id=1527847806 instance=ExtResource("46_m12gs")]
+z_index = 256
+position = Vector2(0, 256)
 
-[node name="PointLight2D2" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=365677386]
-position = Vector2(256, 0)
-range_z_min = -3000
-texture = ExtResource("44_v88a1")
-texture_scale = 2.0
+[node name="StreetLamp2" parent="LightAndDarkness/Lights" unique_id=1493303714 instance=ExtResource("46_m12gs")]
+z_index = 72
+position = Vector2(304, 72)
+
+[node name="StreetLamp3" parent="LightAndDarkness/Lights" unique_id=1455150857 instance=ExtResource("46_m12gs")]
+z_index = 56
+position = Vector2(80, 56)
 
 [node name="DarkZones" type="Node2D" parent="LightAndDarkness" unique_id=804165330]
 
