@@ -11,6 +11,7 @@ size = Vector2(32, 16)
 size = Vector2(64, 50)
 
 [node name="Snake" type="CharacterBody2D" unique_id=906309014]
+y_sort_enabled = true
 script = ExtResource("1_lr4si")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1814420301]

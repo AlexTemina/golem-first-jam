@@ -27,13 +27,11 @@ var action := Action.IDLE
 var flight_target: Vector2
 
 func _ready() -> void:		
-	z_index = position.y
-	starting_position = self.position
+	starting_position = self.global_position
 		
 func _process(delta: float) -> void:
 	if is_flying():
 		position = position.move_toward(flight_target, flying_speed * delta)
-		z_index = position.y
 		if position.distance_to(flight_target) < 8:
 			if flight_target == starting_position:
 				set_action(Action.IDLE)

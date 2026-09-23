@@ -123,6 +123,7 @@ animations = [{
 size = Vector2(16, 8)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
+y_sort_enabled = true
 script = ExtResource("1_rmv5a")
 jump_max_impulse = 0.8
 gravity_factor = 0.001

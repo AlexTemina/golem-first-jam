@@ -59,6 +59,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="ChickenNpc" type="CharacterBody2D" unique_id=546995143]
+y_sort_enabled = true
 script = ExtResource("1_kojb7")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1064528041]
