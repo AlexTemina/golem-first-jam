@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjhn5es3t7ek4"
-path="res://.godot/imported/InteractableFarmProps.png-e348855a26d748df4da1f5bad6ac4816.ctex"
+uid="uid://cyuv5egy75kk1"
+path="res://.godot/imported/WoodenFences.png-80410395266752c0949e71e3a86087e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/InteractableFarmProps.png"
-dest_files=["res://.godot/imported/InteractableFarmProps.png-e348855a26d748df4da1f5bad6ac4816.ctex"]
+source_file="res://golem_first_jam/entities/tilemaps/assets/WoodenFences.png"
+dest_files=["res://.godot/imported/WoodenFences.png-80410395266752c0949e71e3a86087e1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cew3r7bhk153f"
-path="res://.godot/imported/RoofTemplate.png-95527839e92b15f8ca5e65a572133057.ctex"
+uid="uid://cesbbmvntr350"
+path="res://.godot/imported/CrowFly.png-5b84de6ba00c28480459df597284f380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/enviroment_assets/RoofTemplate.png"
-dest_files=["res://.godot/imported/RoofTemplate.png-95527839e92b15f8ca5e65a572133057.ctex"]
+source_file="res://golem_first_jam/entities/npc/crow/assets/CrowFly.png"
+dest_files=["res://.godot/imported/CrowFly.png-5b84de6ba00c28480459df597284f380.ctex"]
 
 [params]
 
