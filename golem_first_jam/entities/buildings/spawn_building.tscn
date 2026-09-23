@@ -78,6 +78,7 @@ script = ExtResource("1_pdig0")
 roof_visible = false
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
+z_index = -120
 position = Vector2(0, -120)
 texture = ExtResource("2_2x5hw")
 
@@ -111,30 +112,37 @@ texture = ExtResource("7_jx3yq")
 [node name="Interior" type="Area2D" parent="." unique_id=133959266]
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=36468432]
+modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(-80, -152)
 polygon = PackedVector2Array(16, 56, 144, 56, 144, 136, 16, 136)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1025704039]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=811614946]
+modulate = Color(1, 1, 1, 0.03137255)
 polygon = PackedVector2Array(40, -104, 72, -104, 72, 12, -72, 12, -72, -104, -24, -104, -24, -72, -64, -72, -64, -16, 64, -16, 64, -96, 48, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=228696836]
+modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(-45.5, -29.5)
 shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=159398300]
+modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(-6.5, -92)
 shape = SubResource("RectangleShape2D_kddjp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1226680346]
+modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(54, -87)
 shape = SubResource("RectangleShape2D_kh5iw")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=1678270753]
+modulate = Color(1, 1, 1, 0.03137255)
 polygon = PackedVector2Array(-27, -27, -20, -32, -20, -34, -27, -32)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1759480758]
+modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(60.5, -32.5)
 shape = SubResource("RectangleShape2D_0ru8o")
 
