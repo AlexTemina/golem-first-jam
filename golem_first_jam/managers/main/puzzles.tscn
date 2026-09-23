@@ -128,6 +128,7 @@ tractor = NodePath("../../Tractor")
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("4_b42o2")]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1032856331]
 
@@ -161,6 +162,7 @@ position = Vector2(-944, 264)
 position = Vector2(-352, -296)
 
 [node name="SpawnBuilding" parent="Buildings" unique_id=1443378941 instance=ExtResource("23_ioq1i")]
+y_sort_enabled = true
 position = Vector2(208, 192)
 roof_visible = true
 
@@ -183,36 +185,43 @@ position = Vector2(104, 160)
 [node name="NPC" type="Node2D" parent="." unique_id=634675259]
 
 [node name="Snake" parent="NPC" unique_id=1303927804 instance=ExtResource("11_v88a1")]
+y_sort_enabled = true
 position = Vector2(352, 328)
 
 [node name="Crows" type="Node2D" parent="NPC" unique_id=1913716924]
 
 [node name="CrowTeacher" parent="NPC/Crows" unique_id=1504675459 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
+y_sort_enabled = true
 position = Vector2(-53, 72)
 is_teacher = true
 target_bell = NodePath("../../../Pushables/BellLearning")
 
 [node name="CrowLearning" parent="NPC/Crows" unique_id=1316683000 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
+y_sort_enabled = true
 position = Vector2(-160, 232)
 target_bell = NodePath("../../../Pushables/BellLearning")
 
 [node name="CrowLayingHen" parent="NPC/Crows" unique_id=249448694 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
+y_sort_enabled = true
 position = Vector2(64, 528)
 target_bell = NodePath("../../../Pushables/BellChickenCoup")
 
 [node name="Chickens" type="Node2D" parent="NPC" unique_id=543358377]
 
 [node name="ChickenEcstatic" parent="NPC/Chickens" unique_id=546995143 instance=ExtResource("25_5ohj6")]
+y_sort_enabled = true
 position = Vector2(384, 400)
 main_action = 4
 face_right = true
 
 [node name="AnotherChicken" parent="NPC/Chickens" unique_id=1103106210 instance=ExtResource("25_5ohj6")]
+y_sort_enabled = true
 position = Vector2(-16, 336)
 main_action = 1
 
 [node name="Dog" parent="NPC" unique_id=149243883 instance=ExtResource("34_q6dqm")]
-position = Vector2(112, 128)
+y_sort_enabled = true
+position = Vector2(104, 128)
 
 [node name="Pushables" type="Node2D" parent="." unique_id=1399065126]
 unique_name_in_owner = true
