@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgt5g4is5t0ik" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gd" id="1_memsb"]
 [ext_resource type="Shader" uid="uid://dayuu8axjbdml" path="res://golem_first_jam/managers/special_vision/special_vision_manager.gdshader" id="2_hxwpy"]
-[ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/npc/dog/assets/dog_face.png" id="2_xbwuf"]
 [ext_resource type="Shader" uid="uid://c8q6lvtnjfsli" path="res://golem_first_jam/entities/test/test_vision.gdshader" id="4_4jrn8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xbwuf"]
+load_path = "res://.godot/imported/dog_face.png-6abeb335208d8a5f3feefb35a1a31ad9.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kddjp"]
 shader = ExtResource("2_hxwpy")
@@ -29,7 +31,7 @@ script = ExtResource("1_memsb")
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=2037883741]
 visible = false
 position = Vector2(16, 16)
-texture = ExtResource("2_xbwuf")
+texture = SubResource("CompressedTexture2D_xbwuf")
 
 [node name="ShaderCanvasLayer" type="CanvasLayer" parent="." unique_id=1639747474]
 

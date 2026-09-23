@@ -1,11 +1,28 @@
 [gd_scene format=3 uid="uid://dg1g251ntk8ie"]
 
 [ext_resource type="Script" uid="uid://2mmlw1dtqklc" path="res://golem_first_jam/entities/tractor/tractor.gd" id="1_3k8bp"]
-[ext_resource type="Texture2D" uid="uid://codv3kkufn62t" path="res://golem_first_jam/entities/tractor/assets/Tractor1.png" id="1_821el"]
+[ext_resource type="Texture2D" uid="uid://clffxqt5voq3" path="res://golem_first_jam/entities/tractor/assets/TractorV3.png" id="2_vfy6h"]
 [ext_resource type="AudioStream" uid="uid://b2qw6o60sujda" path="res://golem_first_jam/entities/tractor/assets/false-start.wav" id="3_k2d64"]
+[ext_resource type="Texture2D" uid="uid://dfny6ebmec7xr" path="res://golem_first_jam/entities/tractor/assets/TractorV3OpenDoor.png" id="3_xi8wn"]
 [ext_resource type="AudioStream" uid="uid://d35cv2hxhcmlv" path="res://golem_first_jam/entities/tractor/assets/engine-start.wav" id="4_2c50h"]
 [ext_resource type="AudioStream" uid="uid://dt63oemo0d1kl" path="res://golem_first_jam/entities/tractor/assets/engine-loop.wav" id="5_ce7jq"]
 [ext_resource type="Texture2D" uid="uid://dj7g7vbdfak3l" path="res://golem_first_jam/entities/tractor/assets/smoke.png" id="6_fqtb3"]
+[ext_resource type="AudioStream" uid="uid://2u8xrnjgsr8n" path="res://golem_first_jam/entities/tractor/assets/open-door.wav" id="8_8mscq"]
+[ext_resource type="AudioStream" uid="uid://bu66eu2614v4s" path="res://golem_first_jam/entities/tractor/assets/close-door.wav" id="9_dq5mn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vfy6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xi8wn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(32, 16)
@@ -64,9 +81,9 @@ color = Color(1, 1, 1, 0.45882353)
 [node name="Tractor" type="Node2D" unique_id=1702493662]
 script = ExtResource("1_3k8bp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981758957]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=243379234]
 position = Vector2(0, -32)
-texture = ExtResource("1_821el")
+sprite_frames = SubResource("SpriteFrames_u5bk5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=640074182]
 
@@ -81,15 +98,6 @@ shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="SeatPosition" type="Node2D" parent="." unique_id=1095162705]
 position = Vector2(-16, -32)
-
-[node name="FalseStartSound" type="AudioStreamPlayer" parent="." unique_id=171527817]
-stream = ExtResource("3_k2d64")
-
-[node name="EngineStartSound" type="AudioStreamPlayer" parent="." unique_id=1845360032]
-stream = ExtResource("4_2c50h")
-
-[node name="EngineLoopSound" type="AudioStreamPlayer" parent="." unique_id=91892987]
-stream = ExtResource("5_ce7jq")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1678895848]
 libraries/ = SubResource("AnimationLibrary_tr8p4")
@@ -109,5 +117,23 @@ explosiveness = 0.07
 randomness = 0.29
 process_material = SubResource("ParticleProcessMaterial_cm3lx")
 
+[node name="Sounds" type="Node" parent="." unique_id=1211728712]
+
+[node name="FalseStartSound" type="AudioStreamPlayer" parent="Sounds" unique_id=171527817]
+stream = ExtResource("3_k2d64")
+
+[node name="EngineStartSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1845360032]
+stream = ExtResource("4_2c50h")
+
+[node name="EngineLoopSound" type="AudioStreamPlayer" parent="Sounds" unique_id=91892987]
+stream = ExtResource("5_ce7jq")
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="Sounds" unique_id=1914345799]
+stream = ExtResource("8_8mscq")
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="Sounds" unique_id=1346462525]
+stream = ExtResource("9_dq5mn")
+
 [connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
-[connection signal="finished" from="EngineStartSound" to="." method="_on_engine_start_sound_finished"]
+[connection signal="body_exited" from="DownEntrance" to="." method="_on_down_entrance_body_exited"]
+[connection signal="finished" from="Sounds/EngineStartSound" to="." method="_on_engine_start_sound_finished"]

@@ -29,10 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="23_ioq1i"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="23_lle8v"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="24_2igjn"]
+[ext_resource type="TileSet" uid="uid://crph147vxnh8" path="res://golem_first_jam/entities/tilemaps/fences_tile_set.tres" id="24_jv6ww"]
 [ext_resource type="PackedScene" uid="uid://dv4r7ltusdyo8" path="res://golem_first_jam/entities/buildings/chicken_coup.tscn" id="24_oxjle"]
 [ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="25_5ohj6"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="25_7jsgb"]
 [ext_resource type="PackedScene" uid="uid://clhwy8d5kcmvq" path="res://golem_first_jam/entities/buildings/large_building1.tscn" id="25_b42o2"]
+[ext_resource type="TileSet" uid="uid://g32h3jxd8v6" path="res://golem_first_jam/entities/tilemaps/forest_tile_set.tres" id="25_v4a2a"]
 [ext_resource type="PackedScene" uid="uid://3vu1ljotfjc7" path="res://golem_first_jam/managers/pickables_manager/pickables_manager.tscn" id="26_6vn0m"]
 [ext_resource type="PackedScene" uid="uid://bnk70bsva03i" path="res://golem_first_jam/entities/buildings/large_building2.tscn" id="26_043t4"]
 [ext_resource type="PackedScene" uid="uid://d20qm8bi1gy7k" path="res://golem_first_jam/entities/pushable/target.tscn" id="27_e6atx"]
@@ -149,6 +151,15 @@ tile_set = ExtResource("20_12lk5")
 unique_name_in_owner = true
 z_index = -900
 position = Vector2(519, -149)
+
+[node name="Fences" type="TileMapLayer" parent="Terrain" unique_id=675299699]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAPz/AAAAAAAAAAACAPz/AAACAAAAAAADAPz/AAACAAAAAAAEAPz/AAAEAAAAAAABAP3/AAAAAAEAAAABAP7/AAAAAAIAAAACAP7/AAACAAIAAAADAP7/AAACAAIAAAAEAP7/AAAEAAIAAAAEAP3/AAAEAAEAAAA=")
+tile_set = ExtResource("24_jv6ww")
+
+[node name="Forest" type="TileMapLayer" parent="Terrain" unique_id=2107947613]
+y_sort_enabled = true
+tile_set = ExtResource("25_v4a2a")
 
 [node name="Buildings" type="Node2D" parent="." unique_id=1000006234]
 
