@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr8n1qkw3yle2"]
+
+[ext_resource type="Script" path="res://golem_first_jam/managers/placeables_manager/placeables_manager.gd" id="1_drsmg"]
+
+[node name="PlaceablesManager" type="Node" unique_id=1610274839]
+script = ExtResource("1_drsmg")
