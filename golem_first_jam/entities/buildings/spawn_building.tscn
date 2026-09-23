@@ -74,20 +74,23 @@ _data = {
 }
 
 [node name="SpawnBuilding" type="Node2D" unique_id=1443378941]
+y_sort_enabled = true
 script = ExtResource("1_pdig0")
 roof_visible = false
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
+z_index = -120
 position = Vector2(0, -120)
 texture = ExtResource("2_2x5hw")
 
 [node name="JailDoor" type="Sprite2D" parent="." unique_id=1591315957]
 z_index = -24
+y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("5_agbdj")
 
 [node name="JailFront" type="Sprite2D" parent="." unique_id=2143787824]
-z_index = 2000
+y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("6_j3ofw")
 
@@ -99,12 +102,14 @@ texture = ExtResource("3_6p6eq")
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=631219202]
 z_index = 2000
+y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("4_agbdj")
 
 [node name="ExteriorWallSprite" type="Sprite2D" parent="." unique_id=476773938]
 visible = false
 modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
 position = Vector2(0, -120)
 texture = ExtResource("7_jx3yq")
 
