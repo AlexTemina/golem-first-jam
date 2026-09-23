@@ -24,3 +24,5 @@ func interact_with_attached_item():
 
 func get_attached_item_position():	
 	return attached_item.global_position if attached_item else global_position
+	
+func is_learning_bell() -> bool: return bell_id == Id.LEARNING_BELL
