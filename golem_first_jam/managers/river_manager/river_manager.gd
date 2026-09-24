@@ -7,7 +7,9 @@ func _ready() -> void:
 	SignalBus.chicken_lands.connect(enable_collisions)
 	
 func remove_collisions():
-	river_tilemap.collision_enabled = false
+	if river_tilemap:
+		river_tilemap.collision_enabled = false
 	
 func enable_collisions():
-	river_tilemap.collision_enabled = true
+	if river_tilemap:
+		river_tilemap.collision_enabled = true

@@ -59,6 +59,10 @@ signal take_item_from_chicken(chicken: Chicken) # Makes the chicken drop what it
 signal chicken_drops_item(chicken: Chicken, item: PickableEntity) # Someone may claim the item before it falls
 signal chicken_pecks_nothing(chicken: Chicken) # Nothing around to pick, someone may hand something over
 
+ # PLACEABLES
+signal chicken_entered_placeable(placeable: Placeable)
+signal chicken_exited_placeable(placeable: Placeable)
+
 # POLLEY DOORS
 signal polley_door_opened(object: PickableEntity)
 signal polley_door_closed(object: PickableEntity)

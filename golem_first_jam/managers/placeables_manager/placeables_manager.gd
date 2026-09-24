@@ -3,13 +3,14 @@ class_name PlaceablesManager extends Node
 ## Placeables handled by this manager
 @export var placeables: Array[Placeable] = []
 
+
 func _ready() -> void:
 	SignalBus.chicken_drops_item.connect(_on_chicken_drops_item)
 	SignalBus.chicken_pecks_nothing.connect(_on_chicken_pecks_nothing)
 
 ## Instead of falling on the floor, the item rests on the placeable next to the chicken
 func _on_chicken_drops_item(chicken: Chicken, item: PickableEntity):
-	var placeable := _get_near_placeable(chicken.global_position)
+	var placeable = chicken.current_placeable
 	if placeable == null or placeable._has_object():
 		return
 
@@ -17,14 +18,8 @@ func _on_chicken_drops_item(chicken: Chicken, item: PickableEntity):
 
 ## The chicken pecks with an empty beak next to a placeable, so it takes its object
 func _on_chicken_pecks_nothing(chicken: Chicken):
-	var placeable := _get_near_placeable(chicken.global_position)
+	var placeable = chicken.current_placeable
 	if placeable == null or not placeable._has_object():
 		return
 
 	SignalBus.give_item_to_chicken.emit(chicken, placeable.remove_object())
-
-func _get_near_placeable(character_position: Vector2) -> Placeable:
-	for placeable in placeables:
-		if is_instance_valid(placeable) and placeable.is_near_character_position(character_position):
-			return placeable
-	return null

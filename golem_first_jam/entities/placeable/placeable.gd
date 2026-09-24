@@ -6,8 +6,24 @@ class_name Placeable extends Node2D
 ## Max distance in pixels to allowing the interaction with the placeable
 @export var max_distance_to_interact: Vector2 = Vector2(32, 16)
 
+@onready var area_of_placeability := %Area2D
+
 ## Object currently resting on the placeable, if any
 var placed_object: PickableEntity
+
+func _ready() -> void:
+	area_of_placeability.body_entered.connect(_on_body_entered)
+	area_of_placeability.body_exited.connect(_on_body_exited)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Chicken:
+		SignalBus.chicken_entered_placeable.emit(self)
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Chicken:
+		SignalBus.chicken_exited_placeable.emit(self)
 
 ## Leaves the object on the placeable
 func place_object(object_to_place: PickableEntity) -> void:

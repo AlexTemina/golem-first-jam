@@ -57,6 +57,7 @@ var z_offset: float # Distance from the floor when flying
 var learning: bool
 var over_water: bool
 var running: bool
+var current_placeable: Placeable # The current_placeable the chicken is currently over, if any
 
 func _ready() -> void:
 	action = Action.NONE

@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cp2di8t1f26pr" path="res://golem_first_jam/entities/polley_door/assets/door_opened.png" id="2_4krk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pldr0"]
-size = Vector2(44, 16)
+size = Vector2(13, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4krk4"]
+size = Vector2(44, 27)
 
 [node name="PolleyDoor" type="Node2D" unique_id=1404228650]
 script = ExtResource("1_pldr0")
@@ -25,9 +28,16 @@ offset = Vector2(19, -66.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1404228652]
 unique_name_in_owner = true
-position = Vector2(19, -8)
+position = Vector2(5.5, -65.5)
 shape = SubResource("RectangleShape2D_pldr0")
 
 [node name="ObjectAnchor" type="Marker2D" parent="." unique_id=1404228653]
 unique_name_in_owner = true
 position = Vector2(31, -35)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1408965772]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1528559182]
+position = Vector2(33, -12.5)
+shape = SubResource("RectangleShape2D_4krk4")

@@ -9,12 +9,14 @@ var chicken: Chicken
 func _ready() -> void:
 	SignalBus.scare_chicken.connect(scare_chicken)
 	SignalBus.toggle_learning_spot.connect(toggle_learning)
+	SignalBus.chicken_entered_placeable.connect(_on_chicken_entered_placeable)
+	SignalBus.chicken_exited_placeable.connect(_on_chicken_exited_placeable)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	check_chicken_over_river()
 	
-func init(chicken: Chicken):
-	self.chicken = chicken
+func init(t_chicken: Chicken):
+	self.chicken = t_chicken
 	self.chicken.position = chicken_starting_position
 	
 func scare_chicken():
@@ -28,4 +30,10 @@ func check_chicken_over_river():
 		var atlas = TileMapUtils.get_atlas_at_position(river_tilemap, chicken.global_position)
 		chicken.over_water = atlas != null # Maybe more checks required	
 		
-	
+func _on_chicken_entered_placeable(placeable: Placeable):
+	if chicken.current_placeable == null and is_instance_valid(placeable):
+		chicken.current_placeable = placeable
+
+func _on_chicken_exited_placeable(placeable: Placeable):
+	if chicken.current_placeable == placeable:
+		chicken.current_placeable = null
