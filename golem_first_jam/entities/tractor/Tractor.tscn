@@ -126,18 +126,23 @@ libraries/ = SubResource("AnimationLibrary_tr8p4")
 
 [node name="FalseStartSound" type="AudioStreamPlayer" parent="Sounds" unique_id=171527817]
 stream = ExtResource("3_k2d64")
+bus = &"SoundEffects"
 
 [node name="EngineStartSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1845360032]
 stream = ExtResource("4_2c50h")
+bus = &"SoundEffects"
 
 [node name="EngineLoopSound" type="AudioStreamPlayer" parent="Sounds" unique_id=91892987]
 stream = ExtResource("5_ce7jq")
+bus = &"SoundEffects"
 
 [node name="OpenDoor" type="AudioStreamPlayer" parent="Sounds" unique_id=1914345799]
 stream = ExtResource("8_8mscq")
+bus = &"SoundEffects"
 
 [node name="CloseDoor" type="AudioStreamPlayer" parent="Sounds" unique_id=1346462525]
 stream = ExtResource("9_dq5mn")
+bus = &"SoundEffects"
 
 [connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
 [connection signal="body_exited" from="DownEntrance" to="." method="_on_down_entrance_body_exited"]

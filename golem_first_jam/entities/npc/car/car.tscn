@@ -34,9 +34,11 @@ offset = Vector2(0, -40)
 
 [node name="CarPassing" type="AudioStreamPlayer" parent="." unique_id=940110147]
 stream = ExtResource("5_yn42f")
+bus = &"SoundEffects"
 
 [node name="CarEffect" type="AudioStreamPlayer" parent="." unique_id=226802859]
 stream = ExtResource("6_1wd2k")
+bus = &"SoundEffects"
 
 [node name="SoundTimer" type="Timer" parent="." unique_id=918239847]
 one_shot = true

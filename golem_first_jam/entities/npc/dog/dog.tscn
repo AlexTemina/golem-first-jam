@@ -52,6 +52,7 @@ offset = Vector2(0, -24)
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=437124404]
 stream = ExtResource("3_m48qm")
 volume_db = 6.386
+bus = &"SoundEffects"
 
 [node name="EatEggTimer" type="Timer" parent="." unique_id=1509990809]
 one_shot = true

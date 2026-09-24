@@ -3,6 +3,8 @@ class_name SoundManager extends Node
 enum ChickenSound {WALK, PECK, LAY_EGG, FLY, CACKLE}
 enum ItemSound {DROP}
 
+const SOUNDS_BUS = 1
+
 var CHICKEN_SOUNDS = {
 	ChickenSound.WALK: [],
 	ChickenSound.PECK: [],
@@ -25,9 +27,13 @@ var ITEM_SOUNDS = {
 @onready var items_player: AudioStreamPlayer = $ItemsPlayer
 
 func _ready() -> void:
+	SignalBus.set_sounds_volume.connect(change_global_volume)
 	SignalBus.play_chicken_sound.connect(play_chicken_sound)
 	SignalBus.play_item_sound.connect(play_item_sound)
 	SignalBus.chicken_flies.connect(play_fly_sound)
+	
+func change_global_volume(value: float):
+	AudioServer.set_bus_volume_linear(SOUNDS_BUS, value / 100.0)
 	
 func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)
 	

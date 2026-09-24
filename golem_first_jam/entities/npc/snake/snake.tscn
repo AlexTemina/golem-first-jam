@@ -171,6 +171,7 @@ shape = SubResource("RectangleShape2D_kddjp")
 stream = ExtResource("3_1fxst")
 volume_db = 6.386
 pitch_scale = 2.05
+bus = &"SoundEffects"
 
 [node name="EatEggTimer" type="Timer" parent="." unique_id=1214383682]
 one_shot = true

@@ -28,3 +28,4 @@ shape = SubResource("RectangleShape2D_u5bk5")
 
 [node name="WoodBreakSound" type="AudioStreamPlayer" parent="." unique_id=1050529666]
 stream = ExtResource("4_wccom")
+bus = &"SoundEffects"

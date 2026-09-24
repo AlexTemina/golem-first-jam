@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="20_v5x74"]
 [ext_resource type="PackedScene" uid="uid://cxo5nuw40xibo" path="res://golem_first_jam/managers/npc/snake_manager.tscn" id="21_ac0fh"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="21_f5mjo"]
+[ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="21_hst8i"]
 [ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="22_gdv7d"]
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="23_ioq1i"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="23_lle8v"]
@@ -48,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 
-[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container")]
+[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_menu")]
 y_sort_enabled = true
 script = ExtResource("1_d6rjn")
 chicken = NodePath("Chicken")
@@ -66,6 +67,7 @@ river_manager = NodePath("Managers/RiverManager")
 dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/Fade")
 npcs_container = NodePath("NPC")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target", "canvas_layer") instance=ExtResource("2_ioq1i")]
 camera_target = NodePath("../Chicken")
@@ -75,6 +77,8 @@ canvas_layer = NodePath("../CanvasLayer")
 
 [node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("3_oxjle")]
 max_time = 9999
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("21_hst8i")]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=431233615]
 visible = false
