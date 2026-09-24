@@ -3,6 +3,7 @@ class_name Chicken extends CharacterBody2D
 enum Action {NONE, PECKING, FLYING, LAYING_EGG, SCARED, ECSTATIC}
 
 const SPRITE_SCALE = 1
+const DEFAULT_RELEASE_BUTTONS = ["up", "down"]
 
 const ANIMATIONS = {
 	Action.NONE: "idle",
@@ -48,7 +49,8 @@ const SHOW_LEGS_ACTIONS = [Action.NONE, Action.PECKING, Action.SCARED]
 
 var action: Action
 var blocked := false # For some puzzles, keep the chicken blocked
-var release_position: Vector2
+var release_position: Vector2 # When release, where teleports
+var release_buttons: Array # Buttons to release itself. If no buttons, is fully blocked, has to be released by code
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
 var z_velocity: float # For jumping/flying
 var z_offset: float # Distance from the floor when flying
@@ -115,8 +117,9 @@ func manage_velocity(delta: float):
 		velocity.y = 0
 		
 func manage_blockness():
-	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
-		release()
+	for inputs in release_buttons:		
+		if Input.is_action_just_pressed(inputs):
+			release()
 		
 func manage_actions_input(delta: float):	
 	if is_flying() or is_scared():	
@@ -160,6 +163,8 @@ func face_move_direction():
 	
 func face_right(right := true):
 	body.scale.x = SPRITE_SCALE if right else -SPRITE_SCALE
+	
+func toggle_visibility(on := true): visible = on
 			
 func animate(previous_velocity: Vector2):
 	match action:
@@ -171,8 +176,7 @@ func animate(previous_velocity: Vector2):
 	legs.visible = action in SHOW_LEGS_ACTIONS
 	legs.play("move" if is_moving() else "idle")
 	if learning and action == Action.NONE and has_stopped_moving(previous_velocity):
-		ecstasy_timer.start()
-		
+		ecstasy_timer.start()		
 
 func peck() -> void:
 	set_action(Action.PECKING)
@@ -216,15 +220,19 @@ func scare():
 		land()
 	scare_timer.start()
 	
-func block(release_position: Vector2, new_action := Action.NONE):
+func block(t_release_position: Vector2, t_release_buttons: Array = [], new_action := Action.NONE):
 	set_action(new_action)
 	blocked = true
-	self.release_position = release_position
+	release_buttons = t_release_buttons
+	release_position = t_release_position
+	legs.play("idle")
 	
 func release():
 	blocked = false
-	position = release_position
+	global_position = release_position
 	release_position = Vector2.ZERO
+	set_action(Action.NONE)
+	legs.play("idle")
 	SignalBus.chicken_is_released.emit()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:
@@ -261,4 +269,4 @@ func _on_scare_timer_timeout() -> void:
 
 func _on_ecstasy_timer_timeout() -> void:
 	if learning:
-		block(global_position, Action.ECSTATIC)
+		block(global_position, DEFAULT_RELEASE_BUTTONS, Action.ECSTATIC)

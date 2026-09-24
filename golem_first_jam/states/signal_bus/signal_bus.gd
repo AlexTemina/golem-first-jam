@@ -12,6 +12,9 @@ signal game_time_over()
 signal add_node_to_canvas(node: Node2D) # Add to static canvas, always on camera
 signal enter_ecstasy()
 
+# CAMERA
+signal follow_object(node: Node2D)
+
 # CHICKEN
 signal chicken_pecks(chicken: Chicken)
 signal chicken_flies()
@@ -50,6 +53,14 @@ signal register_crow(crow: Crow)
 # PICKABLE ITEMS
 signal register_pickable(pickable: PickableEntity)
 signal unregister_pickable(pickable: PickableEntity)
+signal give_item_to_chicken(chicken: Chicken, item: PickableEntity)
+signal take_item_from_chicken(chicken: Chicken) # Makes the chicken drop what it carries
+signal chicken_drops_item(chicken: Chicken, item: PickableEntity) # Someone may claim the item before it falls
+signal chicken_pecks_nothing(chicken: Chicken) # Nothing around to pick, someone may hand something over
+
+# POLLEY DOORS
+signal polley_door_opened(object: PickableEntity)
+signal polley_door_closed(object: PickableEntity)
 
 # EGGS
 signal destroy_egg(egg_position: Vector2)

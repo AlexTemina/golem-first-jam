@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://6uqy0xmoo7td"]
 
-[ext_resource type="Texture2D" uid="uid://dk24x863ul2ej" path="res://golem_first_jam/entities/npc/dog/assets/dog_face.png" id="1_2sbvf"]
 [ext_resource type="Script" uid="uid://c360xeht1qsw3" path="res://golem_first_jam/entities/npc/dog/dog.gd" id="1_v8msw"]
+[ext_resource type="Texture2D" uid="uid://dplagh28e5r7v" path="res://golem_first_jam/entities/npc/dog/assets/Dog_Sit_WChain.png" id="2_m48qm"]
+[ext_resource type="Texture2D" uid="uid://bie5wh5p271ht" path="res://golem_first_jam/entities/npc/dog/assets/Dog_Stand.png" id="3_ehguc"]
 [ext_resource type="AudioStream" uid="uid://br43qi5mq2bsa" path="res://golem_first_jam/entities/npc/dog/assets/dog-bark.wav" id="3_m48qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
@@ -9,6 +10,25 @@ size = Vector2(26, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehguc"]
 size = Vector2(64, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m48qm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ehguc")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
 
 [node name="Dog" type="CharacterBody2D" unique_id=149243883]
 y_sort_enabled = true
@@ -21,12 +41,13 @@ shape = SubResource("RectangleShape2D_u5bk5")
 [node name="ScareArea" type="Area2D" parent="." unique_id=1785500076]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" unique_id=2040964274]
-position = Vector2(0, -15)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_ehguc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=297954838]
-position = Vector2(0, -16)
-texture = ExtResource("1_2sbvf")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=503701928]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+autoplay = "default"
 
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=437124404]
 stream = ExtResource("3_m48qm")

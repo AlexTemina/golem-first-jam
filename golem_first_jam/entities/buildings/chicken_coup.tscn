@@ -114,12 +114,14 @@ region_rect = Rect2(43, 29, 84, 166)
 [node name="Interior" type="Area2D" parent="." unique_id=500147684]
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=12933887]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-80, -152)
 polygon = PackedVector2Array(56, 40, 104, 40, 104, 160, 56, 160)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1849189466]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=586701616]
+modulate = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-16, 0, -16, -104, -8, -104, -8, -88, 16, -88, 16, 0, 32, 0, 32, -16, 48, -16, 48, -144, 0, -152, -40, -144, -40, -16, -32, -16, -32, 0)
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=3038744]

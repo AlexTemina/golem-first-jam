@@ -4,14 +4,23 @@ class_name PickableEntity extends Node2D
 @export var max_distance_to_interact: Vector2 = Vector2(32, 16)
 
 var picked := false
+var placed := false
 
 func _ready() -> void:
 	init(self.position)
 
-func init(position: Vector2):
-	self.position = position
+func init(t_position: Vector2):
+	self.position = t_position
 	SignalBus.register_pickable.emit(self)
 	
+## While placed somewhere (a polley door tray, for instance) it cannot be picked from the floor
+func place():
+	placed = true
+
+## While placed somewhere (a polley door tray, for instance) it cannot be picked from the floor
+func remove():
+	placed = false
+
 func destroy():
 	SignalBus.unregister_pickable.emit(self)
 	get_parent().remove_child(self)

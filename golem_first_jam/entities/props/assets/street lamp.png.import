@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk24x863ul2ej"
-path="res://.godot/imported/dog_face.png-6abeb335208d8a5f3feefb35a1a31ad9.ctex"
+uid="uid://d4iukkugl1i4"
+path="res://.godot/imported/street lamp.png-7d7ad88ad8f292f5a262c8696b41feb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/npc/dog/assets/dog_face.png"
-dest_files=["res://.godot/imported/dog_face.png-6abeb335208d8a5f3feefb35a1a31ad9.ctex"]
+source_file="res://golem_first_jam/entities/props/assets/street lamp.png"
+dest_files=["res://.godot/imported/street lamp.png-7d7ad88ad8f292f5a262c8696b41feb2.ctex"]
 
 [params]
 
