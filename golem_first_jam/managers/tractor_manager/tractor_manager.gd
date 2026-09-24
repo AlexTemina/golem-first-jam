@@ -21,13 +21,14 @@ func on_chicken_pecks(chicken: Chicken):
 func on_chicken_jumps_in_tractor(t_chicken: Chicken):
 	chicken = t_chicken
 	tractor.toggle_collisions(false)
-	chicken.block(chicken.position + Vector2(0, 10), Chicken.DEFAULT_RELEASE_BUTTONS)
-	chicken.toggle_visibility(false)
-	chicken.position = tractor.position + tractor.seat.position
 	var picked_item = chicken.get_picked_item()
+	var release_buttons = [] if picked_item is Key else ["down"]
+	chicken.block(chicken.global_position + Vector2(0, 10), release_buttons)
+	chicken.toggle_visibility(false)
+	chicken.global_position = tractor.global_position + tractor.seat.position	
 	if picked_item is Key:
-		await wait(1)
 		picked_item.destroy()
+		await wait(1)		
 		tractor.start_engine()
 		chicken.toggle_visibility()
 		chicken.release()
