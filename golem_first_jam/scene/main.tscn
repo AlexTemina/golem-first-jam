@@ -20,16 +20,20 @@
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="17_y8k3v"]
 [ext_resource type="PackedScene" uid="uid://cxmsk4ta3bpfh" path="res://golem_first_jam/entities/buildings/shed.tscn" id="17_yx7ct"]
 [ext_resource type="PackedScene" uid="uid://dn63rbsni3wrw" path="res://golem_first_jam/managers/river_manager/river_manager.tscn" id="18_1iul0"]
+[ext_resource type="PackedScene" uid="uid://ci2xayli25w5y" path="res://golem_first_jam/managers/npc/dog_manager.tscn" id="18_gxe6l"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="18_iuuge"]
 [ext_resource type="Texture2D" uid="uid://cdfuhrap00u55" path="res://golem_first_jam/entities/props/assets/ClaroAltar1.png" id="18_qu7pk"]
 [ext_resource type="PackedScene" uid="uid://fxfjpcwcw1mt" path="res://golem_first_jam/entities/pickable/key.tscn" id="18_wainn"]
+[ext_resource type="PackedScene" uid="uid://hnynajhxj0r6" path="res://golem_first_jam/managers/night_sky_manager/night_sky_manager.tscn" id="19_akrif"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="19_g7s7q"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="20_5rlpo"]
 [ext_resource type="PackedScene" uid="uid://8xlop0hoat2r" path="res://golem_first_jam/managers/crows_manager/crows_manager.tscn" id="20_6mr3m"]
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="20_rvgx8"]
+[ext_resource type="PackedScene" uid="uid://bag1k6goq4mxd" path="res://golem_first_jam/managers/npc/chicken_npcs_manager.tscn" id="20_tsp7a"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_6kxf7"]
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="21_pkph5"]
 [ext_resource type="PackedScene" uid="uid://dv4r7ltusdyo8" path="res://golem_first_jam/entities/buildings/chicken_coup.tscn" id="22_fe6m1"]
+[ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="22_xsvtb"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="23_fe6m1"]
 [ext_resource type="PackedScene" uid="uid://cph2uwgk0ymb3" path="res://golem_first_jam/entities/egg/egg.tscn" id="24_u764j"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="32_txy57"]
@@ -683,7 +687,8 @@ terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.19113058, 0.45256478, 0.4489761, 1)
 sources/0 = SubResource("TileSetAtlasSource_txy57")
 
-[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "river_manager", "fade_screen", "npcs_container")]
+[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_menu")]
+y_sort_enabled = true
 script = ExtResource("1_11yct")
 chicken = NodePath("Chicken")
 snake = NodePath("Npcs/Snake")
@@ -694,9 +699,13 @@ pushables_manager = NodePath("Managers/PushablesManager")
 pickables_manager = NodePath("Managers/PickablesManager")
 crows_manager = NodePath("Managers/CrowsManager")
 bells_manager = NodePath("Managers/BellsManager")
+chicken_npcs_manager = NodePath("Managers/ChickenNpcsManager")
+night_sky_manager = NodePath("Managers/NightSkyManager")
 river_manager = NodePath("Managers/RiverManager")
+dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/Fade")
 npcs_container = NodePath("Npcs")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_re4ju")]
 camera_target = NodePath("../Chicken")
@@ -738,6 +747,12 @@ pickables_container = NodePath("../../Pickables")
 [node name="PlaceablesManager" parent="Managers" unique_id=1610274839 node_paths=PackedStringArray("placeables") instance=ExtResource("17_rgk8i")]
 placeables = [NodePath("../../Doors/PolleyDoor")]
 
+[node name="DogManager" parent="Managers" unique_id=1462346745 instance=ExtResource("18_gxe6l")]
+
+[node name="NightSkyManager" parent="Managers" unique_id=1145059542 instance=ExtResource("19_akrif")]
+
+[node name="ChickenNpcsManager" parent="Managers" unique_id=353318665 instance=ExtResource("20_tsp7a")]
+
 [node name="NightShader" type="CanvasLayer" parent="." unique_id=228570020]
 visible = false
 
@@ -756,6 +771,9 @@ visible = false
 offset_right = 328.0
 offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("22_xsvtb")]
+visible = false
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_2g418")]
 position = Vector2(242, 178)
@@ -1244,6 +1262,7 @@ unique_name_in_owner = true
 position = Vector2(651, -149)
 
 [node name="Npcs" type="Node2D" parent="." unique_id=1899593827]
+y_sort_enabled = true
 
 [node name="Crow" parent="Npcs" unique_id=466244574 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_rvgx8")]
 position = Vector2(851, 366)
@@ -1262,6 +1281,7 @@ target_bell = NodePath("../../Bells/BellTeaching")
 position = Vector2(2140, -944)
 
 [node name="Trees" type="Node2D" parent="." unique_id=714154823]
+y_sort_enabled = true
 
 [node name="Tree5" parent="Trees" unique_id=1076218292 instance=ExtResource("19_g7s7q")]
 position = Vector2(-547, -632)
@@ -1525,6 +1545,7 @@ position = Vector2(121, 577)
 position = Vector2(-332, 1312)
 
 [node name="Pickables" type="Node2D" parent="." unique_id=894882608]
+y_sort_enabled = true
 
 [node name="Key" parent="Pickables" unique_id=758290305 instance=ExtResource("18_wainn")]
 position = Vector2(395, -5)
@@ -1535,6 +1556,7 @@ position = Vector2(-75, 1160)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="Buildings" type="Node2D" parent="." unique_id=91587479]
+y_sort_enabled = true
 position = Vector2(192, -24)
 
 [node name="ClaroAltar1" type="Sprite2D" parent="Buildings" unique_id=38197238]
@@ -1556,7 +1578,7 @@ position = Vector2(534, -33)
 position = Vector2(-336, 1064)
 
 [node name="SpawnBuilding" parent="Buildings" unique_id=1443378941 instance=ExtResource("21_pkph5")]
-position = Vector2(94, 222)
+position = Vector2(94, 142)
 
 [node name="ChickenCoup" parent="Buildings" unique_id=569859449 instance=ExtResource("22_fe6m1")]
 position = Vector2(281, 221)
@@ -1568,6 +1590,7 @@ unique_name_in_owner = true
 position = Vector2(448, -64)
 
 [node name="Bells" type="Node2D" parent="." unique_id=1233465425]
+y_sort_enabled = true
 
 [node name="BellChickenCoup" parent="Bells" unique_id=129822321 instance=ExtResource("23_fe6m1")]
 position = Vector2(505, 228)
@@ -1581,6 +1604,7 @@ position = Vector2(2347, -645)
 bell_id = 2
 
 [node name="Chickens" type="Node2D" parent="." unique_id=1731499040]
+y_sort_enabled = true
 
 [node name="ChickenEcstatic" parent="Chickens" unique_id=546995143 instance=ExtResource("36_dein3")]
 position = Vector2(-446, -639)
@@ -1596,6 +1620,7 @@ position = Vector2(2341, -305)
 main_action = 1
 
 [node name="LargeBuilding1" parent="." unique_id=1632016702 instance=ExtResource("35_fadwn")]
+y_sort_enabled = true
 position = Vector2(-96, 226)
 
 [node name="LargeBuilding2" parent="." unique_id=1638177144 instance=ExtResource("37_mccme")]
@@ -1603,6 +1628,7 @@ position = Vector2(-247, 304.99997)
 rotation = 1.5582863
 
 [node name="Doors" type="Node2D" parent="." unique_id=864992254]
+y_sort_enabled = true
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="PolleyDoor" parent="Doors" unique_id=1404228650 node_paths=PackedStringArray("valid_objects") instance=ExtResource("38_n6spk")]

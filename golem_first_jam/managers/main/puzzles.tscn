@@ -79,6 +79,7 @@ canvas_layer = NodePath("../CanvasLayer")
 max_time = 9999
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("21_hst8i")]
+visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=431233615]
 visible = false
