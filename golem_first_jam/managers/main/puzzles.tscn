@@ -91,6 +91,7 @@ offset_bottom = 216.0
 color = Color(0, 0.58392406, 0.58392406, 0.105882354)
 
 [node name="Managers" type="Node2D" parent="." unique_id=1024291367]
+y_sort_enabled = true
 
 [node name="ChickenManager" parent="Managers" unique_id=2135993555 instance=ExtResource("17_qyfm7")]
 chicken_starting_position = Vector2(160, 175)
@@ -162,7 +163,7 @@ tile_set = ExtResource("25_v4a2a")
 y_sort_enabled = true
 
 [node name="Shed" parent="Buildings" unique_id=402769375 instance=ExtResource("14_m12gs")]
-position = Vector2(328, 48)
+position = Vector2(400, 216)
 
 [node name="Barn" parent="Buildings" unique_id=1489447167 instance=ExtResource("15_hst8i")]
 position = Vector2(-944, 264)
@@ -199,6 +200,7 @@ y_sort_enabled = true
 position = Vector2(352, 328)
 
 [node name="Crows" type="Node2D" parent="NPC" unique_id=1913716924]
+y_sort_enabled = true
 
 [node name="CrowTeacher" parent="NPC/Crows" unique_id=1504675459 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
 position = Vector2(-53, 72)

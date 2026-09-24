@@ -64,26 +64,28 @@ _data = {
 }
 
 [node name="Shed" type="Node2D" unique_id=402769375]
+y_sort_enabled = true
 script = ExtResource("1_pijv1")
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=1240470985]
-position = Vector2(48, 120)
+y_sort_enabled = true
+position = Vector2(0, -80)
 texture = ExtResource("1_mjydi")
-
-[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=1786556254]
-z_as_relative = false
-position = Vector2(48, 120)
-texture = ExtResource("2_pijv1")
+offset = Vector2(0, 56)
 
 [node name="Interior" type="Area2D" parent="." unique_id=961854273]
+position = Vector2(-48, -144)
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=1711654942]
+modulate = Color(1, 1, 1, 0.13333334)
 polygon = PackedVector2Array(16, 64, 80, 64, 80, 144, 16, 144)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1200026713]
+position = Vector2(-48, -144)
 
 [node name="WallsCollision" type="CollisionPolygon2D" parent="Walls" unique_id=1716552934]
-polygon = PackedVector2Array(16, 104, 8, 104, 8, 24, 80, -8, 88, -8, 88, 152, 0, 152, 0, 144, 80, 144, 80, 64, 16, 64)
+modulate = Color(1, 1, 1, 0.14509805)
+polygon = PackedVector2Array(16, 104, 8, 104, 8, 48, 80, 24, 88, 24, 88, 152, 0, 152, 0, 144, 80, 144, 80, 64, 16, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=789793997]
 position = Vector2(72, 120)
@@ -98,7 +100,12 @@ position = Vector2(72, 84)
 shape = SubResource("RectangleShape2D_kddjp")
 
 [node name="Key" parent="." unique_id=758290305 instance=ExtResource("4_pbx2x")]
-position = Vector2(69, 120)
+position = Vector2(21, -24)
+
+[node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=1786556254]
+y_sort_enabled = true
+texture = ExtResource("2_pijv1")
+offset = Vector2(0, -24)
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1476114465]
 libraries/ = SubResource("AnimationLibrary_vhbj7")

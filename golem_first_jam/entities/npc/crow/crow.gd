@@ -30,8 +30,11 @@ func _ready() -> void:
 	starting_position = self.global_position
 		
 func _process(delta: float) -> void:
-	if is_flying():
+	if is_flying():		
 		position = position.move_toward(flight_target, flying_speed * delta)
+		## TODO Use this code but finding a path somehow
+		# velocity = position.direction_to(flight_target) * flying_speed
+		# move_and_slide()
 		if position.distance_to(flight_target) < 8:
 			if flight_target == starting_position:
 				set_action(Action.IDLE)

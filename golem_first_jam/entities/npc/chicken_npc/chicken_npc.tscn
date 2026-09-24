@@ -81,16 +81,18 @@ position = Vector2(9, -22)
 
 [node name="Wings" type="AnimatedSprite2D" parent="Body" unique_id=129111860]
 visible = false
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_s5onq")
 autoplay = "default"
-offset = Vector2(-2, 13)
+offset = Vector2(-2, -13)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Body" unique_id=525465168]
 visible = false
+y_sort_enabled = true
 scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("4_xk2bu")
 autoplay = "default"
-offset = Vector2(4, -22)
+offset = Vector2(14, -90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503311469]
 position = Vector2(0, -8)
