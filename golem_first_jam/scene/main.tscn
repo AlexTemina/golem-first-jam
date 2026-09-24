@@ -1630,7 +1630,6 @@ y_sort_enabled = true
 [node name="ChickenEcstatic" parent="Chickens" unique_id=546995143 instance=ExtResource("36_dein3")]
 position = Vector2(-446, -639)
 main_action = 4
-face_right = true
 
 [node name="ChickenThatFlies" parent="Chickens" unique_id=500721596 instance=ExtResource("36_dein3")]
 position = Vector2(-751, 342)
