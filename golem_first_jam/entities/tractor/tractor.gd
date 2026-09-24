@@ -32,7 +32,7 @@ func init():
 func _process(delta: float) -> void:
 	if moving:
 		speed = lerp(speed, speed + acceleration * delta, 0.1)
-		position.x += speed
+		global_position.x += speed
 	
 func toggle_collisions(on := true):
 	collision_box.set_deferred("disabled", !on)

@@ -27,6 +27,8 @@ dorm door opening.wav by pagancow -- https://freesound.org/s/15419/ -- License: 
 Animal Dog Bark And Growl 01.wav by abhisheky948 -- https://freesound.org/s/625501/ -- License: Creative Commons 0
 Car Door, Closing, A.wav by InspectorJ -- https://freesound.org/s/271555/ -- License: Attribution 4.0
 Classic Car Porsche 911 Car Door Open And Close.wav by mincedbeats -- https://freesound.org/s/630562/ -- License: Creative Commons 0
+clucking chicken by aalorv -- https://freesound.org/s/744996/ -- License: Attribution 4.0
+Clucking Chickens by flumpytripod -- https://freesound.org/s/830091/ -- License: Creative Commons 0
 
 ## Shaders
 

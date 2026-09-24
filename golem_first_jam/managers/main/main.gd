@@ -17,6 +17,7 @@ extends Node
 @export var fade_screen: ColorRect
 ## Children of this folder will be registered 
 @export var npcs_container: Node
+@export var pause_manager: PauseManager
 
 @onready var canvas := $CanvasLayer
 @onready var road := %Road
@@ -44,6 +45,8 @@ func init():
 		night_sky_manager.init()
 	if dog_manager:
 		dog_manager.init()
+	if not pause_manager:
+		print("WARNING: missing pause manager")
 	
 func restart():
 	if fade_screen:

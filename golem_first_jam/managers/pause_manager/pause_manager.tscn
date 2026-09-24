@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c75u2pllnafvd"]
+
+[ext_resource type="Script" uid="uid://w58usd2qnypq" path="res://golem_first_jam/managers/pause_manager/pause_manager.gd" id="1_sby0o"]
+
+[node name="PauseManager" type="Node" unique_id=1873186415]
+process_mode = 3
+script = ExtResource("1_sby0o")

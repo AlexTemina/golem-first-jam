@@ -5,6 +5,7 @@ extends Node
 signal dumb_thing_happened(message: String)
 
 # GAME STATUS
+signal toggle_game_pause(paused: bool)
 signal start_game_time()
 signal pause_game_time()
 signal resume_game_time()
@@ -68,5 +69,7 @@ signal egg_in_hotspot(egg: Egg)
 signal egg_fried(egg: Egg)
 
 # SOUND
+signal set_sounds_volume(value: float)
+signal set_music_volume(value: float)
 signal play_chicken_sound(sound_id: SoundManager.ChickenSound)
 signal play_item_sound(sound_id: SoundManager.ItemSound)

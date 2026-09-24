@@ -72,7 +72,7 @@ y_sort_enabled = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=1329881922]
 sprite_frames = ExtResource("2_2ufe0")
-animation = &"ecstatic"
+animation = &"fly"
 autoplay = "idle"
 offset = Vector2(0, -16)
 

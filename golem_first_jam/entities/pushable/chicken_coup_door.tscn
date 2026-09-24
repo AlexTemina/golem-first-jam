@@ -30,3 +30,4 @@ offset = Vector2(0, -80)
 
 [node name="DoorSound" type="AudioStreamPlayer" parent="." unique_id=1492896305]
 stream = ExtResource("4_kacat")
+bus = &"SoundEffects"

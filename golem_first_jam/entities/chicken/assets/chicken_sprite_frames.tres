@@ -303,7 +303,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jfxoq")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"fly",
 "speed": 5.0
 }, {

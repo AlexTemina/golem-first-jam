@@ -12,8 +12,10 @@ script = ExtResource("1_ra7h7")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1043716524]
 texture_repeat = 2
+position = Vector2(0, 2500)
 scale = Vector2(1, 1.004)
 texture = ExtResource("2_ra7h7")
+offset = Vector2(0, -2500)
 region_enabled = true
 region_rect = Rect2(0, 0, 97, 5000)
 
