@@ -14,13 +14,13 @@ script = ExtResource("1_74axs")
 repeatable = false
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=645666169]
-position = Vector2(-32, -48)
 texture = ExtResource("2_wccom")
+offset = Vector2(-32, -48)
 
 [node name="SpriteBroken" type="Sprite2D" parent="." unique_id=520986926]
 visible = false
-position = Vector2(-32, -48)
 texture = ExtResource("3_2pqao")
+offset = Vector2(-32, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862454512]
 position = Vector2(-4, -16)

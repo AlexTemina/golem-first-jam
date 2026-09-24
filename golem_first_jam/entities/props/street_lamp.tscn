@@ -11,8 +11,9 @@ y_sort_enabled = true
 script = ExtResource("1_8bv6r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523541012]
-position = Vector2(0, -32)
+y_sort_enabled = true
 texture = ExtResource("1_pknek")
+offset = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=63831254]
 position = Vector2(0, -4)

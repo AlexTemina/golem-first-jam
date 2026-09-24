@@ -10,5 +10,4 @@ class_name StreetLamp extends StaticBody2D
 @onready var light := $PointLight2D
 
 func _ready() -> void:
-	z_index = global_position.y
 	light.texture_scale = radius

@@ -247,7 +247,7 @@ func is_scared() -> bool: return action == Action.SCARED
 func is_ecstatic() -> bool: return action == Action.ECSTATIC
 
 func get_beak_position() -> Vector2:
-	return beak.position if body.scale.x > 0 else Vector2(-beak.position.x, beak.position.y)
+	return beak.offset if body.scale.x > 0 else Vector2(-beak.offset.x, beak.offset.y)
 	
 func get_picked_item():
 	return beak.get_child(0) if beak.get_children().size() > 0 else null

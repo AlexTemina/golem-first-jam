@@ -45,9 +45,9 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_ehguc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=503701928]
-position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 autoplay = "default"
+offset = Vector2(0, -24)
 
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=437124404]
 stream = ExtResource("3_m48qm")

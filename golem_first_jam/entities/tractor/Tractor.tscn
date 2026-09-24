@@ -83,8 +83,8 @@ y_sort_enabled = true
 script = ExtResource("1_3k8bp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=243379234]
-position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -32)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=640074182]
 
@@ -110,6 +110,7 @@ position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_kddjp")
 
 [node name="Smoke" type="GPUParticles2D" parent="." unique_id=488327426]
+y_sort_enabled = true
 position = Vector2(16, -48)
 emitting = false
 amount = 40

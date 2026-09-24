@@ -345,12 +345,12 @@ y_sort_enabled = true
 script = ExtResource("1_7bwut")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2139396858]
-position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 animation = &"acrobacy"
 autoplay = "default"
 frame = 12
 frame_progress = 1.0
+offset = Vector2(0, -16)
 
 [node name="CroakSound" type="AudioStreamPlayer" parent="." unique_id=1210421194]
 stream = ExtResource("4_ybre2")

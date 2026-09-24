@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cwsc773uitd6c"]
+
+[ext_resource type="Texture2D" uid="uid://bo2jxhyf8fgs1" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailDoor.png" id="1_cebl1"]
+[ext_resource type="Texture2D" uid="uid://ke0xwrnebhbx" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailFront.png" id="2_0jysk"]
+
+[node name="Jail" type="Node2D" unique_id=1708551476]
+y_sort_enabled = true
+
+[node name="JailDoor" type="Sprite2D" parent="." unique_id=352626150]
+y_sort_enabled = true
+position = Vector2(22, -10)
+texture = ExtResource("1_cebl1")
+offset = Vector2(0, -22)
+region_enabled = true
+region_rect = Rect2(52, 171, 10, 44)
+
+[node name="JailFront" type="Sprite2D" parent="." unique_id=1094919538]
+y_sort_enabled = true
+texture = ExtResource("2_0jysk")
+offset = Vector2(0, -24)
+region_enabled = true
+region_rect = Rect2(15, 177, 40, 49)

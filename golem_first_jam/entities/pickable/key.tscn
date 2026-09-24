@@ -8,7 +8,7 @@ y_sort_enabled = true
 script = ExtResource("1_4h8ow")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1070612422]
-position = Vector2(0, -3)
 texture = ExtResource("1_jgn5p")
+offset = Vector2(0, -3)
 region_enabled = true
 region_rect = Rect2(98, 2, 12, 12)

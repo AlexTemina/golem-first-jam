@@ -110,9 +110,9 @@ y_sort_enabled = true
 script = ExtResource("1_fpolg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1254329459]
-position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 animation = &"play"
+offset = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806814290]
 position = Vector2(0, -16)
