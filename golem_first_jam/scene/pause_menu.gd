@@ -1,7 +1,7 @@
 class_name PauseMenu extends Node2D
 
 func _on_close_button_pressed() -> void:
-	hide()
+	SignalBus.toggle_game_pause.emit(false)
 
 func _on_sound_slider_value_changed(value: float) -> void:
 	SignalBus.set_sounds_volume.emit(value)

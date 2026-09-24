@@ -5,6 +5,7 @@ extends Node
 signal dumb_thing_happened(message: String)
 
 # GAME STATUS
+signal toggle_game_pause(paused: bool)
 signal start_game_time()
 signal pause_game_time()
 signal resume_game_time()

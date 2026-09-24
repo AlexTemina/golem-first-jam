@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="20_rvgx8"]
 [ext_resource type="PackedScene" uid="uid://bag1k6goq4mxd" path="res://golem_first_jam/managers/npc/chicken_npcs_manager.tscn" id="20_tsp7a"]
 [ext_resource type="PackedScene" uid="uid://d2o1u8bgjl8pn" path="res://golem_first_jam/managers/road_manager/road_manager.tscn" id="21_6kxf7"]
+[ext_resource type="PackedScene" uid="uid://c75u2pllnafvd" path="res://golem_first_jam/managers/pause_manager/pause_manager.tscn" id="21_akrif"]
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="21_pkph5"]
 [ext_resource type="PackedScene" uid="uid://dv4r7ltusdyo8" path="res://golem_first_jam/entities/buildings/chicken_coup.tscn" id="22_fe6m1"]
 [ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="22_xsvtb"]
@@ -687,7 +688,7 @@ terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.19113058, 0.45256478, 0.4489761, 1)
 sources/0 = SubResource("TileSetAtlasSource_txy57")
 
-[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_menu")]
+[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager")]
 y_sort_enabled = true
 script = ExtResource("1_11yct")
 chicken = NodePath("Chicken")
@@ -705,7 +706,7 @@ river_manager = NodePath("Managers/RiverManager")
 dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/Fade")
 npcs_container = NodePath("Npcs")
-pause_menu = NodePath("CanvasLayer/PauseMenu")
+pause_manager = NodePath("Managers/PauseManager")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_re4ju")]
 camera_target = NodePath("../Chicken")
@@ -752,6 +753,9 @@ placeables = [NodePath("../../Doors/PolleyDoor")]
 [node name="NightSkyManager" parent="Managers" unique_id=1145059542 instance=ExtResource("19_akrif")]
 
 [node name="ChickenNpcsManager" parent="Managers" unique_id=353318665 instance=ExtResource("20_tsp7a")]
+
+[node name="PauseManager" parent="Managers" unique_id=1873186415 node_paths=PackedStringArray("pause_menu") instance=ExtResource("21_akrif")]
+pause_menu = NodePath("../../CanvasLayer/PauseMenu")
 
 [node name="NightShader" type="CanvasLayer" parent="." unique_id=228570020]
 visible = false

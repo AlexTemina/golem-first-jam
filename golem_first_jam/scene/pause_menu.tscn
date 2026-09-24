@@ -6,6 +6,7 @@
 Label/colors/font_color = Color(1, 0.96854955, 0.7667462, 1)
 
 [node name="PauseMenu" type="Node2D" unique_id=1128394256]
+process_mode = 2
 script = ExtResource("1_b8hvp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=845584290]
