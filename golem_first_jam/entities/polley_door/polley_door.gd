@@ -9,7 +9,6 @@ class_name PolleyDoor extends Placeable
 var opened: bool
 
 func _ready() -> void:
-	z_index = int(position.y)
 	refresh()
 
 ## The tray, where the object rests

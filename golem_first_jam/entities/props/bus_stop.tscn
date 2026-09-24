@@ -44,11 +44,12 @@ _data = {
 }
 
 [node name="BusStop" type="Node2D" unique_id=534560023]
+y_sort_enabled = true
 script = ExtResource("1_y2qnh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=95733654]
-position = Vector2(-24, -51)
 texture = ExtResource("2_cxoed")
+offset = Vector2(-24, -51)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2102246788]
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bg7ydc3ji6tqq" path="res://golem_first_jam/entities/buildings/barn.gd" id="1_tpsed"]
 
 [node name="Barn" type="StaticBody2D" unique_id=499660160]
+y_sort_enabled = true
 script = ExtResource("1_tpsed")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650803499]

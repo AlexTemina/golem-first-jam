@@ -14,7 +14,6 @@ func _ready() -> void:
 
 func init(position: Vector2):
 	self.position = position
-	z_index = global_position.y
 	SignalBus.register_pushable.emit(self)
 	
 func is_near_character_position(character_position: Vector2) -> bool:

@@ -95,19 +95,21 @@ _data = {
 }
 
 [node name="ChickenCoup" type="Node2D" unique_id=569859449]
+y_sort_enabled = true
 script = ExtResource("1_u8l1b")
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=1772297524]
-z_index = -1000
 z_as_relative = false
-position = Vector2(6, -81)
+position = Vector2(5, -105)
 texture = ExtResource("2_u5jas")
+offset = Vector2(0, 24)
 region_enabled = true
 region_rect = Rect2(44, 31, 83, 166)
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=568340832]
-position = Vector2(5, -83)
+position = Vector2(5, -2)
 texture = ExtResource("3_jqcmj")
+offset = Vector2(0, -80)
 region_enabled = true
 region_rect = Rect2(43, 29, 84, 166)
 
@@ -133,6 +135,7 @@ pushable_by_chicken = false
 repeatable = false
 
 [node name="Chickens" type="Node2D" parent="." unique_id=1823737780]
+y_sort_enabled = true
 
 [node name="ChickenNpc" parent="Chickens" unique_id=546995143 instance=ExtResource("4_jqcmj")]
 position = Vector2(28, -64)

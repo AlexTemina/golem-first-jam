@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bi7qem1nhl0gw" path="res://golem_first_jam/entities/props/assets/FarmProps2.png" id="1_hb7xa"]
 
 [node name="SignLeft" type="Node2D" unique_id=457181956]
+y_sort_enabled = true
 script = ExtResource("1_4ysd3")
 metadata/_custom_type_script = "uid://o1jxupgj3xcb"
 

@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c76ccdyhykj3d" path="res://golem_first_jam/entities/buildings/spawn_building.gd" id="1_pdig0"]
 [ext_resource type="Texture2D" uid="uid://cy2g1afgdq4jt" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_IntBase.png" id="2_2x5hw"]
-[ext_resource type="Texture2D" uid="uid://7oi3r3c53rt6" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext1.png" id="3_6p6eq"]
+[ext_resource type="PackedScene" uid="uid://cwsc773uitd6c" path="res://golem_first_jam/entities/props/jail.tscn" id="3_agbdj"]
 [ext_resource type="Texture2D" uid="uid://bgy7qhtwtqwn3" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2.png" id="4_agbdj"]
-[ext_resource type="Texture2D" uid="uid://bo2jxhyf8fgs1" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailDoor.png" id="5_agbdj"]
-[ext_resource type="Texture2D" uid="uid://ke0xwrnebhbx" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Int_JailFront.png" id="6_j3ofw"]
 [ext_resource type="PackedScene" uid="uid://b1v2h1oylt0c6" path="res://golem_first_jam/entities/pushable/spawn_wood_board.tscn" id="7_j3ofw"]
 [ext_resource type="Texture2D" uid="uid://bfrme8hocd0hh" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2Wall.png" id="7_jx3yq"]
 
@@ -74,42 +72,36 @@ _data = {
 }
 
 [node name="SpawnBuilding" type="Node2D" unique_id=1443378941]
+y_sort_enabled = true
 script = ExtResource("1_pdig0")
 roof_visible = false
 
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
-z_index = -120
-position = Vector2(0, -120)
 texture = ExtResource("2_2x5hw")
+offset = Vector2(0, -40)
 
-[node name="JailDoor" type="Sprite2D" parent="." unique_id=1591315957]
-z_index = -24
-position = Vector2(0, -120)
-texture = ExtResource("5_agbdj")
+[node name="Jail" parent="." unique_id=1708551476 instance=ExtResource("3_agbdj")]
+position = Vector2(-44, 66)
 
-[node name="JailFront" type="Sprite2D" parent="." unique_id=2143787824]
-z_index = 2000
-position = Vector2(0, -120)
-texture = ExtResource("6_j3ofw")
-
-[node name="ExteriorAlt" type="Sprite2D" parent="." unique_id=1077081200]
-visible = false
-z_index = 2000
-position = Vector2(0, -120)
-texture = ExtResource("3_6p6eq")
+[node name="SpawnWoodBoard" parent="." unique_id=645490003 instance=ExtResource("7_j3ofw")]
+position = Vector2(32, 8)
+max_distance_to_interact = Vector2(32, 32)
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=631219202]
-z_index = 2000
-position = Vector2(0, -120)
+y_sort_enabled = true
+position = Vector2(0, 70)
 texture = ExtResource("4_agbdj")
+offset = Vector2(0, -110)
 
 [node name="ExteriorWallSprite" type="Sprite2D" parent="." unique_id=476773938]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -120)
+y_sort_enabled = true
 texture = ExtResource("7_jx3yq")
+offset = Vector2(0, -40)
 
 [node name="Interior" type="Area2D" parent="." unique_id=133959266]
+position = Vector2(0, 80)
 
 [node name="InteriorCollision" type="CollisionPolygon2D" parent="Interior" unique_id=36468432]
 modulate = Color(1, 1, 1, 0.03137255)
@@ -117,10 +109,11 @@ position = Vector2(-80, -152)
 polygon = PackedVector2Array(16, 56, 144, 56, 144, 136, 16, 136)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1025704039]
+position = Vector2(0, 80)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=811614946]
 modulate = Color(1, 1, 1, 0.03137255)
-polygon = PackedVector2Array(40, -104, 72, -104, 72, 12, -72, 12, -72, -104, -24, -104, -24, -72, -64, -72, -64, -16, 64, -16, 64, -96, 48, -96)
+polygon = PackedVector2Array(40, -104, 72, -104, 72, 0, -72, 0, -72, -104, -24, -104, -24, -72, -64, -72, -64, -16, 64, -16, 64, -96, 48, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=228696836]
 modulate = Color(1, 1, 1, 0.03137255)
@@ -145,10 +138,6 @@ polygon = PackedVector2Array(-27, -27, -20, -32, -20, -34, -27, -32)
 modulate = Color(1, 1, 1, 0.03137255)
 position = Vector2(60.5, -32.5)
 shape = SubResource("RectangleShape2D_0ru8o")
-
-[node name="SpawnWoodBoard" parent="." unique_id=645490003 instance=ExtResource("7_j3ofw")]
-position = Vector2(32, -72)
-max_distance_to_interact = Vector2(32, 32)
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=689226566]
 libraries/ = SubResource("AnimationLibrary_jx3yq")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://o1jxupgj3xcb" path="res://golem_first_jam/entities/props/prop.gd" id="1_qcxpc"]
 
 [node name="SignRight" type="Node2D" unique_id=740611175]
+y_sort_enabled = true
 script = ExtResource("1_qcxpc")
 metadata/_custom_type_script = "uid://o1jxupgj3xcb"
 

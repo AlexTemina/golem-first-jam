@@ -13,7 +13,6 @@ var fried: bool
 
 func init(position: Vector2):
 	self.position = position
-	z_index = position.y
 	if autodestruction_time > 0.0:
 		autodestruction_timer.start(autodestruction_time)
 	frying_timer.wait_time = time_to_get_fried

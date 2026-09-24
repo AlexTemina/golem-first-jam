@@ -123,6 +123,7 @@ animations = [{
 size = Vector2(16, 8)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
+y_sort_enabled = true
 script = ExtResource("1_rmv5a")
 jump_max_impulse = 0.8
 gravity_factor = 0.001
@@ -133,39 +134,46 @@ color = Color(0, 0, 0, 0.37254903)
 polygon = PackedVector2Array(0, 0, 5, 0, 8, -2, 4, -3, -5, -3, -9, -2, -6, 0)
 
 [node name="Body" type="Node2D" parent="." unique_id=1785529582]
+y_sort_enabled = true
 
 [node name="Legs" type="AnimatedSprite2D" parent="Body" unique_id=1627639390]
-position = Vector2(0, -16)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 animation = &"move"
 autoplay = "idle"
+offset = Vector2(0, -16)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Body" unique_id=2141792074]
-position = Vector2(0, -16)
+y_sort_enabled = true
 sprite_frames = ExtResource("2_c28dg")
 animation = &"idle"
 autoplay = "idle"
+offset = Vector2(0, -16)
 
 [node name="Beak" type="Node2D" parent="Body" unique_id=453269381]
+y_sort_enabled = true
 position = Vector2(9, -22)
 
 [node name="Wings" type="AnimatedSprite2D" parent="Body" unique_id=1627764720]
 visible = false
-position = Vector2(-2, -13)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_q14m2")
 autoplay = "default"
 frame_progress = 0.7981128
+offset = Vector2(-2, -13)
 
 [node name="Eyes" type="AnimatedSprite2D" parent="Body" unique_id=1435832949]
 visible = false
-position = Vector2(4, -22)
+y_sort_enabled = true
 scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("6_obpj7")
 autoplay = "default"
+offset = Vector2(14, -90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414319341]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_u5bk5")
+debug_color = Color(0, 0.6, 0.69803923, 0.12941177)
 
 [node name="HoldButtonTimer" type="Timer" parent="." unique_id=558244572]
 

@@ -31,6 +31,7 @@ animations = [{
 }]
 
 [node name="Dog" type="CharacterBody2D" unique_id=149243883]
+y_sort_enabled = true
 script = ExtResource("1_v8msw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1448973775]
@@ -44,9 +45,9 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_ehguc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=503701928]
-position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 autoplay = "default"
+offset = Vector2(0, -24)
 
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=437124404]
 stream = ExtResource("3_m48qm")

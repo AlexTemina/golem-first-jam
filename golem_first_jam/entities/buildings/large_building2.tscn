@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2c5a0yj41n7m" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build_2.png" id="2_bhdbl"]
 
 [node name="LargeBuilding2" type="Node2D" unique_id=1632016702]
+y_sort_enabled = true
 script = ExtResource("1_bhdbl")
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=2031496233]

@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func init(t_position: Vector2):
 	self.position = t_position
-	z_index = int(t_position.y)
 	SignalBus.register_pickable.emit(self)
 	
 ## While placed somewhere (a polley door tray, for instance) it cannot be picked from the floor

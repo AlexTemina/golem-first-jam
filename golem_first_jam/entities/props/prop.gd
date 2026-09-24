@@ -4,4 +4,4 @@ func _ready() -> void:
 	init()
 
 func init():
-	z_index = position.y
+	pass

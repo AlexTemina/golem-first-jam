@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b738gn677yltc"]
+[gd_scene format=3 uid="uid://b738gn677yltc"]
 
-[ext_resource type="Script" uid="uid://bnass2dyh0ymv" path="res://golem_first_jam/entities/polley_door/polley_door.gd" id="1_pldr0"]
 [ext_resource type="Texture2D" uid="uid://cst6gakkhfk4h" path="res://golem_first_jam/entities/polley_door/assets/door_closed.png" id="1_k16lj"]
+[ext_resource type="Script" uid="uid://bnass2dyh0ymv" path="res://golem_first_jam/entities/polley_door/polley_door.gd" id="1_pldr0"]
 [ext_resource type="Texture2D" uid="uid://cp2di8t1f26pr" path="res://golem_first_jam/entities/polley_door/assets/door_opened.png" id="2_4krk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pldr0"]
@@ -12,14 +12,14 @@ script = ExtResource("1_pldr0")
 
 [node name="ClosedSprite" type="Sprite2D" parent="." unique_id=1158308748]
 unique_name_in_owner = true
-position = Vector2(19, -66.5)
 texture = ExtResource("1_k16lj")
+offset = Vector2(19, -66.5)
 
 [node name="OpenedSprite" type="Sprite2D" parent="." unique_id=1375374711]
 unique_name_in_owner = true
 visible = false
-position = Vector2(19, -66.5)
 texture = ExtResource("2_4krk4")
+offset = Vector2(19, -66.5)
 
 [node name="Body" type="StaticBody2D" parent="." unique_id=1404228651]
 

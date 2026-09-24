@@ -6,6 +6,7 @@
 size = Vector2(32, 32)
 
 [node name="Hotspot" type="Node2D" unique_id=935895167]
+y_sort_enabled = true
 script = ExtResource("1_8jxqh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=926285575]

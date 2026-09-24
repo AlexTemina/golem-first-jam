@@ -25,10 +25,12 @@ animations = [{
 }]
 
 [node name="Car" type="Node2D" unique_id=1364633693]
+y_sort_enabled = true
 script = ExtResource("1_j3j5g")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1531488125]
 sprite_frames = SubResource("SpriteFrames_kddjp")
+offset = Vector2(0, -40)
 
 [node name="CarPassing" type="AudioStreamPlayer" parent="." unique_id=940110147]
 stream = ExtResource("5_yn42f")

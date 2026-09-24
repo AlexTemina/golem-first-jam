@@ -146,15 +146,16 @@ size = Vector2(32, 16)
 size = Vector2(64, 50)
 
 [node name="Snake" type="CharacterBody2D" unique_id=906309014]
+y_sort_enabled = true
 script = ExtResource("1_lr4si")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=266623760]
-position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 animation = &"hiss"
 autoplay = "default"
 frame = 4
 frame_progress = 1.0
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2010293849]
 position = Vector2(0, -8)

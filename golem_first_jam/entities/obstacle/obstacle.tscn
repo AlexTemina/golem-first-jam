@@ -6,6 +6,7 @@
 size = Vector2(32, 24)
 
 [node name="Obstacle" type="RigidBody2D" unique_id=1984188066]
+y_sort_enabled = true
 disable_mode = 1
 gravity_scale = 0.0
 freeze = true
