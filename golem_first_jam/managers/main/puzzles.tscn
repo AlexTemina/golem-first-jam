@@ -236,6 +236,12 @@ face_right = true
 position = Vector2(-16, 336)
 main_action = 1
 
+[node name="FlyingChicken" parent="NPC/Chickens" unique_id=1206617413 instance=ExtResource("25_5ohj6")]
+position = Vector2(-168, 440)
+main_action = 2
+jump_max_impulse = 0.8
+gravity_factor = 0.001
+
 [node name="Dog" parent="NPC" unique_id=149243883 instance=ExtResource("34_q6dqm")]
 position = Vector2(104, 128)
 
