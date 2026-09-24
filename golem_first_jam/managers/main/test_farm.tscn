@@ -29,11 +29,11 @@
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="26_7b4el"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hmkbc"]
 [ext_resource type="PackedScene" uid="uid://deb8o37loggbw" path="res://golem_first_jam/entities/props/bus_stop.tscn" id="28_r1vgb"]
-[ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/props/altar.tscn" id="29_vr2hf"]
+[ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="29_vr2hf"]
 [ext_resource type="PackedScene" uid="uid://buhufdgnd0ccx" path="res://golem_first_jam/entities/props/drinking_through.tscn" id="30_0snwu"]
 [ext_resource type="PackedScene" uid="uid://dhxkqxsgk0mo4" path="res://golem_first_jam/entities/props/sign_left.tscn" id="31_6vm4u"]
 [ext_resource type="PackedScene" uid="uid://bwoovrr3ir2vw" path="res://golem_first_jam/entities/props/sign_right.tscn" id="31_t0jr5"]
-[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/tractor.tscn" id="32_t0jr5"]
+[ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="32_t0jr5"]
 
 [node name="TestFarm" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "crow", "chicken_manager", "snake_manager", "road_manager", "pushables_manager")]
 script = ExtResource("1_scim2")

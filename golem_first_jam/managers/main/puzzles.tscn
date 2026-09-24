@@ -44,7 +44,7 @@
 [ext_resource type="TileSet" uid="uid://qfeb4lvr5lwj" path="res://golem_first_jam/entities/tilemaps/dark_zone_tileset.tres" id="31_kaht5"]
 [ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="34_jfbip"]
 [ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="34_q6dqm"]
-[ext_resource type="PackedScene" uid="uid://wm6a12r6aqnl" path="res://golem_first_jam/entities/learning_spot/learning_spot.tscn" id="37_043t4"]
+[ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="43_hst8i"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 
@@ -216,6 +216,7 @@ position = Vector2(64, 528)
 target_bell = NodePath("../../../Pushables/BellChickenCoup")
 
 [node name="Chickens" type="Node2D" parent="NPC" unique_id=543358377]
+y_sort_enabled = true
 
 [node name="ChickenEcstatic" parent="NPC/Chickens" unique_id=546995143 instance=ExtResource("25_5ohj6")]
 position = Vector2(384, 400)
@@ -261,14 +262,15 @@ position = Vector2(-136, 88)
 [node name="Tree2" parent="Props" unique_id=1921461809 instance=ExtResource("27_hvbwt")]
 position = Vector2(-192, 232)
 
+[node name="ClearingForVisionNpc" parent="Props" unique_id=1583742369 instance=ExtResource("43_hst8i")]
+position = Vector2(380, 388)
+npc_only = true
+
+[node name="ClearingForVisionPlayer" parent="Props" unique_id=714020045 instance=ExtResource("43_hst8i")]
+position = Vector2(384, 456)
+
 [node name="Tractor" parent="." unique_id=980762422 instance=ExtResource("34_jfbip")]
 position = Vector2(296, -72)
-
-[node name="LearningSpots" type="Node2D" parent="." unique_id=824972510]
-y_sort_enabled = true
-
-[node name="LearningSpot" parent="LearningSpots" unique_id=1386729640 instance=ExtResource("37_043t4")]
-position = Vector2(384, 440)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=90589840]
 y_sort_enabled = true

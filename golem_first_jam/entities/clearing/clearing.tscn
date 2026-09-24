@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdenjdrqlxw01"]
+
+[ext_resource type="Script" uid="uid://47f76oi3w2u3" path="res://golem_first_jam/entities/clearing/clearing.gd" id="1_i65vn"]
+[ext_resource type="Texture2D" uid="uid://cdfuhrap00u55" path="res://golem_first_jam/entities/props/assets/ClaroAltar1.png" id="2_ddca6"]
+
+[node name="Clearing" type="Node2D" unique_id=1583742369]
+y_sort_enabled = true
+script = ExtResource("1_i65vn")
+
+[node name="Altar" type="Sprite2D" parent="." unique_id=1571902251]
+texture = ExtResource("2_ddca6")
+offset = Vector2(0, 8)
+
+[node name="LearningArea" type="Area2D" parent="." unique_id=34448373]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LearningArea" unique_id=430340766]
+modulate = Color(1, 1, 1, 0.14901961)
+polygon = PackedVector2Array(12, 0, 23, 3, 29, 11, 19, 17, -9, 17, -22, 12, -17, 3, -9, 0, 0, 0)
+
+[connection signal="body_entered" from="LearningArea" to="." method="_on_learning_area_body_entered"]
+[connection signal="body_exited" from="LearningArea" to="." method="_on_learning_area_body_exited"]
