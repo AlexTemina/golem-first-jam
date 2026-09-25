@@ -59,6 +59,7 @@ var learning: bool
 var over_water: bool
 var running: bool
 var current_placeable: Placeable # The current_placeable the chicken is currently over, if any
+var target_position: Vector2 = Vector2.ZERO # For moving without user control
 
 func _ready() -> void:
 	action = Action.NONE
@@ -71,6 +72,8 @@ func _physics_process(delta: float) -> void:
 	
 	if blocked:
 		manage_blockness()
+		manage_velocity(delta)
+		move_and_slide()
 	else:
 		manage_velocity(delta)	
 		manage_actions_input(delta)	
@@ -79,6 +82,13 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 func manage_velocity(delta: float):
+	if target_position != Vector2.ZERO:
+		if global_position.distance_to(target_position) < 2.0:
+			target_position = Vector2.ZERO
+		else:
+			velocity = global_position.direction_to(target_position) * move_speed
+			return
+		
 	if action in [Action.LAYING_EGG] or blocked:
 		velocity = Vector2.ZERO
 		return
@@ -201,6 +211,9 @@ func land():
 	set_action(Action.NONE)
 	SignalBus.chicken_lands.emit()
 	
+func abort_egg():
+	hold_button_timer.stop()
+	
 func lay_egg() -> void:	
 	set_action(Action.NONE)
 	cluck_sound.play()
@@ -222,6 +235,9 @@ func scare():
 	if z_offset != 0:
 		land()
 	scare_timer.start()
+	
+func move_to(position: Vector2):
+	target_position = position
 	
 func block(t_release_position: Vector2, t_release_buttons: Array = [], new_action := Action.NONE):
 	set_action(new_action)

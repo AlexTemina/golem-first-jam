@@ -74,6 +74,8 @@ signal egg_fried(egg: Egg)
 
 # L SHAPED BUILDINGS
 signal ladder_enabled()
+signal chicken_uses_chimney(target_position: Vector2)
+signal chicken_lays_egg_on_chimney()
 
 # SOUND
 signal set_sounds_volume(value: float)

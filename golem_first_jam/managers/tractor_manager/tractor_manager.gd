@@ -40,7 +40,7 @@ func chicken_interacts():
 	tractor.attempt_starting_engine()
 	
 func on_chicken_jumps_off():
-	if not tractor.engine_started:
+	if chicken and not tractor.engine_started:
 		chicken.toggle_visibility()
 		tractor.toggle_collisions(true)
 		chicken = null

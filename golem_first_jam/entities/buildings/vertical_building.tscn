@@ -31,5 +31,12 @@ y_sort_enabled = true
 script = ExtResource("1_4r4pn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=440828855]
+position = Vector2(0, -190)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
-offset = Vector2(0, -110)
+offset = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1449821486]
+polygon = PackedVector2Array(-64, 0, -64, -168, 0, -184, 64, -168, 64, -48, 0, -56, 0, 0, 72, 0, 72, -176, 0, -192, -72, -176, -72, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=986002757]
+polygon = PackedVector2Array(0, -56, -24, -48, -24, -32, 0, -32)

@@ -46,3 +46,4 @@ polygon = PackedVector2Array(-16, 0, -16, 0, -16, 3, 0, 18, 2, 18, 2, 16, -14, 0
 
 [node name="Sound" type="AudioStreamPlayer" parent="." unique_id=220871875]
 stream = ExtResource("3_1hf31")
+bus = &"SoundEffects"

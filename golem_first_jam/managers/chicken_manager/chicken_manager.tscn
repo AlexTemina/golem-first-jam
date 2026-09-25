@@ -4,4 +4,3 @@
 
 [node name="ChickenManager" type="Node" unique_id=599307440]
 script = ExtResource("1_f6aqc")
-chicken_starting_position = null

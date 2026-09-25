@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d0b8jllibhohn" path="res://golem_first_jam/entities/pushable/ladder.tscn" id="3_m0j8o"]
 [ext_resource type="PackedScene" uid="uid://cyx1voxmpql7q" path="res://golem_first_jam/entities/pushable/chimney.tscn" id="5_qsgxs"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(8, 56)
+
 [node name="LBuildingComplex" type="Node2D" unique_id=1241096947]
 y_sort_enabled = true
 script = ExtResource("1_6vk3d")
@@ -21,4 +24,23 @@ type = 2
 position = Vector2(-67, 208)
 
 [node name="Chimney" parent="." unique_id=116999032 instance=ExtResource("5_qsgxs")]
-position = Vector2(48, -88)
+position = Vector2(112, -120)
+
+[node name="TempWood" type="ColorRect" parent="." unique_id=1473445137]
+y_sort_enabled = true
+offset_left = 24.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.42439705, 0.24931642, 0.026430376, 1)
+
+[node name="WoodRails" type="StaticBody2D" parent="." unique_id=984883176]
+
+[node name="WoodRailLeft" type="CollisionShape2D" parent="WoodRails" unique_id=1003275288]
+position = Vector2(20, -20)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="WoodRailRight" type="CollisionShape2D" parent="WoodRails" unique_id=1129801453]
+position = Vector2(52, -20)
+shape = SubResource("RectangleShape2D_u5bk5")
