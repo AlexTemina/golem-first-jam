@@ -29,6 +29,8 @@ Car Door, Closing, A.wav by InspectorJ -- https://freesound.org/s/271555/ -- Lic
 Classic Car Porsche 911 Car Door Open And Close.wav by mincedbeats -- https://freesound.org/s/630562/ -- License: Creative Commons 0
 clucking chicken by aalorv -- https://freesound.org/s/744996/ -- License: Attribution 4.0
 Clucking Chickens by flumpytripod -- https://freesound.org/s/830091/ -- License: Creative Commons 0
+Metal Fence 2 by NachtmahrTV -- https://freesound.org/s/553207/ -- License: Creative Commons 0
+Foley_Impact_Metal_Fence_Mono.wav by Nox_Sound -- https://freesound.org/s/561043/ -- License: Creative Commons 0
 
 ## Shaders
 

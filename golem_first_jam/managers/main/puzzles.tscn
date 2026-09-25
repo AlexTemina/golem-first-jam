@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="34_q6dqm"]
 [ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="35_qyfm7"]
 [ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="43_hst8i"]
+[ext_resource type="PackedScene" uid="uid://cqk6vqwxmig8f" path="res://golem_first_jam/entities/pushable/fence.tscn" id="43_t0m41"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 
@@ -264,6 +265,9 @@ attached_item = NodePath("../../Buildings/ChickenCoup/ChickenCoupDoor")
 
 [node name="Target" parent="Pushables" unique_id=2068233883 instance=ExtResource("27_e6atx")]
 position = Vector2(-88, 88)
+
+[node name="Fence" parent="Pushables" unique_id=1053286148 instance=ExtResource("43_t0m41")]
+position = Vector2(-32, 264)
 
 [node name="Props" type="Sprite2D" parent="." unique_id=719755115]
 y_sort_enabled = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0evc30hokbym"
-path="res://.godot/imported/MetalFencesOpenClose.png-89bdd136e0fb5c5bf8857351c97e3da5.ctex"
+path="res://.godot/imported/MetalFencesOpenClose.png-77454bd65d6df3e08e93d7e71b3e7e8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/props/assets/MetalFencesOpenClose.png"
-dest_files=["res://.godot/imported/MetalFencesOpenClose.png-89bdd136e0fb5c5bf8857351c97e3da5.ctex"]
+source_file="res://golem_first_jam/entities/pushable/assets/MetalFencesOpenClose.png"
+dest_files=["res://.godot/imported/MetalFencesOpenClose.png-77454bd65d6df3e08e93d7e71b3e7e8a.ctex"]
 
 [params]
 

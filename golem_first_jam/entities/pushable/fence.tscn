@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cqk6vqwxmig8f"]
+
+[ext_resource type="Texture2D" uid="uid://c0evc30hokbym" path="res://golem_first_jam/entities/pushable/assets/MetalFencesOpenClose.png" id="1_4l2el"]
+[ext_resource type="Script" uid="uid://dfyok2qgxxvnu" path="res://golem_first_jam/entities/pushable/fence.gd" id="1_j3slr"]
+[ext_resource type="AudioStream" uid="uid://c5yqh6vuwhbgc" path="res://golem_first_jam/entities/pushable/assets/fence.wav" id="3_1hf31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4l2el"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(31, 8)
+
+[node name="Fence" type="StaticBody2D" unique_id=1053286148]
+y_sort_enabled = true
+script = ExtResource("1_j3slr")
+max_distance_to_interact = Vector2(32, 16)
+repeatable = false
+
+[node name="SpriteClose" type="Sprite2D" parent="." unique_id=1882350049]
+texture = ExtResource("1_4l2el")
+offset = Vector2(0, -14.5)
+region_enabled = true
+region_rect = Rect2(17, 88, 94, 35)
+
+[node name="SpriteOpen" type="Sprite2D" parent="." unique_id=108001497]
+visible = false
+texture = ExtResource("1_4l2el")
+offset = Vector2(0, -6)
+region_enabled = true
+region_rect = Rect2(16, 24, 96, 52)
+
+[node name="FixedCollision1" type="CollisionShape2D" parent="." unique_id=1333816706]
+position = Vector2(-32, -4)
+shape = SubResource("RectangleShape2D_4l2el")
+
+[node name="FixedCollision2" type="CollisionShape2D" parent="." unique_id=500194857]
+position = Vector2(32, -4)
+shape = SubResource("RectangleShape2D_4l2el")
+
+[node name="ClosedCollision" type="CollisionShape2D" parent="." unique_id=1086839439]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="OpenCollision" type="CollisionPolygon2D" parent="." unique_id=1856551476]
+polygon = PackedVector2Array(-16, 0, -16, 0, -16, 3, 0, 18, 2, 18, 2, 16, -14, 0)
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=220871875]
+stream = ExtResource("3_1hf31")

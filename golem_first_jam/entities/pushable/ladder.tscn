@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3mex52besqvq" path="res://golem_first_jam/entities/pushable/ladder.gd" id="1_o7dea"]
 [ext_resource type="Texture2D" uid="uid://cgb1gldwmxr3u" path="res://golem_first_jam/entities/pushable/assets/StairsBridgeOpenClose.png" id="2_ni6si"]
+[ext_resource type="AudioStream" uid="uid://burtf6in8jg6t" path="res://golem_first_jam/entities/pushable/assets/ladder.wav" id="3_ikikb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikikb"]
 atlas = ExtResource("2_ni6si")
@@ -40,3 +41,7 @@ offset = Vector2(0, -28)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857871004]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=8819124]
+stream = ExtResource("3_ikikb")
+pitch_scale = 1.51
