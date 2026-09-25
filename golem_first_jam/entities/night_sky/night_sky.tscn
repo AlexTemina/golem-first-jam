@@ -12,8 +12,10 @@ position = Vector2(180.125, 107.71875)
 scale = Vector2(1.1242187, 1.203125)
 texture = ExtResource("2_x81te")
 
-[node name="VisionPictogram" type="Polygon2D" parent="." unique_id=1026751683]
-position = Vector2(72, -8)
-polygon = PackedVector2Array(48, 24, 64, 112, 104, 176, 128, 104, 152, 64, 176, 160, 184, 176, 224, 96, 240, 24)
+[node name="VisionPictogramQ" type="Polygon2D" parent="." unique_id=1026751683]
+polygon = PackedVector2Array(176, 160, 136, 128, 152, 144, 176, 96, 176, 48, 128, 16, 64, 16, 32, 72, 40, 144, 96, 176, 136, 160, 152, 144)
+
+[node name="VisionPictogramE" type="Polygon2D" parent="." unique_id=978421224]
+polygon = PackedVector2Array(328, 32, 248, 48, 248, 96, 304, 96, 248, 104, 240, 168, 288, 184, 336, 184)
 
 [node name="Stars" type="Node2D" parent="." unique_id=1986807396]

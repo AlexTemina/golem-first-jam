@@ -3,14 +3,15 @@ class_name NightSky extends Node2D
 @export var star_scene: PackedScene = load("res://golem_first_jam/entities/night_sky/star.tscn")
 
 @onready var stars_container := $Stars
-@onready var vision_pictogram := $VisionPictogram
+@onready var vision_pictogram_q := $VisionPictogramQ
+@onready var vision_pictogram_e := $VisionPictogramE
 	
 func init():
 	pass
 	
 func draw_pictogram(pictogram: Polygon2D):
-	clear_stars()
-	vision_pictogram.hide()
+	vision_pictogram_q.hide()
+	vision_pictogram_e.hide()
 	var previous_point: Vector2
 	for point in pictogram.polygon:
 		add_star(point)
@@ -20,7 +21,6 @@ func draw_pictogram(pictogram: Polygon2D):
 		
 func add_interpolated_stars(point1: Vector2, point2: Vector2):
 	var stars_number: int = point1.distance_to(point2) / 10
-	print(str(point1) + ' to ' + str(point2))
 	for i in range(stars_number):
 		var lerp_factor = (i + 1.0) / float(stars_number)
 		var star_position = lerp(point1, point2, lerp_factor)

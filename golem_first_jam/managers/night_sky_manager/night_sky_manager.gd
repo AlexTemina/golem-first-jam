@@ -17,7 +17,9 @@ func init():
 
 func show_night_sky():
 	night_sky.show()
-	night_sky.draw_pictogram(night_sky.vision_pictogram)
+	night_sky.clear_stars()
+	night_sky.draw_pictogram(night_sky.vision_pictogram_q)
+	night_sky.draw_pictogram(night_sky.vision_pictogram_e)
 	
 func hide_night_sky():
 	night_sky.hide()
