@@ -296,7 +296,6 @@ position = Vector2(384, 456)
 position = Vector2(296, -72)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=90589840]
-visible = false
 y_sort_enabled = true
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1674068792]
@@ -306,13 +305,15 @@ color = Color(0.3448452, 0.42349467, 0.60646695, 1)
 y_sort_enabled = true
 
 [node name="StreetLamp" parent="LightAndDarkness/Lights" unique_id=1527847806 instance=ExtResource("46_m12gs")]
-position = Vector2(0, 256)
+position = Vector2(112, 280)
 
 [node name="StreetLamp2" parent="LightAndDarkness/Lights" unique_id=1493303714 instance=ExtResource("46_m12gs")]
 position = Vector2(304, 72)
+sprite_type = 1
 
 [node name="StreetLamp3" parent="LightAndDarkness/Lights" unique_id=1455150857 instance=ExtResource("46_m12gs")]
 position = Vector2(80, 56)
+sprite_type = 2
 
 [node name="DarkZones" type="Node2D" parent="LightAndDarkness" unique_id=804165330]
 

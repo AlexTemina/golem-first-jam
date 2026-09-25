@@ -1,22 +1,51 @@
 [gd_scene format=3 uid="uid://bu0410qhfh28h"]
 
 [ext_resource type="Script" uid="uid://b3e8ip8vc5hyo" path="res://golem_first_jam/entities/props/street_lamp.gd" id="1_8bv6r"]
-[ext_resource type="Texture2D" uid="uid://d4iukkugl1i4" path="res://golem_first_jam/entities/props/assets/street lamp.png" id="1_pknek"]
+[ext_resource type="Texture2D" uid="uid://cehjxcxse6gng" path="res://golem_first_jam/entities/props/assets/Lamps.png" id="2_8bv6r"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="3_g2tgj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2tgj"]
+atlas = ExtResource("2_8bv6r")
+region = Rect2(50, 0, 25, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hwfj"]
+atlas = ExtResource("2_8bv6r")
+region = Rect2(75, 0, 25, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4nos"]
+atlas = ExtResource("2_8bv6r")
+region = Rect2(100, 0, 25, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2tgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hwfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4nos")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_m12gs"]
+radius = 5.0990195
 
 [node name="StreetLamp" type="StaticBody2D" unique_id=1527847806]
 y_sort_enabled = true
 script = ExtResource("1_8bv6r")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523541012]
-y_sort_enabled = true
-texture = ExtResource("1_pknek")
-offset = Vector2(0, -32)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=508819270]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(-7, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=63831254]
-position = Vector2(0, -4)
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_m12gs")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=352592941]
