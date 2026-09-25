@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d0b8jllibhohn"]
+
+[ext_resource type="Script" uid="uid://c3mex52besqvq" path="res://golem_first_jam/entities/pushable/ladder.gd" id="1_o7dea"]
+[ext_resource type="Texture2D" uid="uid://cgb1gldwmxr3u" path="res://golem_first_jam/entities/pushable/assets/StairsBridgeOpenClose.png" id="2_ni6si"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikikb"]
+atlas = ExtResource("2_ni6si")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtt6j"]
+atlas = ExtResource("2_ni6si")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikikb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtt6j")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(20, 10)
+
+[node name="Ladder" type="StaticBody2D" unique_id=2093044398]
+script = ExtResource("1_o7dea")
+max_distance_to_interact = Vector2(32, 16)
+repeatable = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=444434710]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857871004]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_u5bk5")

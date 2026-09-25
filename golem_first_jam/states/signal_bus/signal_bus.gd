@@ -72,6 +72,9 @@ signal destroy_egg(egg_position: Vector2)
 signal egg_in_hotspot(egg: Egg)
 signal egg_fried(egg: Egg)
 
+# L SHAPED BUILDINGS
+signal ladder_enabled()
+
 # SOUND
 signal set_sounds_volume(value: float)
 signal set_music_volume(value: float)

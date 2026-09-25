@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccnqghx0r1g8u" path="res://golem_first_jam/entities/buildings/large_building_1.gd" id="1_xep1c"]
 [ext_resource type="Texture2D" uid="uid://cf4emc3lwd3mk" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build.png" id="1_yt808"]
-[ext_resource type="Texture2D" uid="uid://dgf7tfpnbvao4" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/chimeney_1.png" id="3_la3eu"]
+[ext_resource type="Texture2D" uid="uid://dgf7tfpnbvao4" path="res://golem_first_jam/entities/pushable/assets/chimeney_1.png" id="3_la3eu"]
 
 [node name="LargeBuilding1" type="Node2D" unique_id=1632016702]
 script = ExtResource("1_xep1c")

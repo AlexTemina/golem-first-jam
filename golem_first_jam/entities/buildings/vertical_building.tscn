@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bjv16txtbmpl0"]
+
+[ext_resource type="Script" uid="uid://c3ve7rx0wt0sr" path="res://golem_first_jam/entities/buildings/vertical_building.gd" id="1_4r4pn"]
+[ext_resource type="Texture2D" uid="uid://cucy6r8lxcpuw" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_L_Vertical_Build.png" id="2_8r3le"]
+[ext_resource type="Texture2D" uid="uid://cecblu14jjvqa" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LLD_Vertical_Build.png" id="2_gfbui"]
+[ext_resource type="Texture2D" uid="uid://bj4ssygft2mu7" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LLD_Vertical_Build_WgrassTest.png" id="3_erufp"]
+[ext_resource type="Texture2D" uid="uid://cf4emc3lwd3mk" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build.png" id="5_erufp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gfbui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_erufp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8r3le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_erufp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="VerticalBuilding" type="StaticBody2D" unique_id=270743555]
+y_sort_enabled = true
+script = ExtResource("1_4r4pn")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=440828855]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -110)

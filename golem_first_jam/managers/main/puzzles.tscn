@@ -46,6 +46,7 @@
 [ext_resource type="TileSet" uid="uid://qfeb4lvr5lwj" path="res://golem_first_jam/entities/tilemaps/dark_zone_tileset.tres" id="31_kaht5"]
 [ext_resource type="PackedScene" uid="uid://dg1g251ntk8ie" path="res://golem_first_jam/entities/tractor/Tractor.tscn" id="34_jfbip"]
 [ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="34_q6dqm"]
+[ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="35_qyfm7"]
 [ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="43_hst8i"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
@@ -178,7 +179,7 @@ position = Vector2(400, 216)
 position = Vector2(-944, 264)
 
 [node name="Building1" parent="Buildings" unique_id=181886810 instance=ExtResource("16_p21hh")]
-position = Vector2(-352, -296)
+position = Vector2(-608, -608)
 
 [node name="SpawnBuilding" parent="Buildings" unique_id=1443378941 instance=ExtResource("23_ioq1i")]
 position = Vector2(208, 120)
@@ -188,10 +189,13 @@ roof_visible = true
 position = Vector2(368, 688)
 
 [node name="LargeBuilding1" parent="Buildings" unique_id=1632016702 instance=ExtResource("25_b42o2")]
-position = Vector2(-128, -384)
+position = Vector2(-232, -512)
 
 [node name="LargeBuilding2" parent="Buildings" unique_id=369214010 instance=ExtResource("26_043t4")]
-position = Vector2(56, -384)
+position = Vector2(-40, -544)
+
+[node name="LBuildingComplex" parent="Buildings" unique_id=1241096947 instance=ExtResource("35_qyfm7")]
+position = Vector2(-176, -232)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=80006425]
 y_sort_enabled = true
@@ -288,6 +292,7 @@ position = Vector2(384, 456)
 position = Vector2(296, -72)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=90589840]
+visible = false
 y_sort_enabled = true
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1674068792]
@@ -320,7 +325,7 @@ tile_map_data = PackedByteArray("AAD2//3/AQADAAIAAAD3//z/AQAAAAAAAAD4//z/AQAHAAI
 tile_set = ExtResource("31_kaht5")
 
 [node name="DarkZone" type="PointLight2D" parent="LightAndDarkness/DarkZones" unique_id=875562895]
-position = Vector2(-224, -200)
+position = Vector2(304, -416)
 energy = 3.81
 blend_mode = 1
 range_z_min = -4000

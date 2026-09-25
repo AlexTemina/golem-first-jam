@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgf7tfpnbvao4"
-path="res://.godot/imported/chimeney_1.png-485b2d89f739c7ea663294c74d2a929c.ctex"
+uid="uid://cehjxcxse6gng"
+path="res://.godot/imported/Lamps.png-3fb37bc93ff7777d88319774ef8a0813.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/buildings/assets/OtherBuildings/chimeney_1.png"
-dest_files=["res://.godot/imported/chimeney_1.png-485b2d89f739c7ea663294c74d2a929c.ctex"]
+source_file="res://golem_first_jam/entities/props/assets/Lamps.png"
+dest_files=["res://.godot/imported/Lamps.png-3fb37bc93ff7777d88319774ef8a0813.ctex"]
 
 [params]
 

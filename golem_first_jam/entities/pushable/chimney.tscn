@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cyx1voxmpql7q"]
+
+[ext_resource type="Script" uid="uid://2hijp6i5alpv" path="res://golem_first_jam/entities/pushable/chimney.gd" id="1_52u2d"]
+[ext_resource type="Texture2D" uid="uid://c2dt67su1smj2" path="res://golem_first_jam/entities/pushable/assets/LargeChimeney.png" id="2_22x6o"]
+[ext_resource type="Texture2D" uid="uid://qiyujfsbho7i" path="res://golem_first_jam/entities/pushable/assets/LargeChimeneyWithNest.png" id="3_uqwdo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_22x6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uqwdo")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u5bk5"]
+radius = 8.0
+height = 16.0
+
+[node name="Chimney" type="StaticBody2D" unique_id=116999032]
+script = ExtResource("1_52u2d")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=310662778]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163608263]
+shape = SubResource("CapsuleShape2D_u5bk5")

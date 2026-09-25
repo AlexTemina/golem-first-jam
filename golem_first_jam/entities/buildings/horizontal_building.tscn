@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://trnkey4xcnyh"]
+
+[ext_resource type="Script" uid="uid://dkt6ix0dfrl1p" path="res://golem_first_jam/entities/buildings/horizontal_building.gd" id="1_fy76i"]
+[ext_resource type="Texture2D" uid="uid://cu6dcmx0ngoqp" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LargeHorizontal_Build_2.png" id="2_qp8p7"]
+[ext_resource type="Texture2D" uid="uid://cu7xac2uy32k2" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LargeHorizonta_WGrassl_Build_2.png" id="3_fy76i"]
+[ext_resource type="Texture2D" uid="uid://o82ch0non1ut" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LargeHorizontalBrickWall_Build_2.png" id="4_ct7nn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qp8p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fy76i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ct7nn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(24, 32)
+
+[node name="HorizontalBuilding" type="StaticBody2D" unique_id=963256757]
+y_sort_enabled = true
+script = ExtResource("1_fy76i")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=440828855]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -118)
+
+[node name="Walls1" type="CollisionPolygon2D" parent="." unique_id=418649435]
+polygon = PackedVector2Array(-64, 0, -104, 0, -104, -176, 40, -176, 40, -168, -96, -168, -96, -32, -64, -32)
+
+[node name="Walls2" type="CollisionPolygon2D" parent="." unique_id=243383234]
+polygon = PackedVector2Array(-40, 0, -40, -32, 96, -32, 96, -168, 64, -168, 64, -176, 104, -176, 104, 0)
+
+[node name="LadderBlock" type="CollisionShape2D" parent="." unique_id=854931573]
+position = Vector2(-52, -16)
+shape = SubResource("RectangleShape2D_u5bk5")
+debug_color = Color(0, 0.6, 0.69803923, 0.36078432)
