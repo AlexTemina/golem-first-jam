@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cp2di8t1f26pr" path="res://golem_first_jam/entities/polley_door/assets/door_opened.png" id="2_4krk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pldr0"]
-size = Vector2(13, 131)
+size = Vector2(13, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4krk4"]
 size = Vector2(44, 27)
@@ -28,7 +28,7 @@ offset = Vector2(19, -66.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1404228652]
 unique_name_in_owner = true
-position = Vector2(5.5, -65.5)
+position = Vector2(5.5, -19)
 shape = SubResource("RectangleShape2D_pldr0")
 
 [node name="ObjectAnchor" type="Marker2D" parent="." unique_id=1404228653]
@@ -41,3 +41,17 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1528559182]
 position = Vector2(33, -12.5)
 shape = SubResource("RectangleShape2D_4krk4")
+
+[node name="SizeLabel" type="Label" parent="." unique_id=1408965773]
+unique_name_in_owner = true
+offset_left = -3.0
+offset_top = -112.0
+offset_right = 41.0
+offset_bottom = -68.0
+theme_override_colors/font_color = Color(0.96, 0.93, 0.85, 1)
+theme_override_colors/font_outline_color = Color(0.16, 0.12, 0.1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1

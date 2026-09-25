@@ -36,7 +36,7 @@ func place_object(object_to_place: PickableEntity) -> void:
 	object_to_place.position = Vector2.ZERO
 	object_to_place.z_index = 1 # Relative to the placeable, to draw over it
 
-	_on_object_placed(object_to_place, _is_valid_object(object_to_place))
+	_on_object_placed(object_to_place)
 
 ## Takes the object out of the placeable and returns it
 func remove_object() -> PickableEntity:
@@ -49,12 +49,6 @@ func remove_object() -> PickableEntity:
 	_on_object_removed(recovered_object)
 
 	return recovered_object
-
-## Checks if the character is close enough to the placeable to interact with it
-func is_near_character_position(character_position: Vector2) -> bool:
-	var x_is_close = abs(character_position.x - global_position.x) < max_distance_to_interact.x
-	var y_is_close = abs(character_position.y - global_position.y) < max_distance_to_interact.y
-	return x_is_close and y_is_close
 
 func _has_object() -> bool:
 	return is_instance_valid(placed_object)
@@ -69,8 +63,8 @@ func _is_valid_object(object_to_validate: PickableEntity) -> bool:
 func get_object_anchor() -> Node2D:
 	return self
 
-func _on_object_placed(object_placed: PickableEntity, is_valid: bool):
+func _on_object_placed(_object_placed: PickableEntity):
 	pass # Implement in children
 
-func _on_object_removed(object_removed: PickableEntity):
+func _on_object_removed(_object_removed: PickableEntity):
 	pass # Implement in children

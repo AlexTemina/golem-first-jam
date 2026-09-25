@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dhdlhn5ucahvm"]
+
+[ext_resource type="Script" uid="uid://bnass2dyh0ymv" path="res://golem_first_jam/entities/polley_door/polley_door.gd" id="1_bnt2t"]
+[ext_resource type="Texture2D" uid="uid://cst6gakkhfk4h" path="res://golem_first_jam/entities/polley_door/assets/door_closed.png" id="2_kq08w"]
+[ext_resource type="Texture2D" uid="uid://cp2di8t1f26pr" path="res://golem_first_jam/entities/polley_door/assets/door_opened.png" id="3_nun30"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pldr0"]
+size = Vector2(13, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4krk4"]
+size = Vector2(44, 27)
+
+[node name="PolleyDoor" type="Node2D" unique_id=1404228650]
+script = ExtResource("1_bnt2t")
+
+[node name="ClosedSprite" type="Sprite2D" parent="." unique_id=1158308748]
+unique_name_in_owner = true
+texture = ExtResource("2_kq08w")
+offset = Vector2(-8.115, -66.5)
+flip_h = true
+
+[node name="OpenedSprite" type="Sprite2D" parent="." unique_id=1375374711]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_nun30")
+offset = Vector2(-8.115, -66.5)
+flip_h = true
+
+[node name="Body" type="StaticBody2D" parent="." unique_id=1404228651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1404228652]
+unique_name_in_owner = true
+position = Vector2(5.5, -18)
+shape = SubResource("RectangleShape2D_pldr0")
+
+[node name="ObjectAnchor" type="Marker2D" parent="." unique_id=1404228653]
+unique_name_in_owner = true
+position = Vector2(-15, -60)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1408965772]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1528559182]
+position = Vector2(-23, -14)
+shape = SubResource("RectangleShape2D_4krk4")
+
+[node name="SizeLabel" type="Label" parent="." unique_id=1408965774]
+unique_name_in_owner = true
+offset_left = -30.0
+offset_top = -112.0
+offset_right = 14.0
+offset_bottom = -68.0
+theme_override_colors/font_color = Color(0.96, 0.93, 0.85, 1)
+theme_override_colors/font_outline_color = Color(0.16, 0.12, 0.1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1

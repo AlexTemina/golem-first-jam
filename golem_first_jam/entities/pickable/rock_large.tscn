@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://golem_first_jam/entities/pickable/rock.gd" id="1_rock"]
+[ext_resource type="Texture2D" path="res://golem_first_jam/entities/pickable/assets/rock_large.png" id="2_tex"]
+
+[node name="RockLarge" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rock")
+size = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+offset = Vector2(0, -16)

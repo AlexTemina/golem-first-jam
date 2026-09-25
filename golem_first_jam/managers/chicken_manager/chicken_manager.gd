@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	
 func init(t_chicken: Chicken):
 	self.chicken = t_chicken
-	self.chicken.position = chicken_starting_position
+	# self.chicken.position = chicken_starting_position
 	
 func scare_chicken():
 	chicken.scare()
