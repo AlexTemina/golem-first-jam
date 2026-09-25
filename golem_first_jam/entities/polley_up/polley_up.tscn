@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dphju2qjy83y4"]
+
+[ext_resource type="Script" uid="uid://bo173h0l6b8ee" path="res://golem_first_jam/entities/polley_up/polley_up.gd" id="1_plyup"]
+[ext_resource type="Texture2D" uid="uid://bvnp8fchqvymx" path="res://golem_first_jam/entities/polley_up/assets/polley_down.png" id="2_plyup"]
+[ext_resource type="Texture2D" uid="uid://caqhn1vu1y5nb" path="res://golem_first_jam/entities/polley_up/assets/polley_up.png" id="3_plyup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plyup1"]
+size = Vector2(45, 37)
+
+[node name="PolleyUp" type="Node2D" unique_id=560792459]
+y_sort_enabled = true
+script = ExtResource("1_plyup")
+
+[node name="DownSprite" type="Sprite2D" parent="." unique_id=836230235]
+unique_name_in_owner = true
+texture = ExtResource("2_plyup")
+offset = Vector2(0, -56)
+
+[node name="UpSprite" type="Sprite2D" parent="." unique_id=445354914]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_plyup")
+offset = Vector2(0, -56)
+
+[node name="Body" type="StaticBody2D" parent="." unique_id=1959031815]
+
+[node name="ObjectAnchor" type="Marker2D" parent="." unique_id=1836983276]
+unique_name_in_owner = true
+position = Vector2(-22, -78)
+
+[node name="LoadedAnchor" type="Marker2D" parent="." unique_id=1636879380]
+unique_name_in_owner = true
+position = Vector2(-22, -16)
+
+[node name="UpAnchor" type="Marker2D" parent="." unique_id=2013338892]
+unique_name_in_owner = true
+position = Vector2(21, -84)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=760070668]
+unique_name_in_owner = true
+position = Vector2(21, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=706094223]
+position = Vector2(6, 3.5)
+shape = SubResource("RectangleShape2D_plyup1")

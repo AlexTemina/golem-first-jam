@@ -12,6 +12,8 @@ func _ready() -> void:
 	SignalBus.chicken_entered_placeable.connect(_on_chicken_entered_placeable)
 	SignalBus.chicken_exited_placeable.connect(_on_chicken_exited_placeable)
 	SignalBus.chicken_uses_chimney.connect(lay_egg_on_chimney)
+	SignalBus.polley_up_activated.connect(move_chicken_with_polley)
+	SignalBus.polley_up_deactivated.connect(move_chicken_with_polley)
 	
 func _process(_delta: float) -> void:
 	check_chicken_over_river()
@@ -25,6 +27,11 @@ func scare_chicken():
 
 func toggle_learning(on: bool):
 	chicken.learning = on
+
+## The chicken rides the polley up and down. For now it just teleports
+func move_chicken_with_polley(polley_up: PolleyUp):
+	print("Moving chicken with polley up: ", polley_up)
+	chicken.global_position = polley_up.get_chicken_position()
 
 func check_chicken_over_river():
 	if river_tilemap:

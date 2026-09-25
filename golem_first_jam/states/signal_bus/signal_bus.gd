@@ -67,6 +67,10 @@ signal chicken_exited_placeable(placeable: Placeable)
 signal polley_door_opened(object: PickableEntity)
 signal polley_door_closed(object: PickableEntity)
 
+# POLLEY UPS
+signal polley_up_activated(polley_up: PolleyUp)
+signal polley_up_deactivated(polley_up: PolleyUp)
+
 # EGGS
 signal destroy_egg(egg_position: Vector2)
 signal egg_in_hotspot(egg: Egg)

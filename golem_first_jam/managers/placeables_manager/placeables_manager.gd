@@ -1,9 +1,5 @@
 class_name PlaceablesManager extends Node
 
-## Placeables handled by this manager
-@export var placeables: Array[Placeable] = []
-
-
 func _ready() -> void:
 	SignalBus.chicken_drops_item.connect(_on_chicken_drops_item)
 	SignalBus.chicken_pecks_nothing.connect(_on_chicken_pecks_nothing)

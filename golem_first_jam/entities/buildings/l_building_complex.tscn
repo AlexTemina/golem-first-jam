@@ -21,7 +21,7 @@ position = Vector2(80, 0)
 type = 2
 
 [node name="Ladder" parent="." unique_id=194874667 instance=ExtResource("3_m0j8o")]
-position = Vector2(-67, 208)
+position = Vector2(59, 87)
 
 [node name="Chimney" parent="." unique_id=116999032 instance=ExtResource("5_qsgxs")]
 position = Vector2(112, -120)
