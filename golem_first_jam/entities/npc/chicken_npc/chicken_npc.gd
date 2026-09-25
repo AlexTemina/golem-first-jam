@@ -5,7 +5,7 @@ enum Action {NONE, PECKING, FLYING, LAYING_EGG, ECSTATIC, WALKING, RUNNING}
 const ANIMATIONS = {
 	Action.NONE: "idle_with_legs",
 	Action.WALKING: "move_with_legs",
-	Action.RUNNING: "move_with_legs",
+	Action.RUNNING: "move_and_peck_with_legs",
 	Action.PECKING: "peck_with_legs",
 	Action.FLYING: "fly",
 	Action.LAYING_EGG: "lay_egg_short",

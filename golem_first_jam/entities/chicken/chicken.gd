@@ -46,6 +46,7 @@ const SHOW_LEGS_ACTIONS = [Action.NONE, Action.PECKING, Action.SCARED]
 @onready var quick_press_button_timer: Timer = $QuickPressButtonTimer
 @onready var scare_timer: Timer = $ScareTimer
 @onready var ecstasy_timer: Timer = $EcstasyTimer
+@onready var cluck_sound := $Cluck
 
 var action: Action
 var blocked := false # For some puzzles, keep the chicken blocked
@@ -202,6 +203,7 @@ func land():
 	
 func lay_egg() -> void:	
 	set_action(Action.NONE)
+	cluck_sound.play()
 	SignalBus.lay_egg.emit(position)
 	
 func set_action(new_action: Action):

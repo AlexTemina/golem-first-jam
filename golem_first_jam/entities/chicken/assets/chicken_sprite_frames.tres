@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bge32dgejahgw" path="res://golem_first_jam/entities/chicken/assets/ChikenWalking.png" id="6_y5r4d"]
 [ext_resource type="Texture2D" uid="uid://bajmfxec0d6he" path="res://golem_first_jam/entities/chicken/assets/ChikenPecking.png" id="7_6031s"]
 [ext_resource type="Texture2D" uid="uid://c6b15en7pf44g" path="res://golem_first_jam/entities/chicken/assets/ChikenPeckingNoLegs.png" id="7_ystvt"]
+[ext_resource type="Texture2D" uid="uid://cvi7dgtmyrcyj" path="res://golem_first_jam/entities/chicken/assets/ChikenWalkingAndPecking.png" id="9_5q5dp"]
 [ext_resource type="Texture2D" uid="uid://2lb6lqbnonfb" path="res://golem_first_jam/entities/chicken/assets/ChikenWalkingNoLegs.png" id="9_gkncr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8h7x"]
@@ -166,6 +167,30 @@ region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdujg"]
 atlas = ExtResource("9_gkncr")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq2we"]
+atlas = ExtResource("9_5q5dp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e5a5"]
+atlas = ExtResource("9_5q5dp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uwae"]
+atlas = ExtResource("9_5q5dp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ts1e"]
+atlas = ExtResource("9_5q5dp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cahef"]
+atlas = ExtResource("9_5q5dp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11wxc"]
+atlas = ExtResource("9_5q5dp")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u25qo"]
@@ -445,6 +470,29 @@ animations = [{
 "loop": 1,
 "name": &"move",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq2we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e5a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uwae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ts1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cahef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11wxc")
+}],
+"loop": 1,
+"name": &"move_and_peck_with_legs",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
