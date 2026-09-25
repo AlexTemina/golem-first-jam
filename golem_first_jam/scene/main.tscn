@@ -140,6 +140,7 @@ visible = false
 position = Vector2(242, 178)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
+visible = false
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1702205282]
 color = Color(0.3448452, 0.42349467, 0.60646695, 1)

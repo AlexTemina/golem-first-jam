@@ -226,6 +226,10 @@ target_bell = NodePath("../../../Pushables/BellLearning")
 position = Vector2(-160, 232)
 target_bell = NodePath("../../../Pushables/BellLearning")
 
+[node name="CrowFence" parent="NPC/Crows" unique_id=466244574 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
+position = Vector2(224, 232)
+target_bell = NodePath("../../../Pushables/BellFence")
+
 [node name="CrowLayingHen" parent="NPC/Crows" unique_id=249448694 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_v5x74")]
 position = Vector2(64, 528)
 target_bell = NodePath("../../../Pushables/BellChickenCoup")
@@ -264,6 +268,11 @@ position = Vector2(304, 680)
 bell_id = 1
 attached_item = NodePath("../../Buildings/ChickenCoup/ChickenCoupDoor")
 
+[node name="BellFence" parent="Pushables" unique_id=1570487531 node_paths=PackedStringArray("attached_item") instance=ExtResource("21_f5mjo")]
+position = Vector2(-72, 224)
+bell_id = 2
+attached_item = NodePath("../Fence")
+
 [node name="Target" parent="Pushables" unique_id=2068233883 instance=ExtResource("27_e6atx")]
 position = Vector2(-88, 88)
 
@@ -300,6 +309,7 @@ position = Vector2(-440, 24)
 position = Vector2(296, -72)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=90589840]
+visible = false
 y_sort_enabled = true
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1674068792]

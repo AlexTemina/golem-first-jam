@@ -29,8 +29,9 @@ static func is_short_note(note: String):
 func on_bell_ringed(bell_id: Bell.Id):
 	last_bell_id = bell_id
 	match bell_id:
-		Bell.Id.CHICKEN_COUP_BELL:
+		Bell.Id.CHICKEN_COUP_BELL, Bell.Id.FENCE_BELL:
 			chicken_ringed()
+		
 			
 func chicken_ringed():
 	reset_sequence_timer.start()
@@ -55,7 +56,7 @@ func check_current_sequence():
 		if is_long_expected != is_long_ring:
 			return
 	
-	print('Sequence completed!!')		
+	print('Sequence completed for bell %s!!' % last_bell_id)		
 	SignalBus.bell_sequence_completed.emit(last_bell_id)
 	
 	

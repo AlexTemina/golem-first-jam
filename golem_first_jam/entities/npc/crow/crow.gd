@@ -31,10 +31,12 @@ func _ready() -> void:
 		
 func _process(delta: float) -> void:
 	if is_flying():		
-		position = position.move_toward(flight_target, flying_speed * delta)
-		## TODO Use this code but finding a path somehow
-		# velocity = position.direction_to(flight_target) * flying_speed
-		# move_and_slide()
+		var old_position = position
+		position = position.move_toward(flight_target, flying_speed * delta)		
+		sprite.scale.x = 1 if position.x > old_position.x else -1
+		## TODO Use this code but finding a path somehow, avoiding collisions
+		#velocity = position.direction_to(flight_target) * flying_speed
+		#move_and_slide()
 		if position.distance_to(flight_target) < 8:
 			if flight_target == starting_position:
 				set_action(Action.IDLE)
