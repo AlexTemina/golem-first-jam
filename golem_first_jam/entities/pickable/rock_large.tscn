@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dbfermstugn1x"]
 
 [ext_resource type="Script" uid="uid://c8daqn0g413uh" path="res://golem_first_jam/entities/pickable/rock.gd" id="1_rock"]
-[ext_resource type="Texture2D" uid="uid://eko0pyfwcuht" path="res://golem_first_jam/entities/pickable/assets/rock_large.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://bcbqu05bgjh7d" path="res://golem_first_jam/entities/pickable/assets/Stones for puzzle2.png" id="2_8bk7h"]
 
 [node name="RockLarge" type="Node2D" unique_id=1091968264]
 y_sort_enabled = true
 script = ExtResource("1_rock")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1477413156]
-texture = ExtResource("2_tex")
-offset = Vector2(0, -16)
+texture = ExtResource("2_8bk7h")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(18, 7, 27, 19)

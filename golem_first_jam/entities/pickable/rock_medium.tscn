@@ -1,13 +1,14 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cojbekhkfe8nq"]
 
-[ext_resource type="Script" path="res://golem_first_jam/entities/pickable/rock.gd" id="1_rock"]
-[ext_resource type="Texture2D" path="res://golem_first_jam/entities/pickable/assets/rock_medium.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://c8daqn0g413uh" path="res://golem_first_jam/entities/pickable/rock.gd" id="1_rock"]
+[ext_resource type="Texture2D" uid="uid://bcbqu05bgjh7d" path="res://golem_first_jam/entities/pickable/assets/Stones for puzzle2.png" id="2_ixddo"]
 
-[node name="RockMedium" type="Node2D"]
+[node name="RockMedium" type="Node2D" unique_id=1239109669]
 y_sort_enabled = true
 script = ExtResource("1_rock")
-size = 1
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_tex")
-offset = Vector2(0, -16)
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1882719512]
+texture = ExtResource("2_ixddo")
+offset = Vector2(0, -6)
+region_enabled = true
+region_rect = Rect2(49, 1, 16, 14)
