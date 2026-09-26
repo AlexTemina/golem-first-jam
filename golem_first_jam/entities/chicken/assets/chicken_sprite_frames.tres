@@ -259,7 +259,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_awj77")
 }],
-"loop": 1,
+"loop": true,
 "name": &"deny_emote",
 "speed": 5.0
 }, {
@@ -267,7 +267,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_gkncr")
 }],
-"loop": 0,
+"loop": false,
 "name": &"ecstatic",
 "speed": 0.5
 }, {
@@ -305,7 +305,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_1asvg")
 }],
-"loop": 0,
+"loop": false,
 "name": &"ecstatic_old",
 "speed": 5.0
 }, {
@@ -328,7 +328,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jfxoq")
 }],
-"loop": 1,
+"loop": true,
 "name": &"fly",
 "speed": 5.0
 }, {
@@ -348,7 +348,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j5w4u")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -368,7 +368,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_glkke")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle_with_legs",
 "speed": 5.0
 }, {
@@ -409,7 +409,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_om8ea")
 }],
-"loop": 0,
+"loop": false,
 "name": &"lay_egg",
 "speed": 5.0
 }, {
@@ -444,7 +444,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gqemf")
 }],
-"loop": 0,
+"loop": false,
 "name": &"lay_egg_short",
 "speed": 5.0
 }, {
@@ -467,7 +467,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cdujg")
 }],
-"loop": 1,
+"loop": true,
 "name": &"move",
 "speed": 5.0
 }, {
@@ -490,7 +490,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_11wxc")
 }],
-"loop": 1,
+"loop": true,
 "name": &"move_and_peck_with_legs",
 "speed": 10.0
 }, {
@@ -513,7 +513,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_817e4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"move_with_legs",
 "speed": 5.0
 }, {
@@ -527,7 +527,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6031s")
 }],
-"loop": 0,
+"loop": false,
 "name": &"peck",
 "speed": 10.0
 }, {
@@ -541,7 +541,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_34ben")
 }],
-"loop": 0,
+"loop": false,
 "name": &"peck_with_legs",
 "speed": 10.0
 }]
