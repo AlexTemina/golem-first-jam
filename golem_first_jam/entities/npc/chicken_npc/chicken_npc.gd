@@ -52,7 +52,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	manage_velocity(delta)
 	face_move_direction()
-	move_and_slide()
+	if velocity != Vector2.ZERO:
+		move_and_slide()
 	
 func manage_velocity(delta: float):		
 	if is_flying():

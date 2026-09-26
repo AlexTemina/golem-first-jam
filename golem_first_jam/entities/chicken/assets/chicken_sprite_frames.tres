@@ -492,7 +492,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_and_peck_with_legs",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

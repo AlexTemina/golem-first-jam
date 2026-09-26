@@ -74,7 +74,6 @@ y_sort_enabled = true
 sprite_frames = ExtResource("2_2ufe0")
 animation = &"move_and_peck_with_legs"
 autoplay = "idle"
-frame_progress = 0.25503346
 offset = Vector2(0, -16)
 
 [node name="Beak" type="Node2D" parent="Body" unique_id=959339231]
