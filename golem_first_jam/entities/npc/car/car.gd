@@ -11,22 +11,37 @@ var sound_effects = [load("res://golem_first_jam/entities/npc/car/assets/car-ski
 @onready var car_passing_sound := $CarPassing
 @onready var car_effect := $CarEffect
 @onready var sound_effect_timer := $SoundTimer
+@onready var brake_timer := $BrakeTimer
 
-func init(starting_position: Vector2) -> void:		
+var braking := false
+var stopped := false
+
+func init(starting_position: Vector2, brake := false) -> void:		
 	sprite.frame = randi_range(0, 2)
 	position = starting_position
 	target_position = starting_position - Vector2(0, 3000)
 	car_passing_sound.play()	
 	sound_effect_timer.start(randf_range(0.2, 0.5))
+	if brake:
+		brake_timer.start()
 	
 func _process(delta: float) -> void:
+	if stopped:
+		return
+		
+	if braking:
+		speed -= delta * 500.0
+		if speed < 0:
+			speed = 0
+			stopped = true
+		
 	var new_position_delta = delta * -speed
 	position.y += new_position_delta
 	
 	remove_if_off_screen()
 
 func remove_if_off_screen():
-	if not car_passing_sound.playing and position.y < target_position.y:
+	if not stopped and not car_passing_sound.playing and position.y < target_position.y:
 		destroy()
 			
 func destroy():
@@ -43,4 +58,8 @@ func play_effect_sound():
 	car_effect.play()
 
 func _on_car_passing_finished() -> void:
-	destroy()
+	if not stopped:
+		destroy()
+
+func _on_brake_timer_timeout() -> void:
+	braking = true

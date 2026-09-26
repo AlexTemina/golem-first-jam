@@ -25,11 +25,11 @@ func launch_last_car():
 	last_car_timer.start(last_car_wait_time)
 
 func _on_last_car_timer_timeout() -> void:
-	launch_car(road.position.y + 3000)
+	launch_car(road.position.y + 400, true)
 
-func launch_car(y_position: float):
+func launch_car(y_position: float, brake := false):
 	SignalBus.scare_chicken.emit()
 	var car: Car = car_scene.instantiate()
 	add_child(car)
 	var starting_position = Vector2(road.position.x, y_position)
-	car.init(starting_position)
+	car.init(starting_position, brake)

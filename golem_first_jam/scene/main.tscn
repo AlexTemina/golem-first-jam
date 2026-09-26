@@ -75,7 +75,8 @@ pause_manager = NodePath("Managers/PauseManager")
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_re4ju")]
 camera_target = NodePath("../Chicken")
 
-[node name="Managers" type="Node" parent="." unique_id=1195527230]
+[node name="Managers" type="Node2D" parent="." unique_id=868919753]
+y_sort_enabled = true
 
 [node name="EggsManager" parent="Managers" unique_id=1416884054 instance=ExtResource("13_bidkm")]
 egg_scene = ExtResource("24_u764j")

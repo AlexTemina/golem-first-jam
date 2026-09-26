@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c4gntn0x4khl6" path="res://golem_first_jam/managers/road_manager/road_manager.gd" id="1_sn534"]
 
-[node name="RoadManager" type="Node" unique_id=2128288664]
+[node name="RoadManager" type="Node2D" unique_id=1096518]
+y_sort_enabled = true
 script = ExtResource("1_sn534")
 
 [node name="LastCarTimer" type="Timer" parent="." unique_id=1970871634]
