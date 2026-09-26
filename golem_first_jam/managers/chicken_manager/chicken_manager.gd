@@ -46,7 +46,7 @@ func _on_chicken_exited_placeable(placeable: Placeable):
 	if chicken.current_placeable == placeable:
 		chicken.current_placeable = null
 		
-func lay_egg_on_chimney(chimney_target: Vector2):
+func lay_egg_on_chimney():
 	chicken.block(chicken.global_position)
 	await wait(3)
 	chicken.release()

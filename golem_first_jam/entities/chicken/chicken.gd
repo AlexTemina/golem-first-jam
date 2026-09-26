@@ -62,9 +62,14 @@ var current_placeable: Placeable # The current_placeable the chicken is currentl
 var target_position: Vector2 = Vector2.ZERO # For moving without user control
 
 func _ready() -> void:
-	action = Action.NONE
+	reset()
+	
+func reset():
+	set_action(Action.NONE)
 	quick_press_button_timer.wait_time = time_to_quick_push
 	ecstasy_timer.wait_time = time_to_ecstasy
+	button_charge = 0
+	hold_button_timer.stop()
 
 # Function to move in 8 directions
 func _physics_process(delta: float) -> void:
@@ -241,17 +246,18 @@ func move_to(position: Vector2):
 	
 func block(t_release_position: Vector2, t_release_buttons: Array = [], new_action := Action.NONE):
 	set_action(new_action)
-	blocked = true
+	blocked = true	
 	release_buttons = t_release_buttons
 	release_position = t_release_position
 	legs.play("idle")
+	hold_button_timer.stop()
 	
 func release():
 	blocked = false
 	global_position = release_position
-	release_position = Vector2.ZERO
-	set_action(Action.NONE)
+	release_position = Vector2.ZERO	
 	legs.play("idle")
+	reset()
 	SignalBus.chicken_is_released.emit()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:

@@ -38,6 +38,7 @@ is_open = false
 opens_to_right = true
 
 [node name="CollisionsChickenOnTop" type="StaticBody2D" parent="." unique_id=354209220]
+modulate = Color(1, 1, 1, 0.1254902)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="CollisionsChickenOnTop" unique_id=1449821486]
 polygon = PackedVector2Array(-64, 0, -64, -168, 0, -184, 64, -168, 64, -48, 0, -56, 0, 0, 72, 0, 72, -176, 0, -192, -72, -176, -72, 0)
@@ -48,6 +49,7 @@ polygon = PackedVector2Array(0, -56, -24, -48, -24, -32, 0, -32)
 disabled = true
 
 [node name="CollisionsChickenOnFloor" type="StaticBody2D" parent="." unique_id=1664357662]
+modulate = Color(1, 1, 1, 0.35686275)
 
 [node name="CollisionWhenChickenOnFloor" type="CollisionPolygon2D" parent="CollisionsChickenOnFloor" unique_id=784732781]
 polygon = PackedVector2Array(72, 0, 72, -96, -72, -96, -72, 0)
