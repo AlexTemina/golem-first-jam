@@ -84,7 +84,7 @@ canvas_layer = NodePath("../CanvasLayer")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
 
 [node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("3_oxjle")]
-max_time = 10
+max_time = 200
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("21_hst8i")]
 visible = false

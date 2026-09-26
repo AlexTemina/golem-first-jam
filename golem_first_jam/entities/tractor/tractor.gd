@@ -38,7 +38,7 @@ func toggle_collisions(on := true):
 	collision_box.set_deferred("disabled", !on)
 	
 func attempt_starting_engine():
-	if not false_start_sound.playing:
+	if not engine_started and not false_start_sound.playing:
 		false_start_sound.play()
 	
 func start_engine():

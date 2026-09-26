@@ -25,7 +25,7 @@ func launch_last_car():
 	last_car_timer.start(last_car_wait_time)
 
 func _on_last_car_timer_timeout() -> void:
-	launch_car(road.position.y - 1000) # TODO FIx the road offset to make the cars appear 
+	launch_car(road.position.y + 3000)
 
 func launch_car(y_position: float):
 	SignalBus.scare_chicken.emit()

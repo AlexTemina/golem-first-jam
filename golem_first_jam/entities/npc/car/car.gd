@@ -15,7 +15,7 @@ var sound_effects = [load("res://golem_first_jam/entities/npc/car/assets/car-ski
 func init(starting_position: Vector2) -> void:		
 	sprite.frame = randi_range(0, 2)
 	position = starting_position
-	target_position = starting_position - Vector2(0, 800)
+	target_position = starting_position - Vector2(0, 3000)
 	car_passing_sound.play()	
 	sound_effect_timer.start(randf_range(0.2, 0.5))
 	

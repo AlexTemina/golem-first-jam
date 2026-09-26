@@ -46,10 +46,10 @@
 [ext_resource type="PackedScene" uid="uid://dhdlhn5ucahvm" path="res://golem_first_jam/entities/polley_door/polley_door_left.tscn" id="43_tsp7a"]
 [ext_resource type="TileSet" uid="uid://crph147vxnh8" path="res://golem_first_jam/entities/tilemaps/fences_tile_set.tres" id="45_xsvtb"]
 [ext_resource type="PackedScene" uid="uid://dbfermstugn1x" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="46_rocka"]
-[ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_medium.tscn" id="47_rockb"]
+[ext_resource type="PackedScene" uid="uid://cojbekhkfe8nq" path="res://golem_first_jam/entities/pickable/rock_medium.tscn" id="47_rockb"]
 [ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="47_ui20o"]
 [ext_resource type="PackedScene" uid="uid://dphju2qjy83y4" path="res://golem_first_jam/entities/polley_up/polley_up.tscn" id="48_nhu3j"]
-[ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_small.tscn" id="48_rockc"]
+[ext_resource type="PackedScene" uid="uid://lkmftbegrkm2" path="res://golem_first_jam/entities/pickable/rock_small.tscn" id="48_rockc"]
 [ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="49_6800i"]
 
 [node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager")]
