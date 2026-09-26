@@ -10,4 +10,3 @@ func _interact():
 	sprite.hide()
 	sprite_broken.show()
 	collision_box.disabled = true
-	SignalBus.start_game_time.emit()

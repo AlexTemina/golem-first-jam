@@ -14,7 +14,7 @@ extends Node
 @export var night_sky_manager: NightSkyManager
 @export var river_manager: RiverManager
 @export var dog_manager: DogManager
-@export var fade_screen: ColorRect
+@export var fade_screen: ResetScreen
 ## Children of this folder will be registered 
 @export var npcs_container: Node
 @export var pause_manager: PauseManager
@@ -49,12 +49,16 @@ func init():
 		print("WARNING: missing pause manager")
 	
 func restart():
+	chicken.block(chicken.global_position)
 	if fade_screen:
-		fade_screen.show()
+		fade_screen.show_screen()
 
-	await wait(0.5)
-	
-	get_tree().reload_current_scene()
+		await wait(2)
+		
+		chicken.release()
+		chicken.go_back_to_spawning_point()
+		fade_screen.hide()
+		SignalBus.reset_game.emit()
 	
 func init_npcs():
 	if npcs_container == null:

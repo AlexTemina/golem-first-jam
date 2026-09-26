@@ -48,6 +48,7 @@ const SHOW_LEGS_ACTIONS = [Action.NONE, Action.PECKING, Action.SCARED]
 @onready var ecstasy_timer: Timer = $EcstasyTimer
 @onready var cluck_sound := $Cluck
 
+var spawning_point: Vector2 # In order to get back
 var action: Action
 var blocked := false # For some puzzles, keep the chicken blocked
 var release_position: Vector2 # When release, where teleports
@@ -62,14 +63,18 @@ var current_placeable: Placeable # The current_placeable the chicken is currentl
 var target_position: Vector2 = Vector2.ZERO # For moving without user control
 
 func _ready() -> void:
-	reset()
+	spawning_point = global_position
+	reset_state()
 	
-func reset():
+func reset_state():
 	set_action(Action.NONE)
 	quick_press_button_timer.wait_time = time_to_quick_push
 	ecstasy_timer.wait_time = time_to_ecstasy
 	button_charge = 0
 	hold_button_timer.stop()
+	
+func go_back_to_spawning_point():
+	global_position = spawning_point
 
 # Function to move in 8 directions
 func _physics_process(delta: float) -> void:
@@ -257,7 +262,7 @@ func release():
 	global_position = release_position
 	release_position = Vector2.ZERO	
 	legs.play("idle")
-	reset()
+	reset_state()
 	SignalBus.chicken_is_released.emit()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:

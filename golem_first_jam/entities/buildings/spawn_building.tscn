@@ -71,6 +71,9 @@ _data = {
 &"show_roof": SubResource("Animation_syx1o")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krpui"]
+size = Vector2(48, 40)
+
 [node name="SpawnBuilding" type="Node2D" unique_id=1443378941]
 y_sort_enabled = true
 script = ExtResource("1_pdig0")
@@ -142,5 +145,12 @@ shape = SubResource("RectangleShape2D_0ru8o")
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=689226566]
 libraries/ = SubResource("AnimationLibrary_jx3yq")
 
+[node name="OutsideDetector" type="Area2D" parent="." unique_id=760661873]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideDetector" unique_id=579354138]
+position = Vector2(24, -28)
+shape = SubResource("RectangleShape2D_krpui")
+
 [connection signal="body_entered" from="Interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="Interior" to="." method="_on_interior_body_exited"]
+[connection signal="body_entered" from="OutsideDetector" to="." method="_on_outside_detector_body_entered"]

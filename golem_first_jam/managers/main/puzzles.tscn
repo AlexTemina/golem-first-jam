@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dg3sdotll3amc" path="res://golem_first_jam/entities/time_chain/time_chain.tscn" id="3_oxjle"]
 [ext_resource type="PackedScene" uid="uid://bg3ilnwc718q3" path="res://golem_first_jam/entities/chicken/chicken.tscn" id="4_b42o2"]
 [ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="5_043t4"]
+[ext_resource type="PackedScene" uid="uid://dpewuh3g3xf8k" path="res://golem_first_jam/scene/reset_screen.tscn" id="5_lle8v"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="6_1j5pp"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="10_q241n"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="11_v88a1"]
@@ -54,7 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 [ext_resource type="PackedScene" uid="uid://ciribj4rxpdi5" path="res://golem_first_jam/entities/props/boundary_forest.tscn" id="48_ytgcg"]
 [ext_resource type="PackedScene" uid="uid://dphju2qjy83y4" path="res://golem_first_jam/entities/polley_up/polley_up.tscn" id="53_ac0fh"]
-[ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="54_gdv7d"]
+[ext_resource type="PackedScene" uid="uid://dbfermstugn1x" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="54_gdv7d"]
 
 [node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager")]
 y_sort_enabled = true
@@ -72,7 +73,7 @@ chicken_npcs_manager = NodePath("Managers/ChickenNpcsManager")
 night_sky_manager = NodePath("Managers/NightSkyManager")
 river_manager = NodePath("Managers/RiverManager")
 dog_manager = NodePath("Managers/DogManager")
-fade_screen = NodePath("CanvasLayer/Fade")
+fade_screen = NodePath("CanvasLayer/ResetScreen")
 npcs_container = NodePath("NPC")
 pause_manager = NodePath("Managers/PauseManager")
 
@@ -83,7 +84,7 @@ canvas_layer = NodePath("../CanvasLayer")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2068147246]
 
 [node name="TimeChain" parent="CanvasLayer" unique_id=89565992 instance=ExtResource("3_oxjle")]
-max_time = 9999
+max_time = 10
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("21_hst8i")]
 visible = false
@@ -93,6 +94,9 @@ visible = false
 offset_right = 328.0
 offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
+
+[node name="ResetScreen" parent="CanvasLayer" unique_id=1735150408 instance=ExtResource("5_lle8v")]
+visible = false
 
 [node name="NightShader" type="CanvasLayer" parent="." unique_id=1878267745]
 visible = false
@@ -149,6 +153,7 @@ pause_menu = NodePath("../../CanvasLayer/PauseMenu")
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("4_b42o2")]
 unique_name_in_owner = true
+position = Vector2(227, 155)
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1032856331]
 y_sort_enabled = true

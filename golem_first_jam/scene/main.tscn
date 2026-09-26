@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="22_xsvtb"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="23_fe6m1"]
 [ext_resource type="PackedScene" uid="uid://cph2uwgk0ymb3" path="res://golem_first_jam/entities/egg/egg.tscn" id="24_u764j"]
+[ext_resource type="PackedScene" uid="uid://dpewuh3g3xf8k" path="res://golem_first_jam/scene/reset_screen.tscn" id="25_8gqn2"]
 [ext_resource type="TileSet" uid="uid://j5kjqp55hx24" path="res://golem_first_jam/entities/tilemaps/river_test_tileset.tres" id="28_akrif"]
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="32_txy57"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="33_j1hj4"]
@@ -44,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://b738gn677yltc" path="res://golem_first_jam/entities/polley_door/polley_door_right.tscn" id="38_n6spk"]
 [ext_resource type="PackedScene" uid="uid://dhdlhn5ucahvm" path="res://golem_first_jam/entities/polley_door/polley_door_left.tscn" id="43_tsp7a"]
 [ext_resource type="TileSet" uid="uid://crph147vxnh8" path="res://golem_first_jam/entities/tilemaps/fences_tile_set.tres" id="45_xsvtb"]
-[ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="46_rocka"]
+[ext_resource type="PackedScene" uid="uid://dbfermstugn1x" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="46_rocka"]
 [ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_medium.tscn" id="47_rockb"]
 [ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="47_ui20o"]
 [ext_resource type="PackedScene" uid="uid://dphju2qjy83y4" path="res://golem_first_jam/entities/polley_up/polley_up.tscn" id="48_nhu3j"]
@@ -67,7 +68,7 @@ chicken_npcs_manager = NodePath("Managers/ChickenNpcsManager")
 night_sky_manager = NodePath("Managers/NightSkyManager")
 river_manager = NodePath("Managers/RiverManager")
 dog_manager = NodePath("Managers/DogManager")
-fade_screen = NodePath("CanvasLayer/Fade")
+fade_screen = NodePath("CanvasLayer/ResetScreen")
 npcs_container = NodePath("Npcs")
 pause_manager = NodePath("Managers/PauseManager")
 
@@ -140,6 +141,9 @@ offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1128394256 instance=ExtResource("22_xsvtb")]
+visible = false
+
+[node name="ResetScreen" parent="CanvasLayer" unique_id=1735150408 instance=ExtResource("25_8gqn2")]
 visible = false
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_2g418")]

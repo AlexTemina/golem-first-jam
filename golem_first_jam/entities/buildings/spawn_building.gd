@@ -33,3 +33,7 @@ func _apply_roof_visibility() -> void:
 		return
 	# sprite.visible = roof_visible
 	sprite.modulate.a = 1.0 if roof_visible else 0.0
+
+func _on_outside_detector_body_entered(body: Node2D) -> void:
+	if body is Chicken:
+		SignalBus.start_game_time.emit()

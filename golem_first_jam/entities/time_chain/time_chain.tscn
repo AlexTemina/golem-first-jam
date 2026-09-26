@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmxpd0ct3ryo3" path="res://golem_first_jam/entities/time_chain/time_chain.gd" id="1_q8opm"]
 [ext_resource type="Texture2D" uid="uid://wiuex0wvvyw8" path="res://golem_first_jam/entities/time_chain/assets/DogChainsStatesUI.png" id="2_q8opm"]
+[ext_resource type="AudioStream" uid="uid://djcay2lrry1rl" path="res://golem_first_jam/entities/time_chain/assets/chain-break.wav" id="3_arb08"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arb08"]
 atlas = ExtResource("2_q8opm")
@@ -83,8 +84,13 @@ position = Vector2(128, 16)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 
 [node name="Timer" type="Timer" parent="." unique_id=1915084039]
+one_shot = true
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1664736777]
 libraries/ = SubResource("AnimationLibrary_xltpf")
+
+[node name="ChainSound" type="AudioStreamPlayer" parent="." unique_id=649062092]
+stream = ExtResource("3_arb08")
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
