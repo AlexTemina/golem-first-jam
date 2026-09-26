@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc00w5oxmr4xb" path="res://golem_first_jam/scene/reset_screen.gd" id="1_adayx"]
 [ext_resource type="Texture2D" uid="uid://8hhiyx52ofc0" path="res://golem_first_jam/entities/time_chain/assets/GotchaScreen.png" id="1_g73gn"]
 [ext_resource type="AudioStream" uid="uid://br43qi5mq2bsa" path="res://golem_first_jam/entities/npc/dog/assets/dog-bark.wav" id="3_hxraq"]
+[ext_resource type="AudioStream" uid="uid://rveju1jnoh3r" path="res://golem_first_jam/entities/chicken/assets/sound/cluck_long.wav" id="4_hxraq"]
 
 [node name="ResetScreen" type="Node2D" unique_id=1735150408]
 script = ExtResource("1_adayx")
@@ -14,4 +15,8 @@ texture = ExtResource("1_g73gn")
 
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=270877386]
 stream = ExtResource("3_hxraq")
+bus = &"SoundEffects"
+
+[node name="Cluck" type="AudioStreamPlayer" parent="." unique_id=1249370610]
+stream = ExtResource("4_hxraq")
 bus = &"SoundEffects"
