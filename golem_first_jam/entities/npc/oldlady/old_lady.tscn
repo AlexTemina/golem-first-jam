@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btduj47mb50io" path="res://golem_first_jam/entities/npc/oldlady/old_lady.gd" id="1_1i11c"]
 [ext_resource type="Texture2D" uid="uid://h5xsryteqiyv" path="res://golem_first_jam/entities/npc/oldlady/assets/LadyLateralWalking.png" id="2_nqpwe"]
+[ext_resource type="AudioStream" uid="uid://b7mgoxissk2y4" path="res://golem_first_jam/entities/npc/oldlady/assets/woman-screaming.wav" id="3_cviar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cviar"]
 atlas = ExtResource("2_nqpwe")
@@ -53,5 +54,9 @@ offset = Vector2(0, -40)
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1160524783]
 wait_time = 5.0
+
+[node name="ShoutSound" type="AudioStreamPlayer" parent="." unique_id=613404362]
+stream = ExtResource("3_cviar")
+bus = &"Reverb"
 
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

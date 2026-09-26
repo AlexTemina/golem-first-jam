@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckttixkcv6qij" path="res://golem_first_jam/entities/pushable/house_door.gd" id="1_jvqmw"]
 [ext_resource type="Texture2D" uid="uid://d540m8jvy02p" path="res://golem_first_jam/entities/pushable/assets/house_door.png" id="2_82lqh"]
+[ext_resource type="AudioStream" uid="uid://chy08p6x6apfe" path="res://golem_first_jam/entities/pushable/assets/door-opens.wav" id="3_p1608"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1608"]
 atlas = ExtResource("2_82lqh")
@@ -28,6 +29,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(25, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cviar"]
+size = Vector2(3, 18)
+
 [node name="Door" type="StaticBody2D" unique_id=735491120]
 script = ExtResource("1_jvqmw")
 pushable_by_chicken = false
@@ -37,6 +41,14 @@ repeatable = false
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 offset = Vector2(-8, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400665233]
+[node name="OpenCollision" type="CollisionShape2D" parent="." unique_id=400665233]
 position = Vector2(-11.5, -0.5)
 shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="ClosedCollision" type="CollisionShape2D" parent="." unique_id=1394083462]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_cviar")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="." unique_id=887657305]
+stream = ExtResource("3_p1608")
+bus = &"SoundEffects"

@@ -28,16 +28,29 @@ position = Vector2(0, -190)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 offset = Vector2(0, 120)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1449821486]
-polygon = PackedVector2Array(-64, 0, -64, -168, 0, -184, 64, -168, 64, -48, 0, -56, 0, 0, 72, 0, 72, -176, 0, -192, -72, -176, -72, 0)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=986002757]
-polygon = PackedVector2Array(0, -56, -24, -48, -24, -32, 0, -32)
-
 [node name="LeftDoor" parent="." unique_id=735491120 instance=ExtResource("4_gfbui")]
 position = Vector2(-72, -112)
 
 [node name="RightDoor" parent="." unique_id=1130975680 instance=ExtResource("4_gfbui")]
 position = Vector2(72, -112)
 scale = Vector2(-1, 1)
+is_open = false
 opens_to_right = true
+
+[node name="CollisionsChickenOnTop" type="StaticBody2D" parent="." unique_id=354209220]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CollisionsChickenOnTop" unique_id=1449821486]
+polygon = PackedVector2Array(-64, 0, -64, -168, 0, -184, 64, -168, 64, -48, 0, -56, 0, 0, 72, 0, 72, -176, 0, -192, -72, -176, -72, 0)
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionsChickenOnTop" unique_id=986002757]
+polygon = PackedVector2Array(0, -56, -24, -48, -24, -32, 0, -32)
+disabled = true
+
+[node name="CollisionsChickenOnFloor" type="StaticBody2D" parent="." unique_id=1664357662]
+
+[node name="CollisionWhenChickenOnFloor" type="CollisionPolygon2D" parent="CollisionsChickenOnFloor" unique_id=784732781]
+polygon = PackedVector2Array(72, 0, 72, -96, -72, -96, -72, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionsChickenOnFloor" unique_id=1770458010]
+polygon = PackedVector2Array(-72, -120, 72, -120, 72, -176, 0, -192, -72, -176)

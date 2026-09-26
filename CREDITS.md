@@ -31,6 +31,7 @@ clucking chicken by aalorv -- https://freesound.org/s/744996/ -- License: Attrib
 Clucking Chickens by flumpytripod -- https://freesound.org/s/830091/ -- License: Creative Commons 0
 Metal Fence 2 by NachtmahrTV -- https://freesound.org/s/553207/ -- License: Creative Commons 0
 Foley_Impact_Metal_Fence_Mono.wav by Nox_Sound -- https://freesound.org/s/561043/ -- License: Creative Commons 0
+Man screaming.wav by Archeos -- https://freesound.org/s/325548/ -- License: Creative Commons 0
 
 ## Shaders
 

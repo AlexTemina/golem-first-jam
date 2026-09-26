@@ -48,7 +48,7 @@ func _on_chicken_exited_placeable(placeable: Placeable):
 		
 func lay_egg_on_chimney(chimney_target: Vector2):
 	chicken.block(chicken.global_position)
-	await wait(2)
+	await wait(3)
 	chicken.release()
 	
 func wait(seconds: float):
