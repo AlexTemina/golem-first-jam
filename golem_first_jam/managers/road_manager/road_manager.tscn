@@ -4,3 +4,8 @@
 
 [node name="RoadManager" type="Node" unique_id=2128288664]
 script = ExtResource("1_sn534")
+
+[node name="LastCarTimer" type="Timer" parent="." unique_id=1970871634]
+one_shot = true
+
+[connection signal="timeout" from="LastCarTimer" to="." method="_on_last_car_timer_timeout"]

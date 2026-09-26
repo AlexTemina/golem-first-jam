@@ -34,6 +34,8 @@ func on_chicken_jumps_in_tractor(t_chicken: Chicken):
 		chicken.release()
 		chicken.block(tractor.global_position)
 		SignalBus.follow_object.emit(tractor)
+		await wait(2)
+		
 	
 func chicken_interacts():
 	var picked_item = chicken.get_picked_item()

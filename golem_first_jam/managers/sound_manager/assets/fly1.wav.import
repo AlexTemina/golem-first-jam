@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/fly1.wav-9be43e8699d817d458d00c1d44112494.sam
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
