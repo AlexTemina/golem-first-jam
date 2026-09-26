@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bc6ov6gk45k2w"]
+
+[ext_resource type="Script" uid="uid://ckttixkcv6qij" path="res://golem_first_jam/entities/pushable/house_door.gd" id="1_jvqmw"]
+[ext_resource type="Texture2D" uid="uid://d540m8jvy02p" path="res://golem_first_jam/entities/pushable/assets/house_door.png" id="2_82lqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1608"]
+atlas = ExtResource("2_82lqh")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7mhn"]
+atlas = ExtResource("2_82lqh")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1608")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7mhn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(25, 3)
+
+[node name="Door" type="StaticBody2D" unique_id=735491120]
+script = ExtResource("1_jvqmw")
+pushable_by_chicken = false
+repeatable = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1222304317]
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(-8, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400665233]
+position = Vector2(-11.5, -0.5)
+shape = SubResource("RectangleShape2D_u5bk5")

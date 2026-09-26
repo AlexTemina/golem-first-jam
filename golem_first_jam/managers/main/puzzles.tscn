@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="21_hst8i"]
 [ext_resource type="PackedScene" uid="uid://c75u2pllnafvd" path="res://golem_first_jam/managers/pause_manager/pause_manager.tscn" id="21_p21hh"]
 [ext_resource type="PackedScene" uid="uid://btk4i3hoohly" path="res://golem_first_jam/managers/obstacles_manager/obstacles_manager.tscn" id="22_gdv7d"]
+[ext_resource type="PackedScene" uid="uid://dr8n1qkw3yle2" path="res://golem_first_jam/managers/placeables_manager/placeables_manager.tscn" id="22_lle8v"]
 [ext_resource type="PackedScene" uid="uid://b0oursik6buo3" path="res://golem_first_jam/entities/buildings/spawn_building.tscn" id="23_ioq1i"]
 [ext_resource type="PackedScene" uid="uid://ba2kr1c08y233" path="res://golem_first_jam/managers/pushables_manager/pushables_manager.tscn" id="23_lle8v"]
 [ext_resource type="PackedScene" uid="uid://doqvidpp1016a" path="res://golem_first_jam/managers/special_vision/special_vision_manager.tscn" id="24_2igjn"]
@@ -52,6 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 [ext_resource type="PackedScene" uid="uid://ciribj4rxpdi5" path="res://golem_first_jam/entities/props/boundary_forest.tscn" id="48_ytgcg"]
+[ext_resource type="PackedScene" uid="uid://dphju2qjy83y4" path="res://golem_first_jam/entities/polley_up/polley_up.tscn" id="53_ac0fh"]
+[ext_resource type="PackedScene" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="54_gdv7d"]
 
 [node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager")]
 y_sort_enabled = true
@@ -142,6 +145,8 @@ tractor = NodePath("../../Tractor")
 [node name="PauseManager" parent="Managers" unique_id=1873186415 node_paths=PackedStringArray("pause_menu") instance=ExtResource("21_p21hh")]
 pause_menu = NodePath("../../CanvasLayer/PauseMenu")
 
+[node name="PlaceablesManager" parent="Managers" unique_id=1610274839 instance=ExtResource("22_lle8v")]
+
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("4_b42o2")]
 unique_name_in_owner = true
 
@@ -204,6 +209,10 @@ y_sort_enabled = true
 
 [node name="PickableItems" type="Node2D" parent="." unique_id=1795162199]
 y_sort_enabled = true
+
+[node name="RockLarge2" parent="PickableItems" unique_id=763494192 instance=ExtResource("54_gdv7d")]
+position = Vector2(-112, -24)
+max_distance_to_interact = Vector2(32, 32)
 
 [node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("10_q241n")]
 position = Vector2(104, 160)
@@ -351,6 +360,14 @@ range_z_min = -4000
 range_z_max = 2000
 texture = ExtResource("44_v88a1")
 texture_scale = 2.0
+
+[node name="PolleyUp" parent="." unique_id=560792459 node_paths=PackedStringArray("up_position", "valid_objects") instance=ExtResource("53_ac0fh")]
+position = Vector2(-200, -16)
+up_position = NodePath("Marker2D")
+valid_objects = [NodePath("../PickableItems/RockLarge2")]
+
+[node name="Marker2D" type="Marker2D" parent="PolleyUp" unique_id=118511429]
+position = Vector2(44, -81)
 
 [editable path="Managers/ChickenManager"]
 [editable path="Managers/SnakeManager"]

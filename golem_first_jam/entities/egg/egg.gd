@@ -16,6 +16,7 @@ func init(position: Vector2):
 	if autodestruction_time > 0.0:
 		autodestruction_timer.start(autodestruction_time)
 	frying_timer.wait_time = time_to_get_fried
+	SignalBus.egg_created.emit(self)
 		
 func break_egg(with_animation = true):
 	if with_animation:

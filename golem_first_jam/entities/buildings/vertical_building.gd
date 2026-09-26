@@ -1,7 +1,7 @@
 @tool
 class_name VerticalBuilding extends StaticBody2D
 
-enum Type {NORMAL, NORMAL_WITH_GRASS, DOOR_RIGHT, NO_DOOR}
+enum Type {WITH_HOLE, NORMAL}
 
 @export var type: Type:
 	set(value):

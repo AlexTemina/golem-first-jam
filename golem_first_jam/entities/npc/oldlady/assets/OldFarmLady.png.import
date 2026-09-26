@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://benc77tgw3dgi"
-path="res://.godot/imported/LadyFrontWalking.png-27c40fc4112a8be7650a2afe6d71f7dd.ctex"
+uid="uid://doq2ta4njguq7"
+path="res://.godot/imported/OldFarmLady.png-d0207596c6cd1336b90fa8a6c68d613d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/npc/oldlady/LadyFrontWalking.png"
-dest_files=["res://.godot/imported/LadyFrontWalking.png-27c40fc4112a8be7650a2afe6d71f7dd.ctex"]
+source_file="res://golem_first_jam/entities/npc/oldlady/assets/OldFarmLady.png"
+dest_files=["res://.godot/imported/OldFarmLady.png-d0207596c6cd1336b90fa8a6c68d613d.ctex"]
 
 [params]
 

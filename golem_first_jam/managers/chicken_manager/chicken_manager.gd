@@ -11,7 +11,7 @@ func _ready() -> void:
 	SignalBus.toggle_learning_spot.connect(toggle_learning)
 	SignalBus.chicken_entered_placeable.connect(_on_chicken_entered_placeable)
 	SignalBus.chicken_exited_placeable.connect(_on_chicken_exited_placeable)
-	SignalBus.chicken_uses_chimney.connect(lay_egg_on_chimney)
+	SignalBus.chicken_lays_egg_on_chimney.connect(lay_egg_on_chimney)
 	SignalBus.polley_up_activated.connect(move_chicken_with_polley)
 	SignalBus.polley_up_deactivated.connect(move_chicken_with_polley)
 	
@@ -47,15 +47,8 @@ func _on_chicken_exited_placeable(placeable: Placeable):
 		chicken.current_placeable = null
 		
 func lay_egg_on_chimney(chimney_target: Vector2):
-	chicken.abort_egg()
 	chicken.block(chicken.global_position)
-	chicken.move_to(chimney_target)
 	await wait(2)
-	# chicken.lay_egg()
-	SignalBus.chicken_lays_egg_on_chimney.emit()
-	await wait(1)
-	chicken.move_to(chicken.release_position)
-	await wait(0.5)
 	chicken.release()
 	
 func wait(seconds: float):

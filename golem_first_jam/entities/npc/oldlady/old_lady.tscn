@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bp04kspubpa6"]
+
+[ext_resource type="Script" uid="uid://btduj47mb50io" path="res://golem_first_jam/entities/npc/oldlady/old_lady.gd" id="1_1i11c"]
+[ext_resource type="Texture2D" uid="uid://h5xsryteqiyv" path="res://golem_first_jam/entities/npc/oldlady/assets/LadyLateralWalking.png" id="2_nqpwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cviar"]
+atlas = ExtResource("2_nqpwe")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuvlm"]
+atlas = ExtResource("2_nqpwe")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8tq2"]
+atlas = ExtResource("2_nqpwe")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjk0f"]
+atlas = ExtResource("2_nqpwe")
+region = Rect2(64, 96, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cviar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuvlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8tq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjk0f")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="OldLady" type="CharacterBody2D" unique_id=302092836]
+y_sort_enabled = true
+script = ExtResource("1_1i11c")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1194150342]
+y_sort_enabled = true
+scale = Vector2(-0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+autoplay = "default"
+frame_progress = 0.024426572
+offset = Vector2(0, -40)
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1160524783]
+wait_time = 5.0
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

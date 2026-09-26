@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doq2ta4njguq7"
-path="res://.godot/imported/OldFarmLady.png-fd4d5cf6f2d30705380a1c2cc8c5f973.ctex"
+uid="uid://d540m8jvy02p"
+path="res://.godot/imported/house_door.png-0850bc151f3cab1cd8207a33e4d3ccca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/npc/oldlady/OldFarmLady.png"
-dest_files=["res://.godot/imported/OldFarmLady.png-fd4d5cf6f2d30705380a1c2cc8c5f973.ctex"]
+source_file="res://golem_first_jam/entities/pushable/assets/house_door.png"
+dest_files=["res://.godot/imported/house_door.png-0850bc151f3cab1cd8207a33e4d3ccca.ctex"]
 
 [params]
 

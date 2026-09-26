@@ -2,29 +2,33 @@
 
 [ext_resource type="Script" uid="uid://denymowxpltad" path="res://golem_first_jam/entities/buildings/l_building_complex.gd" id="1_6vk3d"]
 [ext_resource type="PackedScene" uid="uid://trnkey4xcnyh" path="res://golem_first_jam/entities/buildings/horizontal_building.tscn" id="1_xg11e"]
+[ext_resource type="PackedScene" uid="uid://bp04kspubpa6" path="res://golem_first_jam/entities/npc/oldlady/old_lady.tscn" id="2_kkum7"]
 [ext_resource type="PackedScene" uid="uid://bjv16txtbmpl0" path="res://golem_first_jam/entities/buildings/vertical_building.tscn" id="2_m0j8o"]
 [ext_resource type="PackedScene" uid="uid://d0b8jllibhohn" path="res://golem_first_jam/entities/pushable/ladder.tscn" id="3_m0j8o"]
-[ext_resource type="PackedScene" uid="uid://cyx1voxmpql7q" path="res://golem_first_jam/entities/pushable/chimney.tscn" id="5_qsgxs"]
+[ext_resource type="AudioStream" uid="uid://dh4cy63v5dfpy" path="res://golem_first_jam/managers/sound_manager/assets/pop1.wav" id="5_qsgxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(8, 56)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
+size = Vector2(16, 16)
+
 [node name="LBuildingComplex" type="Node2D" unique_id=1241096947]
 y_sort_enabled = true
 script = ExtResource("1_6vk3d")
+
+[node name="OldLady" parent="." unique_id=302092836 instance=ExtResource("2_kkum7")]
+show_behind_parent = true
+position = Vector2(120, -104)
 
 [node name="HorizontalBuilding" parent="." unique_id=963256757 instance=ExtResource("1_xg11e")]
 position = Vector2(-16, 184)
 
 [node name="VerticalBuilding" parent="." unique_id=270743555 instance=ExtResource("2_m0j8o")]
 position = Vector2(80, 0)
-type = 2
 
 [node name="Ladder" parent="." unique_id=194874667 instance=ExtResource("3_m0j8o")]
 position = Vector2(59, 87)
-
-[node name="Chimney" parent="." unique_id=116999032 instance=ExtResource("5_qsgxs")]
-position = Vector2(112, -120)
 
 [node name="TempWood" type="ColorRect" parent="." unique_id=1473445137]
 y_sort_enabled = true
@@ -44,3 +48,16 @@ shape = SubResource("RectangleShape2D_u5bk5")
 [node name="WoodRailRight" type="CollisionShape2D" parent="WoodRails" unique_id=1129801453]
 position = Vector2(52, -20)
 shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="AreaToDropEgg" type="Area2D" parent="." unique_id=1830641001]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToDropEgg" unique_id=1316520973]
+position = Vector2(112, -152)
+shape = SubResource("RectangleShape2D_kddjp")
+
+[node name="EggSound" type="AudioStreamPlayer" parent="." unique_id=1234557216]
+stream = ExtResource("5_qsgxs")
+bus = &"Reverb"
+
+[connection signal="area_entered" from="AreaToDropEgg" to="." method="_on_area_to_drop_egg_area_entered"]
+[connection signal="body_entered" from="AreaToDropEgg" to="." method="_on_area_to_drop_egg_body_entered"]

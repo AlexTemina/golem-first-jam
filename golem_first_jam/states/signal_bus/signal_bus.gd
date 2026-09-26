@@ -72,13 +72,13 @@ signal polley_up_activated(polley_up: PolleyUp)
 signal polley_up_deactivated(polley_up: PolleyUp)
 
 # EGGS
+signal egg_created(egg: Egg)
 signal destroy_egg(egg_position: Vector2)
 signal egg_in_hotspot(egg: Egg)
 signal egg_fried(egg: Egg)
 
 # L SHAPED BUILDINGS
 signal ladder_enabled()
-signal chicken_uses_chimney(target_position: Vector2)
 signal chicken_lays_egg_on_chimney()
 
 # SOUND

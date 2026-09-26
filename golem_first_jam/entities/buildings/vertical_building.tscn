@@ -1,27 +1,20 @@
 [gd_scene format=3 uid="uid://bjv16txtbmpl0"]
 
 [ext_resource type="Script" uid="uid://c3ve7rx0wt0sr" path="res://golem_first_jam/entities/buildings/vertical_building.gd" id="1_4r4pn"]
-[ext_resource type="Texture2D" uid="uid://cucy6r8lxcpuw" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_L_Vertical_Build.png" id="2_8r3le"]
-[ext_resource type="Texture2D" uid="uid://cecblu14jjvqa" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LLD_Vertical_Build.png" id="2_gfbui"]
+[ext_resource type="Texture2D" uid="uid://daps1tq8ni2vb" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LLD_Vertical_Build_WgrassWithHole.png" id="2_8r3le"]
 [ext_resource type="Texture2D" uid="uid://bj4ssygft2mu7" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_LLD_Vertical_Build_WgrassTest.png" id="3_erufp"]
-[ext_resource type="Texture2D" uid="uid://cf4emc3lwd3mk" path="res://golem_first_jam/entities/buildings/assets/OtherBuildings/Exterior_Large_Build.png" id="5_erufp"]
+[ext_resource type="PackedScene" uid="uid://bc6ov6gk45k2w" path="res://golem_first_jam/entities/pushable/house_door.tscn" id="4_gfbui"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gfbui")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_erufp")
-}, {
-"duration": 1.0,
 "texture": ExtResource("2_8r3le")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_erufp")
+"texture": ExtResource("3_erufp")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }]
@@ -33,10 +26,18 @@ script = ExtResource("1_4r4pn")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=440828855]
 position = Vector2(0, -190)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
-offset = Vector2(0, 80)
+offset = Vector2(0, 120)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1449821486]
 polygon = PackedVector2Array(-64, 0, -64, -168, 0, -184, 64, -168, 64, -48, 0, -56, 0, 0, 72, 0, 72, -176, 0, -192, -72, -176, -72, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=986002757]
 polygon = PackedVector2Array(0, -56, -24, -48, -24, -32, 0, -32)
+
+[node name="LeftDoor" parent="." unique_id=735491120 instance=ExtResource("4_gfbui")]
+position = Vector2(-72, -112)
+
+[node name="RightDoor" parent="." unique_id=1130975680 instance=ExtResource("4_gfbui")]
+position = Vector2(72, -112)
+scale = Vector2(-1, 1)
+opens_to_right = true
