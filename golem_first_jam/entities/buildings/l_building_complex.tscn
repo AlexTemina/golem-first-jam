@@ -13,6 +13,12 @@ size = Vector2(8, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
 size = Vector2(16, 16)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kkum7"]
+polygon = PackedVector2Array(87, 184, 87, 153, -120, 152, -120, 184, -121, 11, 88, 11)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ouyev"]
+polygon = PackedVector2Array(150, -1, 151, -45, 151, -93, 163, -90, 151, -97, 151, -111, 162, -120, 151, -115, 151, -175, 80, -188, 8, -175, 8, -140, -16, -140, -16, -111, 8, -111, 8.296783, -94.67723, -7, -83, 8.377869, -90.21767, 10, -1, 9, -45, 151, -45)
+
 [node name="LBuildingComplex" type="Node2D" unique_id=1241096947]
 y_sort_enabled = true
 script = ExtResource("1_6vk3d")
@@ -58,6 +64,16 @@ shape = SubResource("RectangleShape2D_kddjp")
 [node name="EggSound" type="AudioStreamPlayer" parent="." unique_id=1234557216]
 stream = ExtResource("5_qsgxs")
 bus = &"Reverb"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2050911167]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_kkum7")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluder2D" unique_id=1271738641]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_ouyev")
 
 [connection signal="area_entered" from="AreaToDropEgg" to="." method="_on_area_to_drop_egg_area_entered"]
 [connection signal="body_entered" from="AreaToDropEgg" to="." method="_on_area_to_drop_egg_body_entered"]

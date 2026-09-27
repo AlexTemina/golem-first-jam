@@ -1,20 +1,18 @@
 [gd_scene format=3 uid="uid://ciribj4rxpdi5"]
 
+[ext_resource type="Script" uid="uid://c6g2noc4nsc3u" path="res://golem_first_jam/scene/boundary_forest.gd" id="1_2dhw1"]
 [ext_resource type="Texture2D" uid="uid://blsv4w0q0h2o1" path="res://golem_first_jam/entities/props/assets/BoundaryForest_1.png" id="1_cv2ri"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
-size = Vector2(128, 96)
+[node name="BoundaryForest" type="Node2D" unique_id=864979348]
+script = ExtResource("1_2dhw1")
 
-[node name="BoundaryForest" type="StaticBody2D" unique_id=382641060]
-y_sort_enabled = true
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=755517245]
-y_sort_enabled = true
+[node name="BoundaryForest1" type="Sprite2D" parent="." unique_id=601908347]
+z_index = 1
+position = Vector2(67, 92)
 texture = ExtResource("1_cv2ri")
-offset = Vector2(0, -64)
-region_enabled = true
-region_rect = Rect2(0, 18, 128, 140)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893095381]
-position = Vector2(0, -48)
-shape = SubResource("RectangleShape2D_u5bk5")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1168009249]
+disable_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1506229784]
+polygon = PackedVector2Array(21, 55, 5, 63, 5, 115, 10, 137, 2, 176, 22, 177, 50, 178, 75, 178, 126, 178, 131, 133, 126, 116, 133, 102, 123, 57, 100, 58, 80, 56, 63, 56)

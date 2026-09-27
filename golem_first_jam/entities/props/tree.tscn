@@ -3,13 +3,24 @@
 [ext_resource type="Texture2D" uid="uid://tvro2qpvbg5y" path="res://golem_first_jam/entities/props/assets/Tree_1.png" id="1_6rf0t"]
 [ext_resource type="Script" uid="uid://c33wvk0finuy7" path="res://golem_first_jam/entities/props/tree.gd" id="1_78x67"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_78x67"]
+cull_mode = 2
+polygon = PackedVector2Array(11, -11, 16, -4, 10, 1, 0, 1, -11, 0, -16, -5, -11, -12)
+
 [node name="Tree" type="Node2D" unique_id=1076218292]
 y_sort_enabled = true
 script = ExtResource("1_78x67")
 
 [node name="Node2D" type="Sprite2D" parent="." unique_id=1568894692]
+light_mask = 2
 texture = ExtResource("1_6rf0t")
 offset = Vector2(-2, -53)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Node2D" unique_id=728942011]
+modulate = Color(0.5764706, 0.5764706, 0.5764706, 0)
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_78x67")
+occluder_light_mask = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2087108811]
 

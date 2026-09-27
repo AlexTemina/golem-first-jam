@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b1v2h1oylt0c6" path="res://golem_first_jam/entities/pushable/spawn_wood_board.tscn" id="7_j3ofw"]
 [ext_resource type="Texture2D" uid="uid://bfrme8hocd0hh" path="res://golem_first_jam/entities/buildings/assets/SpawnBuild/ChikenSpawnBuild_Ext2Wall.png" id="7_jx3yq"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_agbdj"]
+cull_mode = 1
+polygon = PackedVector2Array(-68, -52, 4, -52, 4, -52, 68, -52, 68, 71, -68, 71)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(37, 5)
 
@@ -82,6 +86,12 @@ roof_visible = false
 [node name="InteriorSprite" type="Sprite2D" parent="." unique_id=967352013]
 texture = ExtResource("2_2x5hw")
 offset = Vector2(0, -40)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="InteriorSprite" unique_id=1959030756]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_agbdj")
 
 [node name="Jail" parent="." unique_id=1708551476 instance=ExtResource("3_agbdj")]
 position = Vector2(-44, 66)

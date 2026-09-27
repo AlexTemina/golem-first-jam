@@ -1,0 +1,44 @@
+[gd_resource type="TileSet" format=3 uid="uid://kvdx4l020ps0"]
+
+[ext_resource type="Texture2D" uid="uid://b7sydwv66kash" path="res://golem_first_jam/entities/tilemaps/assets/Tilesx16.png" id="1_enqoo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0yl3"]
+texture = ExtResource("1_enqoo")
+3:0/0 = 0
+3:0/0/probability = 0.775
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/probability = 0.075
+7:0/0 = 0
+7:0/0/probability = 0.075
+3:1/0 = 0
+3:1/0/probability = 0.775
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/probability = 0.235
+5:2/0 = 0
+5:2/0/probability = 0.235
+6:2/0 = 0
+6:2/0/probability = 0.235
+7:2/0 = 0
+7:2/0/probability = 0.235
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+4:3/0/probability = 0.235
+5:3/0 = 0
+5:3/0/probability = 0.235
+6:3/0 = 0
+6:3/0/probability = 0.235
+7:3/0 = 0
+7:3/0/probability = 0.235
+7:1/0 = 0
+7:1/0/probability = 6.0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_n0yl3")

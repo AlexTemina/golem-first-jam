@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5477u")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7tod3")
 }],
-"loop": 1,
+"loop": true,
 "name": &"move",
 "speed": 5.0
 }]
@@ -115,13 +115,17 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0th25")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(16, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5477u"]
+cull_mode = 1
+polygon = PackedVector2Array(-10, -13, -6, -7, -4, -6, -3, -2, -3, -7, 0, -7, 1, -2, 0.8067007, -7.000002, 4, -7, 9, -13, 9, -21, 11, -22, 9, -24, 7, -27, 6, -27, 3, -30, 4, -27, 3, -25, 3, -21, -2, -17, -8, -18, -11, -22, -15, -21, -11, -16)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
 y_sort_enabled = true
@@ -189,6 +193,13 @@ one_shot = true
 [node name="Cluck" type="AudioStreamPlayer" parent="." unique_id=1082540530]
 stream = ExtResource("7_5477u")
 volume_db = 3.017
+
+[node name="ChikenFailOccluder2D" type="LightOccluder2D" parent="." unique_id=1877750555]
+visible = false
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_5477u")
+occluder_light_mask = 2
 
 [connection signal="animation_finished" from="Body/Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="HoldButtonTimer" to="." method="_on_hold_button_timer_timeout"]
