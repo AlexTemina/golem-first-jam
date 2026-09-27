@@ -34,7 +34,7 @@ position = Vector2(-16, 184)
 position = Vector2(80, 0)
 
 [node name="Ladder" parent="." unique_id=194874667 instance=ExtResource("3_m0j8o")]
-position = Vector2(59, 87)
+position = Vector2(27, 39)
 
 [node name="TempWood" type="ColorRect" parent="." unique_id=1473445137]
 y_sort_enabled = true
