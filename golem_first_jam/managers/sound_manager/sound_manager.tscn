@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://dtyf7a4d7nsj4"]
 
 [ext_resource type="Script" uid="uid://cqabn8brhcboj" path="res://golem_first_jam/managers/sound_manager/sound_manager.gd" id="1_4lm8f"]
+[ext_resource type="AudioStream" uid="uid://d4jdlvswp5ldx" path="res://golem_first_jam/managers/sound_manager/assets/songs/game_song.mp3" id="2_pj2nj"]
 
 [node name="SoundManager" type="Node" unique_id=1893828585]
 script = ExtResource("1_4lm8f")
 
 [node name="ChickenPlayer" type="AudioStreamPlayer" parent="." unique_id=1321193393]
+bus = &"SoundEffects"
 
 [node name="ItemsPlayer" type="AudioStreamPlayer" parent="." unique_id=1267063019]
+bus = &"SoundEffects"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1388961559]
+stream = ExtResource("2_pj2nj")
+bus = &"Music"
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

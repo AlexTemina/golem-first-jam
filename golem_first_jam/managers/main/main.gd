@@ -45,7 +45,9 @@ func init():
 		night_sky_manager.init()
 	if dog_manager:
 		dog_manager.init()
-	if not pause_manager:
+	if pause_manager:
+		pause_manager.init()
+	else:
 		print("WARNING: missing pause manager")
 	
 func restart():
@@ -70,3 +72,4 @@ func init_npcs():
 
 func wait(seconds: float):
 	await get_tree().create_timer(seconds).timeout
+	

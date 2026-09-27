@@ -5,6 +5,9 @@ class_name PauseManager extends Node
 func _ready() -> void:
 	SignalBus.toggle_game_pause.connect(toggle_game_pause)
 	pause_menu.hide()
+	
+func init():
+	pause_menu.init()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_button"):
