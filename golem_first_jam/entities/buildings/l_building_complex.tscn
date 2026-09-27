@@ -11,7 +11,7 @@
 size = Vector2(8, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
-size = Vector2(16, 16)
+size = Vector2(34, 30)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kkum7"]
 polygon = PackedVector2Array(87, 184, 87, 153, -120, 152, -120, 184, -121, 11, 88, 11)
@@ -31,19 +31,10 @@ position = Vector2(120, -104)
 position = Vector2(-16, 184)
 
 [node name="VerticalBuilding" parent="." unique_id=270743555 instance=ExtResource("2_m0j8o")]
-position = Vector2(80, 0)
+position = Vector2(80, 11)
 
 [node name="Ladder" parent="." unique_id=194874667 instance=ExtResource("3_m0j8o")]
-position = Vector2(27, 39)
-
-[node name="TempWood" type="ColorRect" parent="." unique_id=1473445137]
-y_sort_enabled = true
-offset_left = 24.0
-offset_top = -48.0
-offset_right = 48.0
-offset_bottom = 16.0
-mouse_filter = 2
-color = Color(0.42439705, 0.24931642, 0.026430376, 1)
+position = Vector2(27, 25)
 
 [node name="WoodRails" type="StaticBody2D" parent="." unique_id=984883176]
 
@@ -58,7 +49,7 @@ shape = SubResource("RectangleShape2D_u5bk5")
 [node name="AreaToDropEgg" type="Area2D" parent="." unique_id=1830641001]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToDropEgg" unique_id=1316520973]
-position = Vector2(112, -152)
+position = Vector2(110, -141)
 shape = SubResource("RectangleShape2D_kddjp")
 
 [node name="EggSound" type="AudioStreamPlayer" parent="." unique_id=1234557216]
@@ -73,6 +64,7 @@ occluder = SubResource("OccluderPolygon2D_kkum7")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluder2D" unique_id=1271738641]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
+position = Vector2(0, 11)
 occluder = SubResource("OccluderPolygon2D_ouyev")
 
 [connection signal="area_entered" from="AreaToDropEgg" to="." method="_on_area_to_drop_egg_area_entered"]

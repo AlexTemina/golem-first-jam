@@ -40,6 +40,7 @@ repeatable = false
 y_sort_enabled = true
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
+frame = 1
 offset = Vector2(0, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857871004]
