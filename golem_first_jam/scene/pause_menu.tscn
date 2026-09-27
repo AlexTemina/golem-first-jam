@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://h71kf7b2msxo"]
 
 [ext_resource type="Script" uid="uid://c3do4flh1340" path="res://golem_first_jam/scene/pause_menu.gd" id="1_b8hvp"]
+[ext_resource type="Texture2D" uid="uid://ebfw4v8tbx8e" path="res://golem_first_jam/entities/time_chain/assets/MenuScreeBG.png" id="2_fu7kv"]
+[ext_resource type="Texture2D" uid="uid://c0y8kjevbmk61" path="res://golem_first_jam/entities/time_chain/assets/MenuScreeOkButton.png" id="3_n7d3y"]
 
 [sub_resource type="Theme" id="Theme_u5bk5"]
 Label/colors/font_color = Color(1, 0.96854955, 0.7667462, 1)
@@ -10,6 +12,7 @@ process_mode = 2
 script = ExtResource("1_b8hvp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=845584290]
+visible = false
 z_index = 3000
 z_as_relative = false
 offset_left = 16.0
@@ -17,48 +20,63 @@ offset_top = 16.0
 offset_right = 336.0
 offset_bottom = 200.0
 theme = SubResource("Theme_u5bk5")
-color = Color(0.18558091, 0.21108484, 0.2489003, 1)
+color = Color(0.18431373, 0.21176471, 0.24705882, 0)
 
-[node name="SoundsLabel" type="Label" parent="ColorRect" unique_id=1843250962]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1048635371]
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 756.0
+offset_bottom = 500.0
+scale = Vector2(0.4045059, 0.4045059)
+texture = ExtResource("2_fu7kv")
+
+[node name="SoundsLabel" type="Label" parent="TextureRect" unique_id=1843250962]
+visible = false
 layout_mode = 0
-offset_left = 48.0
-offset_top = 48.0
-offset_right = 105.0
-offset_bottom = 71.0
+offset_left = 69.220245
+offset_top = 160.68987
+offset_right = 126.220245
+offset_bottom = 183.68987
 text = "Sounds"
 
-[node name="SoundSlider" type="HSlider" parent="ColorRect" unique_id=1311750752]
+[node name="SoundSlider" type="HSlider" parent="TextureRect" unique_id=1311750752]
+modulate = Color(0.2627451, 0.19607843, 0.18431373, 1)
 layout_mode = 0
-offset_left = 136.0
-offset_top = 48.0
-offset_right = 288.0
-offset_bottom = 72.0
+offset_left = 286.7696
+offset_top = 173.05063
+offset_right = 438.7696
+offset_bottom = 197.05063
+scale = Vector2(1.9792429, 1.9792429)
 value = 60.0
 
-[node name="MusicLabel" type="Label" parent="ColorRect" unique_id=363282382]
+[node name="MusicLabel" type="Label" parent="TextureRect" unique_id=363282382]
+visible = false
 layout_mode = 0
-offset_left = 48.0
-offset_top = 88.0
-offset_right = 105.0
-offset_bottom = 111.0
+offset_left = 69.220245
+offset_top = 259.57593
+offset_right = 126.220245
+offset_bottom = 282.57593
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="ColorRect" unique_id=1663231561]
+[node name="MusicSlider" type="HSlider" parent="TextureRect" unique_id=1663231561]
+modulate = Color(0.2627451, 0.19607843, 0.18431373, 1)
 layout_mode = 0
-offset_left = 136.0
-offset_top = 88.0
-offset_right = 288.0
-offset_bottom = 112.0
+offset_left = 286.7696
+offset_top = 259.57593
+offset_right = 438.7696
+offset_bottom = 283.57593
+scale = Vector2(1.9792429, 1.9792429)
 value = 40.0
 
-[node name="CloseButton" type="Button" parent="ColorRect" unique_id=1705398013]
+[node name="CloseButton" type="Button" parent="TextureRect" unique_id=1705398013]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 136.0
-offset_right = 216.0
-offset_bottom = 167.0
-text = "OK"
+offset_left = 257.1038
+offset_top = 346.10123
+offset_right = 476.1038
+offset_bottom = 435.10123
+scale = Vector2(0.8447941, 0.8447941)
+icon = ExtResource("3_n7d3y")
 
-[connection signal="value_changed" from="ColorRect/SoundSlider" to="." method="_on_sound_slider_value_changed"]
-[connection signal="value_changed" from="ColorRect/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="ColorRect/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="TextureRect/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="TextureRect/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="TextureRect/CloseButton" to="." method="_on_close_button_pressed"]

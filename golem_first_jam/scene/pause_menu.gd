@@ -1,7 +1,7 @@
 class_name PauseMenu extends Node2D
 
-@onready var sound_slider := $ColorRect/SoundSlider
-@onready var music_slider := $ColorRect/MusicSlider
+@onready var sound_slider := $TextureRect/SoundSlider
+@onready var music_slider := $TextureRect/MusicSlider
 
 func _ready() -> void:
 	pass
