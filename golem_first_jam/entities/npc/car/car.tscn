@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxljj10kta0g4" path="res://golem_first_jam/entities/npc/car/assets/CarUp3.png" id="4_8cgnr"]
 [ext_resource type="AudioStream" uid="uid://brj54crbkopri" path="res://golem_first_jam/entities/npc/car/assets/car-passing.wav" id="5_yn42f"]
 [ext_resource type="AudioStream" uid="uid://c32wpihe623hw" path="res://golem_first_jam/entities/npc/car/assets/car-skid.wav" id="6_1wd2k"]
+[ext_resource type="Texture2D" uid="uid://5rxkkmgc3ghh" path="res://golem_first_jam/entities/dark_zone/assets/light_coneTexture1.png" id="7_1wd2k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kddjp"]
 animations = [{
@@ -19,13 +20,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_8cgnr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
-size = Vector2(48, 88)
+size = Vector2(48, 97)
 
 [node name="Car" type="Node2D" unique_id=1364633693]
 y_sort_enabled = true
@@ -53,8 +54,30 @@ one_shot = true
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=174181834]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144990091]
-position = Vector2(0, -44)
+position = Vector2(0, -39.5)
 shape = SubResource("RectangleShape2D_u5bk5")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2044265239]
+position = Vector2(-12, -179)
+texture = ExtResource("7_1wd2k")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=13691340]
+position = Vector2(19, -179)
+texture = ExtResource("7_1wd2k")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=544771828]
+position = Vector2(-17.210068, 5.706007)
+rotation = -3.140599
+scale = Vector2(0.32056636, 0.16328578)
+color = Color(0.672085, 0.09944335, 0.030950768, 1)
+texture = ExtResource("7_1wd2k")
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=326467581]
+position = Vector2(14.789931, 5.706006)
+rotation = -3.140599
+scale = Vector2(0.32056636, 0.16328578)
+color = Color(0.672085, 0.09944335, 0.030950768, 1)
+texture = ExtResource("7_1wd2k")
 
 [connection signal="finished" from="CarPassing" to="." method="_on_car_passing_finished"]
 [connection signal="finished" from="CarEffect" to="." method="_on_car_effect_finished"]

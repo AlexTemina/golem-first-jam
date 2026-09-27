@@ -16,6 +16,7 @@ class_name Tractor extends Node2D
 @onready var close_door_sound := $Sounds/CloseDoor
 @onready var animator := $Animator
 @onready var smoke := $Smoke
+@onready var lights := $PointLight2D
 
 var engine_started := false
 var moving := false
@@ -66,6 +67,7 @@ func _on_engine_start_sound_finished() -> void:
 func start_moving():
 	toggle_collisions()
 	moving = true
+	lights.visible = true
 	SignalBus.tractor_started_moving.emit()
 
 func crash():
@@ -74,6 +76,7 @@ func crash():
 	engine_loop_sound.stop()
 	smoke.restart()
 	smoke.emitting = true
+	lights.visible = false
 	
 func toggle_door():
 	door_is_open = !door_is_open

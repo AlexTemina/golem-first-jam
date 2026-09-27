@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dg1g251ntk8ie"]
 
 [ext_resource type="Script" uid="uid://2mmlw1dtqklc" path="res://golem_first_jam/entities/tractor/tractor.gd" id="1_3k8bp"]
+[ext_resource type="Texture2D" uid="uid://5rxkkmgc3ghh" path="res://golem_first_jam/entities/dark_zone/assets/light_coneTexture1.png" id="2_8h8r6"]
 [ext_resource type="Texture2D" uid="uid://clffxqt5voq3" path="res://golem_first_jam/entities/tractor/assets/TractorV3.png" id="2_vfy6h"]
 [ext_resource type="AudioStream" uid="uid://b2qw6o60sujda" path="res://golem_first_jam/entities/tractor/assets/false-start.wav" id="3_k2d64"]
 [ext_resource type="Texture2D" uid="uid://dfny6ebmec7xr" path="res://golem_first_jam/entities/tractor/assets/TractorV3OpenDoor.png" id="3_xi8wn"]
@@ -72,6 +73,21 @@ polygon = PackedVector2Array(-33, 9, -24, 14, -13, 14, -6, 8, -5, -2, 10, -2, 12
 [node name="Tractor" type="Node2D" unique_id=1702493662]
 y_sort_enabled = true
 script = ExtResource("1_3k8bp")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=395279168]
+visible = false
+position = Vector2(83, -30.000008)
+rotation = 1.5727338
+scale = Vector2(0.5885417, 0.5364583)
+color = Color(0.85490197, 0.60784316, 0.36862746, 1)
+energy = 0.6
+texture = ExtResource("2_8h8r6")
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" unique_id=2070998134]
+position = Vector2(16.99113, -0.036117554)
+color = Color(0.85490197, 0.60784316, 0.36862746, 1)
+energy = 0.6
+texture = ExtResource("2_8h8r6")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=243379234]
 sprite_frames = SubResource("SpriteFrames_u5bk5")

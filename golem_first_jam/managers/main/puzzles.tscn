@@ -317,7 +317,9 @@ npc_only = true
 position = Vector2(384, 456)
 
 [node name="BoundaryForest" parent="Props" unique_id=382641060 instance=ExtResource("48_ytgcg")]
+y_sort_enabled = true
 position = Vector2(-440, 24)
+script = null
 
 [node name="Tractor" parent="." unique_id=980762422 instance=ExtResource("34_jfbip")]
 position = Vector2(296, -72)
