@@ -25,6 +25,10 @@ var SONGS = {
 	Song.GAME_SONG: load("res://local_wip/game_song/game_song.mp3")
 }
 
+## Effects bus channel volumen in percentage
+@export var effects_volume: float = 60.0
+## Music bus channel volumen in percentage
+@export var music_volume: float = 40.0
 ## Default pitch is 1 (in exponential scale), the randomness sets the range below and above this default value.
 ## For instance: 0.5 goes from 0.5 (one octave down) to 1.5 (half an octave up).
 @export var pitch_randomness: float = 0.2
@@ -40,12 +44,16 @@ func _ready() -> void:
 	SignalBus.play_item_sound.connect(play_item_sound)
 	SignalBus.chicken_flies.connect(play_fly_sound)
 	
+	change_global_volume(effects_volume)
+	change_music_volume(music_volume)
 	play_music()
 	
 func change_global_volume(value: float):
+	SoundConfig.effects_volume = value
 	AudioServer.set_bus_volume_linear(SOUNDS_BUS, value / 100.0)
 	
 func change_music_volume(value: float):
+	SoundConfig.music_volume = value
 	AudioServer.set_bus_volume_linear(MUSIC_BUS, value / 100.0)
 	
 func play_fly_sound(): play_chicken_sound(ChickenSound.FLY)

@@ -7,8 +7,8 @@ func _ready() -> void:
 	pass
 	
 func init():
-	SignalBus.set_sounds_volume.emit(sound_slider.value)
-	SignalBus.set_music_volume.emit(music_slider.value)
+	sound_slider.set_value_no_signal(SoundConfig.effects_volume)
+	music_slider.set_value_no_signal(SoundConfig.music_volume)
 
 func _on_close_button_pressed() -> void:
 	SignalBus.toggle_game_pause.emit(false)

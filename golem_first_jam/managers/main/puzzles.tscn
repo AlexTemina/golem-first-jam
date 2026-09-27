@@ -117,6 +117,7 @@ chicken_starting_position = Vector2(160, 175)
 [node name="BellsManager" parent="Managers" unique_id=2111582727 instance=ExtResource("19_ytgcg")]
 
 [node name="SoundManager" parent="Managers" unique_id=1418100125 instance=ExtResource("20_j13qb")]
+music_volume = 50.0
 
 [node name="SnakeManager" parent="Managers" unique_id=1052215676 instance=ExtResource("21_ac0fh")]
 
