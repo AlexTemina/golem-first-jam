@@ -29,3 +29,7 @@ func _process(delta: float) -> void:
 			collision_box.set_deferred("disabled", true)
 			fall_sound.play()
 			state = State.FALLEN
+			
+			# Fix the offset to make it appear under the chicken
+			sprite.offset.y = 28
+			sprite.position.y -= 60
