@@ -4,6 +4,7 @@ enum Action {NONE, PECKING, FLYING, LAYING_EGG, SCARED, ECSTATIC}
 
 const SPRITE_SCALE = 1
 const DEFAULT_RELEASE_BUTTONS = ["up", "down"]
+const ANY_BUTTON = ["up", "down", "left", "right", "a_button", "b_button", "c_button"]
 
 const ANIMATIONS = {
 	Action.NONE: "idle",
@@ -258,6 +259,8 @@ func block(t_release_position: Vector2, t_release_buttons: Array = [], new_actio
 	hold_button_timer.stop()
 	
 func release():
+	if not blocked:
+		return
 	blocked = false
 	global_position = release_position
 	release_position = Vector2.ZERO	
@@ -299,4 +302,4 @@ func _on_scare_timer_timeout() -> void:
 
 func _on_ecstasy_timer_timeout() -> void:
 	if learning:
-		block(global_position, DEFAULT_RELEASE_BUTTONS, Action.ECSTATIC)
+		block(global_position, ANY_BUTTON, Action.ECSTATIC)

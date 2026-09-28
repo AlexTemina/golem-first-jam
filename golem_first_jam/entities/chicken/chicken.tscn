@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5477u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7tod3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"move",
 "speed": 5.0
 }]
@@ -115,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0th25")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -186,6 +186,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0.12941177)
 
 [node name="ScareTimer" type="Timer" parent="." unique_id=1485778085]
 wait_time = 0.5
+one_shot = true
 
 [node name="EcstasyTimer" type="Timer" parent="." unique_id=977264243]
 one_shot = true
