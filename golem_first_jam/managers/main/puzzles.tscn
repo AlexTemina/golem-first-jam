@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://c3k665030gwcn" path="res://golem_first_jam/entities/tilemaps/terrain_tileset.tres" id="5_043t4"]
 [ext_resource type="PackedScene" uid="uid://dpewuh3g3xf8k" path="res://golem_first_jam/scene/reset_screen.tscn" id="5_lle8v"]
 [ext_resource type="PackedScene" uid="uid://cueifjtx3qs8t" path="res://golem_first_jam/entities/road_block/road.tscn" id="6_1j5pp"]
+[ext_resource type="PackedScene" uid="uid://b3xk3vru7mo1i" path="res://golem_first_jam/entities/night_vision/night_vision.tscn" id="6_7jsgb"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="10_q241n"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="11_v88a1"]
 [ext_resource type="PackedScene" uid="uid://c1cmtuxfr1nav" path="res://golem_first_jam/managers/tractor_manager/tractor_manager.tscn" id="13_l2yce"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dn63rbsni3wrw" path="res://golem_first_jam/managers/river_manager/river_manager.tscn" id="18_xxqgo"]
 [ext_resource type="PackedScene" uid="uid://ci2xayli25w5y" path="res://golem_first_jam/managers/npc/dog_manager.tscn" id="19_q241n"]
 [ext_resource type="PackedScene" uid="uid://r2bey3e76nve" path="res://golem_first_jam/managers/bells_manager/bells_manager.tscn" id="19_ytgcg"]
+[ext_resource type="PackedScene" uid="uid://2tcqvbgog7qv" path="res://golem_first_jam/entities/night_sky/night_sky.tscn" id="20_2igjn"]
 [ext_resource type="TileSet" uid="uid://j5kjqp55hx24" path="res://golem_first_jam/entities/tilemaps/river_test_tileset.tres" id="20_12lk5"]
 [ext_resource type="PackedScene" uid="uid://dtyf7a4d7nsj4" path="res://golem_first_jam/managers/sound_manager/sound_manager.tscn" id="20_j13qb"]
 [ext_resource type="PackedScene" uid="uid://cdfblmpndrn73" path="res://golem_first_jam/entities/npc/crow/crow.tscn" id="20_v5x74"]
@@ -99,12 +101,15 @@ color = Color(0, 0, 0, 1)
 visible = false
 
 [node name="NightShader" type="CanvasLayer" parent="." unique_id=1878267745]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="NightShader" unique_id=362697672]
+visible = false
 offset_right = 352.0
 offset_bottom = 216.0
 color = Color(0, 0.58392406, 0.58392406, 0.105882354)
+
+[node name="NightVision" parent="NightShader" unique_id=599446026 instance=ExtResource("6_7jsgb")]
+visible = false
 
 [node name="Managers" type="Node2D" parent="." unique_id=1024291367]
 y_sort_enabled = true
@@ -117,7 +122,7 @@ chicken_starting_position = Vector2(160, 175)
 [node name="BellsManager" parent="Managers" unique_id=2111582727 instance=ExtResource("19_ytgcg")]
 
 [node name="SoundManager" parent="Managers" unique_id=1418100125 instance=ExtResource("20_j13qb")]
-music_volume = 50.0
+music_volume = 20.0
 
 [node name="SnakeManager" parent="Managers" unique_id=1052215676 instance=ExtResource("21_ac0fh")]
 
@@ -125,9 +130,10 @@ music_volume = 50.0
 
 [node name="PushablesManager" parent="Managers" unique_id=2049546389 instance=ExtResource("23_lle8v")]
 
-[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 node_paths=PackedStringArray("dark_zones_container", "canvas_modulate_darkness") instance=ExtResource("24_2igjn")]
+[node name="SpecialVisionManager" parent="Managers" unique_id=873685239 node_paths=PackedStringArray("dark_zones_container", "canvas_modulate_darkness", "night_vision") instance=ExtResource("24_2igjn")]
 dark_zones_container = NodePath("../../LightAndDarkness/DarkZones")
 canvas_modulate_darkness = NodePath("../../LightAndDarkness/CanvasModulateDarkness")
+night_vision = NodePath("../../NightShader/NightVision")
 
 [node name="RoadManager" parent="Managers" unique_id=1499613785 instance=ExtResource("25_7jsgb")]
 
@@ -141,7 +147,9 @@ tractor = NodePath("../../Tractor")
 
 [node name="ChickenNpcsManager" parent="Managers" unique_id=353318665 instance=ExtResource("15_d6rjn")]
 
-[node name="NightSkyManager" parent="Managers" unique_id=1145059542 instance=ExtResource("16_1j5pp")]
+[node name="NightSkyManager" parent="Managers" unique_id=1145059542 node_paths=PackedStringArray("canvas_layer") instance=ExtResource("16_1j5pp")]
+night_scene = ExtResource("20_2igjn")
+canvas_layer = NodePath("../../CanvasLayer")
 
 [node name="RiverManager" parent="Managers" unique_id=1307882245 instance=ExtResource("18_xxqgo")]
 
@@ -326,7 +334,6 @@ script = null
 position = Vector2(296, -72)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=90589840]
-visible = false
 y_sort_enabled = true
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1674068792]

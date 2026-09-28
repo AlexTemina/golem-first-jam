@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dndyctdq6p8tx"]
+
+[ext_resource type="PackedScene" uid="uid://cne1smiqwd43s" path="res://golem_first_jam/entities/buildings/building1.tscn" id="1_w5bjt"]
+[ext_resource type="PackedScene" uid="uid://b3xk3vru7mo1i" path="res://golem_first_jam/entities/night_vision/night_vision.tscn" id="2_w5bjt"]
+
+[node name="TestVision2" type="Node2D" unique_id=2041819206]
+
+[node name="Building1" parent="." unique_id=181886810 instance=ExtResource("1_w5bjt")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1828088958]
+
+[node name="NightVision" parent="CanvasLayer" unique_id=599446026 instance=ExtResource("2_w5bjt")]
