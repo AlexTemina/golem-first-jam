@@ -28,6 +28,10 @@ var flight_target: Vector2
 
 func _ready() -> void:		
 	starting_position = self.global_position
+	hide_if_not_teacher()
+
+func hide_if_not_teacher():
+	visible = is_teacher
 		
 func _process(delta: float) -> void:
 	if is_flying():		
@@ -40,6 +44,7 @@ func _process(delta: float) -> void:
 		if position.distance_to(flight_target) < 8:
 			if flight_target == starting_position:
 				set_action(Action.IDLE)
+				hide_if_not_teacher()
 			else:
 				interact()
 	
@@ -56,6 +61,7 @@ func _on_sprite_animation_finished() -> void:
 	set_action(Action.IDLE)
 
 func fly_to_bell():	
+	show()
 	fly_to(target_bell.get_attached_item_position())
 	
 func fly_to(target: Vector2):
