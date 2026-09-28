@@ -51,9 +51,6 @@ const SHOW_LEGS_ACTIONS = [Action.NONE, Action.PECKING, Action.SCARED]
 
 var spawning_point: Vector2 # In order to get back
 var action: Action
-var blocked := false # For some puzzles, keep the chicken blocked
-var release_position: Vector2 # When release, where teleports
-var release_buttons: Array # Buttons to release itself. If no buttons, is fully blocked, has to be released by code
 var button_charge: float # When you push repeatedly the button, this float "recharges", allowing you to fly when a threshold is surpassed
 var z_velocity: float # For jumping/flying
 var z_offset: float # Distance from the floor when flying
@@ -62,9 +59,11 @@ var over_water: bool
 var running: bool
 var current_placeable: Placeable # The current_placeable the chicken is currently over, if any
 var target_position: Vector2 = Vector2.ZERO # For moving without user control
+var chicken_blocking: ChickenBlocking
 
 func _ready() -> void:
 	spawning_point = global_position
+	chicken_blocking = ChickenBlocking.new(self)
 	reset_state()
 	
 func reset_state():
@@ -81,8 +80,8 @@ func go_back_to_spawning_point():
 func _physics_process(delta: float) -> void:
 	var previous_velocity = velocity
 	
-	if blocked:
-		manage_blockness()
+	if is_blocked():
+		chicken_blocking.manage_blockness()
 		manage_velocity(delta)
 		move_and_slide()
 	else:
@@ -100,7 +99,7 @@ func manage_velocity(delta: float):
 			velocity = global_position.direction_to(target_position) * move_speed
 			return
 		
-	if action in [Action.LAYING_EGG] or blocked:
+	if action in [Action.LAYING_EGG] or is_blocked():
 		velocity = Vector2.ZERO
 		return
 		
@@ -138,11 +137,6 @@ func manage_velocity(delta: float):
 		velocity.y = -chicken_speed
 	else:
 		velocity.y = 0
-		
-func manage_blockness():
-	for inputs in release_buttons:		
-		if Input.is_action_just_pressed(inputs):
-			release()
 		
 func manage_actions_input(delta: float):	
 	if is_flying() or is_scared():	
@@ -200,6 +194,9 @@ func animate(previous_velocity: Vector2):
 	legs.play("move" if is_moving() else "idle")
 	if learning and action == Action.NONE and has_stopped_moving(previous_velocity):
 		ecstasy_timer.start()		
+		
+func play_idle_legs():
+	legs.play("idle")
 
 func peck() -> void:
 	set_action(Action.PECKING)
@@ -251,22 +248,10 @@ func move_to(position: Vector2):
 	target_position = position
 	
 func block(t_release_position: Vector2, t_release_buttons: Array = [], new_action := Action.NONE):
-	set_action(new_action)
-	blocked = true	
-	release_buttons = t_release_buttons
-	release_position = t_release_position
-	legs.play("idle")
-	hold_button_timer.stop()
+	chicken_blocking.block(t_release_position, t_release_buttons, new_action)
 	
 func release():
-	if not blocked:
-		return
-	blocked = false
-	global_position = release_position
-	release_position = Vector2.ZERO	
-	legs.play("idle")
-	reset_state()
-	SignalBus.chicken_is_released.emit()
+	chicken_blocking.release()
 	
 func has_started_moving(previous_velocity: Vector2) -> bool:
 	return previous_velocity == Vector2.ZERO and is_moving()
@@ -278,6 +263,7 @@ func is_moving() -> bool: return velocity != Vector2.ZERO
 func is_flying() -> bool: return z_offset < -0.005
 func is_scared() -> bool: return action == Action.SCARED
 func is_ecstatic() -> bool: return action == Action.ECSTATIC
+func is_blocked() -> bool: return chicken_blocking.is_blocked()
 
 func get_beak_position() -> Vector2:
 	return beak.position if body.scale.x > 0 else Vector2(-beak.position.x, beak.position.y)
@@ -302,4 +288,5 @@ func _on_scare_timer_timeout() -> void:
 
 func _on_ecstasy_timer_timeout() -> void:
 	if learning:
-		block(global_position, ANY_BUTTON, Action.ECSTATIC)
+		chicken_blocking.block(global_position, ANY_BUTTON, Action.ECSTATIC)
+		
