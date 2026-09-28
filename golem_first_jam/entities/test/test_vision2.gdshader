@@ -31,7 +31,7 @@ void fragment()
 	vec3 c = texture(SCREEN_TEXTURE, p).xyz;
 	
     // Instead of `iTime` we use the global `TIME`.
-	c += sin(hash(TIME)) * 0.01;
+	c += sin(hash(TIME)) * 0.1;
 	c += hash((hash(n.x) + n.y) * TIME) * (0.5 * noise_amount);
 	c *= smoothstep(length(n * n * n * vec2(0.075, 0.4)), 1.0, 0.4);
 	c *= smoothstep(0.001, 3.5 * fade_in_delay, TIME) * 1.5;

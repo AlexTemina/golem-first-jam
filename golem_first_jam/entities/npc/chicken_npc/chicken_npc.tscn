@@ -95,8 +95,10 @@ autoplay = "default"
 offset = Vector2(14, -90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503311469]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_d7nt2")
+disabled = true
 
 [node name="NextActionTimer" type="Timer" parent="." unique_id=1673915537]
 wait_time = 4.0
