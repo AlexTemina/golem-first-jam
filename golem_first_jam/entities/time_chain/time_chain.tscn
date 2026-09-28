@@ -76,6 +76,9 @@ _data = {
 &"show": SubResource("Animation_arb08")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kddjp"]
+blend_mode = 1
+
 [node name="TimeChain" type="Node2D" unique_id=89565992]
 script = ExtResource("1_q8opm")
 
@@ -92,5 +95,11 @@ libraries/ = SubResource("AnimationLibrary_xltpf")
 [node name="ChainSound" type="AudioStreamPlayer" parent="." unique_id=649062092]
 stream = ExtResource("3_arb08")
 bus = &"SoundEffects"
+
+[node name="RedCircle" type="Polygon2D" parent="." unique_id=310025474]
+visible = false
+material = SubResource("CanvasItemMaterial_kddjp")
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(16, 30, 9, 28, 4, 23, 3, 15, 5, 8, 10, 3, 16, 2, 23, 4, 27, 8, 28, 14, 28, 21, 27, 25, 23, 28)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,7 +21,7 @@ var CHOREOGRAPHIES = {
 ## Faces right (true) or left (false)
 @export var faces_right: bool
 ## In px/s
-@export var move_speed: int = 100
+@export var move_speed: int = 80
 ## In px/s
 @export var run_speed: int = 150
 ## Vertical impulse for flying (px/s)
@@ -32,6 +32,9 @@ var CHOREOGRAPHIES = {
 @export var max_height: float = 20.0
 ## Time between actions
 @export var time_between_actions: float = 4.0
+## Use this to spawn the chicken in a different position where its action happens.
+## Will move there before executing the action
+@export var spawning_offset: Vector2 = Vector2.ZERO
 
 @onready var body := $Body
 @onready var sprite := $Body/Sprite
@@ -44,8 +47,13 @@ var z_velocity: float # For jumping/flying
 var z_offset: float # Distance from the floor when flying
 var action: Action
 var choreography: Array = []
+var action_position: Vector2 # Where the action happens. See spawning_offset variable
+var spawning_position: Vector2 # Where the chicken spawns. See spawning_offset variable
 
 func _ready() -> void:
+	action_position = global_position
+	spawning_position = global_position + spawning_offset
+	global_position = spawning_position
 	face_right(faces_right)
 	next_action_timer.wait_time = time_between_actions
 	
@@ -62,7 +70,17 @@ func manage_velocity(delta: float):
 		z_offset = max(-max_height, z_offset) # Max height is negative
 		if z_offset > 0.0:
 			land()
-		body.position.y = z_offset
+		body.position.y = z_offset	
+	if has_action_position():		
+		if visible_on_screen.is_on_screen() and not is_in_action_position():
+			set_action(Action.WALKING)
+			velocity = global_position.direction_to(action_position) * move_speed
+		elif not visible_on_screen.is_on_screen() and not is_in_spawning_position():
+			set_action(Action.WALKING)
+			velocity = global_position.direction_to(spawning_position) * move_speed
+		elif is_in_action_position() and not is_idle() and action != main_action:
+			set_action(Action.NONE)
+			velocity = Vector2.ZERO
 		
 func face_move_direction():
 	if is_moving():
@@ -138,6 +156,9 @@ func is_moving() -> bool: return velocity != Vector2.ZERO
 func is_idle() -> bool: return Action.NONE == action
 func is_ecstatic() -> bool: return Action.ECSTATIC == action
 func is_flying() -> bool: return Action.FLYING == action
+func has_action_position() -> bool: return spawning_offset != Vector2.ZERO
+func is_in_action_position() -> bool: return global_position.distance_to(action_position) < 2
+func is_in_spawning_position() -> bool: return global_position.distance_to(spawning_position) < 2
 
 func _on_next_action_timer_timeout() -> void:
 	if is_flying():

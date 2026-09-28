@@ -263,6 +263,7 @@ y_sort_enabled = true
 [node name="ChickenEcstatic" parent="NPC/Chickens" unique_id=546995143 instance=ExtResource("25_5ohj6")]
 position = Vector2(384, 400)
 main_action = 4
+spawning_offset = Vector2(-100, 0)
 
 [node name="AnotherChicken" parent="NPC/Chickens" unique_id=1103106210 instance=ExtResource("25_5ohj6")]
 position = Vector2(-16, 336)

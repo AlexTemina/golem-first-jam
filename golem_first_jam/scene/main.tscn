@@ -1051,6 +1051,7 @@ position = Vector2(1795, -637)
 [node name="ChickenEcstatic" parent="Npcs" unique_id=546995143 instance=ExtResource("36_dein3")]
 position = Vector2(-446, -639)
 main_action = 4
+spawning_offset = Vector2(100, 20)
 
 [node name="BlindChicken" parent="Npcs" unique_id=212477513 instance=ExtResource("36_dein3")]
 position = Vector2(1846, -73)
