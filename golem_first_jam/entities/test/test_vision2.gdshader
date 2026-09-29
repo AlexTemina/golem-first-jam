@@ -8,6 +8,8 @@ shader_type canvas_item;
 uniform float fade_in_delay = 0.2;
 // The amount of grain applied to the night vision.
 uniform float noise_amount = 0.3;
+// To make the fade in work each time, set programatically this time
+uniform float shader_time = 0.0;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 // Only difference here is that we don't need to specify `in` in the parameter.
@@ -34,7 +36,7 @@ void fragment()
 	c += sin(hash(TIME)) * 0.1;
 	c += hash((hash(n.x) + n.y) * TIME) * (0.5 * noise_amount);
 	c *= smoothstep(length(n * n * n * vec2(0.075, 0.4)), 1.0, 0.4);
-	c *= smoothstep(0.001, 3.5 * fade_in_delay, TIME) * 1.5;
+	c *= smoothstep(0.001, 3.5 * fade_in_delay, shader_time) * 1.5;	
 	
 	c = dot(c, vec3(0.2126, 0.7152, 0.0722)) * vec3(0.2, 1.5 - hash(TIME) * 0.1, 0.4);
 	

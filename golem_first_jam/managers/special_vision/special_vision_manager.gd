@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 func toggle_vision():
 	on = !on
 	# canvas_modulate_green.visible = on
-	night_vision.visible = on
+	night_vision.toggle(on)
 	canvas_modulate_darkness.visible = !on
 	#shader_rectangle.visible = on
 	SignalBus.special_vision_toggled.emit(on)
