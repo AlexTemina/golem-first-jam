@@ -19,7 +19,7 @@ func on_chicken_pecks(chicken: Chicken):
 		if not pushable.pushable_by_chicken:
 			continue
 		if pushable.is_near_character_position(chicken.global_position):
-			pushable.interact()
+			pushable.interact(chicken)
 
 func get_all_pushables() -> Array:
 	var all_pushables = []

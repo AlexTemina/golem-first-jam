@@ -6,5 +6,6 @@
 script = ExtResource("1_d71cc")
 
 [node name="ResetSequenceTimer" type="Timer" parent="." unique_id=1475510459]
+one_shot = true
 
 [connection signal="timeout" from="ResetSequenceTimer" to="." method="_on_reset_sequence_timer_timeout"]

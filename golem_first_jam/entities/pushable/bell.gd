@@ -11,16 +11,20 @@ enum Id {LEARNING_BELL, CHICKEN_COUP_BELL, FENCE_BELL}
 @onready var sprite := $Sprite
 @onready var visible_checker := $VisibleOnScreenNotifier2D
 
-func _interact():
+var chicken_is_playing := false
+
+func _interact(character: CharacterBody2D):
 	sprite.play("play")
 	visible_checker.is_on_screen()
 	if visible_checker.is_on_screen():
 		audio_player.play()
-	SignalBus.bell_ringed.emit(bell_id)
+	if character is Chicken:
+		chicken_is_playing = true
+	SignalBus.bell_ringed.emit(self, character)
 	
 func interact_with_attached_item():
 	if attached_item:
-		attached_item.interact()
+		attached_item.interact(null)
 
 func get_attached_item_position():	
 	return attached_item.global_position if attached_item else global_position

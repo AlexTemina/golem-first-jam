@@ -21,13 +21,13 @@ func is_near_character_position(character_position: Vector2) -> bool:
 	var y_is_close = abs(character_position.y - global_position.y) < max_distance_to_interact.y
 	return x_is_close and y_is_close
 
-func interact():
+func interact(character: CharacterBody2D):
 	if is_interactable():
 		interacted = true
-		SignalBus.pushable_item_interacted.emit(self)
-		_interact()
+		SignalBus.pushable_item_interacted.emit(self, character)
+		_interact(character)
 		
-func _interact():
+func _interact(character: CharacterBody2D):
 	pass # Implement in children
 
 func is_interactable():

@@ -5,7 +5,7 @@ class_name ChickenCoupDoor extends PushableEntity
 @onready var closed_sprite := $ClosedSprite
 @onready var door_sound := $DoorSound
 
-func _interact():
+func _interact(character: CharacterBody2D):
 	door_sound.play()
 	open_sprite.show()
 	closed_sprite.hide()

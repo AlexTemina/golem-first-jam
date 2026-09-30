@@ -14,7 +14,8 @@ static var global_ring_sequence: String
 
 @onready var reset_sequence_timer := $ResetSequenceTimer
 
-var last_bell_id: Bell.Id
+## Last bell ringed
+var last_bell: Bell
 ## List of timestamps of the active sequence
 var current_sequence: Array[int] = []
 
@@ -26,12 +27,10 @@ func _ready() -> void:
 static func is_short_note(note: String):
 	return SHORT_NOTE == note
 	
-func on_bell_ringed(bell_id: Bell.Id):
-	last_bell_id = bell_id
-	match bell_id:
-		Bell.Id.CHICKEN_COUP_BELL, Bell.Id.FENCE_BELL:
-			chicken_ringed()
-		
+func on_bell_ringed(bell: Bell, player: CharacterBody2D):
+	last_bell = bell
+	if player is Chicken:
+		chicken_ringed()		
 			
 func chicken_ringed():
 	reset_sequence_timer.start()
@@ -44,7 +43,9 @@ func _on_reset_sequence_timer_timeout() -> void:
 	clear_sequence()
 	
 func clear_sequence():
+	last_bell.chicken_is_playing = false
 	current_sequence = []
+	SignalBus.bell_sequence_aborted.emit(last_bell.bell_id)
 
 func check_current_sequence():	
 	for i in range(current_sequence.size() - 1):
@@ -56,8 +57,8 @@ func check_current_sequence():
 		if is_long_expected != is_long_ring:
 			return
 	
-	print('Sequence completed for bell %s!!' % last_bell_id)		
-	SignalBus.bell_sequence_completed.emit(last_bell_id)
+	# print('Sequence completed for bell %s!!' % last_bell.bell_id)		
+	SignalBus.bell_sequence_completed.emit(last_bell.bell_id)
 	
 	
 	

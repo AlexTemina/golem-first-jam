@@ -55,7 +55,7 @@ func get_bell_id() -> Bell.Id:
 
 func play_bell():
 	set_action(Action.INTERACTING)
-	target_bell.interact()
+	target_bell.interact(self)
 
 func _on_sprite_animation_finished() -> void:
 	set_action(Action.IDLE)
