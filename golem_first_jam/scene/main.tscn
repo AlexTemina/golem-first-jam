@@ -1611,7 +1611,7 @@ position = Vector2(-75, 1160)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="RockLarge" parent="Pickables" unique_id=1701030401 instance=ExtResource("46_rocka")]
-position = Vector2(-112, 401)
+position = Vector2(1025, 639)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="RockMedium" parent="Pickables" unique_id=1701030402 instance=ExtResource("47_rockb")]
@@ -1676,8 +1676,9 @@ position = Vector2(507, 237)
 bell_id = 1
 attached_item = NodePath("../../Buildings/ChickenCoup/ChickenCoupDoor")
 
-[node name="BellTeaching" parent="Bells" unique_id=387563139 instance=ExtResource("23_fe6m1")]
+[node name="BellTeaching" parent="Bells" unique_id=387563139 node_paths=PackedStringArray("attached_item") instance=ExtResource("23_fe6m1")]
 position = Vector2(1664, 796)
+attached_item = NodePath(".")
 
 [node name="BellBlind" parent="Bells" unique_id=1636266240 node_paths=PackedStringArray("attached_item") instance=ExtResource("23_fe6m1")]
 position = Vector2(1852, -413)
