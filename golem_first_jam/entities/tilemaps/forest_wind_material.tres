@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://beawo7ljwe7he"]
+
+[ext_resource type="Shader" uid="uid://dmogfg4v2ovvv" path="res://golem_first_jam/entities/tilemaps/forest.gdshader" id="1_shader"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/sway_amount = 6.0250002861875
+shader_parameter/sway_speed = 0.9590000455525
+shader_parameter/gust_strength = 0.8
+shader_parameter/gust_scale = 600.0
+shader_parameter/wind_direction = 1.0
+shader_parameter/leaf_flutter = 0.5

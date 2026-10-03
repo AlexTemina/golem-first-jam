@@ -6,6 +6,10 @@ uniform float pixel_size : hint_range(1.0, 10.0) = 3.0;
 uniform float vhs_intensity : hint_range(0.0, 10.0) = 3.0;
 uniform float noise_intensity : hint_range(0.0, 1.0) = 0.15;
 uniform float opacity : hint_range(0.0, 1.0) = 0.5; 
+// Game's base render height (display/window/size/viewport_height). The screen
+// texture is at window resolution, so pixel_size is scaled to keep the
+// effect's chunk/scanline size relative to the game's pixels.
+uniform float base_height = 216.0;
 
 // Quick & dirty random function
 float random(vec2 uv) {
@@ -18,9 +22,10 @@ void fragment() {
     
     // Convert to float to avoid the ivec2/float math crash in Godot 4
     vec2 screen_res = vec2(textureSize(SCREEN_TEXTURE, 0));
+    float px = pixel_size * max(1.0, floor(screen_res.y / base_height));
     
     // Pixel grid snapping
-    vec2 grid_uv = round(SCREEN_UV * (screen_res / pixel_size)) / (screen_res / pixel_size);
+    vec2 grid_uv = round(SCREEN_UV * (screen_res / px)) / (screen_res / px);
     
     // Horizontal glitch - step time to make it chunky, not smooth
     float time_step = floor(TIME * 15.0); 
@@ -42,7 +47,7 @@ void fragment() {
     vec3 vhs_color = vec3(r, g, b);
 
     // Hard scanlines - follows the pixel grid
-    float scanline = mod(floor(SCREEN_UV.y * screen_res.y / pixel_size), 2.0) * 0.15;
+    float scanline = mod(floor(SCREEN_UV.y * screen_res.y / px), 2.0) * 0.15;
     vhs_color -= scanline;
 
     // Static noise grain
