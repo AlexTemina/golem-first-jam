@@ -52,6 +52,7 @@ func resume():
 func _on_timer_timeout() -> void:
 	play_chain_sound()
 	time_started = false
+	animator.play("shake")
 	SignalBus.normal_time_over.emit()
 	
 func play_chain_sound():
