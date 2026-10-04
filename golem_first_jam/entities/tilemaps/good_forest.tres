@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://d0edlgk7wwufv"]
+
+[ext_resource type="Material" uid="uid://beawo7ljwe7he" path="res://golem_first_jam/entities/tilemaps/forest_wind_material.tres" id="1_6c6rv"]
+[ext_resource type="Texture2D" uid="uid://blsv4w0q0h2o1" path="res://golem_first_jam/entities/props/assets/BoundaryForest_1.png" id="1_feu8e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dcwg3"]
+texture = ExtResource("1_feu8e")
+margins = Vector2i(0, 18)
+texture_region_size = Vector2i(128, 140)
+0:0/0 = 0
+0:0/0/material = ExtResource("1_6c6rv")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64.824326, -71.75676, 64.82432, -69.324326, 64.82432, 71.75676, -64.824326, 69.324326)
+
+[resource]
+tile_size = Vector2i(117, 90)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_dcwg3")

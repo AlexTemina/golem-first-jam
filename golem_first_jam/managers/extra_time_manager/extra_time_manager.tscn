@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://sx83ic4s6q4e"]
+
+[ext_resource type="Script" uid="uid://6uikxf55luao" path="res://golem_first_jam/managers/extra_time_manager/extra_time_manager.gd" id="1_y0x2d"]
+
+[node name="ExtraTimeManager" type="Node" unique_id=753040726]
+script = ExtResource("1_y0x2d")
+
+[node name="Timer" type="Timer" parent="." unique_id=1802944035]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

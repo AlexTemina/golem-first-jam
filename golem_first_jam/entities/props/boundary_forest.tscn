@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c6g2noc4nsc3u" path="res://golem_first_jam/scene/boundary_forest.gd" id="1_2dhw1"]
 [ext_resource type="Texture2D" uid="uid://blsv4w0q0h2o1" path="res://golem_first_jam/entities/props/assets/BoundaryForest_1.png" id="1_cv2ri"]
+[ext_resource type="Material" path="res://golem_first_jam/entities/tilemaps/forest_wind_material.tres" id="2_wind"]
 
 [node name="BoundaryForest" type="Node2D" unique_id=864979348]
 script = ExtResource("1_2dhw1")
 
 [node name="BoundaryForest1" type="Sprite2D" parent="." unique_id=601908347]
 z_index = 1
+material = ExtResource("2_wind")
 position = Vector2(67, 92)
 texture = ExtResource("1_cv2ri")
 

@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u5bk5"]
 shader = ExtResource("1_kar44")
 shader_parameter/fade_in_delay = 0.2
-shader_parameter/noise_amount = 0.5
+shader_parameter/noise_amount = 0.3
 shader_parameter/shader_time = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_u5bk5"]

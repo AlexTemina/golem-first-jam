@@ -10,6 +10,10 @@ uniform float fade_in_delay = 0.2;
 uniform float noise_amount = 0.3;
 // To make the fade in work each time, set programatically this time
 uniform float shader_time = 0.0;
+// Noise buildup from 0 (clean) to 1 (unusable), set by NightVision.
+uniform float noise_level : hint_range(0.0, 1.0) = 0.0;
+// Extra grain added on top of noise_amount at noise_level 1.
+uniform float noise_ramp_max = 2.0;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 // Only difference here is that we don't need to specify `in` in the parameter.
@@ -34,7 +38,12 @@ void fragment()
 	
     // Instead of `iTime` we use the global `TIME`.
 	c += sin(hash(TIME)) * 0.1;
-	c += hash((hash(n.x) + n.y) * TIME) * (0.5 * noise_amount);
+	// More grain as noise_level builds up, then the image fades into pure
+	// static near 1.
+	float ramp = noise_level;
+	float grain = hash((hash(n.x) + n.y) * TIME);
+	c += grain * (0.5 * (noise_amount + ramp * noise_ramp_max));
+	c = mix(c, vec3(grain * 1.5), ramp * ramp * 0.95);
 	c *= smoothstep(length(n * n * n * vec2(0.075, 0.4)), 1.0, 0.4);
 	c *= smoothstep(0.001, 3.5 * fade_in_delay, shader_time) * 1.5;	
 	

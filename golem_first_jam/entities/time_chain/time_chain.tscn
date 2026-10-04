@@ -102,8 +102,4 @@ polygon = PackedVector2Array(16, 30, 9, 28, 4, 23, 3, 15, 5, 8, 10, 3, 16, 2, 23
 [node name="ChainTimer" type="Timer" parent="." unique_id=1915084039]
 one_shot = true
 
-[node name="ExtraTimer" type="Timer" parent="." unique_id=1711493265]
-one_shot = true
-
 [connection signal="timeout" from="ChainTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="ExtraTimer" to="." method="_on_extra_timer_timeout"]

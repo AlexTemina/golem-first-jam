@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://j5kjqp55hx24"]
 
 [ext_resource type="Texture2D" uid="uid://be76yas4qbrbu" path="res://golem_first_jam/entities/tilemaps/assets/FarmTileset_1.png" id="1_kh0sr"]
+[ext_resource type="Material" path="res://golem_first_jam/entities/tilemaps/water_material.tres" id="2_water"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y5cv1"]
 
@@ -618,9 +619,11 @@ texture_region_size = Vector2i(32, 32)
 2:7/0 = 0
 3:7/0 = 0
 4:7/0 = 0
+4:7/0/material = ExtResource("2_water")
 5:7/0 = 0
 6:7/0 = 0
 7:7/0 = 0
+7:7/0/material = ExtResource("2_water")
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 8:7/0 = 0
 0:8/0 = 0

@@ -18,6 +18,8 @@ extends Node
 ## Children of this folder will be registered 
 @export var npcs_container: Node
 @export var pause_manager: PauseManager
+@export var extra_time_manager: ExtraTimeManager
+@export var time_chain: TimeChain
 
 @onready var canvas := $CanvasLayer
 @onready var road := %Road
@@ -49,6 +51,10 @@ func init():
 		pause_manager.init()
 	else:
 		print("WARNING: missing pause manager")
+	if extra_time_manager:
+		extra_time_manager.init()
+	else:
+		print("WARNING: missing Extra time manager")
 	
 func restart():
 	chicken.block(chicken.global_position)
@@ -60,6 +66,8 @@ func restart():
 		chicken.release()
 		chicken.go_back_to_spawning_point()
 		fade_screen.hide()
+		time_chain.reset()
+		extra_time_manager.reset()
 		SignalBus.reset_game.emit()
 	
 func init_npcs():

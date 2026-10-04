@@ -43,6 +43,7 @@
 [ext_resource type="TileSet" uid="uid://g32h3jxd8v6" path="res://golem_first_jam/entities/tilemaps/forest_tile_set.tres" id="25_v4a2a"]
 [ext_resource type="PackedScene" uid="uid://3vu1ljotfjc7" path="res://golem_first_jam/managers/pickables_manager/pickables_manager.tscn" id="26_6vn0m"]
 [ext_resource type="PackedScene" uid="uid://bnk70bsva03i" path="res://golem_first_jam/entities/buildings/large_building2.tscn" id="26_043t4"]
+[ext_resource type="PackedScene" uid="uid://sx83ic4s6q4e" path="res://golem_first_jam/managers/extra_time_manager/extra_time_manager.tscn" id="26_r6ehh"]
 [ext_resource type="PackedScene" uid="uid://d20qm8bi1gy7k" path="res://golem_first_jam/entities/pushable/target.tscn" id="27_e6atx"]
 [ext_resource type="PackedScene" uid="uid://b4jk1ocxf6gaa" path="res://golem_first_jam/entities/props/tree.tscn" id="27_hvbwt"]
 [ext_resource type="TileSet" uid="uid://dshg55l405hjo" path="res://golem_first_jam/entities/tilemaps/props_tileset.tres" id="27_r6ehh"]
@@ -53,7 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="35_qyfm7"]
 [ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="43_hst8i"]
 [ext_resource type="PackedScene" uid="uid://cqk6vqwxmig8f" path="res://golem_first_jam/entities/pushable/fence.tscn" id="43_t0m41"]
-[ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="44_v88a1"]
+[ext_resource type="Texture2D" uid="uid://ba2li7h5ev7o5" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_768.png" id="44_v88a1"]
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="46_m12gs"]
 [ext_resource type="PackedScene" uid="uid://ciribj4rxpdi5" path="res://golem_first_jam/entities/props/boundary_forest.tscn" id="48_ytgcg"]
 [ext_resource type="PackedScene" uid="uid://dphju2qjy83y4" path="res://golem_first_jam/entities/polley_up/polley_up.tscn" id="53_ac0fh"]
@@ -63,7 +64,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vn0m"]
 size = Vector2(100, 100)
 
-[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager")]
+[node name="Puzzles" type="Node2D" unique_id=1031933291 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "extra_time_manager", "time_chain")]
 y_sort_enabled = true
 script = ExtResource("1_d6rjn")
 chicken = NodePath("Chicken")
@@ -82,6 +83,8 @@ dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/ResetScreen")
 npcs_container = NodePath("NPC")
 pause_manager = NodePath("Managers/PauseManager")
+extra_time_manager = NodePath("Managers/ExtraTimeManager")
+time_chain = NodePath("CanvasLayer/TimeChain")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target", "canvas_layer") instance=ExtResource("2_ioq1i")]
 camera_target = NodePath("../Chicken")
@@ -163,6 +166,9 @@ canvas_layer = NodePath("../../CanvasLayer")
 pause_menu = NodePath("../../CanvasLayer/PauseMenu")
 
 [node name="PlaceablesManager" parent="Managers" unique_id=1610274839 instance=ExtResource("22_lle8v")]
+
+[node name="ExtraTimeManager" parent="Managers" unique_id=753040726 node_paths=PackedStringArray("zones_container") instance=ExtResource("26_r6ehh")]
+zones_container = NodePath("../../ExtraTimeZones")
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("4_b42o2")]
 unique_name_in_owner = true
@@ -379,7 +385,7 @@ blend_mode = 1
 range_z_min = -4000
 range_z_max = 2000
 texture = ExtResource("44_v88a1")
-texture_scale = 2.0
+texture_scale = 0.5
 
 [node name="PolleyUp" parent="." unique_id=560792459 node_paths=PackedStringArray("up_position", "valid_objects") instance=ExtResource("53_ac0fh")]
 position = Vector2(-200, -16)
