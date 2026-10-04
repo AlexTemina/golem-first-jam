@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://h71kf7b2msxo" path="res://golem_first_jam/scene/pause_menu.tscn" id="22_xsvtb"]
 [ext_resource type="PackedScene" uid="uid://b3xk3vru7mo1i" path="res://golem_first_jam/entities/night_vision/night_vision.tscn" id="23_3s673"]
 [ext_resource type="PackedScene" uid="uid://dmqew7cwemoft" path="res://golem_first_jam/entities/pushable/bell.tscn" id="23_fe6m1"]
+[ext_resource type="PackedScene" uid="uid://sx83ic4s6q4e" path="res://golem_first_jam/managers/extra_time_manager/extra_time_manager.tscn" id="23_wxikq"]
 [ext_resource type="PackedScene" uid="uid://cph2uwgk0ymb3" path="res://golem_first_jam/entities/egg/egg.tscn" id="24_u764j"]
 [ext_resource type="PackedScene" uid="uid://dpewuh3g3xf8k" path="res://golem_first_jam/scene/reset_screen.tscn" id="25_8gqn2"]
 [ext_resource type="TileSet" uid="uid://j5kjqp55hx24" path="res://golem_first_jam/entities/tilemaps/river_test_tileset.tres" id="28_akrif"]
@@ -58,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://cdenjdrqlxw01" path="res://golem_first_jam/entities/clearing/clearing.tscn" id="49_6800i"]
 [ext_resource type="PackedScene" uid="uid://cqk6vqwxmig8f" path="res://golem_first_jam/entities/pushable/fence.tscn" id="51_x7yc3"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="57_fhxxv"]
+[ext_resource type="PackedScene" uid="uid://dphsnyslaan0u" path="res://golem_first_jam/entities/extra_time_zone/extra_time_zone.tscn" id="60_cp7q7"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h5d75"]
 cull_mode = 1
@@ -66,7 +68,10 @@ polygon = PackedVector2Array(19, 325, 24, 320, 29, 325, 29, 351, 19, 351)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rfrho"]
 polygon = PackedVector2Array(-36, -8, -33, -8, -33, 1, -25, 1, -25, -8, -17, -8, -17, 2, 16, 2, 16, -8, 25, -8, 25, 1, 33, 1, 33, -9, 47, -9, 47, -128, 37, -133, 37, -145, 0, -165, -37, -146, -36, -8)
 
-[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "time_chain")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq7kr"]
+size = Vector2(100, 100)
+
+[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "extra_time_manager", "time_chain")]
 y_sort_enabled = true
 script = ExtResource("1_11yct")
 chicken = NodePath("Chicken")
@@ -85,6 +90,7 @@ dog_manager = NodePath("Managers/DogManager")
 fade_screen = NodePath("CanvasLayer/ResetScreen")
 npcs_container = NodePath("Npcs")
 pause_manager = NodePath("Managers/PauseManager")
+extra_time_manager = NodePath("Managers/ExtraTimeManager")
 time_chain = NodePath("CanvasLayer/TimeChain")
 
 [node name="MainCamera" parent="." unique_id=458754846 node_paths=PackedStringArray("camera_target") instance=ExtResource("2_re4ju")]
@@ -139,6 +145,9 @@ canvas_layer = NodePath("../../CanvasLayer")
 
 [node name="PauseManager" parent="Managers" unique_id=1873186415 node_paths=PackedStringArray("pause_menu") instance=ExtResource("21_akrif")]
 pause_menu = NodePath("../../CanvasLayer/PauseMenu")
+
+[node name="ExtraTimeManager" parent="Managers" unique_id=753040726 node_paths=PackedStringArray("zones_container") instance=ExtResource("23_wxikq")]
+zones_container = NodePath("../../ExtraTimeZones")
 
 [node name="NightShader" type="CanvasLayer" parent="." unique_id=228570020]
 
@@ -1745,6 +1754,12 @@ position = Vector2(44, -81)
 
 [node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("57_fhxxv")]
 position = Vector2(102, 164)
+
+[node name="ExtraTimeZones" type="Node2D" parent="." unique_id=398547914]
+
+[node name="ExtraTimeZonePath" parent="ExtraTimeZones" unique_id=59101607 instance=ExtResource("60_cp7q7")]
+position = Vector2(240, -192)
+custom_shape = SubResource("RectangleShape2D_yq7kr")
 
 [editable path="MainCamera"]
 [editable path="Managers/SnakeManager"]
