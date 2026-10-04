@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dphsnyslaan0u"]
+
+[ext_resource type="Script" uid="uid://ij2d75jjoax2" path="res://golem_first_jam/entities/extra_time_zone/extra_time_zone.gd" id="1_3d7ax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(64, 64)
+
+[node name="ExtraTimeZone" type="Node2D" unique_id=59101607]
+script = ExtResource("1_3d7ax")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1170264895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1658038730]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
