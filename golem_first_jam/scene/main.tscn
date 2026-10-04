@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="33_j1hj4"]
 [ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="36_dein3"]
 [ext_resource type="PackedScene" uid="uid://6uqy0xmoo7td" path="res://golem_first_jam/entities/npc/dog/dog.tscn" id="36_rfrho"]
+[ext_resource type="PackedScene" uid="uid://1xaix6l8mp74" path="res://golem_first_jam/entities/cliff/cliff.tscn" id="37_cp7q7"]
 [ext_resource type="PackedScene" uid="uid://b738gn677yltc" path="res://golem_first_jam/entities/polley_door/polley_door_right.tscn" id="38_n6spk"]
 [ext_resource type="PackedScene" uid="uid://ciribj4rxpdi5" path="res://golem_first_jam/entities/props/boundary_forest.tscn" id="38_ye0sv"]
 [ext_resource type="PackedScene" uid="uid://dhdlhn5ucahvm" path="res://golem_first_jam/entities/polley_door/polley_door_left.tscn" id="43_tsp7a"]
@@ -182,6 +183,7 @@ visible = false
 position = Vector2(1808, -737)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
+visible = false
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1702205282]
 color = Color(0, 0, 0, 1)
@@ -706,6 +708,16 @@ modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 position = Vector2(16, 0)
 occluder = SubResource("OccluderPolygon2D_h5d75")
+
+[node name="Cliffs" type="Node2D" parent="Terrain" unique_id=64687543]
+
+[node name="CliffShed" parent="Terrain/Cliffs" unique_id=1691225924 instance=ExtResource("37_cp7q7")]
+position = Vector2(32, 928)
+direction = 2
+
+[node name="CliffShed2" parent="Terrain/Cliffs" unique_id=711397227 instance=ExtResource("37_cp7q7")]
+position = Vector2(32, 960)
+direction = 2
 
 [node name="Npcs" type="Node2D" parent="." unique_id=1899593827]
 y_sort_enabled = true

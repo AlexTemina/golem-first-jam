@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://1xaix6l8mp74"]
+
+[ext_resource type="Script" uid="uid://b25602kba3x6n" path="res://golem_first_jam/entities/cliff/cliff.gd" id="1_bvtvj"]
+[ext_resource type="Texture2D" uid="uid://3taast5wbfup" path="res://golem_first_jam/entities/cliff/assets/cliffs.png" id="2_vos55"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn0au"]
+atlas = ExtResource("2_vos55")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x583"]
+atlas = ExtResource("2_vos55")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vf7h"]
+atlas = ExtResource("2_vos55")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj8hd"]
+atlas = ExtResource("2_vos55")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn0au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x583")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vf7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj8hd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+size = Vector2(32, 32)
+
+[node name="Cliff" type="Node2D" unique_id=1691225924]
+script = ExtResource("1_bvtvj")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1489913764]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_u5bk5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1093325582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=650115137]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u5bk5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
