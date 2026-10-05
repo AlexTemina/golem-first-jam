@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0410qhfh28h" path="res://golem_first_jam/entities/props/street_lamp.tscn" id="29_3s673"]
 [ext_resource type="TileSet" uid="uid://kvdx4l020ps0" path="res://golem_first_jam/entities/tilemaps/x16Props_tile_set.tres" id="29_h5d75"]
 [ext_resource type="TileSet" uid="uid://d0edlgk7wwufv" path="res://golem_first_jam/entities/tilemaps/good_forest.tres" id="30_dcwg3"]
+[ext_resource type="Texture2D" uid="uid://c2xfrwk3q35au" path="res://golem_first_jam/entities/dark_zone/assets/FireflyParticleTexture.png" id="31_yq7kr"]
 [ext_resource type="Texture2D" uid="uid://ba2li7h5ev7o5" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_768.png" id="32_txy57"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="33_j1hj4"]
 [ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="36_dein3"]
@@ -61,6 +62,54 @@
 [ext_resource type="PackedScene" uid="uid://cqk6vqwxmig8f" path="res://golem_first_jam/entities/pushable/fence.tscn" id="51_x7yc3"]
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="57_fhxxv"]
 [ext_resource type="PackedScene" uid="uid://dphsnyslaan0u" path="res://golem_first_jam/entities/extra_time_zone/extra_time_zone.tscn" id="60_cp7q7"]
+
+[sub_resource type="Curve" id="Curve_ntdoc"]
+_limits = [0.0, 2.95, 0.0, 1.0]
+_data = [Vector2(0.322, 0.317), 0.0, 0.0, 0, 0, Vector2(0.6756757, 2.2870789), 0.0, 0.0, 0, 0]
+point_count = 2
+point_0/position = Vector2(0.322, 0.317)
+point_1/position = Vector2(0.6756757, 2.2870789)
+
+[sub_resource type="CurveTexture" id="CurveTexture_invfe"]
+resource_local_to_scene = true
+width = 726
+curve = SubResource("Curve_ntdoc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ho54o"]
+lifetime_randomness = 0.22
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, -0.065, -0.14)
+emission_shape = 1
+emission_sphere_radius = 10000.0
+angle_min = -596.1
+angle_max = 456.80002
+inherit_velocity_ratio = 0.557
+velocity_pivot = Vector3(0.32, 0, 0)
+direction = Vector3(9.55, 1.65, 5.38)
+spread = 180.0
+flatness = 0.949
+initial_velocity_min = 145.17
+initial_velocity_max = 537.64
+linear_accel_min = -46.24
+linear_accel_max = -5.380002
+radial_accel_min = -68.82
+radial_accel_max = 2.1499977
+scale_min = 0.099999994
+scale_max = 0.099999994
+color = Color(1.753959, 1.5791315, 1.182408, 0.83137256)
+emission_curve = SubResource("CurveTexture_invfe")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+turbulence_enabled = true
+turbulence_noise_strength = 9.7
+turbulence_noise_scale = 8.46
+turbulence_noise_speed = Vector3(2.36, 1.205, 1.455)
+turbulence_noise_speed_random = 2.85
+turbulence_influence_min = 0.37800002
+turbulence_influence_max = 0.615
+turbulence_initial_displacement_min = -18.199999
+turbulence_initial_displacement_max = 28.300001
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h5d75"]
 cull_mode = 1
@@ -576,6 +625,20 @@ radius = 4.55
 position = Vector2(-497, -680)
 sprite_type = 2
 radius = 4.55
+
+[node name="FireFliesTest" type="GPUParticles2D" parent="LightAndDarkness/Lights" unique_id=1394841514]
+z_index = 1
+position = Vector2(901, -208)
+scale = Vector2(0.1, 0.1)
+amount = 30
+texture = ExtResource("31_yq7kr")
+lifetime = 13.79
+preprocess = 1.34
+explosiveness = 0.38
+randomness = 0.55
+visibility_rect = Rect2(30, 30, 30, 30)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ho54o")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=2132328715]
 y_sort_enabled = true
