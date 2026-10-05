@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://d4f5cqy16i3l4"
 SignalBus="*res://golem_first_jam/states/signal_bus/signal_bus.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=352

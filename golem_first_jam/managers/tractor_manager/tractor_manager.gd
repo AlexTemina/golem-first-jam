@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 	if chicken != null and event.is_action_pressed("a_button"):
 		chicken_interacts()
 	
-func on_chicken_pecks(chicken: Chicken):
+func on_chicken_pecks(_chicken: Chicken):
 	if tractor.chicken_is_close:
 		tractor.toggle_door()
 	
@@ -38,7 +38,6 @@ func on_chicken_jumps_in_tractor(t_chicken: Chicken):
 		
 	
 func chicken_interacts():
-	var picked_item = chicken.get_picked_item()
 	tractor.attempt_starting_engine()
 	
 func on_chicken_jumps_off():

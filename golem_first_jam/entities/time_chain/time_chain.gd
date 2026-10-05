@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	reset()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	previous_frame = chain_sprite.frame
 	chain_sprite.frame = CHAIN_FRAMES - (chain_timer.time_left / max_time) * CHAIN_FRAMES
 	if chain_sprite.visible and previous_frame != chain_sprite.frame:

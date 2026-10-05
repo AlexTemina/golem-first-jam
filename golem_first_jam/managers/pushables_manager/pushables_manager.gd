@@ -7,8 +7,8 @@ func _ready() -> void:
 	SignalBus.register_pushable.connect(on_register_pushable)
 	SignalBus.chicken_pecks.connect(on_chicken_pecks)
 	
-func init(pushables: Node2D):
-	pushables_container = pushables
+func init(t_pushables_container: Node2D):
+	pushables_container = t_pushables_container
 	
 func on_register_pushable(pushable: PushableEntity):
 	pushables.append(pushable)

@@ -5,7 +5,7 @@ class_name Fence extends PushableEntity
 @onready var closed_collision := $ClosedCollision
 @onready var sound := $Sound
 
-func _interact(character: CharacterBody2D):
+func _interact(_character: CharacterBody2D):
 	closed_collision.disabled = true
 	sound.play()
 	sprite_open.show()

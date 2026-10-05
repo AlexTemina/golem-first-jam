@@ -22,7 +22,7 @@ var ITEM_SOUNDS = {
 }
 
 var SONGS = {
-	Song.GAME_SONG: load("res://local_wip/game_song/game_song.mp3")
+	Song.GAME_SONG: load("res://golem_first_jam/managers/sound_manager/assets/songs/game_song.mp3")
 }
 
 ## Effects bus channel volumen in percentage

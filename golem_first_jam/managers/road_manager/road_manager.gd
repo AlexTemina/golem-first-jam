@@ -18,7 +18,8 @@ func init(t_road: Road):
 
 func on_chicken_crosses_road(chicken_position: Vector2):
 	if not car_launching_disabled:
-		launch_car(chicken_position.y + 300)
+		# Deferred: this comes from a physics callback, can't add bodies while flushing queries
+		launch_car.call_deferred(chicken_position.y + 300)
 		
 func launch_last_car():
 	car_launching_disabled = true

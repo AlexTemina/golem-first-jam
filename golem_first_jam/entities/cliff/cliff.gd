@@ -8,10 +8,10 @@ const SIZE = 32
 const DROP_MARGIN = 16.0
 ## Offset to set the chicken's release point after dropping
 const OFFSETS = {
-	Direction.UP: Vector2(SIZE / 2, -DROP_MARGIN),
-	Direction.DOWN: Vector2(SIZE / 2, SIZE + DROP_MARGIN),
-	Direction.LEFT: Vector2(-DROP_MARGIN, SIZE / 2),
-	Direction.RIGHT: Vector2(SIZE + DROP_MARGIN, SIZE / 2),
+	Direction.UP: Vector2(SIZE / 2.0, -DROP_MARGIN),
+	Direction.DOWN: Vector2(SIZE / 2.0, SIZE + DROP_MARGIN),
+	Direction.LEFT: Vector2(-DROP_MARGIN, SIZE / 2.0),
+	Direction.RIGHT: Vector2(SIZE + DROP_MARGIN, SIZE / 2.0),
 }
 
 @export var direction: Direction:

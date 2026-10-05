@@ -12,7 +12,6 @@ func _ready() -> void:
 	night_sky = night_scene.instantiate()
 	night_sky.hide()
 	canvas_layer.add_child(night_sky)
-	SignalBus.add_node_to_canvas.emit(night_sky)
 	
 func init():
 	pass

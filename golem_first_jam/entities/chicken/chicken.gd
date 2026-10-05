@@ -138,7 +138,7 @@ func manage_velocity(delta: float):
 	else:
 		velocity.y = 0
 		
-func manage_actions_input(delta: float):	
+func manage_actions_input(_delta: float):	
 	if is_flying() or is_scared():	
 		return
 	
@@ -244,8 +244,8 @@ func scare():
 		land()
 	scare_timer.start()
 	
-func move_to(position: Vector2):
-	target_position = position
+func move_to(t_position: Vector2):
+	target_position = t_position
 	
 func block(t_release_position: Vector2, t_release_buttons: Array = [], new_action := Action.NONE):
 	chicken_blocking.block(t_release_position, t_release_buttons, new_action)

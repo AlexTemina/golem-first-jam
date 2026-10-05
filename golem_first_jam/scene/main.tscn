@@ -106,7 +106,6 @@ egg_scene = ExtResource("24_u764j")
 [node name="BellsManager" parent="Managers" unique_id=2111582727 instance=ExtResource("14_dl41o")]
 
 [node name="SoundManager" parent="Managers" unique_id=1418100125 instance=ExtResource("15_dsafr")]
-music_volume = 1.0
 
 [node name="SnakeManager" parent="Managers" unique_id=1052215676 instance=ExtResource("16_rm21c")]
 
@@ -180,10 +179,9 @@ visible = false
 visible = false
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_2g418")]
-position = Vector2(1808, -737)
+position = Vector2(192, 191)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
-visible = false
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1702205282]
 color = Color(0, 0, 0, 1)

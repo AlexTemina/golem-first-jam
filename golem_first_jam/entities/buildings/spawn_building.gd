@@ -10,7 +10,6 @@ class_name SpawnBuilding extends Node2D
 @onready var roof := $ExteriorSprite
 @onready var exterior_wall := $ExteriorWallSprite
 @onready var animator := $Animator
-@onready var jail_door := $JailDoor
 
 func _ready() -> void:
 	_apply_roof_visibility()	

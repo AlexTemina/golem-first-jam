@@ -15,7 +15,7 @@ var on := false
 func _ready() -> void:
 	pass
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("a_button") and Input.is_action_pressed("c_button")) or (Input.is_action_pressed("a_button") and Input.is_action_just_pressed("c_button")):
 		toggle_vision()
 		

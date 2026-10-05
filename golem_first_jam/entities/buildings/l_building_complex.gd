@@ -33,10 +33,10 @@ func _on_area_to_drop_egg_area_entered(area: Area2D) -> void:
 			await wait(0.5)
 			old_lady.run_away()		
 		
-func chicken_on_top(pulley):
+func chicken_on_top(_pulley):
 	vertical_building.toggle_collisions(true)
 	
-func chicken_on_floor(pulley):
+func chicken_on_floor(_pulley):
 	vertical_building.toggle_collisions(false)
 
 func wait(seconds: float):

@@ -20,7 +20,7 @@ func draw_pictogram(pictogram: Polygon2D):
 		previous_point = point
 		
 func add_interpolated_stars(point1: Vector2, point2: Vector2):
-	var stars_number: int = point1.distance_to(point2) / 10
+	var stars_number := int(point1.distance_to(point2) / 10)
 	for i in range(stars_number):
 		var lerp_factor = (i + 1.0) / float(stars_number)
 		var star_position = lerp(point1, point2, lerp_factor)

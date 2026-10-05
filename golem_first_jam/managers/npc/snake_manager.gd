@@ -8,8 +8,8 @@ var snake: Snake
 func _ready() -> void:
 	SignalBus.lay_egg.connect(on_chicken_lays_egg)
 	
-func init(snake: Snake):
-	self.snake = snake
+func init(t_snake: Snake):
+	snake = t_snake
 	
 func on_chicken_lays_egg(egg_position: Vector2):
 	var distance_to_egg = egg_position.distance_to(snake.position)

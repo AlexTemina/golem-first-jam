@@ -11,8 +11,8 @@ class_name Egg extends Node2D
 
 var fried: bool
 
-func init(position: Vector2):
-	self.position = position
+func init(t_position: Vector2):
+	position = t_position
 	if autodestruction_time > 0.0:
 		autodestruction_timer.start(autodestruction_time)
 	frying_timer.wait_time = time_to_get_fried

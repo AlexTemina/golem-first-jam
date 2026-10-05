@@ -14,7 +14,7 @@ var state := State.IDLE
 var angular_speed := 0.0
 var fall_angle := 0.0
 
-func _interact(character: CharacterBody2D):
+func _interact(_character: CharacterBody2D):
 	open_sound.play()
 	sprite.frame = 0
 	SignalBus.ladder_enabled.emit()

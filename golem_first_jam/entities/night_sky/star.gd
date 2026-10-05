@@ -15,8 +15,8 @@ var sprite_color: Color
 var t: float
 var twinkle_speed: float
 
-func init(target_position: Vector2):
-	self.target_position = target_position
+func init(t_target_position: Vector2):
+	target_position = t_target_position
 	var r = target_point_randomness
 	self.target_position += Vector2(randf_range(-r, r), randf_range(-r, r))
 	var starting_x = randi_range(-ScreenProps.WIDTH, ScreenProps.WIDTH * 2)

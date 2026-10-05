@@ -12,8 +12,8 @@ var interacted: bool
 func _ready() -> void:
 	init(self.position)
 
-func init(position: Vector2):
-	self.position = position
+func init(t_position: Vector2):
+	position = t_position
 	SignalBus.register_pushable.emit(self)
 	
 func is_near_character_position(character_position: Vector2) -> bool:
@@ -27,7 +27,7 @@ func interact(character: CharacterBody2D):
 		SignalBus.pushable_item_interacted.emit(self, character)
 		_interact(character)
 		
-func _interact(character: CharacterBody2D):
+func _interact(_character: CharacterBody2D):
 	pass # Implement in children
 
 func is_interactable():

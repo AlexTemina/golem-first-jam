@@ -17,7 +17,7 @@ func run_away():
 	sprite.z_index = 0
 	velocity.x = speed
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	move_and_slide()
 
 func _on_destroy_timer_timeout() -> void:

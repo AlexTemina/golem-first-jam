@@ -14,7 +14,6 @@ script = ExtResource("1_hhvgu")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1346881528]
 top_level = true
 position = Vector2(160, 120)
-script = ExtResource("1_hhvgu")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1464376984]
 process_priority = 300

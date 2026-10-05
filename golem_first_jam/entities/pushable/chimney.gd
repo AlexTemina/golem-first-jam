@@ -1,4 +1,4 @@
 class_name Chimney extends PushableEntity
 
-func _interact(character: CharacterBody2D):
+func _interact(_character: CharacterBody2D):
 	pass

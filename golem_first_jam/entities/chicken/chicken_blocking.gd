@@ -1,4 +1,4 @@
-class_name ChickenBlocking extends Node
+class_name ChickenBlocking extends RefCounted
 
 var chicken: Chicken
 var blocked := false # For some puzzles, keep the chicken blocked
