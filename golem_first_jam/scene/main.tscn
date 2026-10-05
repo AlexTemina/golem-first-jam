@@ -423,6 +423,10 @@ texture_scale = 0.5
 position = Vector2(-48, -52)
 radius = 4.55
 
+[node name="StreetLamp3" parent="LightAndDarkness/Lights/Lamps" unique_id=853923886 instance=ExtResource("29_3s673")]
+position = Vector2(-124, 1210)
+radius = 2.52
+
 [node name="StreetLamp2" parent="LightAndDarkness/Lights/Lamps" unique_id=1760548864 instance=ExtResource("29_3s673")]
 position = Vector2(-271, 108)
 radius = 4.55
@@ -1660,6 +1664,7 @@ position = Vector2(44, 153)
 
 [node name="ChickenCoup" parent="Buildings" unique_id=569859449 instance=ExtResource("22_fe6m1")]
 position = Vector2(281, 221)
+roof_visible = false
 
 [node name="ChickenNpc" parent="Buildings/ChickenCoup/Chickens" parent_id_path=PackedInt32Array(569859449, 1823737780) index="0" unique_id=546995143]
 position = Vector2(25, -78)
@@ -1667,6 +1672,7 @@ position = Vector2(25, -78)
 [node name="LightOccluder2D" parent="Buildings/ChickenCoup" index="7" unique_id=2086833884]
 light_mask = 3
 occluder = SubResource("OccluderPolygon2D_rfrho")
+sdf_collision = false
 
 [node name="LBuildingComplex" parent="Buildings" unique_id=1241096947 instance=ExtResource("47_ui20o")]
 z_index = 3
@@ -1770,6 +1776,152 @@ position = Vector2(102, 164)
 [node name="ExtraTimeZonePath" parent="ExtraTimeZones" unique_id=59101607 instance=ExtResource("60_cp7q7")]
 position = Vector2(240, -192)
 custom_shape = SubResource("RectangleShape2D_yq7kr")
+
+[node name="MockClearings" type="Node2D" parent="." unique_id=1419489825]
+
+[node name="Clearing" parent="MockClearings" unique_id=530178194 instance=ExtResource("49_6800i")]
+position = Vector2(-358, 406)
+
+[node name="Label" type="Label" parent="MockClearings/Clearing" unique_id=1071232362]
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 200.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Catapult yourself with a rock"
+
+[node name="Clearing2" parent="MockClearings" unique_id=304699441 instance=ExtResource("49_6800i")]
+z_index = 10
+position = Vector2(471, 134)
+
+[node name="Label2" type="Label" parent="MockClearings/Clearing2" unique_id=1398824620]
+offset_left = 49.0
+offset_top = -5.0
+offset_right = 285.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Hold Q"
+
+[node name="Clearing3" parent="MockClearings" unique_id=754333514 instance=ExtResource("49_6800i")]
+position = Vector2(1477, 766)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing3" unique_id=1894835420]
+offset_left = -28.0
+offset_top = 30.0
+offset_right = 208.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Bell rythm"
+
+[node name="Clearing4" parent="MockClearings" unique_id=743689743 instance=ExtResource("49_6800i")]
+position = Vector2(1870, -164)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing4" unique_id=1737252669]
+offset_left = -96.0
+offset_top = -36.0
+offset_right = 140.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Save your friend"
+
+[node name="Clearing5" parent="MockClearings" unique_id=959132868 instance=ExtResource("49_6800i")]
+position = Vector2(126, 81)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing5" unique_id=105579219]
+offset_left = -96.0
+offset_top = -36.0
+offset_right = 140.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Dog likes fried eggs"
+
+[node name="Clearing6" parent="MockClearings" unique_id=337250982 instance=ExtResource("49_6800i")]
+position = Vector2(-100, 544)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing6" unique_id=831656693]
+offset_left = -96.0
+offset_top = -36.0
+offset_right = 140.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Overcome darkness"
+
+[node name="Clearing7" parent="MockClearings" unique_id=1513504509 instance=ExtResource("49_6800i")]
+position = Vector2(-451, 170)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing7" unique_id=1819073892]
+offset_left = -96.0
+offset_top = -36.0
+offset_right = 140.0
+offset_bottom = -13.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "run and spam Q to fly"
+
+[node name="Clearing8" parent="MockClearings" unique_id=718913611 instance=ExtResource("49_6800i")]
+position = Vector2(-449, -646)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing8" unique_id=1660681130]
+offset_left = -50.0
+offset_top = 23.0
+offset_right = 186.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Made by Raul, Alex and Raddyz"
+
+[node name="Clearing9" parent="MockClearings" unique_id=81415187 instance=ExtResource("49_6800i")]
+position = Vector2(356, -82)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing9" unique_id=293208283]
+offset_left = 237.0
+offset_top = -79.0
+offset_right = 473.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "No hands to open the door?"
+
+[node name="Clearing10" parent="MockClearings" unique_id=1375344164 instance=ExtResource("49_6800i")]
+position = Vector2(-236, 1174)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing10" unique_id=1314750811]
+offset_left = -52.0
+offset_top = 11.0
+offset_right = 184.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Get the tractor keys"
+
+[node name="Clearing11" parent="MockClearings" unique_id=1501776662 instance=ExtResource("49_6800i")]
+position = Vector2(-68, 218)
+
+[node name="Label3" type="Label" parent="MockClearings/Clearing11" unique_id=381764722]
+offset_left = -52.0
+offset_top = 11.0
+offset_right = 184.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "something fits in that hole..."
 
 [editable path="MainCamera"]
 [editable path="Managers/SnakeManager"]
