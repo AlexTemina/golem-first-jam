@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6uqy0xmoo7td"]
 
 [ext_resource type="Script" uid="uid://c360xeht1qsw3" path="res://golem_first_jam/entities/npc/dog/dog.gd" id="1_v8msw"]
-[ext_resource type="Texture2D" uid="uid://dplagh28e5r7v" path="res://golem_first_jam/entities/npc/dog/assets/Dog_Sit_WChain.png" id="2_m48qm"]
+[ext_resource type="Texture2D" uid="uid://css6ph88a7ntl" path="res://golem_first_jam/entities/npc/dog/assets/Dog_SitIddle_WChait.png" id="2_ehguc"]
 [ext_resource type="Texture2D" uid="uid://bie5wh5p271ht" path="res://golem_first_jam/entities/npc/dog/assets/Dog_Stand.png" id="3_ehguc"]
 [ext_resource type="AudioStream" uid="uid://br43qi5mq2bsa" path="res://golem_first_jam/entities/npc/dog/assets/dog-bark.wav" id="3_m48qm"]
 
@@ -11,11 +11,43 @@ size = Vector2(26, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehguc"]
 size = Vector2(64, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps2qu"]
+atlas = ExtResource("2_ehguc")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vmtb"]
+atlas = ExtResource("2_ehguc")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f75yt"]
+atlas = ExtResource("2_ehguc")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tive0"]
+atlas = ExtResource("2_ehguc")
+region = Rect2(0, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_204wc"]
+atlas = ExtResource("2_ehguc")
+region = Rect2(80, 64, 80, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5bk5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_m48qm")
+"texture": SubResource("AtlasTexture_ps2qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vmtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f75yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tive0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_204wc")
 }],
 "loop": 1,
 "name": &"default",
@@ -47,6 +79,7 @@ shape = SubResource("RectangleShape2D_ehguc")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=503701928]
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 autoplay = "default"
+frame_progress = 0.44071987
 offset = Vector2(0, -24)
 
 [node name="DogBark" type="AudioStreamPlayer" parent="." unique_id=437124404]
