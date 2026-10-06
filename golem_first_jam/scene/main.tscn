@@ -52,7 +52,10 @@
 [ext_resource type="PackedScene" uid="uid://b738gn677yltc" path="res://golem_first_jam/entities/polley_door/polley_door_right.tscn" id="38_n6spk"]
 [ext_resource type="PackedScene" uid="uid://ciribj4rxpdi5" path="res://golem_first_jam/entities/props/boundary_forest.tscn" id="38_ye0sv"]
 [ext_resource type="PackedScene" uid="uid://dhdlhn5ucahvm" path="res://golem_first_jam/entities/polley_door/polley_door_left.tscn" id="43_tsp7a"]
+[ext_resource type="Texture2D" uid="uid://d24dd2isgk2k7" path="res://golem_first_jam/entities/props/assets/PineTree1.png" id="44_ho54o"]
+[ext_resource type="Texture2D" uid="uid://5imfnw4kjuk2" path="res://golem_first_jam/entities/props/assets/PineTree2.png" id="45_uk42t"]
 [ext_resource type="TileSet" uid="uid://crph147vxnh8" path="res://golem_first_jam/entities/tilemaps/fences_tile_set.tres" id="45_xsvtb"]
+[ext_resource type="Texture2D" uid="uid://bx7tqiby8mhqx" path="res://golem_first_jam/entities/props/assets/PineTree3.png" id="46_pq33x"]
 [ext_resource type="PackedScene" uid="uid://dbfermstugn1x" path="res://golem_first_jam/entities/pickable/rock_large.tscn" id="46_rocka"]
 [ext_resource type="PackedScene" uid="uid://cojbekhkfe8nq" path="res://golem_first_jam/entities/pickable/rock_medium.tscn" id="47_rockb"]
 [ext_resource type="PackedScene" uid="uid://diabtwfi7vds8" path="res://golem_first_jam/entities/buildings/l_building_complex.tscn" id="47_ui20o"]
@@ -63,12 +66,15 @@
 [ext_resource type="PackedScene" uid="uid://drl2ym6inuu13" path="res://golem_first_jam/entities/hotspot/hotspot.tscn" id="57_fhxxv"]
 [ext_resource type="PackedScene" uid="uid://dphsnyslaan0u" path="res://golem_first_jam/entities/extra_time_zone/extra_time_zone.tscn" id="60_cp7q7"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mryc4"]
+polygon = PackedVector2Array(66.68395, 61.057404, 66.37088, 68.98694, 80.61555, 61.453873)
+
 [sub_resource type="Curve" id="Curve_ntdoc"]
 _limits = [0.0, 2.95, 0.0, 1.0]
-_data = [Vector2(0.322, 0.317), 0.0, 0.0, 0, 0, Vector2(0.6756757, 2.2870789), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.317, 0.322), 0.0, 0.0, 0, 0, Vector2(1, 0.6756757), 0.0, 0.0, 0, 0]
 point_count = 2
-point_0/position = Vector2(0.322, 0.317)
-point_1/position = Vector2(0.6756757, 2.2870789)
+point_0/position = Vector2(0.317, 0.322)
+point_1/position = Vector2(1, 0.6756757)
 
 [sub_resource type="CurveTexture" id="CurveTexture_invfe"]
 resource_local_to_scene = true
@@ -114,6 +120,9 @@ turbulence_initial_displacement_max = 28.300001
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h5d75"]
 cull_mode = 1
 polygon = PackedVector2Array(19, 325, 24, 320, 29, 325, 29, 351, 19, 351)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_twuja"]
+polygon = PackedVector2Array(-18, 13, -8, -18, 2, -38, 12, -17, 17, 13, 2, 24, 3, 42, -7, 42, -4, 24, -14, 19)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rfrho"]
 polygon = PackedVector2Array(-36, -8, -33, -8, -33, 1, -25, 1, -25, -8, -17, -8, -17, 2, 16, 2, 16, -8, 25, -8, 25, 1, 33, 1, 33, -9, 47, -9, 47, -128, 37, -133, 37, -145, 0, -165, -37, -146, -36, -8)
@@ -436,6 +445,10 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="LightAndDarkness/Lights/AmbientLights/TopLeftClearMoonlight/TopClearMoonlight2" unique_id=3539047]
+position = Vector2(0.15656371, -2.7753365)
+occluder = SubResource("OccluderPolygon2D_mryc4")
+
 [node name="TopRightClearMoonlight2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1962025051]
 light_mask = 0
 position = Vector2(340.94995, -488.62024)
@@ -508,7 +521,7 @@ radius = 4.55
 texture_scale = 1.1375
 
 [node name="StreetLamp11" parent="LightAndDarkness/Lights/Lamps" unique_id=1179283995 instance=ExtResource("29_3s673")]
-position = Vector2(203, -235)
+position = Vector2(220, -263)
 radius = 4.55
 
 [node name="StreetLamp14" parent="LightAndDarkness/Lights/Lamps" unique_id=637423149 instance=ExtResource("29_3s673")]
@@ -613,16 +626,6 @@ radius = 4.55
 
 [node name="StreetLamp33" parent="LightAndDarkness/Lights/Lamps" unique_id=1310660730 instance=ExtResource("29_3s673")]
 position = Vector2(1075, 13)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp12" parent="LightAndDarkness/Lights/Lamps" unique_id=206475804 instance=ExtResource("29_3s673")]
-position = Vector2(-302, -679)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp13" parent="LightAndDarkness/Lights/Lamps" unique_id=1880650137 instance=ExtResource("29_3s673")]
-position = Vector2(-497, -680)
 sprite_type = 2
 radius = 4.55
 
@@ -1688,6 +1691,27 @@ position = Vector2(688, 200)
 [node name="BoundaryForest198" parent="Trees" unique_id=1866631026 instance=ExtResource("38_ye0sv")]
 y_sort_enabled = true
 position = Vector2(696, -325)
+
+[node name="IndividualTrees" type="Node2D" parent="Trees" unique_id=1326459641]
+
+[node name="PineTree1" type="Sprite2D" parent="Trees/IndividualTrees" unique_id=1529419492]
+position = Vector2(-180, -558)
+texture = ExtResource("44_ho54o")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Trees/IndividualTrees/PineTree1" unique_id=823087279]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+light_mask = 3
+occluder = SubResource("OccluderPolygon2D_twuja")
+metadata/_edit_lock_ = true
+
+[node name="PineTree2" type="Sprite2D" parent="Trees/IndividualTrees" unique_id=985845905]
+position = Vector2(-139, -343)
+texture = ExtResource("45_uk42t")
+
+[node name="PineTree3" type="Sprite2D" parent="Trees/IndividualTrees" unique_id=271149636]
+position = Vector2(-180, -411)
+texture = ExtResource("46_pq33x")
 
 [node name="Pickables" type="Node2D" parent="." unique_id=894882608]
 y_sort_enabled = true
