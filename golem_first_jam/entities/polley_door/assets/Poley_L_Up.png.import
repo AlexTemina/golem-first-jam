@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6b7nfbfxubm"
-path="res://.godot/imported/PoleyDoorTierL.png-00924cd8cac348dea854ba8b2973280e.ctex"
+uid="uid://rb73ddhx02tm"
+path="res://.godot/imported/Poley_L_Up.png-1e5e2a7485a16863128c196084eafa27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem_first_jam/entities/polley_door/assets/PoleyDoorTierL.png"
-dest_files=["res://.godot/imported/PoleyDoorTierL.png-00924cd8cac348dea854ba8b2973280e.ctex"]
+source_file="res://golem_first_jam/entities/polley_door/assets/Poley_L_Up.png"
+dest_files=["res://.godot/imported/Poley_L_Up.png-1e5e2a7485a16863128c196084eafa27.ctex"]
 
 [params]
 
