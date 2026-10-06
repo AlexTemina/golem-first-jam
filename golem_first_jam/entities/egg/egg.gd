@@ -8,6 +8,8 @@ class_name Egg extends Node2D
 @onready var sprite := $Sprite
 @onready var autodestruction_timer := $AutodestructionTimer
 @onready var frying_timer := $FryingTimer
+@onready var frying_sound: AudioStreamPlayer = $FryingSound
+@onready var smoke: GPUParticles2D = $Smoke
 
 var fried: bool
 
@@ -35,10 +37,13 @@ func _on_autodestruction_timer_timeout() -> void:
 	break_egg()
 
 func fry():
+	frying_sound.play()
 	frying_timer.start()
 
-func _on_frying_timer_timeout() -> void:
-	# TODO Play sound
+func _on_frying_timer_timeout() -> void:	
 	sprite.play("fry")
+	smoke.restart()
 	fried = true
 	SignalBus.egg_fried.emit(self)
+	var tween = get_tree().create_tween()
+	tween.tween_property(frying_sound, "volume_db", -12, 5)

@@ -269,7 +269,7 @@ position = Vector2(-112, -24)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="Hotspot" parent="." unique_id=935895167 instance=ExtResource("10_q241n")]
-position = Vector2(104, 160)
+position = Vector2(72, 160)
 
 [node name="NPC" type="Node2D" parent="." unique_id=634675259]
 y_sort_enabled = true

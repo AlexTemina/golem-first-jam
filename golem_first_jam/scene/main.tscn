@@ -73,8 +73,6 @@ polygon = PackedVector2Array(66.68395, 61.057404, 66.37088, 68.98694, 80.61555, 
 _limits = [0.0, 2.95, 0.0, 1.0]
 _data = [Vector2(0.317, 0.322), 0.0, 0.0, 0, 0, Vector2(1, 0.6756757), 0.0, 0.0, 0, 0]
 point_count = 2
-point_0/position = Vector2(0.317, 0.322)
-point_1/position = Vector2(1, 0.6756757)
 
 [sub_resource type="CurveTexture" id="CurveTexture_invfe"]
 resource_local_to_scene = true

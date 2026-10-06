@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cd5sasdm0tfqd" path="res://golem_first_jam/entities/egg/egg.gd" id="1_4nan4"]
 [ext_resource type="Texture2D" uid="uid://ctllvhfqka282" path="res://golem_first_jam/entities/egg/assets/Egg.png" id="2_b0yss"]
 [ext_resource type="Texture2D" uid="uid://bsxpsq0ui6vas" path="res://golem_first_jam/entities/egg/assets/fried_egg.png" id="3_jn7sk"]
+[ext_resource type="AudioStream" uid="uid://cchukof4hg2xs" path="res://golem_first_jam/entities/egg/assets/frying.wav" id="4_t4hvj"]
+[ext_resource type="Texture2D" uid="uid://dj7g7vbdfak3l" path="res://golem_first_jam/entities/tractor/assets/smoke.png" id="5_08cek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jn7sk"]
 atlas = ExtResource("2_b0yss")
@@ -113,6 +115,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
 size = Vector2(10, 3)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4hs8"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.09
+angle_min = 209.00002
+angle_max = 209.00002
+spread = 76.765
+gravity = Vector3(0, -98, 0)
+color = Color(1, 1, 1, 0.45882353)
+
 [node name="Egg" type="Node2D" unique_id=1146936606]
 y_sort_enabled = true
 script = ExtResource("1_4nan4")
@@ -140,6 +152,20 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=575210072]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_kddjp")
+
+[node name="FryingSound" type="AudioStreamPlayer" parent="." unique_id=770659379]
+stream = ExtResource("4_t4hvj")
+
+[node name="Smoke" type="GPUParticles2D" parent="." unique_id=1342980946]
+y_sort_enabled = true
+position = Vector2(0, -5)
+emitting = false
+amount = 40
+amount_ratio = 0.2632
+texture = ExtResource("5_08cek")
+explosiveness = 0.07
+randomness = 0.29
+process_material = SubResource("ParticleProcessMaterial_y4hs8")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="AutodestructionTimer" to="." method="_on_autodestruction_timer_timeout"]

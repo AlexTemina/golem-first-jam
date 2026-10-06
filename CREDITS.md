@@ -34,6 +34,7 @@ Foley_Impact_Metal_Fence_Mono.wav by Nox_Sound -- https://freesound.org/s/561043
 Man screaming.wav by Archeos -- https://freesound.org/s/325548/ -- License: Creative Commons 0
 snapping-chain by CosmicEmbers -- https://freesound.org/s/161650/ -- License: Attribution 3.0
 Metal hit by imbecilinplus -- https://freesound.org/s/456042/ -- License: Creative Commons 0
+Frying cheese on a cast iron pan in a gas stove by tapikkaFin -- https://freesound.org/s/792007/ -- License: Creative Commons 0
 
 ## Shaders
 
