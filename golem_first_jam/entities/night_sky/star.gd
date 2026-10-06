@@ -3,9 +3,9 @@ class_name Star extends Node2D
 enum State {MOVING, ON_TARGET}
 
 ## Speed in px/s
-@export var speed: float = 150.0
+@export var speed: float = 200.0
 ## How random is the target position, in pixels
-@export var target_point_randomness: float = 3.0
+@export var target_point_randomness: float = 2.0
 
 @onready var sprite := $Sprite
 

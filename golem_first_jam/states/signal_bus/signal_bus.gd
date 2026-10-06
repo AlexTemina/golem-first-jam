@@ -28,7 +28,7 @@ signal special_vision_toggled(on: bool)
 signal chicken_crosses_road(chicken_position: Vector2)
 signal chicken_jumps_in_tractor(chicken: Chicken)
 signal chicken_is_released()
-signal toggle_learning_spot(on: bool)
+signal toggle_learning_spot(on: bool, help_text: String)
 
 # NPCs
 signal scare_chicken()

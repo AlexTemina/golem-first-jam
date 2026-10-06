@@ -365,6 +365,7 @@ npc_only = true
 
 [node name="ClearingForVisionPlayer" parent="Props" unique_id=714020045 instance=ExtResource("43_hst8i")]
 position = Vector2(384, 456)
+help_text = "THIS IS A TEST"
 
 [node name="BoundaryForest" parent="Props" unique_id=382641060 instance=ExtResource("48_ytgcg")]
 y_sort_enabled = true

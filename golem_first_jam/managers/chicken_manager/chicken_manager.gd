@@ -25,7 +25,7 @@ func init(t_chicken: Chicken):
 func scare_chicken():
 	chicken.scare()
 
-func toggle_learning(on: bool):
+func toggle_learning(on: bool, help_text: String):
 	chicken.learning = on
 
 ## The chicken rides the polley up and down. For now it just teleports

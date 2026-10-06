@@ -128,7 +128,7 @@ polygon = PackedVector2Array(-36, -8, -33, -8, -33, 1, -25, 1, -25, -8, -17, -8,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq7kr"]
 size = Vector2(100, 100)
 
-[node name="Main" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "extra_time_manager", "time_chain")]
+[node name="Clearing" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "extra_time_manager", "time_chain")]
 y_sort_enabled = true
 script = ExtResource("1_11yct")
 chicken = NodePath("Chicken")
@@ -1866,6 +1866,7 @@ custom_shape = SubResource("RectangleShape2D_yq7kr")
 
 [node name="Clearing" parent="MockClearings" unique_id=530178194 instance=ExtResource("49_6800i")]
 position = Vector2(-358, 406)
+help_text = "FIND ROCK"
 
 [node name="Label" type="Label" parent="MockClearings/Clearing" unique_id=1071232362]
 offset_left = -23.0
@@ -1880,6 +1881,7 @@ text = "Catapult yourself with a rock"
 [node name="Clearing2" parent="MockClearings" unique_id=304699441 instance=ExtResource("49_6800i")]
 z_index = 10
 position = Vector2(471, 134)
+help_text = "HOLD Q"
 
 [node name="Label2" type="Label" parent="MockClearings/Clearing2" unique_id=1398824620]
 offset_left = 49.0
@@ -1893,6 +1895,7 @@ text = "Hold Q"
 
 [node name="Clearing3" parent="MockClearings" unique_id=754333514 instance=ExtResource("49_6800i")]
 position = Vector2(1477, 766)
+help_text = "BELL RYTHM"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing3" unique_id=1894835420]
 offset_left = -28.0
@@ -1906,6 +1909,7 @@ text = "Bell rythm"
 
 [node name="Clearing4" parent="MockClearings" unique_id=743689743 instance=ExtResource("49_6800i")]
 position = Vector2(1870, -164)
+help_text = "SAVE HIM"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing4" unique_id=1737252669]
 offset_left = -96.0
@@ -1919,6 +1923,7 @@ text = "Save your friend"
 
 [node name="Clearing5" parent="MockClearings" unique_id=959132868 instance=ExtResource("49_6800i")]
 position = Vector2(126, 81)
+help_text = "DOG LIKES FRIED EGGS"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing5" unique_id=105579219]
 offset_left = -96.0
@@ -1932,6 +1937,7 @@ text = "Dog likes fried eggs"
 
 [node name="Clearing6" parent="MockClearings" unique_id=337250982 instance=ExtResource("49_6800i")]
 position = Vector2(-100, 544)
+help_text = "OVERCOME DARKNESS"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing6" unique_id=831656693]
 offset_left = -96.0
@@ -1945,6 +1951,7 @@ text = "Overcome darkness"
 
 [node name="Clearing7" parent="MockClearings" unique_id=1513504509 instance=ExtResource("49_6800i")]
 position = Vector2(-451, 170)
+help_text = "RUN AND SPAM Q"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing7" unique_id=1819073892]
 offset_left = -96.0
@@ -1971,6 +1978,7 @@ text = "Made by Raul, Alex and Raddyz"
 
 [node name="Clearing9" parent="MockClearings" unique_id=81415187 instance=ExtResource("49_6800i")]
 position = Vector2(356, -82)
+help_text = "OPEN DOOR"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing9" unique_id=293208283]
 offset_left = 237.0
@@ -1984,6 +1992,7 @@ text = "No hands to open the door?"
 
 [node name="Clearing10" parent="MockClearings" unique_id=1375344164 instance=ExtResource("49_6800i")]
 position = Vector2(-236, 1174)
+help_text = "TRACTOR KEYS"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing10" unique_id=1314750811]
 offset_left = -52.0
@@ -1997,6 +2006,7 @@ text = "Get the tractor keys"
 
 [node name="Clearing11" parent="MockClearings" unique_id=1501776662 instance=ExtResource("49_6800i")]
 position = Vector2(-68, 218)
+help_text = "HOLE IN THE ROOF"
 
 [node name="Label3" type="Label" parent="MockClearings/Clearing11" unique_id=381764722]
 offset_left = -52.0
