@@ -37,6 +37,7 @@ func _on_scare_area_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, Chicken):
 		SignalBus.scare_chicken.emit()
 		if not dog_sound.playing:
+			sprite.play("bark")
 			dog_sound.pitch_scale = randf_range(0.9, 1.05)
 			dog_sound.play()
 

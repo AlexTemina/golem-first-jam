@@ -1463,12 +1463,17 @@ texture = ExtResource("4_umetq")
 texture = ExtResource("5_usecr")
 texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
+2:1/0/y_sort_origin = -6
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.3285084, 16, -7.3285084, -16, 7.0098763, -16, 7.6471367, 16)
 1:1/0 = 0
+1:1/0/y_sort_origin = 15
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.8676758, 8.921661, -2.5490456, 16, 8.603031, 16)
 1:0/0 = 0
+1:0/0/y_sort_origin = 47
 0:0/0 = 0
+0:0/0/y_sort_origin = 47
 0:1/0 = 0
+0:1/0/y_sort_origin = 15
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.733926, 14.208841, 4.3166103, 13.849123, -0.35971832, 9.892231, -2.6978817, 10.07209)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnucm"]

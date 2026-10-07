@@ -74,8 +74,6 @@ polygon = PackedVector2Array(66.68395, 61.057404, 66.37088, 68.98694, 80.61555, 
 _limits = [0.0, 2.95, 0.0, 1.0]
 _data = [Vector2(0.322, 0.317), 0.0, 0.0, 0, 0, Vector2(0.6756757, 1), 0.0, 0.0, 0, 0]
 point_count = 2
-point_0/position = Vector2(0.322, 0.317)
-point_1/position = Vector2(0.6756757, 1)
 
 [sub_resource type="CurveTexture" id="CurveTexture_invfe"]
 resource_local_to_scene = true
@@ -244,11 +242,13 @@ visible = false
 position = Vector2(192, 191)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
+y_sort_enabled = true
 
 [node name="CanvasModulateDarkness" type="CanvasModulate" parent="LightAndDarkness" unique_id=1702205282]
 color = Color(0, 0, 0, 1)
 
 [node name="Lights" type="Node2D" parent="LightAndDarkness" unique_id=1380873157]
+y_sort_enabled = true
 
 [node name="AmbientLights" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=1747456581]
 position = Vector2(238.49995, -241.24991)
@@ -484,6 +484,7 @@ texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
 [node name="Lamps" type="Node2D" parent="LightAndDarkness/Lights" unique_id=343595900]
+y_sort_enabled = true
 
 [node name="StreetLamp" parent="LightAndDarkness/Lights/Lamps" unique_id=1527847806 instance=ExtResource("29_3s673")]
 position = Vector2(-48, -52)
@@ -1877,6 +1878,7 @@ position = Vector2(240, -192)
 custom_shape = SubResource("RectangleShape2D_yq7kr")
 
 [node name="MockClearings" type="Node2D" parent="." unique_id=1419489825]
+y_sort_enabled = true
 
 [node name="Clearing" parent="MockClearings" unique_id=530178194 instance=ExtResource("49_6800i")]
 position = Vector2(-358, 406)
