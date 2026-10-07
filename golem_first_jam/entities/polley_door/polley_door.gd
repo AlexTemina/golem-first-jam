@@ -6,6 +6,7 @@ class_name PolleyDoor extends Placeable
 @onready var collision_box := %CollisionShape2D
 @onready var object_anchor := %ObjectAnchor
 @onready var size_label_node := %SizeLabel
+@onready var pulley_sound := %PulleySound
 
 ## Letter shown over the door, just to hint which rock it takes
 @export var size_label: String = "":
@@ -43,12 +44,14 @@ func _on_object_removed(object_removed: PickableEntity):
 ## Opens the door and emits a signal to notify that it has been opened
 func open() -> void:
 	opened = true
+	play_sound()
 	refresh()
 	SignalBus.polley_door_opened.emit(placed_object)
 
 ## Closes the door and emits a signal to notify that it has been closed
 func close(object: PickableEntity) -> void:
 	opened = false
+	play_sound()
 	refresh()
 	SignalBus.polley_door_closed.emit(object)
 
@@ -56,3 +59,8 @@ func refresh() -> void:
 	closed_sprite.visible = not opened
 	opened_sprite.visible = opened
 	collision_box.set_deferred("disabled", opened)
+
+func play_sound():
+	pulley_sound.pitch_scale = randf_range(0.8, 1.2)
+	pulley_sound.play()
+	

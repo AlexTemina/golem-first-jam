@@ -5,6 +5,8 @@ class_name PolleyUp extends Placeable
 @onready var object_anchor := %ObjectAnchor
 @onready var loaded_anchor := %LoadedAnchor
 @onready var up_anchor := %UpAnchor
+@onready var pulley_up_sound: AudioStreamPlayer = $PulleyUp
+@onready var pulley_down_sound: AudioStreamPlayer = $PulleyDown
 
 ## Where the chicken ends up instead of on the raised platform, usually a spot in a building
 @export var up_position: Node2D
@@ -47,6 +49,8 @@ func _on_object_removed(_object_removed: PickableEntity):
 ## Goes up and emits a signal to notify that it has been activated
 func activate() -> void:
 	activated = true
+	pulley_up_sound.pitch_scale = randf_range(0.8, 1.2)
+	pulley_up_sound.play()
 	_move_polley(get_up_position(), loaded_anchor.global_position)
 	refresh()
 	SignalBus.polley_up_activated.emit(self)
@@ -54,6 +58,8 @@ func activate() -> void:
 ## Goes back down and emits a signal to notify that it has been deactivated
 func deactivate() -> void:
 	activated = false
+	pulley_down_sound.pitch_scale = randf_range(0.8, 1.2)
+	pulley_down_sound.play()
 	_move_polley(down_position, idle_anchor_position)
 	refresh()
 	SignalBus.polley_up_deactivated.emit(self)
