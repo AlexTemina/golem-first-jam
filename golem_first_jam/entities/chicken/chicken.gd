@@ -237,11 +237,11 @@ func set_action(new_action: Action):
 	
 func scare():
 	if is_scared():
-		return
-	set_action(Action.SCARED)
+		return	
 	velocity = -velocity
 	if is_flying():
 		land()
+	set_action(Action.SCARED)
 	scare_timer.start()
 	
 func move_to(t_position: Vector2):
