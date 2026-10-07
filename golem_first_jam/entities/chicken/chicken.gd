@@ -240,7 +240,7 @@ func scare():
 		return
 	set_action(Action.SCARED)
 	velocity = -velocity
-	if z_offset != 0:
+	if is_flying():
 		land()
 	scare_timer.start()
 	

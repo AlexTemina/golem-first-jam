@@ -28,6 +28,7 @@ func add_extra_time(more_time: float):
 func on_normal_time_over():
 	if extra_time > 0:
 		extra_timer.start(extra_time)
+		SignalBus.extra_time_started.emit()
 	else:
 		time_over()		
 		

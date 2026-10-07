@@ -11,6 +11,7 @@ signal start_game_time()
 signal pause_game_time()
 signal resume_game_time()
 signal normal_time_over()
+signal extra_time_started()
 signal game_time_over() # Normal time + extra time
 signal add_extra_time(extra_time: float)
 signal add_node_to_canvas(node: Node2D) # Add to static canvas, always on camera

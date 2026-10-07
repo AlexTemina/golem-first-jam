@@ -2,7 +2,7 @@ class_name SoundManager extends Node
 
 enum ChickenSound {WALK, PECK, LAY_EGG, FLY, CACKLE}
 enum ItemSound {DROP}
-enum Song {GAME_SONG}
+enum Song {GAME_SONG, DOG_SONG}
 
 const SOUNDS_BUS = 1
 const MUSIC_BUS = 3
@@ -22,7 +22,8 @@ var ITEM_SOUNDS = {
 }
 
 var SONGS = {
-	Song.GAME_SONG: load("res://golem_first_jam/managers/sound_manager/assets/songs/game_song.mp3")
+	Song.GAME_SONG: load("res://golem_first_jam/managers/sound_manager/assets/songs/game_song.mp3"),
+	Song.DOG_SONG: load("res://golem_first_jam/managers/sound_manager/assets/songs/dog_song.mp3")
 }
 
 ## Effects bus channel volumen in percentage
@@ -43,10 +44,13 @@ func _ready() -> void:
 	SignalBus.play_chicken_sound.connect(play_chicken_sound)
 	SignalBus.play_item_sound.connect(play_item_sound)
 	SignalBus.chicken_flies.connect(play_fly_sound)
+	SignalBus.reset_game.connect(func(): play_song(Song.GAME_SONG))
+	SignalBus.extra_time_started.connect(func(): play_song(Song.DOG_SONG))
+	SignalBus.game_time_over.connect(fade_out_song)
 	
 	change_global_volume(effects_volume)
 	change_music_volume(music_volume)
-	play_music()
+	play_song(Song.GAME_SONG)
 	
 func change_global_volume(value: float):
 	SoundConfig.effects_volume = value
@@ -71,9 +75,17 @@ func play_sound(player: AudioStreamPlayer, stream: AudioStream):
 	player.pitch_scale = randf_range(1 - pitch_randomness, 1 + pitch_randomness)
 	player.play()
 
-func play_music():
-	if not music_player.playing:
-		music_player.play()
-
 func _on_music_player_finished() -> void:
 	play_music()
+	
+func play_song(song: Song):
+	music_player.stream = SONGS.get(song)
+	play_music()
+	
+func fade_out_song():
+	var tween = get_tree().create_tween()
+	tween.tween_method(change_music_volume, SoundConfig.music_volume, 0.0, 2.0)	
+	tween.tween_method(change_music_volume, 0.0, SoundConfig.music_volume, 0.5)	
+	
+func play_music():
+	music_player.play()
