@@ -58,6 +58,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7nt2"]
 size = Vector2(16, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5bk5"]
+radius = 53.009434
+
 [node name="ChickenNpc" type="CharacterBody2D" unique_id=546995143]
 y_sort_enabled = true
 script = ExtResource("1_kojb7")
@@ -106,5 +109,13 @@ one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1364912190]
 
+[node name="InteractionArea" type="Area2D" parent="." unique_id=206445382]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1495273724]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_u5bk5")
+
 [connection signal="animation_finished" from="Body/Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="NextActionTimer" to="." method="_on_next_action_timer_timeout"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

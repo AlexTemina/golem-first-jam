@@ -1,6 +1,6 @@
 class_name ChickenNpc extends Npc
 
-enum Action {NONE, PECKING, FLYING, LAYING_EGG, ECSTATIC, WALKING, RUNNING}
+enum Action {NONE, PECKING, FLYING, LAYING_EGG, ECSTATIC, WALKING, RUNNING, FOLLOWING}
 
 const ANIMATIONS = {
 	Action.NONE: "idle_with_legs",
@@ -10,6 +10,7 @@ const ANIMATIONS = {
 	Action.FLYING: "fly",
 	Action.LAYING_EGG: "lay_egg_short",
 	Action.ECSTATIC: "ecstatic",
+	Action.FOLLOWING: "move_with_legs"
 }
 
 var CHOREOGRAPHIES = {
@@ -35,6 +36,8 @@ var CHOREOGRAPHIES = {
 ## Use this to spawn the chicken in a different position where its action happens.
 ## Will move there before executing the action
 @export var spawning_offset: Vector2 = Vector2.ZERO
+## Set this to true to follow player after encountering this chicken
+@export var follow_player := false
 
 @onready var body := $Body
 @onready var sprite := $Body/Sprite
@@ -49,6 +52,7 @@ var action: Action
 var choreography: Array = []
 var action_position: Vector2 # Where the action happens. See spawning_offset variable
 var spawning_position: Vector2 # Where the chicken spawns. See spawning_offset variable
+var player_chicken: Chicken # Used to follow it
 
 func _ready() -> void:
 	action_position = global_position
@@ -64,6 +68,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 func manage_velocity(delta: float):		
+	if is_following():
+		velocity = global_position.direction_to(player_chicken.global_position) * move_speed
+		return
 	if is_flying():
 		z_velocity += get_gravity().y * gravity_factor * delta
 		z_offset += z_velocity
@@ -81,6 +88,8 @@ func manage_velocity(delta: float):
 		elif is_in_action_position() and not is_idle() and action != main_action:
 			set_action(Action.NONE)
 			velocity = Vector2.ZERO
+	if is_idle():
+		velocity = Vector2.ZERO
 		
 func face_move_direction():
 	if is_moving():
@@ -156,6 +165,7 @@ func is_moving() -> bool: return velocity != Vector2.ZERO
 func is_idle() -> bool: return Action.NONE == action
 func is_ecstatic() -> bool: return Action.ECSTATIC == action
 func is_flying() -> bool: return Action.FLYING == action
+func is_following() -> bool: return Action.FOLLOWING == action
 func has_action_position() -> bool: return spawning_offset != Vector2.ZERO
 func is_in_action_position() -> bool: return global_position.distance_to(action_position) < 2
 func is_in_spawning_position() -> bool: return global_position.distance_to(spawning_position) < 2
@@ -164,3 +174,15 @@ func _on_next_action_timer_timeout() -> void:
 	if is_flying():
 		return # It will do something when lands
 	do_main_action()
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if not follow_player:
+		return		
+	if body is Chicken:
+		if player_chicken == null:
+			player_chicken = body
+		set_action(Action.NONE)
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	if body is Chicken and player_chicken:
+		set_action(Action.FOLLOWING)

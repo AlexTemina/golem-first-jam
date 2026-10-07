@@ -316,6 +316,10 @@ jump_max_impulse = 0.8
 gravity_factor = 0.001
 time_between_actions = 1.0
 
+[node name="BlindChicken" parent="NPC/Chickens" unique_id=270086011 instance=ExtResource("25_5ohj6")]
+position = Vector2(272, 800)
+follow_player = true
+
 [node name="Dog" parent="NPC" unique_id=149243883 instance=ExtResource("34_q6dqm")]
 position = Vector2(104, 128)
 
