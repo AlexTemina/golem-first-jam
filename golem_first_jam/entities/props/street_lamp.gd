@@ -17,6 +17,11 @@ const RADIUS_BASE_SIZE := 192.0
 	set(value):
 		radius = value
 		update_light()
+##Intensity of the light
+@export var energy: float = 3.0:
+	set(value):
+		light.energy = value
+		update_light()
 
 @onready var light := $PointLight2D
 @onready var sprite := $Sprite

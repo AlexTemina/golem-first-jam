@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_xi8wn")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -153,7 +153,9 @@ bus = &"SoundEffects"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=611684143]
 show_behind_parent = true
+light_mask = 3
 occluder = SubResource("OccluderPolygon2D_gaamh")
+occluder_light_mask = 2
 
 [connection signal="body_entered" from="DownEntrance" to="." method="_on_down_entrance_body_entered"]
 [connection signal="body_exited" from="DownEntrance" to="." method="_on_down_entrance_body_exited"]

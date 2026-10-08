@@ -44,6 +44,7 @@
 [ext_resource type="TileSet" uid="uid://kvdx4l020ps0" path="res://golem_first_jam/entities/tilemaps/x16Props_tile_set.tres" id="29_h5d75"]
 [ext_resource type="TileSet" uid="uid://d0edlgk7wwufv" path="res://golem_first_jam/entities/tilemaps/good_forest.tres" id="30_dcwg3"]
 [ext_resource type="Texture2D" uid="uid://c2xfrwk3q35au" path="res://golem_first_jam/entities/dark_zone/assets/FireflyParticleTexture.png" id="31_yq7kr"]
+[ext_resource type="Texture2D" uid="uid://c5sdpy2lne1jl" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_192.png" id="32_pq33x"]
 [ext_resource type="Texture2D" uid="uid://ba2li7h5ev7o5" path="res://golem_first_jam/entities/dark_zone/assets/dark_zone_768.png" id="32_txy57"]
 [ext_resource type="PackedScene" uid="uid://i3va3dluva46" path="res://golem_first_jam/entities/npc/snake/snake.tscn" id="33_j1hj4"]
 [ext_resource type="PackedScene" uid="uid://bhuyht2peocf" path="res://golem_first_jam/entities/npc/chicken_npc/chicken_npc.tscn" id="36_dein3"]
@@ -72,8 +73,10 @@ polygon = PackedVector2Array(66.68395, 61.057404, 66.37088, 68.98694, 80.61555, 
 
 [sub_resource type="Curve" id="Curve_ntdoc"]
 _limits = [0.0, 2.95, 0.0, 1.0]
-_data = [Vector2(0.322, 0.317), 0.0, 0.0, 0, 0, Vector2(0.6756757, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.317, 0.322), 0.0, 0.0, 0, 0, Vector2(1, 0.6756757), 0.0, 0.0, 0, 0]
 point_count = 2
+point_0/position = Vector2(0.317, 0.322)
+point_1/position = Vector2(1, 0.6756757)
 
 [sub_resource type="CurveTexture" id="CurveTexture_invfe"]
 resource_local_to_scene = true
@@ -124,7 +127,8 @@ polygon = PackedVector2Array(19, 325, 24, 320, 29, 325, 29, 351, 19, 351)
 polygon = PackedVector2Array(-18, 13, -8, -18, 2, -38, 12, -17, 17, 13, 2, 24, 3, 42, -7, 42, -4, 24, -14, 19)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hjfwu"]
-polygon = PackedVector2Array(26, 23, 26, 11, 36, 10, 36, -13, -36, -15, -36, 9, -26, 11, -26, 23, -22, 21, -22, 11, 22, 11, 23, 23)
+cull_mode = 1
+polygon = PackedVector2Array(26, 23, 26, 11, 36, 11, 36, 10, -36, 10, -36, 11, -26, 11, -26, 23, -22, 23, -22, 11, 23, 11, 23, 23)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rfrho"]
 polygon = PackedVector2Array(-36, -8, -33, -8, -33, 1, -25, 1, -25, -8, -17, -8, -17, 2, 16, 2, 16, -8, 25, -8, 25, 1, 33, 1, 33, -9, 47, -9, 47, -128, 37, -133, 37, -145, 0, -165, -37, -146, -36, -8)
@@ -134,6 +138,7 @@ size = Vector2(100, 100)
 
 [node name="Clearing" type="Node2D" unique_id=635113623 node_paths=PackedStringArray("chicken", "snake", "chicken_manager", "snake_manager", "road_manager", "pushables_manager", "pickables_manager", "crows_manager", "bells_manager", "chicken_npcs_manager", "night_sky_manager", "river_manager", "dog_manager", "fade_screen", "npcs_container", "pause_manager", "extra_time_manager", "time_chain")]
 y_sort_enabled = true
+position = Vector2(1, 11)
 script = ExtResource("1_11yct")
 chicken = NodePath("Chicken")
 snake = NodePath("Npcs/Snake")
@@ -263,45 +268,6 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="External ligt" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1553928186]
-position = Vector2(1880.9464, -444.07367)
-scale = Vector2(1.046358, 1.0000001)
-color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
-range_z_min = -3000
-range_item_cull_mask = 3
-shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("32_txy57")
-texture_scale = 0.5
-
-[node name="External ligt3" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=586430668]
-position = Vector2(595.25464, -336.1339)
-scale = Vector2(1.046358, 1.0000001)
-color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
-range_z_min = -3000
-range_item_cull_mask = 3
-shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("32_txy57")
-texture_scale = 0.5
-
-[node name="External ligt2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=868159503]
-position = Vector2(374.00952, -312.14728)
-scale = Vector2(1.046358, 1.0000001)
-color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
-range_z_min = -3000
-range_item_cull_mask = 3
-shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("32_txy57")
-texture_scale = 0.5
-
 [node name="Ambientlights2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1274238584]
 light_mask = 3
 position = Vector2(-34.694405, 294.15726)
@@ -316,11 +282,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights6" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1781982980]
-position = Vector2(208.7115, 754.4004)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLightsBuildingComplex" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=844679982]
+position = Vector2(-170.56575, 223.69656)
+scale = Vector2(0.77802557, 0.78457654)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.9
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -329,11 +295,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights7" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1178406675]
-position = Vector2(-200.71902, 646.889)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLights4ChikenCoup" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1845036378]
+position = Vector2(88.09842, 98.6235)
+scale = Vector2(0.7106633, 0.6310396)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.9
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -342,11 +308,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights8" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1395306011]
-position = Vector2(-189.82027, 198.85327)
-scale = Vector2(2.9631035, 0.57348025)
+[node name="DimAmbientLights5River" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1809437399]
+position = Vector2(225.42293, -28.591227)
+scale = Vector2(0.77802557, 0.78457654)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.9
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -355,11 +321,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1884081065]
-position = Vector2(7.8108063, -181.18465)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLights2GeneralFarm" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1505010768]
+position = Vector2(-69.57047, 162.44502)
+scale = Vector2(0.77802557, 0.78457654)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.9
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -368,11 +334,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights3" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=844679982]
-position = Vector2(335.13718, 39.941956)
-scale = Vector2(2.6556299, 1.0711099)
+[node name="DimAmbientLights3FlyingTutorial" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=466543166]
+position = Vector2(-344.2195, 230.97821)
+scale = Vector2(0.49941897, 0.5036241)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.9
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -381,11 +347,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights4" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1335272198]
-position = Vector2(396.17038, 248.53983)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLights3OvercomeDarknesShack1" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1152354329]
+position = Vector2(-178.19492, 312.7897)
+scale = Vector2(0.30091664, 0.33044824)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.2
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -394,11 +360,11 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights9" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1777410619]
-position = Vector2(396.17038, 248.53983)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLights3OvercomeDarknesShack2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1281299542]
+position = Vector2(-144.772, 590.3491)
+scale = Vector2(0.6118791, 0.43410558)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.2
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -407,11 +373,50 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
-[node name="TreeLights5" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=2071922168]
-position = Vector2(561.10516, 493.9743)
-scale = Vector2(2.9631035, 1.0000001)
+[node name="DimAmbientLights5ChikenFriend" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=511658043]
+position = Vector2(403.07285, 84.06018)
+scale = Vector2(1.0279679, 0.3745104)
 color = Color(0.4616288, 0.5529379, 0.73689926, 1)
-energy = 0.55
+energy = 1.4
+range_z_min = -3000
+range_item_cull_mask = 3
+shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("32_txy57")
+texture_scale = 0.5
+
+[node name="DimAmbientLights5ChikenFriend2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1665968469]
+position = Vector2(582.9026, 68.64023)
+scale = Vector2(0.47339344, 0.45311567)
+color = Color(0.4616288, 0.5529379, 0.73689926, 1)
+energy = 1.2
+range_z_min = -3000
+range_item_cull_mask = 3
+shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("32_txy57")
+texture_scale = 0.5
+
+[node name="DimAmbientLightsPoleyPuzzle" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=872008427]
+position = Vector2(285.00287, 408.30783)
+scale = Vector2(0.47339344, 0.45311567)
+color = Color(0.4616288, 0.5529379, 0.73689926, 1)
+energy = 1.2
+range_z_min = -3000
+range_item_cull_mask = 3
+shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("32_txy57")
+texture_scale = 0.5
+
+[node name="DimAmbientLightsPoleyPuzzle2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=971096712]
+position = Vector2(198.90259, 506.8243)
+scale = Vector2(0.47339344, 0.45311567)
+color = Color(0.4616288, 0.5529379, 0.73689926, 1)
+energy = 1.2
 range_z_min = -3000
 range_item_cull_mask = 3
 shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
@@ -455,8 +460,8 @@ occluder = SubResource("OccluderPolygon2D_mryc4")
 
 [node name="TopRightClearMoonlight2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=1962025051]
 light_mask = 0
-position = Vector2(340.94995, -488.62024)
-scale = Vector2(2.170826, 2.1606941)
+position = Vector2(416.51474, -419.65878)
+scale = Vector2(1.0878179, 1.0106208)
 color = Color(0.627451, 1, 1, 1)
 energy = 1.5
 range_z_max = 968
@@ -483,156 +488,179 @@ shadow_item_cull_mask = 3
 texture = ExtResource("32_txy57")
 texture_scale = 0.5
 
+[node name="TopRightClearMoonlight3" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights" unique_id=79014486]
+light_mask = 0
+position = Vector2(191.27345, -282.16397)
+scale = Vector2(0.9279044, 1.2113212)
+color = Color(0.627451, 1, 1, 1)
+energy = 1.5
+range_z_max = 968
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("32_txy57")
+texture_scale = 0.5
+
+[node name="TopClearMoonlight2" type="PointLight2D" parent="LightAndDarkness/Lights/AmbientLights/TopRightClearMoonlight3" unique_id=316802202]
+light_mask = 0
+visibility_layer = 3
+position = Vector2(-0.9392271, 20.022068)
+scale = Vector2(0.99999994, 1)
+color = Color(0.627451, 1, 1, 1)
+energy = 1.8
+range_z_max = 968
+shadow_enabled = true
+shadow_color = Color(0.0885599, 0.08855992, 0.08855986, 0.79607844)
+shadow_filter = 1
+shadow_item_cull_mask = 3
+texture = ExtResource("32_txy57")
+texture_scale = 0.5
+
 [node name="Lamps" type="Node2D" parent="LightAndDarkness/Lights" unique_id=343595900]
 y_sort_enabled = true
 
-[node name="StreetLamp" parent="LightAndDarkness/Lights/Lamps" unique_id=1527847806 instance=ExtResource("29_3s673")]
-position = Vector2(-48, -52)
+[node name="RoadLamps1" parent="LightAndDarkness/Lights/Lamps" unique_id=637423149 instance=ExtResource("29_3s673")]
+position = Vector2(705, -22)
+sprite_type = 1
+radius = 3.0
+
+[node name="RoadLamp2" parent="LightAndDarkness/Lights/Lamps/RoadLamps1" unique_id=1205588834 instance=ExtResource("29_3s673")]
+position = Vector2(1, 131)
+sprite_type = 1
+radius = 3.0
+
+[node name="RoadLamp3" parent="LightAndDarkness/Lights/Lamps/RoadLamps1/RoadLamp2" unique_id=1835911860 instance=ExtResource("29_3s673")]
+position = Vector2(-1, 147)
+sprite_type = 1
+radius = 3.0
+
+[node name="StreetLampTractor" parent="LightAndDarkness/Lights/Lamps" unique_id=246990143 instance=ExtResource("29_3s673")]
+position = Vector2(397, -82)
+radius = 2.545
+
+[node name="PointLight2D" parent="LightAndDarkness/Lights/Lamps/StreetLampTractor" index="2" unique_id=352592941]
+energy = 1.065
+texture_scale = 0.63625
+
+[node name="StreetLampForest Entry1" parent="LightAndDarkness/Lights/Lamps" unique_id=1527847806 instance=ExtResource("29_3s673")]
+position = Vector2(145, -72)
 radius = 4.55
 
-[node name="StreetLamp3" parent="LightAndDarkness/Lights/Lamps" unique_id=853923886 instance=ExtResource("29_3s673")]
-position = Vector2(-124, 1210)
+[node name="StreetLampForest Entry2" parent="LightAndDarkness/Lights/Lamps" unique_id=1179283995 instance=ExtResource("29_3s673")]
+position = Vector2(240, -323)
+radius = 4.55
+
+[node name="StreetLampChikenCoup" parent="LightAndDarkness/Lights/Lamps" unique_id=727650447 instance=ExtResource("29_3s673")]
+position = Vector2(339, 338)
+radius = 6.0
+
+[node name="StreetLamp2FyingTutorial" parent="LightAndDarkness/Lights/Lamps" unique_id=1760548864 instance=ExtResource("29_3s673")]
+position = Vector2(-415, 154)
+radius = 4.55
+
+[node name="StreetLamp6FyingTutorial2" parent="LightAndDarkness/Lights/Lamps" unique_id=1790161708 instance=ExtResource("29_3s673")]
+position = Vector2(-511, 388)
+radius = 4.55
+
+[node name="StreetLamp8OvercomeDarknessShack" parent="LightAndDarkness/Lights/Lamps" unique_id=406608568 instance=ExtResource("29_3s673")]
+position = Vector2(-51, 500)
+radius = 3.505
+
+[node name="StreetLamp3Shack" parent="LightAndDarkness/Lights/Lamps" unique_id=853923886 instance=ExtResource("29_3s673")]
+position = Vector2(-108, 1201)
 radius = 2.52
 
-[node name="StreetLamp2" parent="LightAndDarkness/Lights/Lamps" unique_id=1760548864 instance=ExtResource("29_3s673")]
-position = Vector2(-271, 108)
-radius = 4.55
-
-[node name="StreetLamp5" parent="LightAndDarkness/Lights/Lamps" unique_id=61628496 instance=ExtResource("29_3s673")]
-position = Vector2(-427, 418)
-radius = 4.55
-
-[node name="StreetLamp6" parent="LightAndDarkness/Lights/Lamps" unique_id=1790161708 instance=ExtResource("29_3s673")]
-position = Vector2(-359, 328)
-radius = 4.55
-
-[node name="StreetLamp7" parent="LightAndDarkness/Lights/Lamps" unique_id=1128062161 instance=ExtResource("29_3s673")]
-position = Vector2(-104, -6)
-radius = 4.55
-
-[node name="StreetLamp8" parent="LightAndDarkness/Lights/Lamps" unique_id=406608568 instance=ExtResource("29_3s673")]
-position = Vector2(-98, 355)
-radius = 4.55
-
-[node name="StreetLamp9" parent="LightAndDarkness/Lights/Lamps" unique_id=727650447 instance=ExtResource("29_3s673")]
-position = Vector2(437, 309)
-radius = 4.55
-
-[node name="StreetLamp10" parent="LightAndDarkness/Lights/Lamps" unique_id=246990143 instance=ExtResource("29_3s673")]
-position = Vector2(391, -97)
-radius = 4.55
-
-[node name="PointLight2D" parent="LightAndDarkness/Lights/Lamps/StreetLamp10" index="2" unique_id=352592941]
-texture_scale = 1.1375
-
-[node name="StreetLamp11" parent="LightAndDarkness/Lights/Lamps" unique_id=1179283995 instance=ExtResource("29_3s673")]
-position = Vector2(220, -263)
-radius = 4.55
-
-[node name="StreetLamp14" parent="LightAndDarkness/Lights/Lamps" unique_id=637423149 instance=ExtResource("29_3s673")]
-position = Vector2(710, -44)
-sprite_type = 1
-radius = 4.55
-
-[node name="StreetLamp15" parent="LightAndDarkness/Lights/Lamps" unique_id=1205588834 instance=ExtResource("29_3s673")]
-position = Vector2(714, 62)
-sprite_type = 1
-radius = 4.55
-
-[node name="StreetLamp16" parent="LightAndDarkness/Lights/Lamps" unique_id=1835911860 instance=ExtResource("29_3s673")]
-position = Vector2(722, 224)
-sprite_type = 1
-radius = 4.55
-
-[node name="StreetLamp17" parent="LightAndDarkness/Lights/Lamps" unique_id=508488256 instance=ExtResource("29_3s673")]
-position = Vector2(1150, 572)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp18" parent="LightAndDarkness/Lights/Lamps" unique_id=1274215964 instance=ExtResource("29_3s673")]
-position = Vector2(835, 569)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp19" parent="LightAndDarkness/Lights/Lamps" unique_id=1906884835 instance=ExtResource("29_3s673")]
-position = Vector2(862, 697)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp20" parent="LightAndDarkness/Lights/Lamps" unique_id=351866675 instance=ExtResource("29_3s673")]
-position = Vector2(1227, 865)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp21" parent="LightAndDarkness/Lights/Lamps" unique_id=1889060920 instance=ExtResource("29_3s673")]
-position = Vector2(1411, 628)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp22" parent="LightAndDarkness/Lights/Lamps" unique_id=1238239308 instance=ExtResource("29_3s673")]
-position = Vector2(1692, 772)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp23" parent="LightAndDarkness/Lights/Lamps" unique_id=594263791 instance=ExtResource("29_3s673")]
-position = Vector2(1711, 1086)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp24" parent="LightAndDarkness/Lights/Lamps" unique_id=335453359 instance=ExtResource("29_3s673")]
-position = Vector2(1522, 1040)
-sprite_type = 2
-radius = 4.55
-
-[node name="StreetLamp25" parent="LightAndDarkness/Lights/Lamps" unique_id=1961510563 instance=ExtResource("29_3s673")]
+[node name="StreetLamp25RiverFrst" parent="LightAndDarkness/Lights/Lamps" unique_id=1961510563 instance=ExtResource("29_3s673")]
 position = Vector2(993, -470)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp26" parent="LightAndDarkness/Lights/Lamps" unique_id=19433042 instance=ExtResource("29_3s673")]
-position = Vector2(1029, -801)
+[node name="StreetLamp26RiverFrst" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=19433042 instance=ExtResource("29_3s673")]
+position = Vector2(36, -331)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp27" parent="LightAndDarkness/Lights/Lamps" unique_id=83242740 instance=ExtResource("29_3s673")]
-position = Vector2(1541, -905)
+[node name="StreetLamp27RiverFrst" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=83242740 instance=ExtResource("29_3s673")]
+position = Vector2(548, -435)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp29" parent="LightAndDarkness/Lights/Lamps" unique_id=1998538096 instance=ExtResource("29_3s673")]
-position = Vector2(1746, -694)
+[node name="StreetLamp29RiverFrstDark" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=1998538096 instance=ExtResource("29_3s673")]
+position = Vector2(753, -224)
 sprite_type = 2
 radius = 1.28
 
-[node name="StreetLamp35" parent="LightAndDarkness/Lights/Lamps" unique_id=2065391913 instance=ExtResource("29_3s673")]
-position = Vector2(1830, -592)
+[node name="StreetLamp35RiverFrstDark" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=2065391913 instance=ExtResource("29_3s673")]
+position = Vector2(837, -122)
 sprite_type = 2
 radius = 1.28
 
-[node name="StreetLamp30" parent="LightAndDarkness/Lights/Lamps" unique_id=1549063860 instance=ExtResource("29_3s673")]
-position = Vector2(1849, -297)
+[node name="StreetLamp30RiverFrstDark" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=1549063860 instance=ExtResource("29_3s673")]
+position = Vector2(856, 173)
 sprite_type = 2
 radius = 1.325
 
-[node name="StreetLamp31" parent="LightAndDarkness/Lights/Lamps" unique_id=1465828212 instance=ExtResource("29_3s673")]
-position = Vector2(1645, 3)
+[node name="StreetLamp32ChikenFriend" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=698346966 instance=ExtResource("29_3s673")]
+position = Vector2(586, 468)
+sprite_type = 2
+radius = 4.015
+
+[node name="StreetLamp33ChikenFriend" parent="LightAndDarkness/Lights/Lamps/StreetLamp25RiverFrst" unique_id=1310660730 instance=ExtResource("29_3s673")]
+position = Vector2(161, 468)
+sprite_type = 2
+radius = 3.945
+
+[node name="StreetLampToPoleyPuzzle" parent="LightAndDarkness/Lights/Lamps" unique_id=1696935342 instance=ExtResource("29_3s673")]
+position = Vector2(898, 144)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp34" parent="LightAndDarkness/Lights/Lamps" unique_id=1696935342 instance=ExtResource("29_3s673")]
-position = Vector2(997, 256)
+[node name="StreetLampToPoleyPuzzle2" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=260779942 instance=ExtResource("29_3s673")]
+position = Vector2(66, 221)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp32" parent="LightAndDarkness/Lights/Lamps" unique_id=698346966 instance=ExtResource("29_3s673")]
-position = Vector2(1341, 4)
+[node name="StreetLampsPoleyDoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=508488256 instance=ExtResource("29_3s673")]
+position = Vector2(252, 428)
 sprite_type = 2
 radius = 4.55
 
-[node name="StreetLamp33" parent="LightAndDarkness/Lights/Lamps" unique_id=1310660730 instance=ExtResource("29_3s673")]
-position = Vector2(1075, 13)
+[node name="StreetLamp18DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1274215964 instance=ExtResource("29_3s673")]
+position = Vector2(-33, 377)
 sprite_type = 2
 radius = 4.55
+
+[node name="StreetLamp19DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1906884835 instance=ExtResource("29_3s673")]
+position = Vector2(-36, 553)
+sprite_type = 2
+radius = 4.55
+
+[node name="StreetLamp19DoorPuzzl2" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1792376150 instance=ExtResource("29_3s673")]
+position = Vector2(84, 802)
+sprite_type = 2
+radius = 3.895
+
+[node name="StreetLamp20DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=351866675 instance=ExtResource("29_3s673")]
+position = Vector2(355, 733)
+sprite_type = 2
+radius = 5.5649999999999995
+
+[node name="StreetLamp21DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1889060920 instance=ExtResource("29_3s673")]
+position = Vector2(513, 484)
+sprite_type = 2
+radius = 4.55
+
+[node name="StreetLampPoleyPuzzleCrowField2" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1238239308 instance=ExtResource("29_3s673")]
+position = Vector2(794, 628)
+sprite_type = 2
+radius = 4.55
+
+[node name="StreetLampPoleyPuzzleCrowField" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=335453359 instance=ExtResource("29_3s673")]
+position = Vector2(674, 898)
+sprite_type = 2
+radius = 7.125
 
 [node name="FireFliesTest" type="GPUParticles2D" parent="LightAndDarkness/Lights" unique_id=1394841514]
 z_index = 1
@@ -647,6 +675,15 @@ randomness = 0.55
 visibility_rect = Rect2(30, 30, 30, 30)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ho54o")
+
+[node name="FlameHotSpot" type="PointLight2D" parent="LightAndDarkness/Lights" unique_id=1020646009]
+light_mask = 3
+y_sort_enabled = true
+position = Vector2(127.00001, 200)
+scale = Vector2(-1.2315425, -1.2315425)
+color = Color(0.95014876, 0.5263325, 1.92523e-05, 1)
+shadow_enabled = true
+texture = ExtResource("32_pq33x")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=2132328715]
 y_sort_enabled = true
@@ -1724,7 +1761,8 @@ position = Vector2(1003, 589)
 texture = ExtResource("47_uk42t")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Trees/RocksPuzzleHintBoard" unique_id=750798474]
-modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+light_mask = 3
 occluder = SubResource("OccluderPolygon2D_hjfwu")
 
 [node name="Pickables" type="Node2D" parent="." unique_id=894882608]
@@ -2039,6 +2077,6 @@ text = "something fits in that hole..."
 [editable path="Managers/SnakeManager"]
 [editable path="Managers/PushablesManager"]
 [editable path="Managers/ChickenManager"]
-[editable path="LightAndDarkness/Lights/Lamps/StreetLamp10"]
+[editable path="LightAndDarkness/Lights/Lamps/StreetLampTractor"]
 [editable path="Pickables/Key2"]
 [editable path="Buildings/ChickenCoup"]

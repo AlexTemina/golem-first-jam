@@ -39,8 +39,10 @@ radius = 5.0990195
 [node name="StreetLamp" type="StaticBody2D" unique_id=1527847806]
 y_sort_enabled = true
 script = ExtResource("1_8bv6r")
+intensity = null
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=508819270]
+modulate = Color(1.3131658, 1.3131658, 1.3131658, 1)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 offset = Vector2(-7, -28)
 
@@ -49,7 +51,12 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_m12gs")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=352592941]
+position = Vector2(-11.000001, -33.000004)
+scale = Vector2(0.523161, 0.523161)
+energy = 2.64
 range_z_min = -3000
+shadow_enabled = true
+shadow_filter = 1
+shadow_item_cull_mask = 3
 texture = ExtResource("3_g2tgj")
 texture_scale = 0.5
-metadata/_edit_lock_ = true

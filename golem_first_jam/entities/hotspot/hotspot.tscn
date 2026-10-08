@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h2euc")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -88,6 +88,7 @@ shape = SubResource("RectangleShape2D_u5bk5")
 debug_color = Color(0, 0.6, 0.69803923, 0.15686275)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1293590886]
+modulate = Color(1.1759251, 1.1759251, 1.1759251, 1)
 position = Vector2(28, 28)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
 autoplay = "default"
