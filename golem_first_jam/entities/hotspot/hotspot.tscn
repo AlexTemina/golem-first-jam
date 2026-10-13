@@ -89,8 +89,9 @@ debug_color = Color(0, 0.6, 0.69803923, 0.15686275)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1293590886]
 modulate = Color(1.1759251, 1.1759251, 1.1759251, 1)
-position = Vector2(28, 28)
+position = Vector2(28, 50)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
+offset = Vector2(0, -22)
 autoplay = "default"
 frame_progress = 0.8803028
 

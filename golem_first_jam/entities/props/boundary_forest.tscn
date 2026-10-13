@@ -12,13 +12,14 @@ polygon = PackedVector2Array(43, -44, 48, -57, 57, -29, 56, -15, 62, 2, 57, 20, 
 script = ExtResource("1_2dhw1")
 
 [node name="BoundaryForest1" type="Sprite2D" parent="." unique_id=601908347]
-z_index = 1
 material = ExtResource("2_wind")
-position = Vector2(67, 92)
+position = Vector2(67, 147)
+offset = Vector2(0, -55)
 texture = ExtResource("1_cv2ri")
 
 [node name="LightOccluder2DFail" type="LightOccluder2D" parent="BoundaryForest1" unique_id=429391614]
 visible = false
+position = Vector2(0, -55)
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_glgo1")
 occluder_light_mask = 3

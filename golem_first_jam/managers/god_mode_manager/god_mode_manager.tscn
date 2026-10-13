@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://golem_first_jam/managers/god_mode_manager/god_mode_manager.gd" id="1_god"]
+
+[node name="GodModeManager" type="Node"]
+script = ExtResource("1_god")

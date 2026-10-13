@@ -8,8 +8,9 @@ y_sort_enabled = true
 script = ExtResource("1_i65vn")
 
 [node name="Altar" type="Sprite2D" parent="." unique_id=1571902251]
+position = Vector2(0, -13)
 texture = ExtResource("2_ddca6")
-offset = Vector2(0, 8)
+offset = Vector2(0, 21)
 
 [node name="LearningArea" type="Area2D" parent="." unique_id=34448373]
 

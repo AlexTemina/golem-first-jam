@@ -5,14 +5,20 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0yl3"]
 texture = ExtResource("1_enqoo")
 3:0/0 = 0
+3:0/0/y_sort_origin = -8
 3:0/0/probability = 0.775
 4:0/0 = 0
+4:0/0/y_sort_origin = 4
 5:0/0 = 0
+5:0/0/y_sort_origin = 4
 6:0/0 = 0
+6:0/0/y_sort_origin = -8
 6:0/0/probability = 0.075
 7:0/0 = 0
+7:0/0/y_sort_origin = -8
 7:0/0/probability = 0.075
 3:1/0 = 0
+3:1/0/y_sort_origin = -8
 3:1/0/probability = 0.775
 4:1/0 = 0
 5:1/0 = 0
@@ -50,6 +56,7 @@ texture = ExtResource("1_enqoo")
 7:3/0/y_sort_origin = 6
 7:3/0/probability = 0.235
 7:1/0 = 0
+7:1/0/y_sort_origin = -8
 7:1/0/probability = 6.0
 
 [resource]

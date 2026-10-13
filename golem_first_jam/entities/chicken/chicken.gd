@@ -60,6 +60,9 @@ var running: bool
 var current_placeable: Placeable # The current_placeable the chicken is currently over, if any
 var target_position: Vector2 = Vector2.ZERO # For moving without user control
 var chicken_blocking: ChickenBlocking
+var god_mode: bool
+var saved_collision_layer: int
+var saved_collision_mask: int
 
 func _ready() -> void:
 	spawning_point = global_position
@@ -182,6 +185,21 @@ func face_right(right := true):
 	body.scale.x = SPRITE_SCALE if right else -SPRITE_SCALE
 	
 func toggle_visibility(on := true): visible = on
+
+## Debug: frozen and invisible to physics (no collisions, no areas triggered), only moved by hand
+func toggle_god_mode(on := true):
+	god_mode = on
+	set_physics_process(not on)
+	velocity = Vector2.ZERO
+	if on:
+		saved_collision_layer = collision_layer
+		saved_collision_mask = collision_mask
+		collision_layer = 0
+		collision_mask = 0
+	else:
+		collision_layer = saved_collision_layer
+		collision_mask = saved_collision_mask
+	modulate.a = 0.5 if on else 1.0
 			
 func animate(previous_velocity: Vector2):
 	match action:
