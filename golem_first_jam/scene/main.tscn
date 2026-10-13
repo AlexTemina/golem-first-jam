@@ -293,7 +293,7 @@ visible = false
 visible = false
 
 [node name="Chicken" parent="." unique_id=1501907807 instance=ExtResource("3_2g418")]
-position = Vector2(192, 191)
+position = Vector2(190, 191)
 
 [node name="LightAndDarkness" type="Node2D" parent="." unique_id=1426124977]
 visible = false
@@ -989,20 +989,16 @@ direction = 2
 [node name="Npcs" type="Node2D" parent="." unique_id=1899593827]
 y_sort_enabled = true
 
-[node name="Crow" parent="Npcs" unique_id=466244574 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_rvgx8")]
-position = Vector2(480, 713)
-target_bell = NodePath("../../Bells/BellChickenCoup")
-
 [node name="Crow3" parent="Npcs" unique_id=1081818956 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_rvgx8")]
 position = Vector2(345, 456)
 target_bell = NodePath("../../Bells/BellChickenCoup")
 
 [node name="TeachingAcrobatic" parent="Npcs" unique_id=1015023179 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_rvgx8")]
-position = Vector2(1634, 833)
+position = Vector2(1847, 863)
 target_bell = NodePath("../../Bells/BellTeaching")
 
 [node name="TeacherCrow" parent="Npcs" unique_id=2077854688 node_paths=PackedStringArray("target_bell") instance=ExtResource("20_rvgx8")]
-position = Vector2(1614, 803)
+position = Vector2(1644, 787)
 is_teacher = true
 target_bell = NodePath("../../Bells/BellTeaching")
 
@@ -3002,7 +2998,6 @@ position = Vector2(44, 153)
 
 [node name="ChickenCoup" parent="Buildings" unique_id=569859449 instance=ExtResource("22_fe6m1")]
 position = Vector2(281, 221)
-roof_visible = false
 
 [node name="ChickenNpc" parent="Buildings/ChickenCoup/Chickens" parent_id_path=PackedInt32Array(569859449, 1823737780) index="0" unique_id=546995143]
 position = Vector2(25, -78)
@@ -3020,7 +3015,6 @@ energy = 1.2
 texture = ExtResource("59_twuja")
 
 [node name="LBuildingComplex" parent="Buildings" unique_id=1241096947 instance=ExtResource("47_ui20o")]
-z_index = 3
 position = Vector2(-402, 216)
 
 [node name="Clearing" parent="Buildings" unique_id=1583742369 instance=ExtResource("49_6800i")]
@@ -3105,7 +3099,6 @@ valid_objects = [NodePath("../../Pickables/RockLarge"), NodePath("../../Pickable
 [node name="Night" type="Node2D" parent="." unique_id=1155138929]
 
 [node name="PolleyUp" parent="." unique_id=1469062843 node_paths=PackedStringArray("up_position", "valid_objects") instance=ExtResource("48_nhu3j")]
-z_index = 3
 position = Vector2(-245, 407)
 up_position = NodePath("Marker2D")
 valid_objects = [NodePath("../Pickables/RockLarge")]
@@ -3140,7 +3133,6 @@ theme_override_constants/outline_size = 4
 text = "Catapult yourself with a rock"
 
 [node name="Clearing2" parent="MockClearings" unique_id=304699441 instance=ExtResource("49_6800i")]
-z_index = 10
 position = Vector2(471, 134)
 help_text = "HOLD Q"
 

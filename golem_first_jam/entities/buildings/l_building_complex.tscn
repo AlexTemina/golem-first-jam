@@ -34,6 +34,7 @@ position = Vector2(-16, 184)
 position = Vector2(80, 11)
 
 [node name="Ladder" parent="." unique_id=194874667 instance=ExtResource("3_m0j8o")]
+z_index = 1
 position = Vector2(27, 25)
 
 [node name="WoodRails" type="StaticBody2D" parent="." unique_id=984883176]

@@ -32,6 +32,7 @@ func toggle_learning(on: bool, help_text: String):
 func move_chicken_with_polley(polley_up: PolleyUp):
 	print("Moving chicken with polley up: ", polley_up)
 	chicken.global_position = polley_up.get_chicken_position()
+	chicken.z_index = 1 if polley_up.activated else 0 # On a roof, draw over the buildings
 
 func check_chicken_over_river():
 	if river_tilemap:

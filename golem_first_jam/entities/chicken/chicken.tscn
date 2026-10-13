@@ -128,7 +128,6 @@ cull_mode = 1
 polygon = PackedVector2Array(-10, -13, -6, -7, -4, -6, -3, -2, -3, -7, 0, -7, 1, -2, 0.8067007, -7.000002, 4, -7, 9, -13, 9, -21, 11, -22, 9, -24, 7, -27, 6, -27, 3, -30, 4, -27, 3, -25, 3, -21, -2, -17, -8, -18, -11, -22, -15, -21, -11, -16)
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1501907807]
-y_sort_enabled = true
 script = ExtResource("1_rmv5a")
 jump_max_impulse = 0.8
 gravity_factor = 0.001

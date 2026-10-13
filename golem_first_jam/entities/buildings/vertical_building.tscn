@@ -24,9 +24,8 @@ y_sort_enabled = true
 script = ExtResource("1_4r4pn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=440828855]
-position = Vector2(0, -190)
 sprite_frames = SubResource("SpriteFrames_u5bk5")
-offset = Vector2(0, 120)
+offset = Vector2(0, -70)
 
 [node name="LeftDoor" parent="." unique_id=735491120 instance=ExtResource("4_gfbui")]
 position = Vector2(-72, -112)
