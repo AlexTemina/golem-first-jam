@@ -2217,9 +2217,9 @@ position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_spwml")
 
 [node name="Wheelbarrow" type="Sprite2D" parent="IndividualTrees" unique_id=1718379029]
-position = Vector2(26, -56)
+position = Vector2(26, -60)
 texture = ExtResource("47_mryc4")
-offset = Vector2(0, -29)
+offset = Vector2(0, -25)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="IndividualTrees" unique_id=376195330]
 position = Vector2(26, -85)
@@ -2227,30 +2227,34 @@ polygon = PackedVector2Array(24, -15.8, -25, -29.6, -25, -25.2, -26.1, -25.8, -3
 
 [node name="ScareCrow" type="Sprite2D" parent="IndividualTrees" unique_id=180724912]
 modulate = Color(0.9079417, 0.9079417, 0.9079416, 1)
-position = Vector2(175, 381)
+position = Vector2(175, 411)
 texture = ExtResource("48_hjfwu")
+offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IndividualTrees/ScareCrow" unique_id=180486635]
-position = Vector2(0, 19.5)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_xgt44")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="IndividualTrees/ScareCrow" unique_id=326675892]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -30)
 occluder = SubResource("OccluderPolygon2D_vahe4")
 occluder_light_mask = 3
 metadata/_edit_lock_ = true
 
 [node name="ScareCrow2" type="Sprite2D" parent="IndividualTrees" unique_id=892733961]
 modulate = Color(0.9079417, 0.9079417, 0.9079416, 1)
-position = Vector2(68, 8)
+position = Vector2(68, 38)
 texture = ExtResource("48_hjfwu")
+offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IndividualTrees/ScareCrow2" unique_id=147267081]
-position = Vector2(0, 19.5)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_xgt44")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="IndividualTrees/ScareCrow2" unique_id=1399144665]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -30)
 occluder = SubResource("OccluderPolygon2D_vahe4")
 occluder_light_mask = 3
 metadata/_edit_lock_ = true
