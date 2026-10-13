@@ -3352,7 +3352,7 @@ position = Vector2(-75, 1160)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="RockLarge" parent="Pickables" unique_id=1701030401 instance=ExtResource("46_rocka")]
-position = Vector2(-129, 407)
+position = Vector2(1217, 547)
 max_distance_to_interact = Vector2(32, 32)
 
 [node name="RockMedium" parent="Pickables" unique_id=1701030402 instance=ExtResource("47_rockb")]
@@ -3443,42 +3443,39 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="PolleyDoor3" parent="Doors" unique_id=1404228650 node_paths=PackedStringArray("valid_objects") instance=ExtResource("43_tsp7a")]
 position = Vector2(1304.0001, 1022.00006)
-size_label = "L"
+size = 2
 valid_objects = [NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor4" parent="Doors" unique_id=1142477386 node_paths=PackedStringArray("valid_objects") instance=ExtResource("43_tsp7a")]
 position = Vector2(1133.0001, 1023.00006)
-size_label = "S"
 valid_objects = [NodePath("../../Pickables/RockSmall"), NodePath("../../Pickables/RockMedium"), NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor6" parent="Doors" unique_id=72071963 node_paths=PackedStringArray("valid_objects") instance=ExtResource("43_tsp7a")]
 position = Vector2(1323.0001, 834.0001)
-size_label = "M"
+size = 1
 valid_objects = [NodePath("../../Pickables/RockMedium"), NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor11" parent="Doors" unique_id=1019365146 node_paths=PackedStringArray("valid_objects") instance=ExtResource("43_tsp7a")]
 position = Vector2(1132.0001, 706.00006)
-size_label = "L"
+size = 2
 valid_objects = [NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor" parent="Doors" unique_id=110977515 node_paths=PackedStringArray("valid_objects") instance=ExtResource("38_n6spk")]
 position = Vector2(995.00006, 829.00006)
-size_label = "S"
 valid_objects = [NodePath("../../Pickables/RockSmall"), NodePath("../../Pickables/RockMedium"), NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor9" parent="Doors" unique_id=231363458 node_paths=PackedStringArray("valid_objects") instance=ExtResource("38_n6spk")]
 position = Vector2(1066.0001, 892.00006)
-size_label = "L"
+size = 2
 valid_objects = [NodePath("../../Pickables/RockLarge")]
 
 [node name="PolleyDoor8" parent="Doors" unique_id=311373124 node_paths=PackedStringArray("valid_objects") instance=ExtResource("38_n6spk")]
 position = Vector2(872.00006, 641.00006)
-size_label = "M"
+size = 1
 valid_objects = [NodePath("../../Pickables/RockLarge"), NodePath("../../Pickables/RockMedium")]
 
 [node name="PolleyDoor7" parent="Doors" unique_id=1402850462 node_paths=PackedStringArray("valid_objects") instance=ExtResource("38_n6spk")]
 position = Vector2(910.00006, 1023.00006)
-size_label = "S"
 valid_objects = [NodePath("../../Pickables/RockLarge"), NodePath("../../Pickables/RockMedium"), NodePath("../../Pickables/RockSmall")]
 
 [node name="Night" type="Node2D" parent="." unique_id=1155138929]
@@ -3663,4 +3660,3 @@ text = "something fits in that hole..."
 [editable path="LightAndDarkness/Lights/Lamps/StreetLampTractor"]
 [editable path="Pickables/Key2"]
 [editable path="Buildings/ChickenCoup"]
-

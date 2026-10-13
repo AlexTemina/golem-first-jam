@@ -5,14 +5,25 @@ class_name PolleyDoor extends Placeable
 @onready var opened_sprite := %OpenedSprite
 @onready var collision_box := %CollisionShape2D
 @onready var object_anchor := %ObjectAnchor
-@onready var size_label_node := %SizeLabel
 @onready var pulley_sound := %PulleySound
 
-## Letter shown over the door, just to hint which rock it takes
-@export var size_label: String = "":
-	set(new_size_label):
-		size_label = new_size_label
-		_refresh_size_label()
+enum Size {S, M, L}
+
+## Sprites for each size, closed (door down) and opened (door up). The marks on the post hint which rock it takes
+const SPRITES := {
+	Size.S: [preload("res://golem_first_jam/entities/polley_door/assets/Poley_S_Down.png"), preload("res://golem_first_jam/entities/polley_door/assets/Poley_S_Up.png")],
+	Size.M: [preload("res://golem_first_jam/entities/polley_door/assets/Poley_M_Down.png"), preload("res://golem_first_jam/entities/polley_door/assets/Poley_M_Up.png")],
+	Size.L: [preload("res://golem_first_jam/entities/polley_door/assets/Poley_L_Down.png"), preload("res://golem_first_jam/entities/polley_door/assets/Poley_L_Up.png")],
+}
+
+## Which rock it takes, shown by the sprite
+@export var size: Size = Size.S:
+	set(new_size):
+		size = new_size
+		_refresh_sprites()
+## Where the object rests while the door is closed (tray up) and opened (tray down, it weighs)
+@export var closed_anchor_position: Vector2
+@export var opened_anchor_position: Vector2
 
 ## Whether the door is open or closed
 var opened: bool
@@ -20,14 +31,15 @@ var opened: bool
 func _ready() -> void:
 	super._ready()
 	refresh()
-	_refresh_size_label()
+	_refresh_sprites()
 
 ## Also runs while editing, as the script is a @tool
-func _refresh_size_label() -> void:
+func _refresh_sprites() -> void:
 	if not is_node_ready():
 		return
 
-	size_label_node.text = size_label
+	closed_sprite.texture = SPRITES[size][0]
+	opened_sprite.texture = SPRITES[size][1]
 
 ## The tray, where the object rests
 func get_object_anchor() -> Node2D:
@@ -59,6 +71,7 @@ func refresh() -> void:
 	closed_sprite.visible = not opened
 	opened_sprite.visible = opened
 	collision_box.set_deferred("disabled", opened)
+	object_anchor.position = opened_anchor_position if opened else closed_anchor_position
 
 func play_sound():
 	pulley_sound.pitch_scale = randf_range(0.8, 1.2)
