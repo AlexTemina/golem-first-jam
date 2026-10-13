@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://coyhulucw2eel" path="res://golem_first_jam/entities/pickable/assets/branch.png" id="1_7cmn2"]
 [ext_resource type="Script" uid="uid://d2j3wlj3vge5i" path="res://golem_first_jam/entities/pickable/branch.gd" id="1_v85f5"]
+[ext_resource type="PackedScene" path="res://golem_first_jam/entities/highlight/highlight.tscn" id="9_highlight"]
 
 [node name="Branch" type="Node2D" unique_id=549245696]
 y_sort_enabled = true
@@ -10,3 +11,5 @@ script = ExtResource("1_v85f5")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=38272208]
 texture = ExtResource("1_7cmn2")
 offset = Vector2(0, -16)
+
+[node name="Highlight" parent="." instance=ExtResource("9_highlight")]

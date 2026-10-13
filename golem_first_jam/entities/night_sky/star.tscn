@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cu1jgswbujlyv" path="res://golem_first_jam/entities/night_sky/star.gd" id="1_3q4qv"]
 [ext_resource type="Texture2D" uid="uid://usqe65fyju1v" path="res://golem_first_jam/entities/night_sky/assets/star.png" id="1_a70h5"]
+[ext_resource type="Shader" path="res://golem_first_jam/entities/highlight/outline_glow.gdshader" id="2_outline"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline"]
+shader = ExtResource("2_outline")
+shader_parameter/outline_color = Color(0.85, 0.45, 0.12, 1)
+shader_parameter/outline_width = 1.0
+shader_parameter/glow_amount = 0.0
 
 [node name="Star" type="Node2D" unique_id=314311165]
 script = ExtResource("1_3q4qv")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1093530721]
+material = SubResource("ShaderMaterial_outline")
 texture = ExtResource("1_a70h5")

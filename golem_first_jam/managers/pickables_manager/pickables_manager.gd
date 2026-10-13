@@ -88,7 +88,10 @@ func pick_up_item(chicken: Chicken, item: PickableEntity):
 
 func drop_item(chicken: Chicken):
 	var item := picked_entity
+	if item == null:
+		return
 	picked_entity = null
+	item.picked = false
 
 	# Someone else (a door, for instance) may take the item instead of letting it fall
 	SignalBus.chicken_drops_item.emit(chicken, item)

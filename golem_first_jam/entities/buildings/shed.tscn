@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://lp4ryq1tb3x2" path="res://golem_first_jam/entities/buildings/assets/ShedBottom.png" id="1_mjydi"]
 [ext_resource type="Script" uid="uid://cj3lnvc37ixrh" path="res://golem_first_jam/entities/buildings/shed.gd" id="1_pijv1"]
 [ext_resource type="Texture2D" uid="uid://dky1dlbaslc13" path="res://golem_first_jam/entities/buildings/assets/ShedTop.png" id="2_pijv1"]
-[ext_resource type="PackedScene" uid="uid://fxfjpcwcw1mt" path="res://golem_first_jam/entities/pickable/key.tscn" id="4_pbx2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
 size = Vector2(16, 48)
@@ -98,9 +97,6 @@ shape = SubResource("RectangleShape2D_kddjp")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=347162161]
 position = Vector2(72, 84)
 shape = SubResource("RectangleShape2D_kddjp")
-
-[node name="Key" parent="." unique_id=758290305 instance=ExtResource("4_pbx2x")]
-position = Vector2(21, -24)
 
 [node name="ExteriorSprite" type="Sprite2D" parent="." unique_id=1786556254]
 y_sort_enabled = true
