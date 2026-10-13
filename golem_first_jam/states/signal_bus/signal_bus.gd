@@ -22,6 +22,9 @@ signal follow_object(node: Node2D)
 
 # CHICKEN
 signal chicken_pecks(chicken: Chicken)
+signal chicken_stops_pecking(chicken: Chicken) # The peck button goes up
+signal chicken_tries_interaction(chicken: Chicken) # The peck wasn't used to pick anything, so it can interact
+signal chicken_interacted(chicken: Chicken) # Something reacted to the chicken's peck
 signal chicken_flies()
 signal chicken_lands()
 signal lay_egg(position: Vector2)

@@ -5,7 +5,7 @@ class_name TractorManager extends Node
 var chicken: Chicken
 
 func _ready() -> void:
-	SignalBus.chicken_pecks.connect(on_chicken_pecks)
+	SignalBus.chicken_tries_interaction.connect(on_chicken_tries_interaction)
 	SignalBus.chicken_jumps_in_tractor.connect(on_chicken_jumps_in_tractor)
 	SignalBus.chicken_is_released.connect(on_chicken_jumps_off)
 	SignalBus.tractor_crashed.connect(on_tractor_crashed)
@@ -14,9 +14,10 @@ func _input(event: InputEvent) -> void:
 	if chicken != null and event.is_action_pressed("a_button"):
 		chicken_interacts()
 	
-func on_chicken_pecks(_chicken: Chicken):
+func on_chicken_tries_interaction(t_chicken: Chicken):
 	if tractor.chicken_is_close:
 		tractor.toggle_door()
+		SignalBus.chicken_interacted.emit(t_chicken)
 	
 func on_chicken_jumps_in_tractor(t_chicken: Chicken):
 	chicken = t_chicken

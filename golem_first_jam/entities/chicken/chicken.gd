@@ -160,6 +160,7 @@ func manage_actions_input(_delta: float):
 		else:
 			peck()	
 	elif Input.is_action_just_released("a_button"):
+		SignalBus.chicken_stops_pecking.emit(self)
 		hold_button_timer.stop()
 	if Input.is_action_just_pressed("b_button"):
 		running = true
