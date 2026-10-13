@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8daqn0g413uh" path="res://golem_first_jam/entities/pickable/rock.gd" id="1_rock"]
 [ext_resource type="Texture2D" uid="uid://bcbqu05bgjh7d" path="res://golem_first_jam/entities/pickable/assets/Stones for puzzle2.png" id="2_hyij8"]
+[ext_resource type="PackedScene" path="res://golem_first_jam/entities/highlight/highlight.tscn" id="9_highlight"]
 
 [node name="RockSmall" type="Node2D" unique_id=1329686499]
 y_sort_enabled = true
@@ -12,3 +13,5 @@ texture = ExtResource("2_hyij8")
 offset = Vector2(0, -4)
 region_enabled = true
 region_rect = Rect2(2, 2, 10, 10)
+
+[node name="Highlight" parent="." instance=ExtResource("9_highlight")]
