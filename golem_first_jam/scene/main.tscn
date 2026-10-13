@@ -92,6 +92,8 @@ polygon = PackedVector2Array(52.662872, 24.25885, 46.518867, 43.784286, 42.34971
 _limits = [0.0, 2.95, 0.0, 1.0]
 _data = [Vector2(0.317, 0.322), 0.0, 0.0, 0, 0, Vector2(1, 0.6756757), 0.0, 0.0, 0, 0]
 point_count = 2
+point_0/position = Vector2(0.317, 0.322)
+point_1/position = Vector2(1, 0.6756757)
 
 [sub_resource type="CurveTexture" id="CurveTexture_invfe"]
 resource_local_to_scene = true
@@ -798,9 +800,9 @@ sprite_type = 2
 radius = 4.55
 
 [node name="StreetLamp18DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1274215964 instance=ExtResource("29_3s673")]
-position = Vector2(-33, 377)
+position = Vector2(-38, 381)
 sprite_type = 2
-radius = 4.55
+radius = 2.645
 
 [node name="StreetLamp19DoorPuzzl" parent="LightAndDarkness/Lights/Lamps/StreetLampToPoleyPuzzle" unique_id=1906884835 instance=ExtResource("29_3s673")]
 position = Vector2(-36, 553)
