@@ -24,10 +24,18 @@ func open():
 	door_sound.play()
 	is_open = true
 	update_state()
+
+func close():
+	if not is_open:
+		return
+	door_sound.play()
+	is_open = false
+	update_state()
 	
 func update_state():	
 	if sprite: # Only if nodes ready
 		scale.x = -1 if opens_to_right else 1
 		sprite.frame = 0 if is_open else 1
-		open_collision.disabled = !is_open
-		closed_collision.disabled = is_open
+		# Deferred: it may change while physics is flushing (a door closing when the chicken walks into an area)
+		open_collision.set_deferred("disabled", !is_open)
+		closed_collision.set_deferred("disabled", is_open)
